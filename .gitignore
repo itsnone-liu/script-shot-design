@@ -1,0 +1,8 @@
+# runtime artifacts
+data/
+*.pptx
+.env
+.qwen_key
+__pycache__/
+*.pyc
+_tmp_*.py
