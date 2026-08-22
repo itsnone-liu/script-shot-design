@@ -1,5 +1,6 @@
 # runtime artifacts
 data/
+!data/codegraph.json
 *.pptx
 .env
 .qwen_key
