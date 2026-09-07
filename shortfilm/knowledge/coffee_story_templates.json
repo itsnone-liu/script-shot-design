@@ -1,0 +1,42 @@
+[
+  {
+    "id": "deadline_breakthrough_v1",
+    "title": "截止时间前的最后一页",
+    "premise": "一个设计师在提交截止前卡在最后一页，反复修改却找不到解决方案。",
+    "protagonist_goal": "在截止时间前完成方案",
+    "obstacle": "思路停滞、时间倒计时、反复修改无效",
+    "turning_point": "他不是靠反复喝咖啡，而是在短暂离开屏幕后重新观察咖啡杯的光影和颜色，获得最后一个构图灵感。",
+    "payoff": "完成设计并按时提交，咖啡只作为触发观察和专注转换的道具。",
+    "product_role": "focus_trigger",
+    "product_action_limit": 2,
+    "beats": [
+      {"time":"0-5","beat":"建立截止压力","product_presence":"background"},
+      {"time":"5-10","beat":"方案卡住，删除重来","product_presence":"none"},
+      {"time":"10-15","beat":"倒计时逼近，人物离开屏幕","product_presence":"hero_partial"},
+      {"time":"15-21","beat":"观察咖啡杯光影获得灵感","product_presence":"hero_once"},
+      {"time":"21-27","beat":"完成最后一页并提交","product_presence":"background"},
+      {"time":"27-30","beat":"品牌收束","product_presence":"hero_static"}
+    ],
+    "forbidden_shortcuts": ["连续喝咖啡", "换装", "无关人物", "只展示手拿杯子", "凭空成功"]
+  },
+  {
+    "id": "morning_switch_v1",
+    "title": "还没进入状态",
+    "premise": "一个人早晨进入工作空间，外部世界已经开始，但他还没有进入工作状态。",
+    "protagonist_goal": "在第一次会议前完成关键准备",
+    "obstacle": "注意力分散、消息不断、准备工作没有进展",
+    "turning_point": "咖啡的开盖声和第一口成为一个明确的状态切换点，之后镜头切换到有目的的行动。",
+    "payoff": "他完成准备并进入会议，不反复饮用。",
+    "product_role": "state_change_trigger",
+    "product_action_limit": 2,
+    "beats": [
+      {"time":"0-6","beat":"信息噪音和分心","product_presence":"visible_background"},
+      {"time":"6-12","beat":"准备失败，会议倒计时","product_presence":"none"},
+      {"time":"12-16","beat":"开盖和一次饮用作为转折","product_presence":"hero_once"},
+      {"time":"16-25","beat":"有目的地完成准备","product_presence":"background"},
+      {"time":"25-30","beat":"进入会议与品牌收束","product_presence":"hero_static"}
+    ],
+    "forbidden_shortcuts": ["重复饮用", "直接从喝完跳到成功", "无障碍蒙太奇"]
+  }
+]
+

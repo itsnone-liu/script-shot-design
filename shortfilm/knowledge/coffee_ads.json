@@ -1,0 +1,43 @@
+[
+  {
+    "id": "coffee_modern_realism_v1",
+    "scenario": "现代冷萃咖啡 30 秒竖屏广告",
+    "attention_priority": ["咖啡包装和液体质感", "饮用动作", "人物专注状态", "品牌收束"],
+    "visual_rules": [
+      "现代城市办公室或工作室，不出现古装、古建筑、盔甲、长袍、古典发型",
+      "写实电影摄影，真实皮肤纹理，真实镜头景深，克制的商业广告质感",
+      "冷色环境光与咖啡暖色液体形成对比",
+      "人物是辅助主体，产品在关键镜头占据视觉中心"
+    ],
+    "shot_grammar": [
+      "前 3 秒建立现代工作压力，但咖啡必须在画面内",
+      "第 2–4 镜头使用产品揭示、开盖、倒液体、饮用等可识别动作",
+      "产品英雄镜头使用慢速推进或稳定环绕，不安排换装或无关表演",
+      "结尾使用干净静态产品镜头叠加后期 Logo 和字幕"
+    ],
+    "prompt_constraints": {
+      "positive": "modern photorealistic commercial film, contemporary office, natural human anatomy, realistic skin, real coffee packaging, cinematic 35mm lens, controlled camera movement",
+      "negative": "ancient costume, hanfu, armor, robe, fantasy, anime, illustration, plastic skin, extra characters, wardrobe change, unrelated dramatic action, readable generated text, watermark"
+    },
+    "audio_policy": "no generated dialogue or narration; mute model audio and add licensed music, coffee foley and optional post-produced voiceover later",
+    "failure_modes": [
+      "人物变成古装：补充现代服装/办公室负向约束，并提供现代人物参考图",
+      "产品被人物动作抢走：减少表演，改为手部、液体、包装特写",
+      "模型生成听不懂对白：不使用模型语音，后期统一处理",
+      "包装文字乱码：所有品牌文字后期叠加"
+    ],
+    "acceptance_tests": ["现代服装", "产品清晰可辨", "无古装元素", "无无关角色", "无模型对白", "画面真实"]
+  },
+  {
+    "id": "attention_hierarchy_ad_v1",
+    "scenario": "任何产品宣传短片",
+    "attention_priority": ["产品", "产品与人的关系", "环境氛围", "人物表演"],
+    "visual_rules": ["每个镜头只能有一个第一注意力对象", "动作必须服务产品认知或情绪转折"],
+    "shot_grammar": ["每 2–3 个镜头至少出现一次产品清晰特写", "避免与产品无关的换装、跳舞、复杂剧情"],
+    "prompt_constraints": {"positive": "single clear visual subject, product remains visible when story requires it", "negative": "competing subject, costume transformation, unrelated narrative action"},
+    "audio_policy": "sound effects reinforce product actions; no uncontrolled speech",
+    "failure_modes": ["人物成为主角", "故事动作与产品脱节"],
+    "acceptance_tests": ["第一注意力对象符合分镜", "产品出现位置合理", "无无关剧情"]
+  }
+]
+

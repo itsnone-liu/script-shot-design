@@ -1,0 +1,30 @@
+{
+  "version": "0.1",
+  "story": {
+    "ad_30s_beats": [
+      {"range": "0-6", "purpose": "state_and_need", "required": ["product_visible", "single_problem"]},
+      {"range": "6-23", "purpose": "use_and_proof", "required": ["product_action", "visible_change"]},
+      {"range": "23-30", "purpose": "hero_and_cta", "required": ["product_hero", "brand_lockup"]}
+    ],
+    "delete_if": ["unrelated_character_action", "wardrobe_change", "second_protagonist", "unmotivated_plot_branch"]
+  },
+  "storyboard": {
+    "attention_subject_required": true,
+    "product_reveal_max_gap_seconds": 4,
+    "product_closeup_max_gap_seconds": 8,
+    "required_fields": ["story_beat", "duration", "shot_size", "composition", "camera_move", "movement_intent", "start_framing", "end_framing", "continuity_in", "continuity_out", "acceptance_tests"]
+  },
+  "camera": {
+    "movement_intents": ["establish", "reveal", "follow", "emphasize", "transition", "energize", "settle"],
+    "rules": [
+      "movement must have a story purpose",
+      "screen direction stays consistent unless a transition motivates reversal",
+      "one dominant movement per shot",
+      "hero product shot prefers slow dolly/orbit",
+      "complex motion can be decomposed into stable frame plus one simple move"
+    ]
+  },
+  "audio": {"model_speech": "reject", "music": "post", "foley": "post", "voiceover": "optional_post"},
+  "gates": {"story": ["single_causal_chain", "product_causes_change", "cta_present"], "shot": ["attention_subject_clear", "continuity_ok", "no_unwanted_text", "no_costume_drift"]}
+}
+

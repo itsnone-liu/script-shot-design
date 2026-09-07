@@ -1,5 +1,8 @@
 # runtime artifacts
 data/
+output/
+__pycache__/
+*.pyc
 !data/codegraph.json
 *.pptx
 .env
