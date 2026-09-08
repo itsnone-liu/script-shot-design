@@ -1,0 +1,11 @@
+{
+  "version":"0.1",
+  "status":"candidate",
+  "source_cases":["adsoftheworld_life_unleashed","adsoftheworld_against_the_current","adsoftheworld_humankind_ii"],
+  "rules":[
+    {"rule_id":"R-AD-001","statement":"品牌或产品应通过改变人物的可见选择、能力或结果进入因果链，而不是只在片尾出现。","conditions":["brand_film","service_or_product_story"],"evidence_cases":["adsoftheworld_life_unleashed","adsoftheworld_against_the_current"],"counterexamples":[],"confidence":0.8,"status":"candidate"},
+    {"rule_id":"R-AD-002","statement":"无对白广告可以成立，但必须让目标、阻碍、选择和结果通过动作、构图、节奏或重复结构被看懂。","conditions":["no_dialogue","online_film"],"evidence_cases":["adsoftheworld_against_the_current","adsoftheworld_humankind_ii"],"counterexamples":[],"confidence":0.76,"status":"candidate"},
+    {"rule_id":"R-AD-003","statement":"重复的视觉装置只有在每次重复中增加时间、风险、能力或意义，才能形成递进，而不是产品镜头堆叠。","conditions":["repeated_motif","short_or_medium_film"],"evidence_cases":["adsoftheworld_life_unleashed","adsoftheworld_humankind_ii"],"counterexamples":[],"confidence":0.77,"status":"candidate"},
+    {"rule_id":"R-AD-004","statement":"服务型品牌应优先展示真实人物完成的具体‘第一次’或突破，而不是罗列服务功能。","conditions":["charity","education","service_brand"],"evidence_cases":["adsoftheworld_life_unleashed"],"counterexamples":["目前只有单一案例支持，暂不升级为稳定通用规则。"],"confidence":0.46,"status":"candidate"}
+  ]
+}

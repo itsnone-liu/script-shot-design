@@ -1,0 +1,28 @@
+{
+  "source_id": "adsoftheworld_against_the_current",
+  "title": "Against the Current",
+  "source": {"url":"https://www.adsoftheworld.com/campaigns/against-the-current","accessed_at":"2026-09-08","status":"ok","evidence":"campaign page description"},
+  "format": {"type":"education_brand_film","duration_sec":null,"platform":"online_film"},
+  "story": {
+    "logline":"A fish leaves its enormous school and ventures into the unknown, visualising an education brand's promise to create an independent path.",
+    "theme":"courage, ambition and self-directed growth",
+    "character_goal":"The fish wants to leave the safety of the group and choose its own path.",
+    "obstacle":"The school provides safety and social pressure; the unknown creates risk.",
+    "turning_choice":"The fish deliberately swims away from the group instead of following the current.",
+    "result":"The departure becomes a metaphor for entrepreneurship and the school brand's international path.",
+    "brand_role":"symbol_and_enabler"
+  },
+  "beats":[
+    {"id":"B1","function":"setup","time":"opening","visible_action":"Establish a large school moving together in a marine environment.","state_in":"belonging and conformity","state_out":"the group becomes a visual force","evidence":"campaign synopsis describes an enormous school"},
+    {"id":"B2","function":"desire","time":"early","visible_action":"Single fish separates from the school.","state_in":"safe collective movement","state_out":"individual choice appears","evidence":"the fish decides to venture alone"},
+    {"id":"B3","function":"risk","time":"middle","visible_action":"Fish moves through an unknown marine environment.","state_in":"choice made but outcome uncertain","state_out":"risk and ambition become visible","evidence":"the film translates courage and creating one's own path into the journey"},
+    {"id":"B4","function":"brand_connection","time":"end","visible_action":"The journey resolves into the education brand's arrival and entrepreneurial promise.","state_in":"metaphor is open","state_out":"metaphor is assigned to the brand","evidence":"campaign communicates Link School of Business entering Miami"}
+  ],
+  "scene_functions":["create a simple metaphor","turn separation into a choice","make risk visually legible","attach metaphor to brand strategy"],
+  "visual_motifs":["school of fish","current","open water","solitary movement"],
+  "dialogue_strategy":"none",
+  "rules_observed":["A metaphor works when the character action is simple, irreversible and directly maps to the brand promise."],
+  "anti_patterns":["The brand must be connected before the metaphor becomes a decorative visual effect."],
+  "quality_notes":["Useful no-dialogue model; product/service connection arrives through the campaign concept rather than a literal product demonstration."],
+  "confidence":0.78
+}

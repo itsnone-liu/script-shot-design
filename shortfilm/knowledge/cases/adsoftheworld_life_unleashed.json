@@ -1,0 +1,28 @@
+{
+  "source_id": "adsoftheworld_life_unleashed",
+  "title": "Life Unleashed / First Steps",
+  "source": {"url":"https://www.adsoftheworld.com/campaigns/life-unleashed","accessed_at":"2026-09-08","status":"ok","evidence":"campaign page description and hero-film synopsis"},
+  "format": {"type":"charity_campaign","duration_sec":120,"platform":"integrated_video"},
+  "story": {
+    "logline":"People with sight loss overcome meaningful personal barriers and achieve important firsts with support from Guide Dogs.",
+    "theme":"independence, achievement and removing barriers",
+    "character_goal":"Each real participant wants to complete a personally significant first.",
+    "obstacle":"Vision loss creates a concrete barrier to an ordinary activity or return to a familiar place.",
+    "turning_choice":"The participant accepts or uses tailored support and attempts the activity rather than being portrayed as a passive recipient.",
+    "result":"The participant completes the first, and the campaign links the achievement to the organisation's support and donation request.",
+    "brand_role":"enabler"
+  },
+  "beats":[
+    {"id":"B1","function":"premise","time":"opening","visible_action":"Introduce a real person facing a specific life activity.","state_in":"ordinary goal is blocked by sight loss","state_out":"viewer understands a personal challenge","evidence":"campaign synopsis describes real participants and individual firsts"},
+    {"id":"B2","function":"pressure","time":"early-middle","visible_action":"Show the difficulty and emotional cost of attempting the activity.","state_in":"challenge is abstract","state_out":"challenge becomes personal and visible","evidence":"teenager, football fan and toddler each face different barriers"},
+    {"id":"B3","function":"support_and_action","time":"middle","visible_action":"Guide Dogs specialists, dogs or tools support the participant's attempt.","state_in":"participant lacks sufficient access or confidence","state_out":"participant can act independently","evidence":"the campaign frames the organisation as working with people to remove barriers"},
+    {"id":"B4","function":"result","time":"end","visible_action":"Participant completes the meaningful first and the film closes with a donation line.","state_in":"attempt is uncertain","state_out":"achievement and brand purpose are visible","evidence":"description states the film ends with a donation appeal"}
+  ],
+  "scene_functions":["make an abstract mission concrete","show multiple human stories","connect support to visible achievement","convert emotion into action"],
+  "visual_motifs":["first steps","real faces","barrier removed","achievement reaction"],
+  "dialogue_strategy":"voiceover",
+  "rules_observed":["A service becomes persuasive when its effect is shown through a specific human choice and result, not a list of features."],
+  "anti_patterns":["Do not reduce beneficiaries to helpless subjects; preserve their goal and agency."],
+  "quality_notes":["Strong model for product/service-as-enabler stories; longer than the 30-second 821 MVP."],
+  "confidence":0.86
+}

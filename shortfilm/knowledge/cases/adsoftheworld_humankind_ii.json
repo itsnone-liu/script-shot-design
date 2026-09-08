@@ -1,0 +1,28 @@
+{
+  "source_id": "adsoftheworld_humankind_ii",
+  "title": "HUMANKIND II",
+  "source": {"url":"https://www.adsoftheworld.com/campaigns/humankind-ii","accessed_at":"2026-09-08","status":"ok","evidence":"campaign page description"},
+  "format": {"type":"game_launch_film","duration_sec":95,"platform":"online_film"},
+  "story": {
+    "logline":"A newborn repeatedly opens its eyes at different moments in human history, moving from prehistory to the near future and reframing civilisation as a series of beginnings.",
+    "theme":"history, civilisation and the possibility of beginning again",
+    "character_goal":"The newborn has no conventional goal; the viewer's goal is to discover the changing world through its point of view.",
+    "obstacle":"Each historical world is unfamiliar and unstable, while the point of view remains limited to a newborn's first perception.",
+    "turning_choice":"The film uses one consistent point of view and repeats the birth event across eras rather than changing to an external narrator.",
+    "result":"The repeated structure makes the game's central promise—building one's own history—memorable.",
+    "brand_role":"world_and_concept"
+  },
+  "beats":[
+    {"id":"B1","function":"formal_rule","time":"opening","visible_action":"A newborn opens its eyes into a prehistoric world.","state_in":"unknown world","state_out":"viewer accepts newborn point of view","evidence":"campaign description states the camera takes the newborn's perspective"},
+    {"id":"B2","function":"variation","time":"middle","visible_action":"The same birth perspective opens onto different civilisations and historical crises.","state_in":"one beginning","state_out":"history becomes a pattern of beginnings","evidence":"description lists Neolithic, plague, frontier and wartime settings"},
+    {"id":"B3","function":"escalation","time":"late","visible_action":"The births progress toward a spacecraft and near-future setting.","state_in":"past appears complete","state_out":"the future remains open","evidence":"the final birth occurs aboard a spacecraft orbiting Earth"},
+    {"id":"B4","function":"brand_close","time":"end","visible_action":"The repeated device resolves into the game's invitation to build history.","state_in":"visual pattern","state_out":"brand proposition","evidence":"campaign is a launch film for a strategy game about building history"}
+  ],
+  "scene_functions":["establish a formal point of view","repeat with meaningful variation","expand scale across time","turn structure into brand proposition"],
+  "visual_motifs":["opening eyes","birth","civilisation transition","spacecraft"],
+  "dialogue_strategy":"none_or_minimal",
+  "rules_observed":["Repetition can create progression when each repetition changes scale, context or meaning."],
+  "anti_patterns":["A repeated visual gimmick without contextual escalation becomes a montage without narrative accumulation."],
+  "quality_notes":["Strong example of concept-led launch film; not directly transferable to a 30-second product demonstration."],
+  "confidence":0.84
+}
