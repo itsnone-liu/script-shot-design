@@ -1,0 +1,19 @@
+{
+  "version": "0.1",
+  "updated_at": "2026-09-08",
+  "policy": "catalog_only_until_rights_review",
+  "sources": [
+    {"source_id":"imsdb_a_quiet_place","title":"A Quiet Place screenplay","kind":"screenplay","url":"https://imsdb.com/Movie%20Scripts/A%20Quiet%20Place%20Script.html","status":"candidate","use":["tension","visual_storytelling","sound_as_structure"]},
+    {"source_id":"imsdb_a_few_good_men","title":"A Few Good Men screenplay","kind":"screenplay","url":"https://imsdb.com/Movie%20Scripts/A%20Few%20Good%20Men%20Script.html","status":"candidate","use":["conflict","dialogue","reversal"]},
+    {"source_id":"imsdb_a_serious_man","title":"A Serious Man screenplay","kind":"screenplay","url":"https://imsdb.com/Movie%20Scripts/A%20Serious%20Man%20Script.html","status":"candidate","use":["character_goal","irony","turning_point"]},
+    {"source_id":"simplyscripts_home","title":"SimplyScripts public screenplay archive","kind":"screenplay_index","url":"https://www.simplyscripts.com/","status":"candidate","use":["short_film","screenplay_format"]},
+    {"source_id":"bbc_writersroom","title":"BBC Writersroom","kind":"writing_method","url":"https://www.bbc.co.uk/writersroom/","status":"candidate","use":["writing_process","format","development"]},
+    {"source_id":"studio_binder_story","title":"StudioBinder story and screenplay methods","kind":"method","url":"https://www.studiobinder.com/blog/three-act-structure/","status":"cataloged","use":["three_act_structure","beat_design"]},
+    {"source_id":"studio_binder_shot_list","title":"StudioBinder shot list method","kind":"method","url":"https://www.studiobinder.com/blog/shot-list/","status":"cataloged","use":["shot_function","production_planning"]},
+    {"source_id":"ads_of_the_world","title":"Ads of the World","kind":"advertising_case","url":"https://www.adsoftheworld.com/","status":"candidate","use":["product_story","brand_role","commercial_structure"]},
+    {"source_id":"campaign","title":"Campaign advertising cases","kind":"advertising_case","url":"https://www.campaignlive.co.uk/","status":"candidate","use":["campaign_strategy","creative_rationale"]},
+    {"source_id":"digitaling","title":"数英网广告案例","kind":"advertising_case","url":"https://www.digitaling.com/","status":"candidate","use":["chinese_advertising","brand_strategy"]},
+    {"source_id":"short_of_the_week","title":"Short of the Week","kind":"short_film","url":"https://www.shortoftheweek.com/","status":"candidate","use":["short_film","visual_storytelling"]},
+    {"source_id":"vimeo_staff_picks","title":"Vimeo Staff Picks","kind":"short_film","url":"https://vimeo.com/channels/staffpicks","status":"candidate","use":["visual_reference","director_statement"]}
+  ]
+}
