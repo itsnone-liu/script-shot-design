@@ -1,0 +1,33 @@
+{
+  "source_id": "simplyscripts_mom_visit",
+  "title": "Mom Visit",
+  "source": {
+    "url": "https://www.simplyscripts.com/scripts/MomVisit-Backman.pdf",
+    "accessed_at": "2026-09-08",
+    "status": "user_provided",
+    "rights_note": "Publicly accessible screenplay; retain analysis and metadata only until reuse rights are confirmed."
+  },
+  "format": {"type": "short_screenplay", "duration_sec": null, "platform": "comedy"},
+  "story": {
+    "logline": "A couple hastily transforms their apartment and identities before an intimidating mother's visit, only to face her escalating expectations.",
+    "theme": "family pressure, cultural expectation and relationship performance",
+    "character_goal": "Andrea and Mike want to survive Nancy's visit without exposing their unprepared home and lifestyle.",
+    "obstacle": "Nancy's intrusive inspection, household standards and expectations about grandchildren.",
+    "turning_choice": "Andrea recruits Mike into a frantic preparation routine and asks him to perform a different identity.",
+    "result": "The visit exposes deeper relationship and family pressure; the script's comic engine is escalation rather than a product resolution.",
+    "brand_role": "none"
+  },
+  "beats": [
+    {"id":"B1","function":"inciting_event","time":"opening","visible_action":"Andrea receives a message announcing her mother's arrival.","state_in":"ordinary couple watching television","state_out":"urgent preparation begins","evidence":"the text message immediately changes the couple's behavior"},
+    {"id":"B2","function":"comic_plan","time":"early","visible_action":"Andrea orders Mike to clean, empty the refrigerator and use the name Miguel.","state_in":"confused partner","state_out":"partner performing a cover identity","evidence":"multiple concrete preparation tasks"},
+    {"id":"B3","function":"pressure","time":"middle","visible_action":"Nancy arrives with food and cleaning supplies and inspects the apartment.","state_in":"the couple believes they are ready","state_out":"Nancy controls the space and reveals new standards","evidence":"she enters without waiting and immediately evaluates the home"},
+    {"id":"B4","function":"escalation","time":"late","visible_action":"Nancy raises the issue of grandchildren and challenges Andrea's career priority.","state_in":"household inspection","state_out":"private relationship pressure is public","evidence":"the conflict shifts from cleaning to life choices"}
+  ],
+  "scene_functions": ["establish comic objective", "turn preparation into performance", "escalate from domestic detail to emotional conflict"],
+  "visual_motifs": ["full refrigerator", "cleaning supplies", "doorway inspection"],
+  "dialogue_strategy": "dialogue",
+  "rules_observed": ["A small practical objective can carry a short comedy when each success creates a larger expectation."],
+  "anti_patterns": ["Cultural details should serve character and conflict, not become the only joke."],
+  "quality_notes": ["Clear short-form premise and escalating obstacle; useful model for visible preparation beats."],
+  "confidence": 0.88
+}

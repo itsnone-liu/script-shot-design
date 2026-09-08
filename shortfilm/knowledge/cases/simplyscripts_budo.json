@@ -1,0 +1,33 @@
+{
+  "source_id": "simplyscripts_budo",
+  "title": "Budo",
+  "source": {
+    "url": "https://www.simplyscripts.com/scripts/Budo.pdf",
+    "accessed_at": "2026-09-08",
+    "status": "user_provided",
+    "rights_note": "Publicly accessible screenplay; retain analysis and metadata only until reuse rights are confirmed."
+  },
+  "format": {"type": "short_screenplay", "duration_sec": null, "platform": "film"},
+  "story": {
+    "logline": "A covert swordsman enters a guarded estate to confront an old ally whose loyalty has changed, forcing a violent test of identity and allegiance.",
+    "theme": "friendship, loyalty and identity under pressure",
+    "character_goal": "Shinzo must complete the infiltration and confront Kenji.",
+    "obstacle": "The guarded estate, armed opposition and Kenji's changed allegiance.",
+    "turning_choice": "Shinzo abandons the safer firearm approach and accepts a direct sword confrontation.",
+    "result": "The confrontation escalates from covert mission to personal duel; the supplied excerpt ends before resolution.",
+    "brand_role": "none"
+  },
+  "beats": [
+    {"id":"B1","function":"setup","time":"opening","visible_action":"Shinzo breaches the estate at night and reports to overwatch.","state_in":"mission not yet entered","state_out":"infiltration is active","evidence":"night garden, surveillance and radio exchange"},
+    {"id":"B2","function":"encounter","time":"early","visible_action":"Kenji appears and Shinzo reacts to a decoy explosion.","state_in":"covert approach","state_out":"the target knows an intruder is present","evidence":"Kenji emerges after the sound and gunfire"},
+    {"id":"B3","function":"choice","time":"early-middle","visible_action":"Shinzo puts down the firearm and draws a sword.","state_in":"ranged tactical advantage","state_out":"personal duel rules replace tactical distance","evidence":"the weapons change before the duel"},
+    {"id":"B4","function":"escalation","time":"middle","visible_action":"The two former allies exchange attacks and recognize each other.","state_in":"formal confrontation","state_out":"conflict becomes personal and ideological","evidence":"dialogue references lost ways and changed identity"}
+  ],
+  "scene_functions": ["establish threat", "reveal relationship", "convert mission into personal conflict"],
+  "visual_motifs": ["night garden", "surveillance", "swords and distance"],
+  "dialogue_strategy": "dialogue",
+  "rules_observed": ["Reveal character history through action and confrontation rather than exposition."],
+  "anti_patterns": ["The available excerpt does not establish a complete ending; do not use it as a complete-resolution model."],
+  "quality_notes": ["Strong visual setup and immediate physical objective; genre action logic dominates over product-story logic."],
+  "confidence": 0.82
+}

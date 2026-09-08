@@ -1,0 +1,43 @@
+{
+  "version": "0.1",
+  "status": "candidate",
+  "source_cases": ["simplyscripts_budo", "simplyscripts_mom_visit", "simplyscripts_2x"],
+  "rules": [
+    {
+      "rule_id": "R-STORY-001",
+      "statement": "短片应尽早建立一个可见、可拍摄的具体目标；目标出现后，后续事件必须改变人物的行动方式或处境。",
+      "conditions": ["short_film", "single_primary_line"],
+      "evidence_cases": ["simplyscripts_budo", "simplyscripts_mom_visit", "simplyscripts_2x"],
+      "counterexamples": [],
+      "confidence": 0.78,
+      "status": "candidate"
+    },
+    {
+      "rule_id": "R-STORY-002",
+      "statement": "重复出现的视觉或动作装置只有在每次出现时改变叙事信息、压力或人物选择，才具有故事功能；否则应合并或删除。",
+      "conditions": ["visual_motif_repetition", "short_form"],
+      "evidence_cases": ["simplyscripts_mom_visit", "simplyscripts_2x"],
+      "counterexamples": ["纯氛围蒙太奇可能允许重复，但不能据此证明人物因果变化。"],
+      "confidence": 0.74,
+      "status": "candidate"
+    },
+    {
+      "rule_id": "R-STORY-003",
+      "statement": "转折应把人物从被动反应推向主动测试、选择或行动，而不是只改变音乐、场景或视觉效果。",
+      "conditions": ["turning_point", "visual_storytelling"],
+      "evidence_cases": ["simplyscripts_budo", "simplyscripts_2x"],
+      "counterexamples": [],
+      "confidence": 0.71,
+      "status": "candidate"
+    },
+    {
+      "rule_id": "R-STORY-004",
+      "statement": "喜剧短片可以从一个具体的准备任务开始，通过每次解决任务后出现更高一级的期待来升级冲突。",
+      "conditions": ["comedy", "domestic_or_social_setting"],
+      "evidence_cases": ["simplyscripts_mom_visit"],
+      "counterexamples": ["目前只有单一案例支持，暂不升级为通用规则。"],
+      "confidence": 0.48,
+      "status": "candidate"
+    }
+  ]
+}

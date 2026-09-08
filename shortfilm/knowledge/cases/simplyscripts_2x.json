@@ -1,0 +1,33 @@
+{
+  "source_id": "simplyscripts_2x",
+  "title": "2X",
+  "source": {
+    "url": "https://www.simplyscripts.com/scripts/2x-Short-Morrow.pdf",
+    "accessed_at": "2026-09-08",
+    "status": "user_provided",
+    "rights_note": "Publicly accessible screenplay; retain analysis and metadata only until reuse rights are confirmed."
+  },
+  "format": {"type": "short_screenplay", "duration_sec": null, "platform": "film"},
+  "story": {
+    "logline": "A financial trader moving through a rushed city suddenly experiences the world at double speed, turning an ordinary commute into a crisis of control and perception.",
+    "theme": "systemic acceleration, loss of control and attention",
+    "character_goal": "The Trader wants to reach work prepared for an important morning meeting.",
+    "obstacle": "The city and its people accelerate around him while he remains at normal speed.",
+    "turning_choice": "He stops treating the anomaly as background noise, changes the podcast speed and begins investigating what is happening.",
+    "result": "The commute becomes a visual and conceptual crisis; the available excerpt establishes the problem and investigation rather than a final resolution.",
+    "brand_role": "none"
+  },
+  "beats": [
+    {"id":"B1","function":"setup","time":"opening","visible_action":"The Trader moves through a crowded commute while listening to a market crash podcast.","state_in":"routine professional commute","state_out":"economic and temporal anxiety is planted","evidence":"podcast warnings and repeated crowd friction"},
+    {"id":"B2","function":"anomaly","time":"early","visible_action":"The crowd begins moving twice as fast while the Trader struggles to keep pace.","state_in":"ordinary rush hour","state_out":"the world follows a new speed rule","evidence":"repeated 2x action and altered crowd movement"},
+    {"id":"B3","function":"recognition","time":"middle","visible_action":"The Trader tests the podcast speed and confirms that the environment remains accelerated.","state_in":"confusion","state_out":"the anomaly is verified","evidence":"he changes playback speed and compares the result"},
+    {"id":"B4","function":"active_investigation","time":"middle-late","visible_action":"He pauses at crossings and observes people, trains and a homeless man moving unnaturally fast.","state_in":"passive victim of the rush","state_out":"active observer seeking a cause","evidence":"the character begins testing the system rather than merely reacting"}
+  ],
+  "scene_functions": ["normalize the routine", "introduce a visual rule", "make the rule progressively harder to ignore", "turn perception into investigation"],
+  "visual_motifs": ["2x speed", "crowd flow", "podcast waveform", "crossing lights"],
+  "dialogue_strategy": "voiceover_and_dialogue",
+  "rules_observed": ["A repeated formal device can become story information when its effect on the protagonist changes."],
+  "anti_patterns": ["Speed effects without a character objective would become a montage rather than a story."],
+  "quality_notes": ["Strong visual premise and continuity rule; useful model for turning a visual effect into a narrative constraint."],
+  "confidence": 0.84
+}
