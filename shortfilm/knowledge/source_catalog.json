@@ -3,6 +3,7 @@
   "updated_at": "2026-09-08",
   "policy": "catalog_only_until_rights_review",
   "sources": [
+    {"source_id":"zhihu_ai_video_open_source_review","title":"69个AI视频开源项目源码级测评","kind":"ecosystem_review","url":"https://zhuanlan.zhihu.com/p/2080742741798143245","status":"ok","use":["project_selection","workflow_architecture","video_agent_comparison"]},
     {"source_id":"imsdb_a_quiet_place","title":"A Quiet Place screenplay","kind":"screenplay","url":"https://imsdb.com/Movie%20Scripts/A%20Quiet%20Place%20Script.html","status":"candidate","use":["tension","visual_storytelling","sound_as_structure"]},
     {"source_id":"imsdb_a_few_good_men","title":"A Few Good Men screenplay","kind":"screenplay","url":"https://imsdb.com/Movie%20Scripts/A%20Few%20Good%20Men%20Script.html","status":"candidate","use":["conflict","dialogue","reversal"]},
     {"source_id":"imsdb_a_serious_man","title":"A Serious Man screenplay","kind":"screenplay","url":"https://imsdb.com/Movie%20Scripts/A%20Serious%20Man%20Script.html","status":"candidate","use":["character_goal","irony","turning_point"]},

@@ -80,3 +80,11 @@
 - 明确推荐顺序：`coffee_concept_01`、`coffee_concept_04`、`coffee_concept_02`；
 - 新增 `shortfilm/cli/validate_concepts.py`，概念闸门检查通过；
 - 暂不生成分镜、提示词或视频，等待故事概念选择。
+
+## 2026-09-11 开源项目调研
+
+- 通过真实 Chrome 读取知乎文章《69 个 AI 视频开源项目源码级测评》；
+- 重点分析 `drama-skills`、`video-shotcraft`、`FireRed-OpenStoryline`、`OpenMontage`、`MoneyPrinterTurbo` 等项目；
+- 结论：821 不需要替换为一键生成器，应吸收阶段化产物、镜头配方、人机确认和可编辑时间线机制；
+- 已将文章和取舍分析写入 `shortfilm/knowledge/sources/zhihu_ai_video_open_source_review.md`；
+- 今天不修改现有 RH 生产链路，下一步继续完善故事概念到故事声明/节拍表的流程。
