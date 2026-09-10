@@ -88,3 +88,14 @@
 - 结论：821 不需要替换为一键生成器，应吸收阶段化产物、镜头配方、人机确认和可编辑时间线机制；
 - 已将文章和取舍分析写入 `shortfilm/knowledge/sources/zhihu_ai_video_open_source_review.md`；
 - 今天不修改现有 RH 生产链路，下一步继续完善故事概念到故事声明/节拍表的流程。
+
+### 821 流程升级方案
+
+已新增 `shortfilm/knowledge/STORY_PIPELINE_UPGRADE.md`，将外部项目经验转化为 821 的具体改造：
+
+- 概念室 → 故事声明 → 状态转换节拍 → 场景卡 → 可拍剧本；
+- StoryEditor、AudienceAdvocate、BrandStrategist 三角色审稿；
+- 镜头功能与可复用 Shot Recipe 分离；
+- 故事、剧本、分镜、提示词和生产分阶段审批；
+- 输出可替换单镜头的 `edit_timeline.json`；
+- 生成结果和失败原因回写案例库。
