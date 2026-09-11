@@ -4,6 +4,29 @@ Command failures and integration errors.
 
 ---
 
+## [ERR-20260911-005] RunningHub polling read timeout
+
+**Logged**: 2026-09-11T10:05:00+08:00
+**Priority**: high
+**Status**: resolved
+**Area**: backend
+
+### Summary
+S05 image-to-video submission reached RunningHub, but status polling raised a network read timeout before the task result was persisted.
+
+### Suggested Fix
+Persist `task_id` immediately after task creation and treat transient status timeouts as retryable polling events rather than replacing the shot record with a generic failure.
+
+### Metadata
+- Reproducible: unknown
+- Related Files: `shortfilm/rh_adapter.py`, `shortfilm/cli/render_shots.py`, `../820/experiments/rh_task.py`
+
+### Resolution
+- **Resolved**: 2026-09-11T10:08:00+08:00
+- **Notes**: Two history checks confirmed no task was created; a single controlled retry succeeded. Persisting task IDs before polling remains a future hardening item.
+
+---
+
 ## [ERR-20260911-004] Combined background-server command rejected
 
 **Logged**: 2026-09-11T09:40:00+08:00

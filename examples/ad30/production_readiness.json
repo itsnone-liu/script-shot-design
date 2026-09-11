@@ -1,5 +1,5 @@
 {
-  "project_id":"ad30_coffee","status":"s03_s04_visual_pass","rh_allowed":true,
+  "project_id":"ad30_coffee","status":"first_complete_cut_ready","rh_allowed":false,
   "checks":[
     {"name":"duration_sum","status":"pass","value":30},
     {"name":"single_attention_subject_per_shot","status":"pass"},

@@ -16,5 +16,10 @@
     {"shot_id":"S06","path":"first_frames/S06.png","qa":"pass"},
     {"shot_id":"S09","path":"first_frames/S09.png","qa":"pass"},
     {"shot_id":"S10","path":"first_frames/S10.png","qa":"pass"}
+  ],
+  "end_frames": [
+    {"shot_id":"S05","path":"first_frames/S05_end.png","qa":"pass"},
+    {"shot_id":"S06","path":"first_frames/S06_end.png","qa":"pass"},
+    {"shot_id":"S09","path":"first_frames/S09_end.png","qa":"pass"}
   ]
 }

@@ -1,0 +1,11 @@
+{
+  "project_id":"ad30_coffee_last_page_01",
+  "result":"pass_for_experimental_preview",
+  "deliverable":"output/ad30_coffee/coffee_last_page_30s.mp4",
+  "technical":{"duration_sec":30.0,"width":864,"height":1536,"fps":24,"audio":"intentionally_silent_first_cut"},
+  "shot_count":10,
+  "visual_checks":{"modern_realism":"pass","character_continuity":"pass","cup_continuity":"pass","no_unrelated_people":"pass","no_drinking_repetition":"pass","story_order":"pass","post_text_legibility":"pass"},
+  "production_mix":{"runninghub_video":["S03","S04","S05","S09"],"local_first_last_transition":["S06"],"local_post_composite":["S01","S02","S07","S08"],"local_product_push":["S10"]},
+  "rejected_assets":[{"shot_id":"S04","reason":"unrelated red-clothed child appeared","path":"output/ad30_coffee/rejected/S04_attempt1"},{"shot_id":"S06","reason":"unrelated background person appeared","path":"output/ad30_coffee/rejected/S06_attempt1"}],
+  "known_limitations":["first cut has no music or foley","screen design is controlled geometric placeholder rather than branded final artwork"]
+}
