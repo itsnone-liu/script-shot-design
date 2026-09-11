@@ -44,3 +44,13 @@ python -m uvicorn app.main:app --port 8840
 ```
 
 短视频模块的第一版建议作为独立 CLI/服务（例如 `shortfilm/`），完成稳定后再挂到现有前端；这样不会把尚未稳定的镜头生成流程混入课件生产链路。
+
+### 每镜头参考图与串行生成
+
+I2V 可通过 JSON 为不同镜头指定独立参考图；相对路径以映射文件所在目录解析，同一图片在一次运行中只上传一次：
+
+```powershell
+python -m shortfilm.cli.render_shots examples/ad30/project.json output/ad30 --workflow i2v --reference-map examples/ad30/reference_map.json --dry-run
+```
+
+映射可使用单图 `{"S03":"assets/first_frames/S03.png"}`，也可为动作镜头使用独立首尾帧 `{"S04":{"first":"assets/first_frames/S04.png","last":"assets/first_frames/S04_end.png"}}`。相对路径以映射文件所在目录解析；未映射镜头可用 `--reference-image` 指定全局回退图。生产始终逐镜头串行执行。

@@ -4,6 +4,62 @@ Command failures and integration errors.
 
 ---
 
+## [ERR-20260911-003] Portrait output passed to landscape crop
+
+**Logged**: 2026-09-11T09:01:00+08:00
+**Priority**: high
+**Status**: resolved
+**Area**: backend
+
+### Summary
+The normalizer assumed every RH output was landscape and attempted an invalid crop on a native 9:16 I2V result.
+
+### Error
+FFmpeg failed while normalizing a 480x864 source.
+
+### Suggested Fix
+Probe source dimensions and branch between focus-aware landscape crop and full-frame portrait scale/pad.
+
+### Metadata
+- Reproducible: yes
+- Related Files: `shortfilm/cli/normalize_video.py`
+
+### Resolution
+- **Resolved**: 2026-09-11T09:02:00+08:00
+- **Notes**: Added ffprobe-based aspect handling.
+
+---
+
+## [ERR-20260911-002] I2V reference image omitted
+
+**Logged**: 2026-09-11T08:55:00+08:00
+**Priority**: critical
+**Status**: resolved
+**Area**: backend
+
+### Summary
+The I2V adapter accepted and uploaded a reference image but omitted it from `nodeInfoList`, allowing cached workflow images to produce unrelated anime footage.
+
+### Error
+S03 rendered as an anime woman instead of the locked contemporary male designer first frame.
+
+### Context
+- Workflow: `2092512701252022274`
+- The verified 820 workflow contract uses image nodes 137 and 143.
+
+### Suggested Fix
+Always override both cached first-frame and last-frame image nodes when an I2V reference is supplied, and assert them in dry-run QA.
+
+### Metadata
+- Reproducible: yes
+- Related Files: `shortfilm/rh_adapter.py`, `shortfilm/cli/render_shots.py`
+
+### Resolution
+- **Resolved**: 2026-09-11T08:56:00+08:00
+- **Notes**: I2V now emits nodes 137 and 143 for every supplied per-shot reference.
+
+---
+
 ## [ERR-20260911-001] Python CLI import path
 
 **Logged**: 2026-09-11T08:30:00+08:00

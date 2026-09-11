@@ -3,6 +3,7 @@
 from __future__ import annotations
 
 import argparse
+import json
 import subprocess
 from pathlib import Path
 
@@ -19,7 +20,18 @@ def normalize(src: Path, dst: Path, *, focus: float = 0.38, width: int = 864, he
     # keeps the selected subject location rather than blindly center-cropping.
     # `focus` is constrained to [0,1], so this x coordinate is already within
     # the legal crop range and avoids commas that must be escaped in ffmpeg.
-    vf = f"crop=ih*9/16:ih:(iw-ih*9/16)*{focus}:0,scale={width}:{height}:flags=lanczos,setsar=1"
+    probe = subprocess.run(
+        ["ffprobe", "-v", "error", "-select_streams", "v:0",
+         "-show_entries", "stream=width,height", "-of", "json", str(src)],
+        check=True, capture_output=True, text=True,
+    )
+    stream = json.loads(probe.stdout)["streams"][0]
+    source_ratio = float(stream["width"]) / float(stream["height"])
+    target_ratio = width / height
+    if source_ratio > target_ratio + 0.001:
+        vf = f"crop=ih*{width}/{height}:ih:(iw-ih*{width}/{height})*{focus}:0,scale={width}:{height}:flags=lanczos,setsar=1"
+    else:
+        vf = f"scale={width}:{height}:force_original_aspect_ratio=decrease:flags=lanczos,pad={width}:{height}:(ow-iw)/2:(oh-ih)/2,setsar=1"
     dst.parent.mkdir(parents=True, exist_ok=True)
     subprocess.run([
         "ffmpeg", "-y", "-i", str(src), "-vf", vf, "-map", "0:v:0", "-map", "0:a?",

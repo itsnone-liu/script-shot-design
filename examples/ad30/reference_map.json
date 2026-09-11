@@ -1,0 +1,8 @@
+{
+  "S03": "assets/first_frames/S03.png",
+  "S04": {"first":"assets/first_frames/S04.png","last":"assets/first_frames/S04_end.png"},
+  "S05": "assets/first_frames/S05.png",
+  "S06": "assets/first_frames/S06.png",
+  "S09": "assets/first_frames/S09.png",
+  "S10": "assets/first_frames/S10.png"
+}

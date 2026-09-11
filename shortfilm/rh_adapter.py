@@ -25,13 +25,23 @@ def _prompt(packet: dict) -> str:
     return str(packet.get("prompt") or "")
 
 
-def build_node_info(packet: dict, *, workflow: str = "t2v", reference_file: str = "") -> list[dict]:
+def build_node_info(packet: dict, *, workflow: str = "t2v", reference_file: str = "",
+                    last_reference_file: str = "") -> list[dict]:
     """Build the minimum verified nodeInfoList for 820's video cards."""
     if workflow == "i2v":
-        return [
+        nodes = [
             {"nodeId": "136", "fieldName": "prompt", "fieldValue": _prompt(packet)},
             {"nodeId": "135", "fieldName": "value", "fieldValue": str(round(float(packet["duration"])))},
         ]
+        if reference_file:
+            # This workflow caches both a first-frame and a last-frame input.
+            # Both must be overridden or stale images from the RH snapshot leak
+            # into the result (observed as an unrelated anime character).
+            nodes.extend([
+                {"nodeId": "137", "fieldName": "image", "fieldValue": reference_file},
+                {"nodeId": "143", "fieldName": "image", "fieldValue": last_reference_file or reference_file},
+            ])
+        return nodes
     nodes = [
         {"nodeId": "138", "fieldName": "value", "fieldValue": _prompt(packet)},
         # The RH card requires duration to be sent even though its cache has a default.
@@ -47,12 +57,14 @@ def build_node_info(packet: dict, *, workflow: str = "t2v", reference_file: str 
 
 def render_packet(packet: dict, output_dir: str | Path, *, workflow: str = "t2v",
                   api_key: str = "", dry_run: bool = False, poll: float = 10.0,
-                  max_wait: float = 1200.0, reference_file: str = "") -> dict:
+                  max_wait: float = 1200.0, reference_file: str = "",
+                  last_reference_file: str = "") -> dict:
     """Render one packet synchronously and download its video outputs."""
     output_dir = Path(output_dir)
     output_dir.mkdir(parents=True, exist_ok=True)
     workflow_id = I2V_WORKFLOW if workflow == "i2v" else T2V_WORKFLOW
-    nodes = build_node_info(packet, workflow=workflow, reference_file=reference_file)
+    nodes = build_node_info(packet, workflow=workflow, reference_file=reference_file,
+                            last_reference_file=last_reference_file)
     if dry_run:
         return {"shot_id": packet["shot_id"], "workflow_id": workflow_id,
                 "nodeInfoList": nodes, "status": "dry-run"}
