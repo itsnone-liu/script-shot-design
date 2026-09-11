@@ -135,3 +135,59 @@ Insert the repository root into `sys.path` before invoking `shortfilm` CLI modul
 - **Notes**: The embedded interpreter ignored `PYTHONPATH`; validation succeeded by inserting the repository root into `sys.path` inside the process and invoking the module through `runpy`.
 
 ---
+
+## [ERR-20260911-002] MiniMax final-hold validator rejected valid durations
+
+**Logged**: 2026-09-11T15:30:00+08:00
+**Priority**: medium
+**Status**: resolved
+**Area**: tests
+
+### Summary
+The prompt gate only recognized final holds beginning with `0.` or `1.` and incorrectly rejected a deliberate 2.5-second advertising end card.
+
+### Error
+`LIGHT03: generation_prompt must define a final hold/interface state`
+
+### Context
+- Reproduced while validating `examples/ad30_light/project.json`.
+- The prompt explicitly said `final 2.5 seconds`, but the gate used two hard-coded substring checks.
+
+### Suggested Fix
+Recognize any positive numeric duration in the phrase `final N seconds`.
+
+### Metadata
+- Reproducible: yes
+- Related Files: `shortfilm/model.py`, `examples/ad30_light/project.json`
+
+### Resolution
+- **Resolved**: 2026-09-11T15:32:00+08:00
+- **Notes**: Replaced hard-coded duration prefixes with a numeric regular expression.
+
+---
+
+## [ERR-20260911-003] Successful RH task returned a corrupt MP4 download
+
+**Logged**: 2026-09-11T18:34:00+08:00
+**Priority**: medium
+**Status**: pending
+**Area**: backend
+
+### Summary
+`LIGHT01` reached RH success but its downloaded MP4 lacked a `moov` atom, so normalization failed; later serial tasks were unaffected.
+
+### Error
+`moov atom not found` / `Invalid data found when processing input`
+
+### Context
+- Raw file existed but was only about 1 MB and was not a valid MP4.
+- Renderer currently records only the normalization exception and loses the successful task id/output URL in the failed manifest item.
+
+### Suggested Fix
+Validate downloaded media before normalization, retry the download, and preserve task id/raw URL in failure manifests.
+
+### Metadata
+- Reproducible: unknown
+- Related Files: `shortfilm/cli/render_shots.py`, `shortfilm/cli/normalize_video.py`
+
+---

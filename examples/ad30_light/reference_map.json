@@ -1,0 +1,5 @@
+{
+  "LIGHT01": {"first": "assets/anchors/A01_beans_dark.png", "last": "assets/anchors/A02_drop.png"},
+  "LIGHT02": {"first": "assets/anchors/A02_drop.png", "last": "assets/anchors/A03_steam.png"},
+  "LIGHT03": {"first": "assets/anchors/A03_steam.png", "last": "assets/anchors/A04_hero.png"}
+}

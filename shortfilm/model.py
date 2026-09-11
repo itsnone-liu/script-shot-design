@@ -3,6 +3,7 @@
 from __future__ import annotations
 
 from dataclasses import dataclass, field, asdict
+import re
 from typing import Any
 
 
@@ -88,7 +89,7 @@ class Shot:
                 errors.append(
                     f"{self.shot_id}: generation_prompt missing continuity lock section"
                 )
-            if "final 0." not in prompt_lower and "final 1." not in prompt_lower:
+            if not re.search(r"final\s+\d+(?:\.\d+)?\s*seconds?", prompt_lower):
                 errors.append(
                     f"{self.shot_id}: generation_prompt must define a final hold/interface state"
                 )
