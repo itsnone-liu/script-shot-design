@@ -1,0 +1,16 @@
+{
+  "project_id":"ad30_coffee","title":"最后一页","format":{"aspect_ratio":"9:16","duration_sec":30,"dialogue":false},
+  "directing_arc":"压迫与碎切→离席释放→观察停顿→重组加速→品牌静止",
+  "shots":[
+    {"id":"S01","time":"00:00-00:03","beat":"B01","duration":3,"story_function":"建立目标和压力","attention_subject":"失衡的最后一页","shot_size":"过肩中近景","composition":"人物肩部压左前景，屏幕居中","camera_move":"缓慢推进","movement_intent":"进入问题","action":"光标在标题与色块间犹豫","post_layer":["设计稿UI","倒计时"],"acceptance":["3秒内理解正在赶稿","模型不生成文字"]},
+    {"id":"S02","time":"00:03-00:07","beat":"B01-B02","duration":4,"story_function":"展示方法失效","attention_subject":"三个失败版本","shot_size":"屏幕插入蒙太奇","composition":"同一页面位置固定","camera_move":"固定","movement_intent":"便于版本对照","action":"标题变重、色块失衡、网格僵硬，逐次撤销","post_layer":["全部页面内容"],"acceptance":["至少两种失败肉眼可辨","无炫技转场"]},
+    {"id":"S03","time":"00:07-00:10","beat":"B02","duration":3,"story_function":"承认死循环","attention_subject":"松开鼠标与转向窗边的目光","shot_size":"侧面中近景","composition":"脸在上三分线，窗光位于视线方向","camera_move":"固定","movement_intent":"让停顿成为选择","action":"停手、松开鼠标、抬眼","acceptance":["不是疲惫倒下","视线方向明确"]},
+    {"id":"S04","time":"00:10-00:13","beat":"B03","duration":3,"story_function":"产品促成离席","attention_subject":"拿起咖啡杯的手","shot_size":"桌面中近景","composition":"杯在右侧光斑，手从左进入","camera_move":"短距离横移跟拍","movement_intent":"跟随唯一产品动作","action":"拿杯并离开工位","product_visibility":"清晰2秒","acceptance":["只拿杯不饮用","杯型连续"]},
+    {"id":"S05","time":"00:13-00:16","beat":"B04","duration":3,"story_function":"建立观察对象","attention_subject":"杯耳、杯身与窗格投影","shot_size":"微距特写","composition":"杯耳影在下三分线，窗格影形成留白","camera_move":"固定","movement_intent":"让变化可比较","action":"杯子缓慢转动一次","acceptance":["杯耳轮廓可识别","影子变化真实"]},
+    {"id":"S06","time":"00:16-00:19","beat":"B04","duration":3,"story_function":"证明主动观察","attention_subject":"眼神与稳定光影关系","shot_size":"眼神近景接主观镜头","composition":"眼睛和杯影处于相似视觉支点","camera_move":"极轻微推进","movement_intent":"强调判断","action":"停转，在杯影、窗格和建筑轮廓间比较","acceptance":["先比较后领悟","无闪光粒子或魔法效果"]},
+    {"id":"S07","time":"00:19-00:22","beat":"B05","duration":3,"story_function":"第一次验证","attention_subject":"大色块与留白重组","shot_size":"同S01过肩近景","composition":"保持屏幕位置用于对照","camera_move":"固定","movement_intent":"突出内容变化","action":"移开大色块并扩大留白","post_layer":["第一次中间态","倒计时"],"acceptance":["不是一键成品","只改变大关系"]},
+    {"id":"S08","time":"00:22-00:25","beat":"B05","duration":3,"story_function":"第二次验证","attention_subject":"标题落到新支点","shot_size":"屏幕插入镜头","composition":"标题位置呼应杯耳影","camera_move":"微推进","movement_intent":"确认稳定","action":"移动标题后缩小页面检查","post_layer":["第二中间态与完成态"],"acceptance":["保留两步过程","完成态明显更舒展"]},
+    {"id":"S09","time":"00:25-00:27","beat":"B06","duration":2,"story_function":"可见结果","attention_subject":"提交动作","shot_size":"手部特写","composition":"手指处于中央安全区","camera_move":"固定","movement_intent":"动作清晰","action":"检查后按下提交","post_layer":["上传成功"],"acceptance":["提交发生在重组后","无饮用"]},
+    {"id":"S10","time":"00:27-00:30","beat":"B06","duration":3,"story_function":"品牌收束","attention_subject":"咖啡杯","shot_size":"产品英雄特写","composition":"杯、完成稿和窗格影复现最终页面关系，右上留品牌区","camera_move":"极慢推进","movement_intent":"稳定品牌记忆","action":"无人物动作，蒸汽轻微上升","post_layer":["批准包装","Logo","离开一刻，看见答案。"],"acceptance":["产品连续可辨","末帧可静止承载品牌"]}
+  ]
+}

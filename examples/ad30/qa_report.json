@@ -1,0 +1,17 @@
+{
+  "project_id": "ad30_coffee_last_page_01",
+  "gates": {
+    "story": "pass",
+    "storyboard": "pass",
+    "shot": "pending_visual_review",
+    "final": "pending_render"
+  },
+  "errors": [],
+  "warnings": [],
+  "manual_checks_required": [
+    "character continuity",
+    "product geometry",
+    "motion quality",
+    "audio/video sync"
+  ]
+}

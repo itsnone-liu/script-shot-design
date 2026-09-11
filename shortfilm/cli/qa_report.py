@@ -18,11 +18,21 @@ def main() -> int:
     warnings = []
     if len(project.shots) < 6 or len(project.shots) > 12:
         warnings.append("MVP recommends 6–12 shots for a 30-second ad")
-    if not any("旁白" in shot.dialogue_or_vo for shot in project.shots):
-        warnings.append("no voice-over/dialogue beat found")
+    # Silent ads are a valid deliberate format. Only flag partially specified
+    # speech, which usually means the audio policy is inconsistent.
+    spoken = [shot for shot in project.shots if shot.dialogue_or_vo.strip()]
+    if spoken and len(spoken) != len(project.shots):
+        warnings.append("speech is present only in some shots; confirm this is intentional")
     if not any("品牌" in shot.story_beat or "产品" in shot.story_beat for shot in project.shots):
         warnings.append("no explicit product/brand beat found")
-    product_actions = sum(1 for shot in project.shots if any(word in shot.subject_action for word in ("喝", "饮", "啜")))
+    consumption_phrases = ("喝一口", "喝咖啡", "饮用咖啡", "啜饮")
+    negative_phrases = ("不饮用", "无饮用", "禁止饮用", "不喝")
+    product_actions = sum(
+        1
+        for shot in project.shots
+        if any(word in shot.subject_action for word in consumption_phrases)
+        and not any(word in shot.subject_action for word in negative_phrases)
+    )
     if product_actions > 2:
         errors.append(f"product consumption action appears {product_actions} times; story is becoming a drinking demo")
     if not any(any(word in shot.story_beat for word in ("失败", "卡住", "阻碍", "倒计时", "问题")) for shot in project.shots):

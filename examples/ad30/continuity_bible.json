@@ -1,0 +1,9 @@
+{
+  "project_id":"ad30_coffee",
+  "character":{"count":1,"description":"27岁左右东亚男性设计师，短黑发，自然面容，现代深灰针织衫","wardrobe_lock":"全片同一服装","screen_direction":"工位主要左向右；回到工位恢复同方向"},
+  "location":{"description":"现代小型设计工作室，清晨自然侧光，木桌，低饱和灰褐色","layout_lock":"屏幕在左，咖啡杯初始在右侧窗光区，窗户在人物右前方"},
+  "product":{"description":"哑光暖白陶瓷咖啡杯，深棕可替换标签，圆形杯耳","orientation_lock":"英雄镜头杯耳朝右","actions_allowed":["拿起并带到窗边","缓慢转动一次"],"actions_forbidden":["饮用","反复举杯","杯型或标签变化","凭空出现消失"]},
+  "lighting":{"base":"清晨暖侧光加冷灰环境填充","progression":"工位偏冷；窗边暖光明显；结尾自然，不爆光"},
+  "screen_policy":{"capture":"可跟踪的干净占位屏幕","post_replace":["设计稿版本","软件UI","倒计时","提交反馈"],"forbidden":"让生成模型绘制可读文字或Logo"},
+  "match_points":[{"from":"S02","to":"S07-S08","rule":"相同屏幕角度用于前后对照"},{"from":"S05","to":"S08","rule":"杯耳影视觉支点对应标题新位置"},{"from":"S08","to":"S10","rule":"完成稿大关系在产品英雄镜头复现"}]
+}

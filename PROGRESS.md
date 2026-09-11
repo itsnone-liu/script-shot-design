@@ -105,3 +105,11 @@
 - 完成 `scene_cards.json`、无对白可拍剧本 `script.md`、三角色审稿 `reviews.json` 和 `script_diagnostics.json`；
 - 当前结论为 `approve_for_storyboard_with_conditions`：下一步必须解决杯影到页面构图的可读性、屏幕内容后期替换以及结尾产品归因；
 - 本轮未调用 RunningHub。分镜通过用户确认前，生产闸门保持关闭。
+
+## 2026-09-11：咖啡广告导演与分镜包
+
+- 修正节拍表结尾残留的饮用动作，统一为“提交后切产品英雄镜头”；
+- 完成 10 镜头、30 秒的 `storyboard.json`，每个运镜均包含叙事动机与验收条件；
+- 建立人物、场景、产品、光线、屏幕替换和匹配剪辑的 `continuity_bible.json`；
+- 建立分组生成的 `prompt_package.json`，屏幕内容明确进入后期层；
+- `production_readiness.json` 保持 `rh_allowed=false`，等待分镜确认与参考资产锁定。

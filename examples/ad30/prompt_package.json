@@ -1,0 +1,13 @@
+{
+  "project_id":"ad30_coffee",
+  "global_positive":"modern realistic commercial cinematography, contemporary Chinese design studio, one East Asian male designer age 27, short black hair, dark gray knit sweater, natural skin texture, restrained acting, dawn window light, muted warm gray palette, physically plausible motion, premium coffee advertising, vertical 9:16",
+  "global_negative":"ancient costume, historical clothing, fantasy, magic glow, cyberpunk, anime, beauty filter, plastic skin, extra people, wardrobe change, painting at easel, repeated drinking, talking, lip sync, deformed hands, changing cup, generated readable text, generated logo, excessive orbit, fast zoom, shaky camera",
+  "generation_groups":[
+    {"group_id":"G01","shots":["S03","S04"],"prompt":"Side-front medium close-up of the designer stopping an unsuccessful edit, releasing the mouse, deliberately looking toward a sunlit coffee cup, then standing and picking up the cup once. Short controlled lateral tracking follows the hand and cup; no drinking.","end_state":"人物持杯离开椅子，面向窗边"},
+    {"group_id":"G02","shots":["S05","S06"],"prompt":"Macro realistic coffee-cup shadow on a wooden desk in morning window light. The round handle shadow remains recognizable as the warm white ceramic cup rotates slowly once. Cut to restrained close-up: the designer compares cup shadow, window grid and distant architecture; subtle dolly in, no magical effects.","end_state":"杯子停止转动，人物形成明确判断"},
+    {"group_id":"G03","shots":["S09"],"prompt":"Close insert of the same designer's hand making one deliberate submit click after checking the work, realistic office light, locked camera, no readable interface text.","end_state":"手指完成点击后放松"},
+    {"group_id":"G04","shots":["S10"],"prompt":"Premium hero close-up of the identical warm white ceramic coffee cup on a wooden desk beside a clean printed design sheet, morning window-grid shadows create an elegant asymmetric composition, subtle steam, very slow dolly in, clean upper-right negative space for brand lockup.","end_state":"稳定可冻结的产品末帧"}
+  ],
+  "post_only_shots":[{"shots":["S01","S02","S07","S08"],"reason":"设计稿、UI和倒计时必须可控；采用占位屏幕加后期界面合成"}],
+  "audio":"discard all model audio; add mouse clicks, keyboard, chair movement, cup contact, room tone, restrained music and brand sting in post"
+}
