@@ -4,6 +4,29 @@ Command failures and integration errors.
 
 ---
 
+## [ERR-20260911-004] Combined background-server command rejected
+
+**Logged**: 2026-09-11T09:40:00+08:00
+**Priority**: low
+**Status**: resolved
+**Area**: infra
+
+### Summary
+A single PowerShell command combining dynamic paths, `Start-Process`, delay, and HTTP checks was rejected by the execution policy.
+
+### Suggested Fix
+Resolve and verify paths first, then run the hidden background process and health checks as separate commands with fixed absolute paths.
+
+### Metadata
+- Reproducible: unknown
+- Related Files: `output/ad30_coffee/index.html`
+
+### Resolution
+- **Resolved**: 2026-09-11T09:41:00+08:00
+- **Notes**: Deployment was split into fixed-path steps.
+
+---
+
 ## [ERR-20260911-003] Portrait output passed to landscape crop
 
 **Logged**: 2026-09-11T09:01:00+08:00
