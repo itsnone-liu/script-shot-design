@@ -1,0 +1,89 @@
+{
+  "project_id": "ad30_coffee",
+  "concept_id": "coffee_concept_01",
+  "duration_sec": 30,
+  "beats": [
+    {
+      "beat_id": "B01",
+      "name": "目标建立与倒计时压力",
+      "time_range": "0-5s",
+      "state_in": "设计师坐在工位前，屏幕显示设计软件界面，最后一页处于编辑状态但视觉重心失衡。",
+      "visible_event": "屏幕右上角倒计时显示 10:00 → 9:45；鼠标光标在同一区域反复点击撤销/重做。",
+      "character_choice": "继续尝试微调标题字号、配色、对齐，拒绝离开工位。",
+      "state_out": "三次微调均失败，页面依然失衡；倒计时推进到 8:30，焦虑加剧。",
+      "causal_hook": "无效重复建立『死磕屏幕不行』的前提；倒计时给后续转折提供时间压力。",
+      "product_present": false,
+      "screen_text_post": ["倒计时 10:00", "设计软件界面", "『最后一页』标签"]
+    },
+    {
+      "beat_id": "B02",
+      "name": "可见失败与压力升级",
+      "time_range": "5-9s",
+      "state_in": "倒计时 8:30，最后一页仍不满意；人物额头渗汗，呼吸急促。",
+      "visible_event": "快速剪辑：调大标题→顶重；换深色系→对比度弱；强行网格→生硬。每次调整后人物都摇头否定。",
+      "character_choice": "强迫自己再试最后一次：调整行距和字间距。",
+      "state_out": "调整完成后画面更拥挤；倒计时 6:12；人物意识到在原地打转。",
+      "causal_hook": "三次可见失败确立『方法错误』而非『能力不足』；为离开屏幕提供合理动机。",
+      "product_present": false,
+      "screen_text_post": ["倒计时 6:12", "撤销/重做记录栈"]
+    },
+    {
+      "beat_id": "B03",
+      "name": "转折线索：离开屏幕·拿起咖啡",
+      "time_range": "9-13s",
+      "state_in": "倒计时 6:12，人物僵持在原地，目光在屏幕与窗边游移。",
+      "visible_event": "阳光斑照在桌面的咖啡杯上，杯壁折射出几何光斑；人物视线被光斑吸引。",
+      "character_choice": "主动推开椅子站起，顺手拿起咖啡杯走向窗边（产品动作 1/2）。",
+      "state_out": "人物离开工位，来到窗前；屏幕留在身后，画面中心转为咖啡杯与光影。",
+      "causal_hook": "光影吸引视线 → 拿起杯子成为离开工位的自然动机；咖啡是『观察触发器』而非『能量补给』。",
+      "product_present": true,
+      "product_action_index": 1,
+      "screen_text_post": ["倒计时 5:58"]
+    },
+    {
+      "beat_id": "B04",
+      "name": "观察触发：光影中发现构图",
+      "time_range": "13-18s",
+      "state_in": "人物站在窗前，手持咖啡杯，阳光透过杯壁在手心/桌面投射移动光斑。",
+      "visible_event": "人物缓慢转动杯子，光斑随之旋转、分裂、重组，形成动态几何构图；人物眼神从茫然转为专注。",
+      "character_choice": "停下转动，定格在某个光影分布瞬间，目光在光斑与远处建筑轮廓间来回比对（产品动作 2/2）。",
+      "state_out": "人物找到了构图答案：光影的『主次、留白、节奏』正是最后一页缺失的结构。",
+      "causal_hook": "现实光影直接提供构图参考 → 观察行为改变人物的设计选择；因果清晰可拍。",
+      "product_present": true,
+      "product_action_index": 2,
+      "screen_text_post": ["倒计时 3:45"]
+    },
+    {
+      "beat_id": "B05",
+      "name": "主动行动：回到工位重组画面",
+      "time_range": "18-25s",
+      "state_in": "人物手持咖啡快步返回工位，倒计时 3:45 → 3:20。",
+      "visible_event": "一气呵成：删除多余装饰元素、建立大面积留白、用单一强对比色块对应光影主色块、标题下沉对齐光影『基线』。",
+      "character_choice": "不再微调，而是基于光影逻辑做大刀阔斧的结构性重组。",
+      "state_out": "最后一页完成，视觉重心稳定，光影构图与咖啡杯投影形成呼应；倒计时 0:58。",
+      "causal_hook": "观察所得直接转化为设计决策；每个操作都能追溯到光影启发，无『突然成功』。",
+      "product_present": false,
+      "screen_text_post": ["倒计时 0:58", "『上传中...』进度条"]
+    },
+    {
+      "beat_id": "B06",
+      "name": "可见结果与品牌收束",
+      "time_range": "25-30s",
+      "state_in": "屏幕显示『上传成功』，倒计时归零；最后一页定格在完成状态。",
+      "visible_event": "镜头从屏幕拉开，人物端起咖啡喝一口，呼出长气；侧光下咖啡杯投影与屏幕画面构图几何呼应。",
+      "character_choice": "按下提交确认，接受结果，不再追求完美。",
+      "state_out": "任务完成，人物状态从焦虑转为松弛；品牌记忆点：咖啡杯作为观察工具留在画面中。",
+      "causal_hook": "结果由 B05 的主动行动直接导出；产品以『观察触发器』身份留存，非功能性饮用。",
+      "product_present": true,
+      "product_action_index": 0,
+      "screen_text_post": ["『上传成功』", "品牌 Slogan（后期叠加）", "Logo（后期叠加）"]
+    }
+  ],
+  "beat_summary": {
+    "total_beats": 6,
+    "product_action_count": 2,
+    "visible_failure_beats": 2,
+    "active_choice_beats": 4,
+    "causal_chain_complete": true
+  }
+}

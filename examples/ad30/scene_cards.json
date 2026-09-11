@@ -1,0 +1,62 @@
+{
+  "project_id": "ad30_coffee",
+  "concept_id": "coffee_concept_01",
+  "format": "30s_vertical_silent_ad",
+  "scenes": [
+    {
+      "scene_id": "SC01",
+      "timecode": "00:00-00:05",
+      "purpose": "立即建立截止时间与最后一页尚未完成的目标",
+      "character_wants": "在十分钟内完成设计稿",
+      "obstacle": "最后一页视觉重心明显失衡",
+      "choice": "继续在同一区域微调",
+      "turn": "倒计时减少，但页面变得更拥挤",
+      "visual_information": ["设计软件中的最后一页", "可读但由后期添加的倒计时", "撤销与重做的重复动作"],
+      "exit_condition": "观众理解人物正在赶稿且当前方法无效"
+    },
+    {
+      "scene_id": "SC02",
+      "timecode": "00:05-00:10",
+      "purpose": "用连续可见失败升级压力",
+      "character_wants": "靠更多修改挽救构图",
+      "obstacle": "字号、色块、网格三次调整都产生新问题",
+      "choice": "停止鼠标动作并承认原方法无效",
+      "turn": "人物第一次把视线从屏幕移开",
+      "visual_information": ["三个版本快速切换", "每个版本都有明确失衡", "鼠标悬停后松开"],
+      "exit_condition": "失败具体可见，而非只用焦虑表演"
+    },
+    {
+      "scene_id": "SC03",
+      "timecode": "00:10-00:18",
+      "purpose": "让产品促成人物离开屏幕并重新观察",
+      "character_wants": "打断无效循环，寻找新的观察角度",
+      "obstacle": "惯性仍催促他立即回到屏幕",
+      "choice": "拿起咖啡走到窗边，并缓慢转动杯子观察投影",
+      "turn": "杯耳、杯身与窗格的光影形成不对称但稳定的视觉关系",
+      "visual_information": ["拿杯离席是产品动作一", "转杯观察是产品动作二", "先展示光影变化，再展示人物意识到关系"],
+      "exit_condition": "观众能把现实光影与此前构图问题建立联系"
+    },
+    {
+      "scene_id": "SC04",
+      "timecode": "00:18-00:26",
+      "purpose": "证明转折改变了行动方式，而不是凭空成功",
+      "character_wants": "把观察到的重心关系验证到页面上",
+      "obstacle": "剩余时间很少，必须一次抓住主关系",
+      "choice": "先移动大色块和留白，再调整标题，不再做碎片化微调",
+      "turn": "页面经过两步重组后获得稳定重心",
+      "visual_information": ["现实光影到页面大关系的匹配剪辑", "两次明确重组", "最终页面保留人工设计痕迹"],
+      "exit_condition": "成功由观察、判断和主动操作共同造成"
+    },
+    {
+      "scene_id": "SC05",
+      "timecode": "00:26-00:30",
+      "purpose": "完成提交并留下咖啡的品牌记忆",
+      "character_wants": "在截止前提交完整方案",
+      "obstacle": "最后数秒",
+      "choice": "检查整体后按下提交",
+      "turn": "提交确认；切到杯子与稿件光影呼应的静态英雄画面",
+      "visual_information": ["提交状态文字由后期添加", "产品包装与品牌文字由后期叠加", "人物不再饮用咖啡"],
+      "exit_condition": "故事闭环，产品角色清楚且没有魔法化"
+    }
+  ]
+}

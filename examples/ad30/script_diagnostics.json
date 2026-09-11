@@ -1,0 +1,24 @@
+{
+  "project_id": "ad30_coffee",
+  "script": "script.md",
+  "result": "pass_with_warnings",
+  "blockers": [],
+  "checks": [
+    {"id": "single_mainline", "status": "pass", "evidence": "全部场景服务于完成最后一页并提交。"},
+    {"id": "goal_in_first_20_percent", "status": "pass", "evidence": "0-5 秒出现未完成页面与十分钟倒计时。"},
+    {"id": "visible_failure", "status": "pass", "evidence": "标题、色块、网格三种修改分别产生可见问题。"},
+    {"id": "turn_changes_action", "status": "pass", "evidence": "人物从碎片微调改为离席观察，再按大关系重组。"},
+    {"id": "earned_result", "status": "pass", "evidence": "结果经过观察、两步验证和全页检查，不是饮用后的突然成功。"},
+    {"id": "product_actions_lte_2", "status": "pass", "value": 2, "evidence": "仅拿杯和转杯。"},
+    {"id": "silent_comprehension", "status": "pass", "evidence": "目标、失败、选择和结果均由动作及画面表达。"},
+    {"id": "post_only_text_and_logo", "status": "pass", "evidence": "倒计时、提交状态、品牌及文案全部标注为后期。"},
+    {"id": "generation_feasibility", "status": "pass", "evidence": "单人物、单主场景、低复杂度动作；屏幕画面可独立后期合成。"},
+    {"id": "attention_discipline", "status": "pass", "evidence": "无次要人物、换装、绘画或无关动作。"}
+  ],
+  "warnings": [
+    {"id": "light_shadow_legibility", "risk": "杯影到页面构图的对应可能过于抽象。", "mitigation": "分镜必须先给完整失败页面，再用相似轮廓匹配剪辑，并展示两个重组中间态。"},
+    {"id": "screen_generation", "risk": "视频模型难以稳定生成设计软件界面。", "mitigation": "屏幕采用干净占位画面，后期跟踪替换 UI 和设计稿。"},
+    {"id": "time_density", "risk": "18-26 秒内动作过多会削弱理解。", "mitigation": "只保留移动大色块和移动标题两步，不表现细节修饰。"}
+  ],
+  "production_gate": "story_package_approved_required_before_storyboard_or_RH"
+}

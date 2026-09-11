@@ -1,0 +1,33 @@
+{
+  "project_id": "ad30_coffee",
+  "decision": "approve_for_storyboard_with_conditions",
+  "reviews": [
+    {
+      "role": "StoryEditor",
+      "verdict": "pass",
+      "strengths": ["目标在开场建立", "失败有三个具体版本", "人物主动停止、观察并验证", "结尾由行动造成"],
+      "concerns": ["光影启发容易被拍成偶然灵光"],
+      "required_changes": ["分镜中保留两次重组中间态", "禁止从杯影直接跳切到完美成稿"]
+    },
+    {
+      "role": "AudienceAdvocate",
+      "verdict": "pass_with_condition",
+      "strengths": ["无对白也能理解赶稿压力", "动作主线单一", "没有无关人物抢注意力"],
+      "concerns": ["普通观众未必理解专业构图术语", "倒计时依赖后期可读性"],
+      "required_changes": ["用明显的歪斜/拥挤与舒展版本形成视觉对照", "移动端安全区内放置大号倒计时，不出现复杂软件文字"]
+    },
+    {
+      "role": "BrandStrategist",
+      "verdict": "pass_with_condition",
+      "strengths": ["咖啡参与因果但不被神化", "杯子成为观察对象并在结尾回扣", "产品动作克制"],
+      "concerns": ["若窗格光影比杯子更醒目，品牌归因会减弱"],
+      "required_changes": ["关键影子必须保留可识别的杯耳轮廓", "结尾英雄镜头复现同一构图", "品牌和包装只在后期使用批准素材"]
+    }
+  ],
+  "global_conditions": [
+    "屏幕、Logo 和文字全部后期合成",
+    "人物不喝咖啡",
+    "不添加人物、换装或无关创作动作",
+    "通过分镜审批前不得调用 RunningHub"
+  ]
+}
