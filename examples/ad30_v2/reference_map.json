@@ -1,0 +1,5 @@
+{
+  "SEG01": {"first": "assets/first_frames/SEG01_start_v1.png", "last": "../ad30/assets/first_frames/S03.png"},
+  "SEG02": {"first": "../ad30/assets/first_frames/S04.png", "last": "assets/first_frames/SEG02_end_v1.png"},
+  "SEG03": {"first": "assets/first_frames/SEG02_end_v1.png", "last": "assets/first_frames/SEG03_end_v1.png"}
+}

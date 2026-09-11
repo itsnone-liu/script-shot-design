@@ -28,7 +28,7 @@ def main() -> int:
     timeline = []
     cursor = 0.0
     for shot in project.shots:
-        prompt = "; ".join(filter(None, [
+        assembled_prompt = "; ".join(filter(None, [
             project.visual_style,
             card["prompt_constraints"]["positive"],
             f"{shot.shot_size}, {shot.angle} angle, {shot.composition} composition",
@@ -43,6 +43,7 @@ def main() -> int:
             "preserve identity, costume, screen direction and product geometry",
             "no text, no logo, no watermark, no extra limbs",
         ]))
+        prompt = shot.generation_prompt or assembled_prompt
         packets.append({
             "shot_id": shot.shot_id,
             "workflow": shot.generation_workflow,

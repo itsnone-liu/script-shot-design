@@ -110,7 +110,7 @@ def main() -> int:
         # Screen/UI composites are produced in post and must not consume RH jobs.
         if shot.generation_workflow != "rh_video":
             continue
-        prompt_parts = [
+        prompt_parts = [shot.generation_prompt] if shot.generation_prompt else [
             project.visual_style,
             card["prompt_constraints"]["positive"],
             shot.subject_action, shot.lighting, shot.composition,

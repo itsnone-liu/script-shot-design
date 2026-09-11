@@ -16,7 +16,8 @@ def main() -> int:
     project = load(Path(sys.argv[1]))
     errors = project.validate()
     warnings = []
-    if len(project.shots) < 6 or len(project.shots) > 12:
+    uses_long_segments = any(shot.generation_prompt for shot in project.shots)
+    if not uses_long_segments and (len(project.shots) < 6 or len(project.shots) > 12):
         warnings.append("MVP recommends 6–12 shots for a 30-second ad")
     # Silent ads are a valid deliberate format. Only flag partially specified
     # speech, which usually means the audio policy is inconsistent.
