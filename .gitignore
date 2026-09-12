@@ -35,3 +35,5 @@ output/ad30_visual_reset_v5/
 examples/ad30_visual_reset/project.json
 output/ad30_visual_reset_v5/P01_*.jpg
 output/ad30_visual_reset_v5/P02_*.jpg
+output/ad30_visual_reset_v6/
+output/ad30_visual_reset_v7/

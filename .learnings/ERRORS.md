@@ -32,6 +32,26 @@ The CLI now inserts its own root into `sys.path`, and validators accept both wra
 
 ---
 
+## [ERR-20260912-007] FFmpeg drawbox expression used w instead of iw
+
+**Logged**: 2026-09-12T08:45:00+08:00
+**Priority**: low
+**Status**: resolved
+**Area**: media
+
+### Summary
+The commercial subtitle contrast pass failed because the FFmpeg drawbox width expression used `w-140`, which was not accepted in that filter context.
+
+### Error
+```text
+Error when evaluating the expression 'w-140'
+```
+
+### Suggested Fix
+Use `iw-140`/`ih` in drawbox expressions, then rerun and verify the output file.
+
+---
+
 ## [ERR-20260912-006] Visual gate test launched without project import path
 
 **Logged**: 2026-09-12T08:06:00+08:00
