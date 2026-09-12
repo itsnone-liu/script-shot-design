@@ -39,7 +39,8 @@ def main() -> int:
             hints=scene.get("shot_hints") or []
             notes=scene.get("visual_notes") or ""
             audio=scene.get("audio_notes") or ""
-            shot["generation_prompt"]="; ".join([str(x) for x in hints] + [notes, "single protagonist, preserve continuity, no generated text", "internal shot timeline: express only the listed action in order", "never show: readable text, logo, watermark, extra characters, sudden transformation", "continuity lock: preserve character, cup, light direction and screen direction", "final hold 1 second: settle on the specified end framing; final 1 second hold"])
+            edit_design=scene.get("shot_list") or scene.get("editorial_shots") or []
+            shot["generation_prompt"]="; ".join([str(x) for x in hints] + [notes, f"approved script-first internal shot list: {json.dumps(edit_design,ensure_ascii=False)}" if edit_design else "preserve the approved editorial cuts and shot timing", "single attention subject per internal shot; preserve continuity across cuts; no generated text", "explicitly render hard cuts, action/shape/color/sound match cuts and shot-size changes where listed", "one primary camera move per internal shot, not per whole generation container", "never show: readable text, logo, watermark, extra characters, sudden unexplained transformation", "continuity lock: preserve subject, product, light direction and screen direction", "only the final film container requires a stable hold; middle containers may exit on a declared cut action"])
             shot["sound"]=audio
     project["story_source"]={"package":str(args.package),"diagnostics":"pass","user_script_review":approval}
     args.output.parent.mkdir(parents=True,exist_ok=True)

@@ -67,8 +67,8 @@ def build_prompt(brief: dict[str, Any], reference: dict[str, Any], rules: list[d
     return f"""Create a complete structured short-film script package.
 
 Return one JSON object with keys: concept_candidates (3 items), story_statement,
-beat_sheet (5-7 beats), scene_cards, script_markdown, reviews, diagnostics.
-Do not write shots yet. Keep all causality visible and filmable.
+beat_sheet (4-9 beats), scene_cards, script_markdown, reviews, diagnostics.
+First establish concept and causality, then let story/editorial rhythm determine a motivated shot list in scene_cards. Do not pre-divide the film into equal 10-second blocks.
 
 NON-NEGOTIABLES:
 - one protagonist and one main goal unless the brief says otherwise;
@@ -77,6 +77,9 @@ NON-NEGOTIABLES:
 - no sudden success, unexplained inspiration, or dialogue describing visible action;
 - separate visual spectacle from story function; use spectacle only when it advances the beat;
 - respect duration, platform, dialogue policy, safety and production constraints;
+- in scene_cards include an editorial shot list whose durations and cuts come from story needs, not equal-duration templates;
+- each internal shot may have one primary camera move; after an explicit cut the next shot may use a different move;
+- treat MiniMax 5-15 second generation calls as later technical containers that may include multiple explicit internal cuts;
 - mark uncertainty and production risks instead of inventing facts.
 
 CREATIVE BRIEF:
