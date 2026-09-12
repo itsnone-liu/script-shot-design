@@ -58,13 +58,18 @@ class PromptContractTests(unittest.TestCase):
         self.assertEqual([],lint_camera(doc))
 
     def test_ev30_runner_refuses_unapproved_contracts(self):
-        import importlib.util
+        import copy,importlib.util
         spec=importlib.util.spec_from_file_location('run_ev30',ROOT/'experiments/run_ev30.py')
         mod=importlib.util.module_from_spec(spec);spec.loader.exec_module(mod)
         contracts=mod.load_contracts()
         self.assertGreaterEqual(len(contracts),3)
+        for doc in contracts:  # repo state may legitimately be approved after user sign-off
+            doc['user_script_review']={'status':'pending','script_version':'ev30-v1','reviewed_by':''}
         errors=mod.approval_errors(contracts)
         self.assertTrue(errors,'EV30 must refuse to render before user approval')
         for e in errors:self.assertIn('approval',e.lower())
+        for doc in contracts:  # approved contracts must pass the gate
+            doc['user_script_review']={'status':'approved','script_version':'ev30-v1','reviewed_by':'user'}
+        self.assertEqual([],mod.approval_errors(contracts))
 
 if __name__=='__main__': unittest.main()
