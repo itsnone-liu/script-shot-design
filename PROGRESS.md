@@ -161,6 +161,15 @@
 - 商业交付复盘：`output/ad30_visual_reset_v7/commercial_review.json`。
 - 商业版 Tailscale 页面：`http://100.84.28.40:8834/`；本机 HTTP 200 验证通过。
 
+## 2026-09-12：创意审批与导演提示词体系 v1
+
+- 流程改为“创意先审批，再编译生产”：`AdProject.validate()` 与脚本导出器要求 `user_script_review.status=approved`、`script_version`、`reviewed_by`，未审批项目不能进入有效生产项目。
+- 新增 `shortfilm/prompt_contract.py`：Prompt Bible、3–6个镜内时间节拍、Camera Plan、首尾帧、稳定尾帧和确定性MiniMax提示词编译；限制4–15秒、最多一次路径变化、至少1秒尾帧、7000字符预算。
+- 新增 `shortfilm/camera_lint.py`：检查无动机运镜、主运镜未在节拍中实例化、静止/运动冲突、运动族过多、路径不具体和尾帧不稳定。
+- 新增CLI `shortfilm.cli.compile_director_prompt`、咖啡导演合同样例、模糊提示词基线、A/B实验项目与8项离线回归测试；测试全部通过。
+- A/B dry-run通过，确认T2V节点仅含138(prompt)和132(duration)，没有图像节点污染。
+- 真实A/B实验两臂均在生成前返回RunningHub `[805] APIKEY_TASK_STATUS_ERROR`，因此没有可比较视频；冻结实验与评分规则记录在 `experiments/CAMERA_PROMPT_AB_V1.md`，待API凭证/权限恢复后原样续跑。
+
 
 
 ## 2026-09-12：V4 剧本定向重写与真实视频复跑

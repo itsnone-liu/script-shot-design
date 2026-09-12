@@ -12,10 +12,17 @@ def main() -> int:
     args=ap.parse_args()
     diagnostics=load(args.package/"diagnostics.json")
     reviews=load(args.package/"reviews.json") if (args.package/"reviews.json").exists() else {}
+    approval_path=args.package/"user_script_review.json"
+    approval=load(approval_path) if approval_path.exists() else {"status":"pending"}
     severe_reviews=[issue for review in reviews.get("reviews", []) for issue in (review.get("issues", []) if isinstance(review, dict) else []) if issue.get("severity") == "blocker"]
-    if diagnostics.get("status") != "pass" or severe_reviews:
+    approval_errors=[]
+    if approval.get("status") != "approved": approval_errors.append("explicit user approval is required")
+    if not str(approval.get("script_version","")).strip(): approval_errors.append("approved script_version is required")
+    if not str(approval.get("reviewed_by","")).strip(): approval_errors.append("approved reviewed_by is required")
+    if diagnostics.get("status") != "pass" or severe_reviews or approval_errors:
         print("SCRIPT GATE BLOCKED")
         if severe_reviews: print(f"blocking review issues: {len(severe_reviews)}")
+        for error in approval_errors: print(f"approval: {error}")
         return 1
     project=load(args.template)
     beats=load(args.package/"beat_sheet.json").get("beats",[])
@@ -34,7 +41,7 @@ def main() -> int:
             audio=scene.get("audio_notes") or ""
             shot["generation_prompt"]="; ".join([str(x) for x in hints] + [notes, "single protagonist, preserve continuity, no generated text", "internal shot timeline: express only the listed action in order", "never show: readable text, logo, watermark, extra characters, sudden transformation", "continuity lock: preserve character, cup, light direction and screen direction", "final hold 1 second: settle on the specified end framing; final 1 second hold"])
             shot["sound"]=audio
-    project["story_source"]={"package":str(args.package),"diagnostics":"pass"}
+    project["story_source"]={"package":str(args.package),"diagnostics":"pass","user_script_review":approval}
     args.output.parent.mkdir(parents=True,exist_ok=True)
     args.output.write_text(json.dumps(project,ensure_ascii=False,indent=2),encoding="utf-8")
     print(f"EXPORTED SCRIPT PROJECT: {args.output}")

@@ -6,6 +6,29 @@ Corrections, insights, and knowledge gaps captured during development.
 
 ---
 
+## [LRN-20260912-006] best_practice
+
+**Logged**: 2026-09-12T09:42:00+08:00
+**Priority**: critical
+**Status**: resolved
+**Area**: backend
+
+### Summary
+821 must treat user script approval and director-prompt compilation as separate hard stages.
+
+### Details
+Story causality improved in both people and product-only versions, but creative quality remains the root of output quality. Structural validation cannot replace user review. After approval, abstract story language must be compiled into a Prompt Bible, physical visible states, 3–6 in-shot beats, one motivated camera path, focus transitions and an editable final hold. New scripts must generate new shot structures instead of being fitted into inherited templates.
+
+### Suggested Action
+Require `user_script_review` before export/render; use structured director contracts and camera lint for all new MiniMax segments; run controlled A/B experiments before promoting camera recipes.
+
+### Metadata
+- Source: user_feedback
+- Related Files: shortfilm/prompt_contract.py, shortfilm/camera_lint.py, shortfilm/model.py
+- Tags: approval, prompting, camera, minimax
+
+---
+
 ## [LRN-20260912-001] best_practice
 
 **Logged**: 2026-09-12T00:00:00Z

@@ -45,6 +45,18 @@ python -m uvicorn app.main:app --port 8840
 
 短视频模块的第一版建议作为独立 CLI/服务（例如 `shortfilm/`），完成稳定后再挂到现有前端；这样不会把尚未稳定的镜头生成流程混入课件生产链路。
 
+### 创意审批与导演提示词
+
+短片生产采用“创意先审批，再编译生产”：LLM脚本即使通过结构验证，也必须存在明确的 `user_script_review`（`status=approved`、`script_version`、`reviewed_by`）才能通过项目验证或导出镜头。修改脚本后应重新审批。
+
+镜内导演合同将 Prompt Bible、3–6个连续时间节拍、Camera Plan、首尾帧和稳定尾帧拆成结构化字段，再确定性编译为MiniMax提示词：
+
+```powershell
+python -m shortfilm.cli.compile_director_prompt examples/director_contract/coffee_camera_v1.json output/director_prompt.txt
+```
+
+合同和运镜lint会拦截：缺少用户审批、时间线间隙、超过15秒、多于一次路径变化、无动机运镜、静止/运动冲突、没有稳定尾帧以及超过7000字符。
+
 ### 每镜头参考图与串行生成
 
 I2V 可通过 JSON 为不同镜头指定独立参考图；相对路径以映射文件所在目录解析，同一图片在一次运行中只上传一次：

@@ -32,6 +32,71 @@ The CLI now inserts its own root into `sys.path`, and validators accept both wra
 
 ---
 
+## [ERR-20260912-010] RunningHub T2V experiment blocked by API key task status
+
+**Logged**: 2026-09-12T09:39:00+08:00
+**Priority**: high
+**Status**: pending
+**Area**: infra
+
+### Summary
+Both baseline and structured 15s T2V experiment submissions were rejected before generation with RunningHub code 805.
+
+### Error
+```text
+[805] APIKEY_TASK_STATUS_ERROR
+```
+
+### Context
+- Workflow: T2V 2092847765977378817
+- Dry-run node mapping had passed (nodes 138 prompt, 132 duration).
+- Both arms failed identically, so no creative comparison was possible and the failure is infrastructure/account status rather than prompt quality.
+
+### Suggested Fix
+Refresh/repair the RunningHub API credential or task permission, then resume the frozen A/B packets without changing prompts.
+
+---
+
+## [ERR-20260912-009] PowerShell Set-Content added UTF-8 BOM to JSON fixture
+
+**Logged**: 2026-09-12T09:33:00+08:00
+**Priority**: low
+**Status**: resolved
+**Area**: tests
+
+### Summary
+A PowerShell JSON rewrite added a UTF-8 BOM, while the project loader intentionally reads strict `utf-8`, causing JSON decode failure.
+
+### Error
+```text
+JSONDecodeError: Unexpected UTF-8 BOM
+```
+
+### Suggested Fix
+Use Python `Path.write_text(..., encoding='utf-8')` or the repository write tool for JSON artifacts.
+
+---
+
+## [ERR-20260912-008] embedded Python ignored project package on module/test invocation
+
+**Logged**: 2026-09-12T09:30:00+08:00
+**Priority**: low
+**Status**: resolved
+**Area**: tests
+
+### Summary
+`python -m unittest` and `python -m shortfilm...` could not import `shortfilm` under the portable embedded Python despite using the project workdir.
+
+### Error
+```text
+ModuleNotFoundError: No module named 'shortfilm'
+```
+
+### Suggested Fix
+Set `PYTHONPATH` to the explicit project root for module and unittest runs.
+
+---
+
 ## [ERR-20260912-007] FFmpeg drawbox expression used w instead of iw
 
 **Logged**: 2026-09-12T08:45:00+08:00

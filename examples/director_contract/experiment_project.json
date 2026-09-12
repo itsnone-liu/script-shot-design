@@ -1,0 +1,65 @@
+{
+  "project_id": "coffee_camera_prompt_ab_01",
+  "title": "Coffee camera prompt A/B",
+  "duration_target": 30.0,
+  "aspect_ratio": "9:16",
+  "audience": "short-form coffee viewers",
+  "product": "cold brew coffee",
+  "core_message": "water visibly reveals coffee through a continuous physical process",
+  "visual_style": "photoreal macro product cinematography, dark walnut and espresso palette, warm side backlight",
+  "story_template": "prompt_camera_ab_v1",
+  "user_script_review": {"status":"approved","script_version":"coffee-camera-exp-v1","reviewed_by":"user"},
+  "shots": [
+    {
+      "shot_id": "BASELINE",
+      "scene_id": "EXP",
+      "story_beat": "vague event-only prompt control",
+      "duration": 15.0,
+      "shot_size": "extreme_close_up",
+      "camera_move": "handheld",
+      "movement_intent": "reveal",
+      "movement_speed": "medium",
+      "start_framing": "coffee grounds macro",
+      "end_framing": "coffee liquid",
+      "continuity_out": "control arm result",
+      "subject_action": "water drop transforms coffee grounds into coffee",
+      "generation_prompt": "Cinematic macro coffee advertisement. A drop of cold water falls onto coffee grounds and turns into coffee. The camera moves dynamically around the scene, zooming in and out with dramatic cinematic lighting. High-end commercial quality, rich brown tones, realistic liquid, beautiful smooth motion, 15 seconds, no text or watermark. Internal shot timeline: show the event during the 15 seconds. Continuity lock: keep coffee material consistent. Never show: readable text, logo, watermark. Final 1 seconds hold on coffee liquid.",
+      "reference_assets": [
+        "coffee_beans_anchor"
+      ],
+      "generation_workflow": "rh_video",
+      "acceptance_tests": [
+        "coffee grounds visible",
+        "water drop visible",
+        "no text or UI"
+      ]
+    },
+    {
+      "shot_id": "STRUCTURED",
+      "scene_id": "EXP",
+      "story_beat": "director-contract prompt treatment",
+      "duration": 15.0,
+      "shot_size": "extreme_close_up",
+      "camera_move": "tracking",
+      "movement_intent": "follow",
+      "movement_speed": "slow",
+      "start_framing": "top-down macro water drop over grounds",
+      "end_framing": "shallow side close-up of stable coffee surface",
+      "continuity_out": "stable coffee surface and glass edge",
+      "subject_action": "visible capillary wetting and liquid-channel merge",
+      "generation_prompt": "MAIN VISUAL TASK\r\nFollow one cold-water drop as it visibly wets coffee grounds and reveals a continuous dark coffee surface.\r\n\r\nPROMPT BIBLE / CONTINUITY LOCK\r\nSubject: the same bed of coarse dark-roasted coffee grounds and one clear cold-water drop\r\nEnvironment: dark walnut tabletop, seamless black background, no people\r\nMaterials: real granular coffee grounds, transparent water, visibly wet porous coffee, dark brown coffee liquid\r\nLighting: warm narrow side backlight from upper right, faint cool fill from left, no lighting change\r\nPalette: espresso brown, walnut brown, warm amber highlights, black background\r\nLens and texture: photoreal macro cinema lens, shallow depth of field, natural micro-texture, no CGI geometry\r\nScreen direction: water and camera travel from upper center downward; preserve direction throughout\r\nAudio policy: close-miked water drop, wet absorption and low room tone; no music, no voice\r\n\r\nINTERNAL SHOT TIMELINE\r\n0-3s | extreme_close_up | visual state: dry coffee granules fill the frame and one clear drop hangs above them | subject action: the drop slowly descends toward a visible pore between granules | camera: locked macro start, then a very short downward tracking motion begins | focus: drop surface and the exact contact point | lighting: warm rim light reveals transparent water and oily coffee texture | end state: drop is one millimeter above the grounds\r\n3-6s | extreme_close_up | visual state: the drop touches the dry porous surface | subject action: water flattens, enters gaps and creates an irregular wet edge | camera: track downward with the contact, no cut and no orbit | focus: contact line and granular capillary absorption | lighting: same fixed side backlight | end state: a small dark wet patch is clearly visible\r\n6-10s | close_up | visual state: wet patch expands through connected coffee granules | subject action: thin real liquid channels merge; granules darken progressively from center outward | camera: continue one smooth arc fifteen degrees to the right while slowly pulling back | focus: rack focus from the leading wet edge to connected liquid channels | lighting: same light direction, amber highlights move only because camera moves | end state: several channels have merged into one coherent dark pool\r\n10-13s | medium_close_up | visual state: the coherent coffee pool now reveals the curved edge of a glass vessel | subject action: the liquid surface rises slightly and settles with small physical ripples | camera: complete the same pullback and lower to a shallow side angle | focus: transition from wet grounds to the complete liquid surface and glass edge | lighting: warm rim outlines the glass edge, cool fill preserves liquid detail | end state: the whole coffee surface and glass edge are readable\r\n13-15s | medium_close_up | visual state: stable dark coffee surface inside the same glass edge | subject action: ripples decelerate naturally until almost still | camera: camera decelerates to a complete stop | focus: locked on the surface highlight and glass edge | lighting: unchanged | end state: clean stable endpoint for a matched edit\r\n\r\nCAMERA PATH\r\nMotivation: the camera behaves like an observer following the physical cause from drop to absorbed liquid, then reveals the result\r\nStart position: top-down macro, six centimeters above the coffee grounds\r\nPrimary move: tracking\r\nPhysical path: track down with the drop, continue into a shallow fifteen-degree right arc, then pull back and lower to reveal the glass edge\r\nSpeed curve: very slow opening, brief medium acceleration at contact, smooth slow pullback, full deceleration for the final two seconds\r\nFocus transition: drop surface to contact edge to connected liquid channels to full coffee surface and glass edge\r\nEnd position: shallow thirty-degree side angle, medium close-up of coffee surface and glass edge\r\nAxis lock: never cross the water travel axis; downward motion stays downward on screen\r\nStop condition: stop only after the liquid ripples have visibly settled\r\n\r\nFIRST FRAME\r\ndry coffee grounds in extreme macro with one transparent water drop above the exact center contact point\r\n\r\nLAST FRAME\r\nstable dark coffee surface and curved glass edge, no text, no logo, no camera motion\r\n\r\nFINAL 2 SECONDS HOLD\r\nAll subject and camera movement decelerates to a stable, editable end state.\r\n\r\nNEVER SHOW\r\nreadable text, logo, watermark, UI, blue title card, blocks or geometric placeholders, people, instant magical transformation",
+      "reference_assets": [
+        "coffee_beans_anchor"
+      ],
+      "generation_workflow": "rh_video",
+      "acceptance_tests": [
+        "one continuous camera path",
+        "3 or more readable framing/focus changes",
+        "coffee grounds remain material, never blocks",
+        "visible wet intermediate state",
+        "stable final two-second hold",
+        "no text, UI, logo or watermark"
+      ]
+    }
+  ]
+}

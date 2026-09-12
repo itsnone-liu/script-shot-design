@@ -107,6 +107,7 @@ class AdProject:
     core_message: str = ""
     visual_style: str = ""
     story_template: str = "deadline_breakthrough_v1"
+    user_script_review: dict[str, Any] = field(default_factory=dict)
     shots: list[Shot] = field(default_factory=list)
 
     def validate(self) -> list[str]:
@@ -117,6 +118,9 @@ class AdProject:
             errors.append("MVP aspect_ratio must be 9:16")
         if not self.product or not self.core_message:
             errors.append("product and core_message are required")
+        review=self.user_script_review or {}
+        if review.get("status") != "approved" or not review.get("script_version") or not review.get("reviewed_by"):
+            errors.append("explicit user script approval is required")
         if not self.shots:
             errors.append("at least one shot is required")
         errors.extend(error for shot in self.shots for error in shot.validate())
