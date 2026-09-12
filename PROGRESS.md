@@ -152,6 +152,16 @@
 - 使用明确咖啡参考图重跑：P01、P02 均 SUCCESS；P01/P02 开头、结尾和段间边界抽帧检查未发现 MiniMax 蓝色字样、UI 或演示水印。最终组装：`output/ad30_visual_reset_v6/coffee_visual_reset_30s_clean_qa.mp4`。
 - v6 Tailscale 预览页：`http://100.84.28.40:8833/`；复盘：`output/ad30_visual_reset_v6/production_review.json`。正式交付前仍建议完整播放一次，确认中段连续性和产品可识别性；当前无额外音乐/品牌包装。
 
+## 2026-09-12：商业交付版
+
+- 基于 v6 清理版加入 `ambient_score.wav` 背景音乐、五个克制的水滴/转场提示音、淡入淡出和片尾后期文案。
+- 商业版文件：`output/ad30_visual_reset_v7/coffee_visual_reset_30s_commercial.mp4`；864×1536、24fps、30秒、AAC 48kHz 立体声。
+- 片尾文案为“清醒，从一滴水开始 / 冷萃咖啡”；由于当前没有用户提供的正式品牌Logo，未虚构Logo，页面明确标注为文案占位。
+- 片尾字幕增加全宽深色底衬和描边，外部视觉检查确认无乱码、基本清晰可读且不遮挡瓶身主体。
+- 商业交付复盘：`output/ad30_visual_reset_v7/commercial_review.json`。
+- 商业版 Tailscale 页面：`http://100.84.28.40:8834/`；本机 HTTP 200 验证通过。
+
+
 
 ## 2026-09-12：V4 剧本定向重写与真实视频复跑
 
