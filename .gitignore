@@ -16,4 +16,8 @@ run/
 output/ad30_script_llm_v1/
 output/ad30_script_llm_v2/
 output/ad30_v2/
+output/ad30_v2_deepseek/
+output/ad30_script_deepseek_v4/
+output/ad30_script_deepseek_v4b/
 examples/ad30_v2/project_from_llm.json
+examples/ad30_v2/project_from_deepseek_v4.json
