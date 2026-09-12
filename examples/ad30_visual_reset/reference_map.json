@@ -1,0 +1,4 @@
+{
+  "P01": "../ad30_light/assets/anchors/A01_beans_dark.png",
+  "P02": {"first": "../ad30_light/assets/anchors/A02_drop.png", "last": "../ad30_light/assets/anchors/A04_hero.png"}
+}
