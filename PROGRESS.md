@@ -141,3 +141,12 @@
 - V4 与 Mock 的主要差异：V4 自动选择“白板/冷萃/创意总监”方向，写出 5 场、30 秒的视觉广告；同时暴露了玻璃反射发光图形、突然平静、团队认可等可拍性和因果风险。多角色审稿已经标记这些问题，不能只看总状态 `pass`。
 - V4 剧本已导出为 `examples/ad30_v2/project_from_deepseek_v4.json`，项目校验通过，10 镜头/30 秒；prompt packets 和 I2V reference-map dry-run 通过。
 - 真实视频生产尚未执行：当前仍等待用户确认 V4 剧本修订方向；先修正“玻璃反射魔法图形”和“白板 BREATHE/拍照提交”两个问题，再进行单镜头 smoke test。
+
+## 2026-09-12：V4 剧本定向重写与真实视频复跑
+
+- 新增 `revise_script.py`：把真实 V4 的多角色审稿意见回喂模型，强制修复魔法图形、情绪跳变、产品断联和非真实提交等问题。
+- 修订版保留便签草图作为已存在的视觉线索，删除玻璃发光 VFX；保留“焦虑→犹豫→暂停→重新判断”的渐进过渡；输出 `output/ad30_script_deepseek_v4_revision/`，诊断通过，只有产品动作计数 warning。
+- 修订版导出 `examples/ad30_v2/project_from_deepseek_v4_revision.json`，通过 `validate_project`：10 镜头、30 秒；prompt packets 和 I2V reference-map dry-run 均通过。
+- 真实 RunningHub 复跑完成：S03/S04/S05/S06/S09/S10 全部 SUCCESS，均归一化为 864×1536、24fps、9:16；S01/S02/S07/S08 使用已验证的后期合成资产。
+- 已重新组装 `output/ad30_v2_deepseek_revision/coffee_deepseek_v4_revision_30s.mp4`，约 30 秒；复盘记录在同目录 `production_review.json`。当前视频是无音频粗剪，音乐、拟音、字幕和品牌包装仍需后期处理。
+
