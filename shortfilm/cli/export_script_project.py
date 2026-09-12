@@ -11,8 +11,11 @@ def main() -> int:
     ap.add_argument("output", type=Path)
     args=ap.parse_args()
     diagnostics=load(args.package/"diagnostics.json")
-    if diagnostics.get("status") != "pass":
+    reviews=load(args.package/"reviews.json") if (args.package/"reviews.json").exists() else {}
+    severe_reviews=[issue for review in reviews.get("reviews", []) for issue in (review.get("issues", []) if isinstance(review, dict) else []) if issue.get("severity") == "blocker"]
+    if diagnostics.get("status") != "pass" or severe_reviews:
         print("SCRIPT GATE BLOCKED")
+        if severe_reviews: print(f"blocking review issues: {len(severe_reviews)}")
         return 1
     project=load(args.template)
     beats=load(args.package/"beat_sheet.json").get("beats",[])

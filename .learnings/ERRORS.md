@@ -56,6 +56,28 @@ Use the exact project root and prefer fixed absolute paths when invoking 821 com
 
 ---
 
+## [ERR-20260912-003] DeepSeek V4 stage read timeout
+
+**Logged**: 2026-09-12T14:45:00+08:00
+**Priority**: high
+**Status**: in_progress
+**Area**: infra
+
+### Summary
+The specified Alibaba Bailian OpenAI-compatible endpoint answered a small probe, but the first full story stage exceeded the adapter's previous 180-second timeout.
+
+### Context
+The full prompt included the creative brief, reference workflow notes, and rules. No stage artifact beyond `creative_brief.json` was written. The provider adapter now supports a configurable timeout and reports the stage on failure.
+
+### Suggested Fix
+Retry with a 600-second per-request timeout and keep stage progress visible; avoid leaking the API key into files or logs.
+
+### Metadata
+- Reproducible: pending
+- Related Files: `p821.py`, `llm/openai_compat.py`
+
+---
+
 ## [ERR-20260911-005] RunningHub polling read timeout
 
 **Logged**: 2026-09-11T10:05:00+08:00
