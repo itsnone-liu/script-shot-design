@@ -4,6 +4,34 @@ Command failures and integration errors.
 
 ---
 
+## [ERR-20260912-001] Story pipeline import and fixture shape mismatch
+
+**Logged**: 2026-09-12T06:30:00+08:00
+**Priority**: medium
+**Status**: resolved
+**Area**: backend
+
+### Summary
+The first offline pipeline run failed because the script was launched from a Python environment that did not include the project root, then failed because fixture documents wrapped beat and scene lists in objects.
+
+### Error
+```text
+ModuleNotFoundError: No module named 'validators'
+AttributeError: 'str' object has no attribute 'get'
+```
+
+### Context
+The 821 ComfyUI Python environment does not automatically put the working directory on `sys.path`. The fixture contract also uses `{ "beats": [...] }` and `{ "scenes": [...] }`, while the validator initially assumed bare arrays.
+
+### Suggested Fix
+The CLI now inserts its own root into `sys.path`, and validators accept both wrapped and bare list forms.
+
+### Metadata
+- Reproducible: yes
+- Related Files: `p821.py`, `validators.py`
+
+---
+
 ## [ERR-20260911-005] RunningHub polling read timeout
 
 **Logged**: 2026-09-11T10:05:00+08:00

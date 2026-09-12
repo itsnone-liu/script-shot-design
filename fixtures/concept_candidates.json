@@ -1,0 +1,10 @@
+{
+  "schema_version":"0.1",
+  "candidates":[
+    {"id":"coffee_reframe","hook":"最后一页不是缺内容，而是缺少离开屏幕的观察","insight":"高压创作者需要改变观察方式","angle":"现实光影成为构图参照","tension":"倒计时与反复修改冲突","why_it_works":"产品通过光影触发行动改变","minimax_visual_fit":"杯影、窗光、页面几何适合MiniMax短段落","risk_flags":["光影因果需清楚"]},
+    {"id":"coffee_pause","hook":"暂停播放才能找回片尾","insight":"删减比继续添加更重要","angle":"剪辑师观察咖啡倒影","tension":"修改意见不断堆积","why_it_works":"倒影成为筛选注意力的锚点","minimax_visual_fit":"屏幕与倒影适合首尾帧衔接","risk_flags":["屏幕文字后期"]},
+    {"id":"coffee_send","hook":"发送前的一次停顿避免交付错误","insight":"速度压力掩盖了真正问题","angle":"咖啡桌面让人物重新阅读","tension":"发送倒计时与方案空洞冲突","why_it_works":"产品触发重新判断","minimax_visual_fit":"桌面、手部、屏幕可拆为短镜头","risk_flags":["界面信息需后期"]}
+  ],
+  "selected_id":"coffee_reframe",
+  "selection_rationale":"优先选择因果最清楚、最适合MiniMax视觉表达且可复用到非产品故事的方案"
+}

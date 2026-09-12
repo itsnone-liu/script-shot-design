@@ -10,3 +10,5 @@ __pycache__/
 __pycache__/
 *.pyc
 _tmp_*.py
+reference_empty.json
+rules_empty.json
