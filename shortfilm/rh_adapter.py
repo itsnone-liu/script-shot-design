@@ -20,9 +20,10 @@ from experiments import rh_task  # type: ignore  # noqa: E402
 # Legacy dual-sampling/upscale card: dynamic duration node exists, but >10s
 # can OOM at its baked 1.2x second-pass settings. Keep it as t2v_quality.
 T2V_WORKFLOW = "2092847765977378817"
-# Variable-duration single-pass card (5-15s) is populated after the RH copy/bake
-# step; until then calls fail locally rather than silently using the legacy card.
-T2V_VARIABLE_WORKFLOW = ""
+# The graph already has a dynamic seconds→17k+5 frame formula. Variable mode
+# uses the same card but lowers megapixels as duration rises to stay inside the
+# dual-sampling VRAM envelope; script duration is never forced back to 10s.
+T2V_VARIABLE_WORKFLOW = T2V_WORKFLOW
 I2V_WORKFLOW = "2092512701252022274"
 
 
@@ -39,8 +40,6 @@ def build_node_info(packet: dict, *, workflow: str = "t2v", reference_file: str 
     min_duration,max_duration=ranges[workflow]
     if duration < min_duration or duration > max_duration:
         raise ValueError(f"{workflow} workflow duration must be in [{min_duration}, {max_duration}], got {duration:g}")
-    if workflow=="t2v_variable" and not T2V_VARIABLE_WORKFLOW:
-        raise RuntimeError("t2v_variable workflow is not baked yet; configure T2V_VARIABLE_WORKFLOW after RH validation")
     if workflow == "i2v":
         if not reference_file:
             raise ValueError("i2v requires an explicit first-frame reference; refusing cached workflow defaults")
@@ -59,9 +58,18 @@ def build_node_info(packet: dict, *, workflow: str = "t2v", reference_file: str 
         return nodes
     nodes = [
         {"nodeId": "138", "fieldName": "value", "fieldValue": _prompt(packet)},
-        # The RH card requires duration to be sent even though its cache has a default.
+        # Node 132 feeds the dynamic 24fps→17k+5 frame formula at node 131.
         {"nodeId": "132", "fieldName": "value", "fieldValue": str(round(float(packet["duration"])))},
     ]
+    if workflow=="t2v_variable":
+        # Trade spatial resolution for temporal length so the dual-sampling
+        # branch remains inside the observed VRAM envelope.
+        megapixels=0.9 if duration<=10 else 0.7 if duration<=13 else 0.6
+        nodes.extend([
+            {"nodeId":"115","fieldName":"megapixels","fieldValue":str(megapixels)},
+            {"nodeId":"115","fieldName":"aspect_ratio","fieldValue":str(packet.get("aspect_ratio") or "16:9 (Widescreen)")},
+            {"nodeId":"182","fieldName":"value","fieldValue":"1.2"},
+        ])
     if reference_file:
         nodes.extend([
             {"nodeId": "137", "fieldName": "image", "fieldValue": reference_file},

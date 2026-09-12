@@ -49,9 +49,12 @@ class PromptContractTests(unittest.TestCase):
         with self.assertRaisesRegex(ValueError,'10'):
             build_node_info({'duration':15,'prompt':'test'},workflow='t2v_quality')
 
-    def test_variable_t2v_profile_is_not_silently_routed_to_legacy_card(self):
-        with self.assertRaisesRegex(RuntimeError,'not baked'):
-            build_node_info({'duration':12,'prompt':'test'},workflow='t2v_variable')
+    def test_variable_t2v_profile_compensates_resolution_by_duration(self):
+        n12=build_node_info({'duration':12,'prompt':'test'},workflow='t2v_variable')
+        n15=build_node_info({'duration':15,'prompt':'test'},workflow='t2v_variable')
+        self.assertTrue(any(x['nodeId']=='115' and x['fieldName']=='megapixels' and x['fieldValue']=='0.7' for x in n12))
+        self.assertTrue(any(x['nodeId']=='115' and x['fieldName']=='megapixels' and x['fieldValue']=='0.6' for x in n15))
+        self.assertTrue(any(x['nodeId']=='132' and x['fieldValue']=='15' for x in n15))
 
     def test_i2v_card_allows_fifteen_seconds_with_reference(self):
         nodes=build_node_info({'duration':15,'prompt':'test'},workflow='i2v',reference_file='input.png')
