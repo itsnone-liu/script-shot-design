@@ -21,6 +21,8 @@ output/ad30_script_deepseek_v4/
 output/ad30_script_deepseek_v4b/
 output/ad30_script_deepseek_v4_revision/
 output/ad30_v2_deepseek_revision/
+output/ad30_v2_deepseek_revision/render/
+output/ad30_v2_deepseek_revision/
 examples/ad30_v2/project_from_llm.json
 examples/ad30_v2/project_from_deepseek_v4.json
 examples/ad30_v2/project_from_deepseek_v4_revision.json
