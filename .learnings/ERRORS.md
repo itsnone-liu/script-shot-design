@@ -32,6 +32,30 @@ The CLI now inserts its own root into `sys.path`, and validators accept both wra
 
 ---
 
+## [ERR-20260912-002] Wrong 821 working directory
+
+**Logged**: 2026-09-12T06:35:00+08:00
+**Priority**: low
+**Status**: resolved
+**Area**: infra
+
+### Summary
+A pipeline test used the shortened `D:\\qjcNetDiskDownload\\project\\821` path instead of the actual `D:\\qjcNetDiskDownload\\deepseek-harness\\project\\821` path.
+
+### Error
+```text
+[Errno 2] No such file or directory: 'p821.py'
+```
+
+### Suggested Fix
+Use the exact project root and prefer fixed absolute paths when invoking 821 commands.
+
+### Metadata
+- Reproducible: yes
+- Related Files: `p821.py`
+
+---
+
 ## [ERR-20260911-005] RunningHub polling read timeout
 
 **Logged**: 2026-09-11T10:05:00+08:00

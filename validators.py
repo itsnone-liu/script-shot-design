@@ -31,3 +31,12 @@ def validate_package(package: dict[str, Any], brief: dict[str, Any]) -> list[dic
     return issues
 
 def status(issues): return "block" if any(x["severity"]=="blocker" for x in issues) else "pass"
+
+def validate_document(document: dict[str, Any], schema_name: str) -> list[dict[str, Any]]:
+    """Small dependency-free contract check used before stage handoff."""
+    required = {
+        "concept_candidates": ("candidates",), "story_statement": ("logline", "protagonist", "desire", "obstacle"),
+        "beat_sheet": ("beats",), "scene_cards": ("scenes",), "reviews": ("reviews",),
+    }.get(schema_name, ())
+    return [{"severity":"blocker", "code":"missing_contract_field", "stage":schema_name, "field":field}
+            for field in required if not document.get(field)]

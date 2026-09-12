@@ -4,7 +4,8 @@ import argparse, json, os, shutil, sys, time
 from pathlib import Path
 ROOT=Path(__file__).resolve().parent
 if str(ROOT) not in sys.path: sys.path.insert(0, str(ROOT))
-from validators import validate_package, status
+from validators import validate_package, validate_document, status
+from stages import STAGES, messages_for
 from llm.mock import MockClient
 from llm.openai_compat import OpenAICompatibleClient
 
@@ -23,11 +24,17 @@ def main():
         if args.fixture_dir: client=MockClient(Path(args.fixture_dir))
         else: client=OpenAICompatibleClient(args.base_url,args.api_key,args.model)
         started=time.time(); package={}
-        for stage in ("concept_candidates","story_statement","beat_sheet","scene_cards","script_markdown","reviews"):
-            messages=[{"role":"system","content":"You are a senior short-film screenwriter. Return JSON only."},{"role":"user","content":json.dumps({"brief":brief,"reference":load(args.reference) if args.reference!="{}" else {},"rules":load(args.rules) if args.rules!="[]" else [],"previous":package},ensure_ascii=False)}]
-            try: package[stage]=client.complete(messages,{"type":"object"},stage=stage)
-            except FileNotFoundError: package[stage] = package.get(stage,{})
-        issues=validate_package(package,brief); diagnostics={"status":status(issues),"issues":issues,"elapsed_sec":round(time.time()-started,2)}; package["diagnostics"]=diagnostics
+        reference=load(args.reference) if args.reference!="{}" else {}; rules=load(args.rules) if args.rules!="[]" else []
+        for stage in STAGES:
+            stage_errors=[]
+            for attempt in range(2):
+                messages=messages_for(stage, brief, package, reference, rules, stage_errors)
+                try: value=client.complete(messages,{"type":"object"},stage=stage)
+                except FileNotFoundError: value=package.get(stage,{})
+                stage_errors=validate_document(value, stage) if isinstance(value, dict) and stage != "script_markdown" else []
+                if not stage_errors: break
+            package[stage]=value
+        issues=validate_package(package,brief); diagnostics={"status":status(issues),"issues":issues,"elapsed_sec":round(time.time()-started,2),"stages":list(STAGES)}; package["diagnostics"]=diagnostics
         for key,value in package.items():
             if key=="script_markdown":
                 text = value.get("markdown", "") if isinstance(value, dict) else str(value)

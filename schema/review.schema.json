@@ -1,0 +1,1 @@
+{"$schema":"https://json-schema.org/draft/2020-12/schema","type":"object","required":["reviews"],"properties":{"schema_version":{"type":"string"},"reviews":{"type":"array","items":{"type":"object","required":["reviewer","verdict","issues"],"properties":{"reviewer":{"type":"string"},"verdict":{"type":"string"},"issues":{"type":"array"}}}},"overall_verdict":{"type":"string"}}}
