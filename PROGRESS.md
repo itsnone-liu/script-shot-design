@@ -132,3 +132,12 @@
 - S01、S02、S07、S08 使用本地可控设计稿画面，S10 使用产品首帧完成极慢推进；
 - 已生成 `output/ad30_coffee/coffee_last_page_30s.mp4`：864×1536、24fps、30.00 秒；
 - 完整接触表检查通过，第一版成片已加入 Tailscale 预览网页；当前版本按计划无对白、无模型音频，音乐与拟音留待下一版。
+
+## 2026-09-12：DeepSeek V4 Flash 真实编剧流程
+
+- 使用阿里云百炼 OpenAI-compatible 端点 `deepseek-v4-flash-0731` 完成真实调用；API 密钥仅通过临时环境变量传入，未写入文件或 Git。
+- 首次调用发现 V4 的 reasoning 消耗输出预算且 `content` 为空；适配器增加 `enable_thinking=false`、可配置 timeout、阶段错误提示和 JSON 失败重试。
+- 真实流程耗时约 120 秒，6 个阶段完成：概念候选、故事声明、节拍表、场景卡、可拍脚本、5 角色审稿；确定性诊断 `pass`，但保留产品动作重复 warning。
+- V4 与 Mock 的主要差异：V4 自动选择“白板/冷萃/创意总监”方向，写出 5 场、30 秒的视觉广告；同时暴露了玻璃反射发光图形、突然平静、团队认可等可拍性和因果风险。多角色审稿已经标记这些问题，不能只看总状态 `pass`。
+- V4 剧本已导出为 `examples/ad30_v2/project_from_deepseek_v4.json`，项目校验通过，10 镜头/30 秒；prompt packets 和 I2V reference-map dry-run 通过。
+- 真实视频生产尚未执行：当前仍等待用户确认 V4 剧本修订方向；先修正“玻璃反射魔法图形”和“白板 BREATHE/拍照提交”两个问题，再进行单镜头 smoke test。
