@@ -1,0 +1,112 @@
+{
+  "duration": 10,
+  "main_visual_task": "Wake a sleeping electric car in a dark garage as one thin light bar ignites across its front, while the camera performs one continuous slow push-in toward that light bar.",
+  "user_script_review": {
+    "status": "pending",
+    "script_version": "ev30-v1",
+    "reviewed_by": ""
+  },
+  "segment_id": "S1_static_energy",
+  "matched_cut": {
+    "in_state": "none (film start)",
+    "out_state": "front light bar fully lit and centered head-on, dark garage, ready for S2 sunrise road"
+  },
+  "prompt_bible": {
+    "subject_lock": "the same one silver-grey electric concept sedan with a smooth closed front fascia, one thin full-width LED light bar, flush door handles, aerodynamic covered wheels, dark panoramic glass roof, badge-free body",
+    "environment_lock": "quiet private garage before dawn, matte concrete floor and walls, one car alone, no people",
+    "material_lock": "brushed silver-grey paint with soft specular highlights, matte concrete, glass roof, LED light bar",
+    "lighting_lock": "very dim cool ambient darkness at start; the car's own thin LED light bar ignites and becomes the dominant warm-white key light; fixed light direction thereafter",
+    "palette_lock": "silver grey, graphite concrete, warm-white LED, deep black shadow",
+    "lens_texture": "photoreal cinema lens, 50mm look, natural highlight rolloff, no CGI geometry, no lens flares",
+    "screen_direction": "camera faces the car front dead-on; the light bar stays horizontal and centered",
+    "audio_policy": "near silence, faint electrical hum that rises slightly when the light bar ignites, soft room tone, no music, no voice",
+    "never_show": [
+      "readable text",
+      "badge",
+      "logo",
+      "watermark",
+      "UI",
+      "blocks or geometry",
+      "people",
+      "drivers",
+      "steering wheel close-ups",
+      "distorted wheels",
+      "camera orbit",
+      "lateral camera move",
+      "camera pullback",
+      "headlight beams cutting through fog"
+    ]
+  },
+  "timeline": [
+    {
+      "start": 0,
+      "end": 2,
+      "shot_size": "medium_close_up",
+      "visual_state": "the car sits in near-darkness as a faint centered silhouette",
+      "subject_action": "nothing moves; one faint standby glow hints at the closed front fascia",
+      "camera_action": "begin one continuous very slow push straight toward the front of the car",
+      "focus": "center of the closed front fascia",
+      "lighting_state": "dim cool ambient darkness",
+      "end_state": "car front barely readable"
+    },
+    {
+      "start": 2,
+      "end": 4,
+      "shot_size": "medium_close_up",
+      "visual_state": "the thin full-width light bar begins to ignite from its center outward",
+      "subject_action": "the light bar wakes segment by segment across the whole front width",
+      "camera_action": "continue the same straight push-in at unchanged slow speed",
+      "focus": "the spreading ignition point of the light bar",
+      "lighting_state": "LED light becomes the dominant warm-white key in the dark garage",
+      "end_state": "three quarters of the light bar glows"
+    },
+    {
+      "start": 4,
+      "end": 7,
+      "shot_size": "close_up",
+      "visual_state": "the full light bar glows and its reflection paints a clean horizontal line on the concrete floor",
+      "subject_action": "the light bar reaches steady full brightness; paint highlights rise along the hood edge",
+      "camera_action": "continue only the same straight optical-axis push-in toward the light bar",
+      "focus": "full-width light bar and its floor reflection",
+      "lighting_state": "steady warm-white key from the car itself, background falls to black",
+      "end_state": "front face fills more of frame, light bar steady"
+    },
+    {
+      "start": 7,
+      "end": 9,
+      "shot_size": "close_up",
+      "visual_state": "head-on view of the lit front, light bar horizontal and centered, hood edge visible",
+      "subject_action": "only micro-detail: specular highlight sits still on the hood; nothing else moves",
+      "camera_action": "decelerate the same push-in gently",
+      "focus": "light bar center",
+      "lighting_state": "unchanged",
+      "end_state": "symmetrical lit front near full frame"
+    },
+    {
+      "start": 9,
+      "end": 10,
+      "shot_size": "close_up",
+      "visual_state": "the lit front face of the car centered in darkness",
+      "subject_action": "total stillness, steady glow",
+      "camera_action": "camera completes the push-in and stops",
+      "focus": "locked on the steady light bar",
+      "lighting_state": "unchanged",
+      "end_state": "stable bright centered light bar on black, clean matched-cut endpoint"
+    }
+  ],
+  "camera_plan": {
+    "motivation": "move the viewer toward the car exactly as its electric heart wakes, ending on the face of the energy itself",
+    "start_position": "medium close-up dead-on to the car front in the dark garage",
+    "path": "move straight forward along the optical axis toward the front light bar, no lateral motion",
+    "speed_curve": "one constant very slow forward move with gentle deceleration across the final second",
+    "focus_transition": "closed fascia to ignition point to full light bar and its floor reflection",
+    "end_position": "close-up centered on the fully lit full-width light bar",
+    "axis_lock": "dead-on frontal axis only; the light bar stays horizontal and centered; no orbit, no lateral move, no pullback",
+    "stop_condition": "stop after the light bar is steady and the frame is still",
+    "primary_move": "dolly_in",
+    "path_changes": 0
+  },
+  "first_frame": "faint centered silhouette of a silver-grey electric sedan in a dark concrete garage",
+  "last_frame": "steady thin full-width light bar centered on the badge-free silver-grey front face, darkness around it",
+  "final_hold_seconds": 1
+}

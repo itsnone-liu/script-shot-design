@@ -1,0 +1,112 @@
+{
+  "duration": 10,
+  "main_visual_task": "At dusk the same sedan rests at a city overlook while the camera performs one continuous slow pullback from its glowing roofline out to a wide frame where the car's light bar answers the city lights.",
+  "user_script_review": {
+    "status": "pending",
+    "script_version": "ev30-v1",
+    "reviewed_by": ""
+  },
+  "segment_id": "S3_answer_of_lights",
+  "matched_cut": {
+    "in_state": "same car and the same city skyline as S2 end, now parked at the overlook at dusk",
+    "out_state": "static wide hero frame of the sedan facing the lit skyline, held for the end card"
+  },
+  "prompt_bible": {
+    "subject_lock": "the same one silver-grey electric concept sedan with a smooth closed front fascia, one thin full-width LED light bar, flush door handles, aerodynamic covered wheels, dark panoramic glass roof, badge-free body",
+    "environment_lock": "empty stone overlook above the city at dusk, low stone railing, city skyline with lit windows across the background, no people",
+    "material_lock": "brushed silver-grey paint under dusk light, dark glass roof reflecting city lights, stone railing, deep blue sky band",
+    "lighting_lock": "cool dusk ambient with warm city lights behind; the car's thin light bar glows warm-white as the single foreground key; light directions fixed",
+    "palette_lock": "silver grey, dusk blue, warm city-light amber, warm-white LED",
+    "lens_texture": "photoreal cinema lens, wide clean composition, gentle depth, natural highlight rolloff, no CGI geometry",
+    "screen_direction": "the car faces the skyline away from camera in three-quarter rear view; skyline stays level across the background",
+    "audio_policy": "soft evening air, distant city hum, faint electrical glow tone, no music, no voice",
+    "never_show": [
+      "readable text",
+      "badge",
+      "logo",
+      "watermark",
+      "UI",
+      "blocks or geometry",
+      "people",
+      "drivers inside",
+      "other cars",
+      "camera orbit",
+      "lateral camera move",
+      "camera push-in",
+      "wheel geometry distortion",
+      "lens flare streaks"
+    ]
+  },
+  "timeline": [
+    {
+      "start": 0,
+      "end": 2,
+      "shot_size": "close_up",
+      "visual_state": "the dark glass roof reflects the first city lights, the thin light bar glows warm-white below the rear view",
+      "subject_action": "the parked car is perfectly still; reflections shimmer faintly in the glass",
+      "camera_action": "begin one continuous very slow pull straight back from the roofline",
+      "focus": "glass roof reflections and glowing light bar",
+      "lighting_state": "cool dusk ambient with warm city lights behind",
+      "end_state": "roof and light bar dominate frame"
+    },
+    {
+      "start": 2,
+      "end": 4,
+      "shot_size": "medium_close_up",
+      "visual_state": "the rear three-quarter of the car appears, light bar steady, stone railing edge enters low in frame",
+      "subject_action": "stillness; the city lights behind grow slightly denser as dusk deepens",
+      "camera_action": "continue the same straight pullback at unchanged slow speed",
+      "focus": "rear three-quarter body and light bar",
+      "lighting_state": "unchanged direction, sky slowly darker",
+      "end_state": "full rear three-quarter visible"
+    },
+    {
+      "start": 4,
+      "end": 7,
+      "shot_size": "medium",
+      "visual_state": "the whole car stands on the overlook, skyline band spreading behind it",
+      "subject_action": "absolute stillness; warm city windows answer the car's light bar",
+      "camera_action": "continue only the same straight pullback, no orbit, no lateral move",
+      "focus": "car centered against skyline",
+      "lighting_state": "dusk deepens, city lights fully on",
+      "end_state": "car full-length in frame"
+    },
+    {
+      "start": 7,
+      "end": 9,
+      "shot_size": "wide",
+      "visual_state": "stone railing, empty overlook and the sedan facing the lit skyline",
+      "subject_action": "nothing moves; light bar steady glow",
+      "camera_action": "decelerate the same pullback gently toward a stop",
+      "focus": "car and skyline equally sharp",
+      "lighting_state": "steady dusk finale",
+      "end_state": "wide balanced composition nearly settled"
+    },
+    {
+      "start": 9,
+      "end": 10,
+      "shot_size": "wide",
+      "visual_state": "static hero frame: silver sedan, glowing light bar, lit skyline",
+      "subject_action": "total stillness",
+      "camera_action": "camera completes the pullback and stops dead",
+      "focus": "locked on car against skyline",
+      "lighting_state": "unchanged",
+      "end_state": "clean stable end-card frame, no motion"
+    }
+  ],
+  "camera_plan": {
+    "motivation": "step back from the car to reveal that its single light line belongs to the larger constellation of the city",
+    "start_position": "close on the reflective glass roof and glowing light bar",
+    "path": "move straight backward along the optical axis, progressively revealing rear three-quarter, full car, railing and skyline, no lateral motion",
+    "speed_curve": "one constant very slow backward move, decelerating to a full stop in the final second",
+    "focus_transition": "roof reflections to light bar to full car to car-plus-skyline balance",
+    "end_position": "wide static hero frame of the sedan facing the lit skyline over the stone railing",
+    "axis_lock": "straight optical-axis pullback only; skyline stays level behind the car; no orbit, no lateral move",
+    "stop_condition": "stop only when the wide end-card composition is still",
+    "primary_move": "dolly_out",
+    "path_changes": 0
+  },
+  "first_frame": "close view of the dark glass roof reflecting first city lights above the warm-white light bar at dusk",
+  "last_frame": "wide static hero frame of the silver-grey electric sedan on a stone overlook facing the fully lit city skyline",
+  "final_hold_seconds": 1
+}

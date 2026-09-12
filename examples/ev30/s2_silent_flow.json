@@ -1,0 +1,113 @@
+{
+  "duration": 10,
+  "main_visual_task": "The same electric sedan flows silently along a sunrise coastal road while the camera tracks alongside it in one continuous parallel move, ending as the car heads toward a distant city skyline.",
+  "user_script_review": {
+    "status": "pending",
+    "script_version": "ev30-v1",
+    "reviewed_by": ""
+  },
+  "segment_id": "S2_silent_flow",
+  "matched_cut": {
+    "in_state": "starts from the lit front of the same car leaving the garage into morning light",
+    "out_state": "car small in frame heading toward the far city skyline on the horizon, ready for S3 overlook at dusk"
+  },
+  "prompt_bible": {
+    "subject_lock": "the same one silver-grey electric concept sedan with a smooth closed front fascia, one thin full-width LED light bar, flush door handles, aerodynamic covered wheels, dark panoramic glass roof, badge-free body",
+    "environment_lock": "empty two-lane coastal road at sunrise, calm sea on the left, low sun ahead-left, smooth asphalt with gentle right curve, no other cars, no people",
+    "material_lock": "brushed silver-grey paint catching sunrise speculars, dark glass roof, smooth asphalt, sea and low clouds",
+    "lighting_lock": "low warm sunrise key from ahead-left with cool sky fill; sun stays at the same height throughout the segment",
+    "palette_lock": "silver grey, warm amber sunrise, cool blue sea, graphite asphalt",
+    "lens_texture": "photoreal cinema lens, telephoto side-profile compression, natural motion blur on ground, crisp car body",
+    "screen_direction": "the car travels screen-left to screen-right the whole time; the sea stays left, land stays right; never reverse",
+    "audio_policy": "quiet electric motor hum, soft tire-on-asphalt, distant waves and morning air, no music, no voice",
+    "never_show": [
+      "readable text",
+      "badge",
+      "logo",
+      "watermark",
+      "UI",
+      "blocks or geometry",
+      "people",
+      "drivers inside",
+      "other cars",
+      "traffic",
+      "camera orbit",
+      "camera pullback",
+      "camera crash into the car",
+      "wheel geometry distortion",
+      "lane markings flickering"
+    ]
+  },
+  "timeline": [
+    {
+      "start": 0,
+      "end": 2,
+      "shot_size": "wide",
+      "visual_state": "the sedan glides along the coastal road in clean side profile, sea and low sun on the left",
+      "subject_action": "the car rolls steadily screen-left to screen-right with covered wheels turning smoothly",
+      "camera_action": "track alongside the car in one continuous parallel move at matched speed, profile view",
+      "focus": "whole car in sharp profile",
+      "lighting_state": "low warm sunrise key with cool fill",
+      "end_state": "car centered in profile"
+    },
+    {
+      "start": 2,
+      "end": 4,
+      "shot_size": "medium",
+      "visual_state": "closer profile, sunrise speculars slide along the silver flank",
+      "subject_action": "the car holds a steady line; reflections of the low sun travel across paint and glass roof",
+      "camera_action": "continue the same parallel tracking move slightly closer",
+      "focus": "body flank and glass roof reflections",
+      "lighting_state": "unchanged",
+      "end_state": "car fills more of frame, still profile"
+    },
+    {
+      "start": 4,
+      "end": 7,
+      "shot_size": "medium_close_up",
+      "visual_state": "front three-quarter view as the road curves gently right",
+      "subject_action": "the car follows the curve without leaning; light bar and closed fascia stay clean",
+      "camera_action": "maintain the same continuous tracking alongside, now seeing the front three-quarter angle",
+      "focus": "front fascia and light bar with sea behind",
+      "lighting_state": "unchanged",
+      "end_state": "car steady in gentle curve"
+    },
+    {
+      "start": 7,
+      "end": 9,
+      "shot_size": "wide",
+      "visual_state": "the road straightens toward a distant city skyline on the horizon",
+      "subject_action": "the car draws slightly ahead of the camera and begins to shrink toward the skyline",
+      "camera_action": "hold the same parallel tracking move as the car eases ahead",
+      "focus": "car against skyline",
+      "lighting_state": "unchanged",
+      "end_state": "car small ahead, skyline visible"
+    },
+    {
+      "start": 9,
+      "end": 10,
+      "shot_size": "wide",
+      "visual_state": "the silver sedan recedes along the empty road toward the far city skyline",
+      "subject_action": "steady silent motion toward the skyline",
+      "camera_action": "camera decelerates the tracking move to a stop",
+      "focus": "car and skyline",
+      "lighting_state": "unchanged",
+      "end_state": "stable wide frame with car small ahead of camera, clean matched-cut endpoint"
+    }
+  ],
+  "camera_plan": {
+    "motivation": "let the viewer ride alongside the silent flow of the car and then release it toward the city of the finale",
+    "start_position": "wide clean side profile of the moving car, tracking at matched speed",
+    "path": "one continuous parallel tracking move alongside the car at matched speed, easing from profile to front three-quarter as the road curves, never crossing ahead of the car",
+    "speed_curve": "matched constant speed, gentle deceleration in the final second",
+    "focus_transition": "full profile to flank reflections to front three-quarter to car against skyline",
+    "end_position": "wide shot with the car small ahead toward the city skyline",
+    "axis_lock": "car always travels screen-left to screen-right, sea left, land right; camera never crosses to the other side of the car",
+    "stop_condition": "stop after the car settles small in frame toward the skyline",
+    "primary_move": "tracking",
+    "path_changes": 0
+  },
+  "first_frame": "the silver-grey electric sedan in clean side profile gliding on a sunrise coastal road with the sea on the left",
+  "last_frame": "the sedan small on the empty road heading toward the distant city skyline, sunrise behind",
+  "final_hold_seconds": 1
+}
