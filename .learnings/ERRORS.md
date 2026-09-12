@@ -32,11 +32,11 @@ The CLI now inserts its own root into `sys.path`, and validators accept both wra
 
 ---
 
-## [ERR-20260912-010] RunningHub T2V experiment blocked by API key task status
+## [ERR-20260912-010] RunningHub T2V experiment blocked by invalid duration
 
 **Logged**: 2026-09-12T09:39:00+08:00
 **Priority**: high
-**Status**: pending
+**Status**: resolved
 **Area**: infra
 
 ### Summary
@@ -50,10 +50,11 @@ Both baseline and structured 15s T2V experiment submissions were rejected before
 ### Context
 - Workflow: T2V 2092847765977378817
 - Dry-run node mapping had passed (nodes 138 prompt, 132 duration).
-- Both arms failed identically, so no creative comparison was possible and the failure is infrastructure/account status rather than prompt quality.
+- Root cause: this workflow's duration node 132 supports 1–10 seconds, while the experiment passed 15. RunningHub folded the invalid runtime setting into misleading code 805.
+- The same API key could query a historical SUCCESS task. Changing only duration to 10 seconds produced BASELINE task 2098715125739769858 SUCCESS.
 
 ### Suggested Fix
-Refresh/repair the RunningHub API credential or task permission, then resume the frozen A/B packets without changing prompts.
+Validate duration per workflow before submission: T2V <=10 seconds, current I2V <=15 seconds. Do not infer an authentication failure solely from the error name.
 
 ---
 

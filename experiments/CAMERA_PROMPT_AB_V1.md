@@ -7,7 +7,7 @@
 - A：`examples/director_contract/coffee_camera_baseline.txt`
 - B：`examples/director_contract/coffee_camera_v1.json` 经确定性编译生成
 - 项目：`examples/director_contract/experiment_project.json`
-- 两臂均为15秒、9:16、RunningHub T2V workflow `2092847765977378817`。
+- 两臂原计划15秒；诊断发现该T2V卡时长节点132的已验证范围为1–10秒，15秒会触发平台805，因此冻结内容按比例压缩为10秒、9:16，RunningHub T2V workflow `2092847765977378817`。
 - B包含 Prompt Bible、5个连续时间节拍、单主运镜路径、焦点转移、首尾帧和2秒稳定尾帧。
 
 ## 评分（每项0–2）
@@ -25,7 +25,9 @@
 - camera lint：通过（另有“运动族过多”warning，保留作实验观察点）。
 - 项目验证：`VALID (2 shots, 30.0s)`。
 - T2V dry-run：通过；两臂节点均只有138(prompt)与132(duration)，无图像节点污染。
-- 真实提交：两臂均在生成前返回 `[805] APIKEY_TASK_STATUS_ERROR`。
+- 初次真实提交：两臂均返回 `[805] APIKEY_TASK_STATUS_ERROR`。
+- 根因：T2V卡只支持1–10秒，但实验误传15秒；不是API权限问题。同一Key查询历史任务正常，改为10秒后BASELINE任务 `2098715125739769858` SUCCESS。
+- 已在 `rh_adapter.build_node_info` 加入工作流级时长闸门：T2V≤10秒，I2V≤15秒，超限在投币前本地拒绝。
 
 ## 当前结论
-真实实验未产生视频，不能比较创意效果。因两臂同一基础设施错误，冻结提示词不应修改；RunningHub API凭证/权限恢复后从该项目原样续跑，避免事后改实验条件。
+805已解决。BASELINE已生成，STRUCTURED正在串行续跑；提示内容不变，仅按工作流能力将节拍时间轴等比例压缩到10秒。

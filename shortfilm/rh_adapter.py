@@ -28,6 +28,10 @@ def _prompt(packet: dict) -> str:
 def build_node_info(packet: dict, *, workflow: str = "t2v", reference_file: str = "",
                     last_reference_file: str = "") -> list[dict]:
     """Build the minimum verified nodeInfoList for 820's video cards."""
+    duration=float(packet["duration"])
+    max_duration=15 if workflow == "i2v" else 10
+    if duration <= 0 or duration > max_duration:
+        raise ValueError(f"{workflow} workflow duration must be in (0, {max_duration}], got {duration:g}")
     if workflow == "i2v":
         if not reference_file:
             raise ValueError("i2v requires an explicit first-frame reference; refusing cached workflow defaults")
