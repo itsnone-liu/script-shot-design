@@ -2,9 +2,9 @@
   "duration": 10,
   "main_visual_task": "At dusk the same sedan rests at a city overlook while the camera performs one continuous slow pullback from its glowing roofline out to a wide frame where the car's light bar answers the city lights.",
   "user_script_review": {
-    "status": "pending",
+    "status": "approved",
     "script_version": "ev30-v1",
-    "reviewed_by": ""
+    "reviewed_by": "user"
   },
   "segment_id": "S3_answer_of_lights",
   "matched_cut": {

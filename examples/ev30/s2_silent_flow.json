@@ -2,9 +2,9 @@
   "duration": 10,
   "main_visual_task": "The same electric sedan flows silently along a sunrise coastal road while the camera tracks alongside it in one continuous parallel move, ending as the car heads toward a distant city skyline.",
   "user_script_review": {
-    "status": "pending",
+    "status": "approved",
     "script_version": "ev30-v1",
-    "reviewed_by": ""
+    "reviewed_by": "user"
   },
   "segment_id": "S2_silent_flow",
   "matched_cut": {

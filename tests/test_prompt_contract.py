@@ -57,4 +57,14 @@ class PromptContractTests(unittest.TestCase):
         doc=json.loads((ROOT/'examples/director_contract/coffee_pushin_v2.json').read_text(encoding='utf-8'))
         self.assertEqual([],lint_camera(doc))
 
+    def test_ev30_runner_refuses_unapproved_contracts(self):
+        import importlib.util
+        spec=importlib.util.spec_from_file_location('run_ev30',ROOT/'experiments/run_ev30.py')
+        mod=importlib.util.module_from_spec(spec);spec.loader.exec_module(mod)
+        contracts=mod.load_contracts()
+        self.assertGreaterEqual(len(contracts),3)
+        errors=mod.approval_errors(contracts)
+        self.assertTrue(errors,'EV30 must refuse to render before user approval')
+        for e in errors:self.assertIn('approval',e.lower())
+
 if __name__=='__main__': unittest.main()

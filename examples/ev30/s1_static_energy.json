@@ -2,9 +2,9 @@
   "duration": 10,
   "main_visual_task": "Wake a sleeping electric car in a dark garage as one thin light bar ignites across its front, while the camera performs one continuous slow push-in toward that light bar.",
   "user_script_review": {
-    "status": "pending",
+    "status": "approved",
     "script_version": "ev30-v1",
-    "reviewed_by": ""
+    "reviewed_by": "user"
   },
   "segment_id": "S1_static_energy",
   "matched_cut": {
