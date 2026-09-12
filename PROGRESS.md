@@ -168,10 +168,10 @@
 - 新增 `shortfilm/camera_lint.py`：检查无动机运镜、主运镜未在节拍中实例化、静止/运动冲突、运动族过多、路径不具体和尾帧不稳定。
 - 新增CLI `shortfilm.cli.compile_director_prompt`、咖啡导演合同样例、模糊提示词基线、A/B实验项目与8项离线回归测试；测试全部通过。
 - A/B dry-run通过，确认T2V节点仅含138(prompt)和132(duration)，没有图像节点污染。
-- 真实A/B实验初次两臂均返回RunningHub `[805] APIKEY_TASK_STATUS_ERROR`；最终定位为T2V卡节点132只支持1–10秒而误传15秒，并非凭证/权限。`rh_adapter`现强制T2V≤10秒、I2V≤15秒，10项测试通过。
+- 真实A/B实验初次两臂均返回RunningHub `[805] APIKEY_TASK_STATUS_ERROR`；当时通过改为10秒恢复成功，但后续图级诊断纠正了“节点132只支持1–10秒”的过强结论：132是无min/max的浮点入口，131按24fps动态换算为17k+5帧；失败更符合长时长叠加latent放大和二次采样后的显存越界。此条仅作为旧卡实验过程保留，不再作为MiniMax创作时长规则。
 - 调整为10秒后两臂均成功：BASELINE task `2098715125739769858`、STRUCTURED task `2098717726162112514`；均为10.144秒、864×1536/24fps。
-- n=1结果：结构化提示词改善水滴→湿润→液面的物质因果链，但复合跟随/弧线/拉远运镜基本未被执行；基线飞溅奇观更强但物理中间态跳跃。后续运镜实验应缩成每10秒一个直接可见的主运镜，并至少重复3次再升格。
-- CAMERA_PUSHIN_V2（单一同轴推近配方，3次重复，全部SUCCESS）：咖啡粉保持3/3（never_show 锁死整豆后回归消失）、干净单一推近2/3（R2漂移为横移+微变焦）、因果链3/3、无UI/文字污染3/3。规则已升格：每≤10秒T2V段只写一个主运镜且path_changes=0；观察到的失败模式回流成负向锁定词；正式渲染对镜头关键段预算best-of-N。页面 http://100.84.28.40:8836/，实验记录 experiments/CAMERA_PUSHIN_V2.md。
+- n=1结果：结构化提示词改善水滴→湿润→液面的物质因果链，但同一连续镜头里的复合跟随/弧线/拉远基本未被执行；基线飞溅奇观更强但物理中间态跳跃。结论只适用于一个内部镜头/连续动作，不限制明确切镜后的运镜变化。
+- CAMERA_PUSHIN_V2（单一同轴推近配方，3次重复，全部SUCCESS）：咖啡粉保持3/3、干净单一推近2/3、因果链3/3、无UI/文字污染3/3。有效规则已重新定域：每个内部镜头只写一个主运镜且path_changes=0；MiniMax 5–15秒技术容器内可按已批准脚本包含多个内部镜头和不同运镜。正式渲染对镜头关键段预算best-of-N。页面 http://100.84.28.40:8836/，实验记录 experiments/CAMERA_PUSHIN_V2.md。
 
 
 
@@ -182,4 +182,16 @@
 - 修订版导出 `examples/ad30_v2/project_from_deepseek_v4_revision.json`，通过 `validate_project`：10 镜头、30 秒；prompt packets 和 I2V reference-map dry-run 均通过。
 - 真实 RunningHub 复跑完成：S03/S04/S05/S06/S09/S10 全部 SUCCESS，均归一化为 864×1536、24fps、9:16；S01/S02/S07/S08 使用已验证的后期合成资产。
 - 已重新组装 `output/ad30_v2_deepseek_revision/coffee_deepseek_v4_revision_30s.mp4`，约 30 秒；复盘记录在同目录 `production_review.json`。当前视频是无音频粗剪，音乐、拟音、字幕和品牌包装仍需后期处理。
+
+## 2026-09-12：脚本优先、多镜容器与可变时长架构
+
+- 根据用户纠正，生产层级改为：大模型先完成创意、因果、镜头长度和剪辑结构 → 用户审阅修改并批准 → 再把相邻镜头技术打包为MiniMax 5–15秒生成容器。禁止先按“3×10秒”分格再填脚本。
+- `shortfilm/prompt_contract.py` 新增 `internal_shots[]`：每个内部镜头独立声明起止时间、入镜剪辑类型、景别、动作、焦点、灯光、退出状态和Camera Plan；支持 hard/match/smash/whip cut、dissolve和continuous。旧 `timeline + camera_plan` 合同继续兼容。
+- `shortfilm/camera_lint.py` 已将CAM01–CAM07重定域到单个内部镜头；不同镜头之间允许更换运镜族。“单一主运镜”只适用于一个内部镜头/连续动作，不适用于整个生成容器或成片。
+- LLM入口 `stages.py`、`shortfilm/story_pipeline.py` 与导出器已同步改为脚本优先：scene_cards先输出有动机的镜头表和切点，MiniMax容器后置；中间容器允许在明确动作切点退出，不再一律强制1秒停顿。
+- T2V图级诊断：node132是动态秒数，node131公式为 `max(5, round(a*24)) + (5-(max(5,round(a*24))%17))%17`，可映射5秒124帧、10秒243帧、12秒294帧、15秒362帧。历史OOM发生在双采样 `SamplerCustomAdvanced`，不是MiniMax模型或时长节点硬上限。
+- `rh_adapter.py` 新增 `t2v_variable` 5–15秒profile：5–10秒0.9MP、11–13秒0.7MP、14–15秒0.6MP，统一显式传prompt、duration、aspect_ratio、megapixels、upscale；12秒dry-run节点映射通过。11–15秒尚待付费实跑确认显存包络。
+- 新增饮料广告式高变化12秒验证合同 `examples/script_first/drink_high_variation_v1.json`：青柠→水滴→冷凝水→气泡→水环→产品英雄构图，4个不等长内部镜头、3个动机切点和逐镜独立运镜。合同编译5118字符，camera lint干净。
+- 新增审批门控执行器 `experiments/run_drink_multishot.py`；合同当前为 `pending`，未获用户直接批准前拒绝付费生成。批准后先跑12秒/0.7MP，验证真实段内切镜和长时长显存；若OOM则保留脚本、转单采副本，不把创意退回固定10秒。
+- 离线回归测试：15项全部通过。相关提交：`865950b`、`a594e5a`、`c212627`；当前未提交执行器和本进度更新将在下一提交记录。
 
