@@ -168,7 +168,9 @@
 - 新增 `shortfilm/camera_lint.py`：检查无动机运镜、主运镜未在节拍中实例化、静止/运动冲突、运动族过多、路径不具体和尾帧不稳定。
 - 新增CLI `shortfilm.cli.compile_director_prompt`、咖啡导演合同样例、模糊提示词基线、A/B实验项目与8项离线回归测试；测试全部通过。
 - A/B dry-run通过，确认T2V节点仅含138(prompt)和132(duration)，没有图像节点污染。
-- 真实A/B实验两臂均在生成前返回RunningHub `[805] APIKEY_TASK_STATUS_ERROR`，因此没有可比较视频；冻结实验与评分规则记录在 `experiments/CAMERA_PROMPT_AB_V1.md`，待API凭证/权限恢复后原样续跑。
+- 真实A/B实验初次两臂均返回RunningHub `[805] APIKEY_TASK_STATUS_ERROR`；最终定位为T2V卡节点132只支持1–10秒而误传15秒，并非凭证/权限。`rh_adapter`现强制T2V≤10秒、I2V≤15秒，10项测试通过。
+- 调整为10秒后两臂均成功：BASELINE task `2098715125739769858`、STRUCTURED task `2098717726162112514`；均为10.144秒、864×1536/24fps。
+- n=1结果：结构化提示词改善水滴→湿润→液面的物质因果链，但复合跟随/弧线/拉远运镜基本未被执行；基线飞溅奇观更强但物理中间态跳跃。后续运镜实验应缩成每10秒一个直接可见的主运镜，并至少重复3次再升格。
 
 
 
