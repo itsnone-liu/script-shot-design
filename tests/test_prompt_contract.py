@@ -45,9 +45,13 @@ class PromptContractTests(unittest.TestCase):
         with self.assertRaisesRegex(ValueError,'7000'):
             compile_minimax_prompt(doc)
 
-    def test_t2v_card_rejects_more_than_ten_seconds(self):
+    def test_t2v_quality_card_rejects_more_than_ten_seconds(self):
         with self.assertRaisesRegex(ValueError,'10'):
-            build_node_info({'duration':15,'prompt':'test'},workflow='t2v')
+            build_node_info({'duration':15,'prompt':'test'},workflow='t2v_quality')
+
+    def test_variable_t2v_profile_is_not_silently_routed_to_legacy_card(self):
+        with self.assertRaisesRegex(RuntimeError,'not baked'):
+            build_node_info({'duration':12,'prompt':'test'},workflow='t2v_variable')
 
     def test_i2v_card_allows_fifteen_seconds_with_reference(self):
         nodes=build_node_info({'duration':15,'prompt':'test'},workflow='i2v',reference_file='input.png')
@@ -56,6 +60,22 @@ class PromptContractTests(unittest.TestCase):
     def test_single_pushin_recipe_has_clean_camera_lint(self):
         doc=json.loads((ROOT/'examples/director_contract/coffee_pushin_v2.json').read_text(encoding='utf-8'))
         self.assertEqual([],lint_camera(doc))
+
+    def test_script_first_multishot_contract_compiles_explicit_cuts(self):
+        doc=json.loads((ROOT/'examples/script_first/drink_high_variation_v1.json').read_text(encoding='utf-8'))
+        self.assertEqual([],validate_director_contract(doc,require_approval=False))
+        draft=copy.deepcopy(doc);draft['user_script_review']={'status':'approved','script_version':'draft','reviewed_by':'draft-only'}
+        prompt=compile_minimax_prompt(draft)
+        self.assertIn('INTERNAL EDIT / SHOT LIST',prompt)
+        self.assertIn('CUT IN: MATCH_CUT',prompt)
+        self.assertIn('CUT IN: SMASH_CUT',prompt)
+        self.assertEqual([],lint_camera(doc))
+
+    def test_multishot_camera_lint_is_per_internal_shot(self):
+        doc=json.loads((ROOT/'examples/script_first/drink_high_variation_v1.json').read_text(encoding='utf-8'))
+        doc['internal_shots'][2]['camera_action']='camera remains static'
+        findings=lint_camera(doc)
+        self.assertTrue(any(x.rule=='CAM02' and 'D3_carbonation_world' in x.message for x in findings))
 
     def test_ev30_runner_refuses_unapproved_contracts(self):
         import copy,importlib.util

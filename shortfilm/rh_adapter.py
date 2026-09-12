@@ -17,7 +17,12 @@ if str(ROOT_820) not in sys.path:
 from experiments import rh_task  # type: ignore  # noqa: E402
 
 
+# Legacy dual-sampling/upscale card: dynamic duration node exists, but >10s
+# can OOM at its baked 1.2x second-pass settings. Keep it as t2v_quality.
 T2V_WORKFLOW = "2092847765977378817"
+# Variable-duration single-pass card (5-15s) is populated after the RH copy/bake
+# step; until then calls fail locally rather than silently using the legacy card.
+T2V_VARIABLE_WORKFLOW = ""
 I2V_WORKFLOW = "2092512701252022274"
 
 
@@ -29,9 +34,13 @@ def build_node_info(packet: dict, *, workflow: str = "t2v", reference_file: str 
                     last_reference_file: str = "") -> list[dict]:
     """Build the minimum verified nodeInfoList for 820's video cards."""
     duration=float(packet["duration"])
-    max_duration=15 if workflow == "i2v" else 10
-    if duration <= 0 or duration > max_duration:
-        raise ValueError(f"{workflow} workflow duration must be in (0, {max_duration}], got {duration:g}")
+    ranges={"t2v":(4,10),"t2v_quality":(4,10),"t2v_variable":(5,15),"i2v":(4,15)}
+    if workflow not in ranges: raise ValueError(f"unsupported workflow profile={workflow}")
+    min_duration,max_duration=ranges[workflow]
+    if duration < min_duration or duration > max_duration:
+        raise ValueError(f"{workflow} workflow duration must be in [{min_duration}, {max_duration}], got {duration:g}")
+    if workflow=="t2v_variable" and not T2V_VARIABLE_WORKFLOW:
+        raise RuntimeError("t2v_variable workflow is not baked yet; configure T2V_VARIABLE_WORKFLOW after RH validation")
     if workflow == "i2v":
         if not reference_file:
             raise ValueError("i2v requires an explicit first-frame reference; refusing cached workflow defaults")
@@ -68,7 +77,8 @@ def render_packet(packet: dict, output_dir: str | Path, *, workflow: str = "t2v"
     """Render one packet synchronously and download its video outputs."""
     output_dir = Path(output_dir)
     output_dir.mkdir(parents=True, exist_ok=True)
-    workflow_id = I2V_WORKFLOW if workflow == "i2v" else T2V_WORKFLOW
+    workflow_id = (I2V_WORKFLOW if workflow == "i2v" else
+                   T2V_VARIABLE_WORKFLOW if workflow == "t2v_variable" else T2V_WORKFLOW)
     nodes = build_node_info(packet, workflow=workflow, reference_file=reference_file,
                             last_reference_file=last_reference_file)
     if dry_run:

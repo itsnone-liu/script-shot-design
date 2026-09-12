@@ -29,6 +29,30 @@ Require `user_script_review` before export/render; use structured director contr
 
 ---
 
+## [LRN-20260912-007] correction
+
+**Logged**: 2026-09-12T23:38:00+08:00
+**Priority**: critical
+**Status**: in_progress
+**Area**: backend
+
+### Summary
+Script and editorial rhythm must determine shot structure; MiniMax segment duration and single-move recipes are packaging constraints, not creative laws.
+
+### Details
+The EV30 implementation over-promoted two experimental findings into architecture: 3×10-second generation segments became the story skeleton, and one primary camera move was enforced over each whole segment. This improved camera compliance but made the film structurally rigid. MiniMax can generate internal cuts and shot-size changes inside a 5–15-second container; the screenplay should first choose shots and motivated cuts, then pack compatible adjacent shots into model calls. The single-move result remains valid only for one internal shot or continuous action, not a complete generation segment or film.
+
+### Suggested Action
+Refactor the contract to represent internal shots with explicit cut types and per-shot camera plans; make generation segments variable-duration containers chosen after script approval; modify or replace the RunningHub T2V card so duration is an exposed 5–15s parameter; use the high-variation drink advertisement as a validation target.
+
+### Metadata
+- Source: user_feedback
+- Related Files: shortfilm/prompt_contract.py, shortfilm/camera_lint.py, shortfilm/knowledge/MINIMAX_SEGMENT_PROMPTING.md, examples/ev30/
+- Tags: script-first, editing, internal-cuts, variable-duration, minimax
+- See Also: LRN-20260912-006
+
+---
+
 ## [LRN-20260912-001] best_practice
 
 **Logged**: 2026-09-12T00:00:00Z
