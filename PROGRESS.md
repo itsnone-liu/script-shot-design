@@ -142,6 +142,17 @@
 - V4 剧本已导出为 `examples/ad30_v2/project_from_deepseek_v4.json`，项目校验通过，10 镜头/30 秒；prompt packets 和 I2V reference-map dry-run 通过。
 - 真实视频生产尚未执行：当前仍等待用户确认 V4 剧本修订方向；先修正“玻璃反射魔法图形”和“白板 BREATHE/拍照提交”两个问题，再进行单镜头 smoke test。
 
+## 2026-09-12：产品视觉重置与 MiniMax 长镜头验收
+
+- 完全废弃《最后一页》的设计师/办公桌/截止时间叙事，新增 `creative_brief_visual_reset.json` 和 `reference_visual_transform.json`；真实 DeepSeek V4 从产品物性生成 5 个候选，初版因抽象/物理链不足被硬闸门拒绝，随后生成“水滴成核”方案。
+- 视觉闸门扩展为产品级检查：拒绝几何/方块/抽象占位词，要求具体材质、物理动作、可见中间态、首尾帧、15 秒长镜头提示词；同时修复提示词字段错配导致漏检的问题。
+- 项目模型单镜头上限从错误的 12 秒改为 MiniMax 实际可用的 15 秒；新项目明确采用 2×15 秒拼接，不再把 30 秒误写成一镜到底。
+- 新项目 `examples/ad30_visual_reset/project.json` 通过项目校验：2 shots / 30.0s；prompt packets 与 dry-run 通过。
+- 首次真实生成没有显式参考图，虽然任务 SUCCESS，但抽帧发现工作流混入无关演示图；已在 `rh_adapter.py` 增加 i2v 无显式首帧即拒绝的保护，并补充 `reference_map.json`。
+- 使用明确咖啡参考图重跑：P01、P02 均 SUCCESS；P01/P02 开头、结尾和段间边界抽帧检查未发现 MiniMax 蓝色字样、UI 或演示水印。最终组装：`output/ad30_visual_reset_v6/coffee_visual_reset_30s_clean_qa.mp4`。
+- v6 Tailscale 预览页：`http://100.84.28.40:8833/`；复盘：`output/ad30_visual_reset_v6/production_review.json`。正式交付前仍建议完整播放一次，确认中段连续性和产品可识别性；当前无额外音乐/品牌包装。
+
+
 ## 2026-09-12：V4 剧本定向重写与真实视频复跑
 
 - 新增 `revise_script.py`：把真实 V4 的多角色审稿意见回喂模型，强制修复魔法图形、情绪跳变、产品断联和非真实提交等问题。
