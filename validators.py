@@ -37,6 +37,68 @@ def validate_package(package: dict[str, Any], brief: dict[str, Any]) -> list[dic
     if any(x in script.lower() for x in ("nsfw", "explicit sexual", "pornographic")): issues.append({"severity":"blocker","code":"nsfw_advisor_only"})
     return issues
 
+def validate_visual_design(document: dict[str, Any]) -> list[dict[str, Any]]:
+    """Gate product-visual concepts before any image/video generation.
+
+    A negative prompt saying 'no blocks' is not sufficient: the positive design
+    must specify recognizable material, a physical action, and a before/after state.
+    """
+    issues=[]
+    forbidden=("方块","几何体","几何块","抽象图形","简单图形","随机粒子","漂浮粒子","视觉化答案","创意雏形","抽象形态","高级感","abstract shape","random geometry","floating particles")
+    required_material=("咖啡","豆","液体","水","粉","油脂","冰","冷凝","玻璃","容器","泡沫")
+    required_action=("落入","滴落","滴下","下沉","浸泡","吸水","渗透","湿润","溶解","萃取","流动","旋涡","凝结","破裂","注入","研磨","扩散","聚结","汇聚","融化","转化")
+    concepts=document.get("concepts",[]) if isinstance(document,dict) else []
+    if not isinstance(concepts,list) or len(concepts)<3:
+        issues.append({"severity":"blocker","code":"too_few_visual_concepts"})
+    for i,concept in enumerate(concepts):
+        if not isinstance(concept,dict):
+            issues.append({"severity":"blocker","code":"invalid_visual_concept","concept":i}); continue
+        positive=" ".join(str(concept.get(k,"")) for k in ("product_property","transformation_chain","physical_causality","minimax_visual_fit"))
+        lower=positive.lower()
+        hits=[x for x in forbidden if x.lower() in lower]
+        if hits: issues.append({"severity":"blocker","code":"abstract_visual_placeholder","concept":concept.get("id",i),"terms":hits})
+        if not any(x in positive for x in required_material): issues.append({"severity":"blocker","code":"missing_concrete_material","concept":concept.get("id",i)})
+        if not any(x in positive for x in required_action): issues.append({"severity":"blocker","code":"missing_physical_action","concept":concept.get("id",i)})
+        for field in ("product_property","transformation_chain","physical_causality","anti_block_design","minimax_visual_fit","risk_flags"):
+            if not concept.get(field): issues.append({"severity":"blocker","code":"missing_visual_contract_field","concept":concept.get("id",i),"field":field})
+    selected=document.get("selected_concept",{}) if isinstance(document,dict) else {}
+    selected_text=" ".join(str(selected.get(k,"")) for k in ("name","reason")) if isinstance(selected,dict) else str(selected)
+    if any(x.lower() in selected_text.lower() for x in forbidden):
+        issues.append({"severity":"blocker","code":"selected_concept_abstract_placeholder"})
+    script=document.get("script",{}) if isinstance(document,dict) else {}
+    if not isinstance(script,dict): issues.append({"severity":"blocker","code":"missing_visual_script"}); return issues
+    for part,section in script.items():
+        if not isinstance(section,dict): continue
+        text=" ".join(str(section.get(k,"")) for k in ("timeline_0_3","timeline_3_7","timeline_7_11","timeline_11_15","camera_path","first_frame","last_frame","transition_to_next"))
+        prompt_text=str((document.get("prompts",{}) or {}).get(part,"")) if isinstance(document.get("prompts",{}),dict) else ""
+        all_text=text+" "+prompt_text
+        positive_prompt=re.split(r"禁止|不可出现|never show",prompt_text,flags=re.I)[0]
+        positive_all=text+" "+positive_prompt
+        hits=[x for x in forbidden if x.lower() in positive_all.lower()]
+        if hits: issues.append({"severity":"blocker","code":"abstract_prompt_placeholder","part":part,"terms":hits})
+        if not any(x in text for x in required_material): issues.append({"severity":"blocker","code":"script_lacks_material","part":part})
+        if not any(x in text for x in required_action): issues.append({"severity":"blocker","code":"script_lacks_physical_action","part":part})
+        if not section.get("first_frame") or not section.get("last_frame"): issues.append({"severity":"blocker","code":"missing_visual_endpoint","part":part})
+        for field in ("timeline_0_3","timeline_3_7","timeline_7_11","timeline_11_15","camera_path","first_frame","last_frame"):
+            if not str(section.get(field,"" )).strip(): issues.append({"severity":"blocker","code":"missing_visual_script_field","part":part,"field":field})
+    prompts=document.get("prompts",{}) if isinstance(document,dict) else {}
+    if not isinstance(prompts,dict):
+        issues.append({"severity":"blocker","code":"missing_long_shot_prompts"})
+    else:
+        expected_parts=set(script.keys())
+        prompt_parts={k[:-7] if k.endswith("_prompt") else k for k in prompts.keys()}
+        if len(expected_parts)<2 or not expected_parts.issubset(prompt_parts):
+            issues.append({"severity":"blocker","code":"prompt_script_part_mismatch","script_parts":sorted(expected_parts),"prompt_parts":sorted(prompt_parts)})
+        for part in expected_parts:
+            raw=prompts.get(part) or prompts.get(part+"_prompt") or ""
+            prompt=str(raw)
+            positive_prompt=re.split(r"禁止|不可出现|never show",prompt,flags=re.I)[0]
+            hits=[x for x in forbidden if x.lower() in positive_prompt.lower()]
+            if hits: issues.append({"severity":"blocker","code":"abstract_prompt_placeholder","part":part,"terms":hits})
+            if not all(x in prompt for x in ("总时长","时间线","镜头路径","首帧","尾帧","禁止")):
+                issues.append({"severity":"blocker","code":"incomplete_minimax_prompt","part":part})
+    return issues
+
 def status(issues): return "block" if any(x["severity"]=="blocker" for x in issues) else "pass"
 
 def validate_document(document: dict[str, Any], schema_name: str) -> list[dict[str, Any]]:

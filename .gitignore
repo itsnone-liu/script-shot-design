@@ -27,3 +27,9 @@ examples/ad30_v2/project_from_llm.json
 examples/ad30_v2/project_from_deepseek_v4.json
 examples/ad30_v2/project_from_deepseek_v4_revision.json
 examples/ad30_v2/project_from_deepseek_v4.json
+output/ad30_visual_reset_v1/
+output/ad30_visual_reset_v2/
+output/ad30_visual_reset_v3/
+output/ad30_visual_reset_v4/
+output/ad30_visual_reset_v5/
+examples/ad30_visual_reset/project.json

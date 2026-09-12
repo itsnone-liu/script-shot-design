@@ -32,6 +32,33 @@ The CLI now inserts its own root into `sys.path`, and validators accept both wra
 
 ---
 
+## [ERR-20260912-006] Visual gate test launched without project import path
+
+**Logged**: 2026-09-12T08:06:00+08:00
+**Priority**: low
+**Status**: resolved
+**Area**: tests
+
+### Summary
+A direct Python one-liner failed to import the project validator because it did not add the 821 root to `sys.path`.
+
+### Error
+```text
+ModuleNotFoundError: No module named 'validators'
+```
+
+### Context
+The new visual reset CLI correctly inserts its own root; only the ad-hoc regression command omitted it.
+
+### Suggested Fix
+Use the CLI or add the absolute project root before importing project modules in direct probes.
+
+### Metadata
+- Reproducible: yes
+- Related Files: `visual_reset_pipeline.py`, `validators.py`
+
+---
+
 ## [ERR-20260912-002] Wrong 821 working directory
 
 **Logged**: 2026-09-12T06:35:00+08:00

@@ -52,8 +52,8 @@ class Shot:
         errors: list[str] = []
         if not self.shot_id or not self.scene_id or not self.story_beat:
             errors.append(f"{self.shot_id or '<unknown>'}: missing identity/story beat")
-        if self.duration <= 0 or self.duration > 12:
-            errors.append(f"{self.shot_id}: duration must be in (0, 12]")
+        if self.duration <= 0 or self.duration > 15:
+            errors.append(f"{self.shot_id}: duration must be in (0, 15]")
         if self.shot_size not in SHOT_SIZES:
             errors.append(f"{self.shot_id}: unsupported shot_size={self.shot_size}")
         if self.camera_move not in CAMERA_MOVES:

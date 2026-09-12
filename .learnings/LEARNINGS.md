@@ -30,3 +30,26 @@ Corrections, insights, and knowledge gaps captured during development.
 - Recurrence-Count: 1
 
 ---
+
+## [LRN-20260912-002] correction
+
+**Logged**: 2026-09-12T08:05:00Z
+**Priority**: critical
+**Status**: pending
+**Area**: backend
+
+### Summary
+方块化视觉不能在生成后才发现，必须在产品视觉脚本和提示词阶段被质量闸门拦截。
+
+### Details
+用户指出：原剧本改写后仍然产生方块，说明问题不只在原故事，也在大模型要求和验收标准。产品广告需要具体材质、可执行的物理转化链和可识别的产品形态；“简单图形、抽象形状、视觉化答案”即使附带“不要方块”也会把视频模型推向几何占位符。当前确定性诊断只检查结构因果、时长和脚本存在，未检查产品级视觉设计。
+
+### Suggested Action
+新增产品视觉设计闸门：禁止抽象/几何占位词；要求每个视觉变化有具体物质、前状态、动作、后状态、因果和可验证的首尾帧；禁止“否定词补救”代替正向材质设计。对未通过的概念直接 block，不进入 RunningHub。
+
+### Metadata
+- Source: user_feedback
+- Related Files: validators.py, visual_reset_pipeline.py, stages.py
+- Tags: product-ad, visual-design, prompt-quality, minimax, quality-gate
+
+---

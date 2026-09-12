@@ -1,0 +1,28 @@
+{
+  "reference_type":"visual_transformation_ad_patterns",
+  "source_lessons":[
+    {"pattern":"natural ingredient enters liquid","value":"让入水、溅起、下沉、上浮形成连续动作链，而不是静态拼贴"},
+    {"pattern":"ingredient transforms into finished drink","value":"用形态、颜色、气泡、液体折射和容器变化建立因果过渡"},
+    {"pattern":"one-shot or long-shot progression","value":"在同一镜头内设计明确的时间顺序、主体锁定和镜头路径，适配MiniMax长段生成"},
+    {"pattern":"product hero ending","value":"最后将视觉变化收束到真实可识别的产品形态，品牌文字后期添加"}
+  ],
+  "anti_patterns":[
+    "随机方块或漂浮几何体代替具体物质变化",
+    "只写高级、梦幻、震撼而没有动作顺序",
+    "同一镜头同时要求多个主体变形",
+    "从抽象粒子直接跳到产品，没有中间物理状态",
+    "用剪辑掩盖单个长镜头内部动作不成立"
+  ],
+  "required_concept_fields":[
+    "product_property",
+    "transformation_chain",
+    "camera_path",
+    "single_shot_timeline",
+    "physical_causality",
+    "anti_block_design",
+    "minimax_prompt",
+    "first_frame",
+    "last_frame",
+    "failure_fallback"
+  ]
+}
