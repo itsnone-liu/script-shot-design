@@ -12,6 +12,8 @@ from shortfilm.model import AdProject, Shot
 def load(path: Path) -> AdProject:
     raw = json.loads(path.read_text(encoding="utf-8"))
     shots = [Shot(**item) for item in raw.pop("shots", [])]
+    allowed = {"project_id", "title", "duration_target", "aspect_ratio", "audience", "product", "core_message", "visual_style", "story_template"}
+    raw = {key: value for key, value in raw.items() if key in allowed}
     return AdProject(shots=shots, **raw)
 
 

@@ -12,3 +12,8 @@ __pycache__/
 _tmp_*.py
 reference_empty.json
 rules_empty.json
+run/
+output/ad30_script_llm_v1/
+output/ad30_script_llm_v2/
+output/ad30_v2/
+examples/ad30_v2/project_from_llm.json
