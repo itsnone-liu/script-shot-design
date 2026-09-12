@@ -5,7 +5,7 @@ from typing import Any
 
 MOVE_TERMS={
  "static":("static","locked","静止","固定"),
- "dolly_in":("push in","dolly in","推进","推近"),
+ "dolly_in":("push in","push-in","dolly in","dolly-in","move straight forward","forward dolly","推进","推近"),
  "dolly_out":("pull back","dolly out","拉远","后退"),
  "tracking":("track","follow","跟随","跟移"),
  "orbit":("orbit","arc","环绕","弧线","侧移"),

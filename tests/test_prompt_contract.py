@@ -53,4 +53,8 @@ class PromptContractTests(unittest.TestCase):
         nodes=build_node_info({'duration':15,'prompt':'test'},workflow='i2v',reference_file='input.png')
         self.assertTrue(any(x['nodeId']=='135' and x['fieldValue']=='15' for x in nodes))
 
+    def test_single_pushin_recipe_has_clean_camera_lint(self):
+        doc=json.loads((ROOT/'examples/director_contract/coffee_pushin_v2.json').read_text(encoding='utf-8'))
+        self.assertEqual([],lint_camera(doc))
+
 if __name__=='__main__': unittest.main()
