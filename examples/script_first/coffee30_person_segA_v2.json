@@ -1,0 +1,142 @@
+{
+  "duration": 15,
+  "edit_role": "middle",
+  "main_visual_task": "Sunrise light itself wakes the coffee - a single beam travels from window to bean to grind to bloom to pour across five unequal shots, the procedure dissolved into one luminous journey.",
+  "user_script_review": {"status": "approved", "script_version": "coffee30-person-v2", "reviewed_by": "user", "approved_at": "2026-09-13T03:52:00+08:00", "note": "A段v2「光的旅程」不等长分镜获用户批准；原则：观众不需要完整工序，工序完整也须做镜头叙事变化"},
+  "prompt_bible": {
+    "subject_lock": "one real barista seen only as a silhouette in steam at the end of this segment, wearing a charcoal linen apron over a plain white shirt, natural human proportions, plus the unlabeled glass pour-over set, bean jar and gooseneck kettle; no branding anywhere",
+    "environment_lock": "a small modern city cafe interior before opening, wooden counter, rain-fresh window, soft blue pre-dawn light warming into sunrise, no other people inside or outside",
+    "material_lock": "real human skin with visible pores and micro-texture, real linen and cotton fabric weave, real oily beans, fine coffee powder, glass refraction, crema bubbles and rising steam, all physically plausible",
+    "lighting_lock": "one hard warm sunrise beam entering from upper left and traveling shot to shot, with a fixed cool blue fill from the window",
+    "palette_lock": "deep espresso brown, morning gold, cool window blue, charcoal linen gray, cream white",
+    "lens_texture": "live-action 35mm commercial cinematography on a real cinema camera, true-to-life photographic rendering, natural skin subsurface scattering, practical light falloff, filmic contrast, shallow macro depth of field",
+    "screen_direction": "the sunrise beam and all energy travel left-to-right across cuts; label areas remain blank",
+    "audio_policy": "diegetic rhythm only: a low dawn hum, bean cascade, one long bloom breath, glass chime, final pour; no voice and no dialogue",
+    "never_show": ["readable text", "brand logo", "watermark", "UI", "anime", "manga", "illustration", "CGI render look", "plastic skin", "wax figure", "stylized proportions", "ancient costume", "extra characters", "duplicate cup", "floating fake beans"]
+  },
+  "internal_shots": [
+    {
+      "shot_id": "L1_first_light",
+      "start": 0, "end": 1.8,
+      "transition_in": "opening",
+      "shot_size": "extreme_close_up",
+      "visual_state": "near-black pre-dawn macro, one glossy roasted bean fills the whole frame",
+      "subject_action": "the first blade of sunrise enters from frame left and ignites the bean's edge",
+      "camera_action": "locked macro with only the light moving",
+      "focus": "the lit bean rim",
+      "lighting_state": "one hard warm blade crossing cool darkness",
+      "end_state": "the lit edge flares as the beam strengthens",
+      "camera_plan": {
+        "motivation": "open on wonder, not on context",
+        "start_position": "extreme macro filling the frame with the single bean",
+        "path": "camera locked in total stillness while the light blade crosses",
+        "speed_curve": "static throughout the shot",
+        "focus_transition": "dark bean surface to ignited rim",
+        "end_position": "same locked macro position",
+        "axis_lock": "light travels left-to-right only",
+        "stop_condition": "cut exactly when the rim flare peaks",
+        "primary_move": "static",
+        "path_changes": 0
+      }
+    },
+    {
+      "shot_id": "L2_bean_cascade",
+      "start": 1.8, "end": 4.3,
+      "transition_in": "match_cut",
+      "shot_size": "close_up",
+      "visual_state": "the same beam now cuts through the grinder as a waterfall of beans drops through it, seen from a low backlit angle",
+      "subject_action": "beans tumble through the light blade, each catching a specular glint before vanishing into the burrs",
+      "camera_action": "one quick upward tilt following the falling bean stream",
+      "focus": "glinting beans mid-fall",
+      "lighting_state": "hard backlight turns the bean waterfall into sparks",
+      "end_state": "the last glint dies as the stream ends",
+      "camera_plan": {
+        "motivation": "let the light, not the worker, move to the next station",
+        "start_position": "low angle at the grinder mouth",
+        "path": "tilt upward along the falling stream toward its bright source",
+        "speed_curve": "fast start then settle",
+        "focus_transition": "falling beans to the bright stream top",
+        "end_position": "low angle looking into the light",
+        "axis_lock": "tilt vertical only while beans fall toward camera",
+        "stop_condition": "cut when the last bean leaves the light",
+        "primary_move": "tilt",
+        "path_changes": 0
+      }
+    },
+    {
+      "shot_id": "L3_coffee_breath",
+      "start": 4.3, "end": 10.5,
+      "transition_in": "match_cut",
+      "shot_size": "extreme_close_up",
+      "visual_state": "one continuous breathing macro - the grounds cone forms, a thin water spiral sweeps across, the bed swells into a bubbling bloom crust, then settles into a mirror pool",
+      "subject_action": "the coffee bed rises, exhales steam and glistening oils, and falls still like a breath completing",
+      "camera_action": "one slow continuous orbit across the whole transformation, never cutting",
+      "focus": "spiral tongue to swelling crust to settling mirror",
+      "lighting_state": "the sunrise key strokes through passing steam",
+      "end_state": "a mirror-still dark pool ready to draw",
+      "camera_plan": {
+        "motivation": "dissolve the procedure into one living process",
+        "start_position": "low macro at coffee bed level",
+        "path": "orbit a slow sixty-degree arc around the bed while it transforms",
+        "speed_curve": "constant slow drift matching the breath of the bed",
+        "focus_transition": "water spiral to crust bubbles to mirror pool",
+        "end_position": "low macro on the still pool",
+        "axis_lock": "one clockwise drift with no vertical movement",
+        "stop_condition": "cut on the instant the pool turns mirror-still",
+        "primary_move": "orbit",
+        "path_changes": 0
+      }
+    },
+    {
+      "shot_id": "L4_glass_refraction",
+      "start": 10.5, "end": 13,
+      "transition_in": "smash_cut",
+      "shot_size": "close_up",
+      "visual_state": "seen through the curved glass wall of the carafe, the amber pour distorts and refracts while bubbles rise inside",
+      "subject_action": "the liquid column bends through the glass and streams of bubbles climb",
+      "camera_action": "one slow push-in toward the refraction",
+      "focus": "the distorted column and rising bubbles",
+      "lighting_state": "the sunrise key splits into caustic ribbons inside the glass",
+      "end_state": "the carafe fills into a glowing amber volume",
+      "camera_plan": {
+        "motivation": "break the eye-level routine with optics",
+        "start_position": "close-up on the curved carafe wall",
+        "path": "push slowly toward the refracted pour inside the glass",
+        "speed_curve": "slow constant push",
+        "focus_transition": "glass surface to refracted column to rising bubbles",
+        "end_position": "extreme close-up through the glass at the amber core",
+        "axis_lock": "push perpendicular to the glass wall only",
+        "stop_condition": "cut on the full amber glow",
+        "primary_move": "dolly_in",
+        "path_changes": 0
+      }
+    },
+    {
+      "shot_id": "L5_silhouette_close",
+      "start": 13, "end": 15,
+      "transition_in": "match_cut",
+      "shot_size": "wide",
+      "visual_state": "the barista's silhouette stands in a haze of backlit steam finishing the pour at the counter",
+      "subject_action": "the kettle lifts away and the silhouette settles while steam curls through the light",
+      "camera_action": "one smooth pull back letting the lit scene breathe",
+      "focus": "the steam veil and the silhouette's outline",
+      "lighting_state": "full sunrise floods the haze gold against cool shadow",
+      "end_state": "the counter glows with the finished brew and the silhouette rests",
+      "camera_plan": {
+        "motivation": "return the human as atmosphere, not as procedure",
+        "start_position": "medium close behind the steam veil",
+        "path": "pull straight back through the steam to a wide counter view",
+        "speed_curve": "smooth medium pull with ease-out",
+        "focus_transition": "steam veil to lit counter to silhouette edge",
+        "end_position": "wide framing of the glowing counter",
+        "axis_lock": "pull back along the light axis only",
+        "stop_condition": "cut when the scene settles into the glow",
+        "primary_move": "dolly_out",
+        "path_changes": 0
+      }
+    }
+  ],
+  "first_frame": "near-black macro of a single glossy coffee bean as the first blade of sunrise ignites its edge",
+  "last_frame": "wide view of the barista silhouette in backlit steam above the glowing finished brew",
+  "final_hold_seconds": 0
+}
