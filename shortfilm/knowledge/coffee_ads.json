@@ -1,5 +1,18 @@
 [
   {
+    "id": "photoreal_person_lock_v1",
+    "scenario": "有人咖啡广告 - 反动漫/反插画风格锁定（2026-09-13 coffee30_person_v1 实测有效，单渲染即过）",
+    "problem": "历史多版有人咖啡出现动漫感/塑料皮肤/古装漂移",
+    "recipe": {
+      "lens_texture": "live-action 35mm commercial cinematography on a real cinema camera, true-to-life photographic rendering, natural skin subsurface scattering, practical light falloff, filmic contrast, shallow macro depth of field",
+      "subject_anchor": "real barista ... natural human proportions with five fingers per hand, real human skin with visible pores and micro-texture, real linen and cotton fabric weave",
+      "never_show_add": ["anime", "manga", "illustration", "CGI render look", "plastic skin", "wax figure", "stylized proportions", "ancient costume"]
+    },
+    "person_discipline": "露脸限制在单一中景镜头（可接受降级为侧身不露全脸）；手部镜头用动作特写；倒数第二镜人物出画，末镜纯产品英雄定格≥1.5s 保证产品记忆收尾",
+    "evidence": "output/script_first/coffee30_person_v1/qa/QA_REPORT.md - 6/6 硬切、零污染、VLM 判定实拍电影级（毛细血管/汗毛/织纹可见）",
+    "acceptance_tests": ["无动漫/插画/CGI观感", "皮肤有毛孔级质感", "解剖正常十指", "末镜无人物", "现代着装"]
+  },
+  {
     "id": "coffee_modern_realism_v1",
     "scenario": "现代冷萃咖啡 30 秒竖屏广告",
     "attention_priority": ["咖啡包装和液体质感", "饮用动作", "人物专注状态", "品牌收束"],

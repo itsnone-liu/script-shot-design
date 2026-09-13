@@ -1,0 +1,118 @@
+{
+  "duration": 15,
+  "edit_role": "final",
+  "main_visual_task": "The coffee becomes the hero cup - amber stream, milk crown and swirl, then the barista sets the cup into the window light and steps out of frame, leaving a held product hero composition.",
+  "user_script_review": {"status": "approved", "script_version": "coffee30-person-v1", "reviewed_by": "user", "approved_at": "2026-09-13T03:12:00+08:00", "note": "「日出开门」有人版8镜方案获用户批准（飞书）"},
+  "prompt_bible": {
+    "subject_lock": "the same real barista seen full-length exactly once, charcoal linen apron over a plain white shirt with short dark hair, natural human proportions with five fingers per hand; the same unlabeled pour-over set plus one white ceramic cup filled with dark espresso and cold milk; no branding anywhere",
+    "environment_lock": "the same small modern city cafe now in full morning light, wooden window counter, rain-fresh glass, soft blue city outside, no other people inside or outside",
+    "material_lock": "real human skin with visible pores and micro-texture, real linen and cotton fabric weave, real crema marbling, cream threads, glass and ceramic surfaces, physically plausible splashes and steam ribbons",
+    "lighting_lock": "hard warm sunrise key from upper left with a fixed cool blue fill from the window",
+    "palette_lock": "deep espresso brown, morning gold, cool window blue, charcoal linen gray, cream white",
+    "lens_texture": "live-action 35mm commercial cinematography on a real cinema camera, true-to-life photographic rendering, natural skin subsurface scattering, practical light falloff, filmic contrast, shallow macro depth of field",
+    "screen_direction": "energy travels left-to-right across cuts; the cup ends centered; label areas remain blank",
+    "audio_policy": "diegetic rhythm only: pour finish, milk splash, soft cup landing, final steam hiss; no voice and no dialogue",
+    "never_show": ["readable text", "brand logo", "watermark", "UI", "anime", "manga", "illustration", "CGI render look", "plastic skin", "wax figure", "stylized proportions", "ancient costume", "extra characters", "duplicate cup", "floating fake beans"]
+  },
+  "internal_shots": [
+    {
+      "shot_id": "P5_amber_cup",
+      "start": 0, "end": 3.5,
+      "transition_in": "opening",
+      "shot_size": "close_up",
+      "visual_state": "dark amber coffee streams from the brewer into the white ceramic cup",
+      "subject_action": "the stream fills the cup with rising crema as the barista's hand sets the brewer down and slides out of frame",
+      "camera_action": "locked close-up on the filling cup",
+      "focus": "amber stream and the rising crema line",
+      "lighting_state": "sunrise key refracts through the stream into liquid gold",
+      "end_state": "the cup stands full with the hand fully out of frame",
+      "camera_plan": {
+        "motivation": "bank the transformation and remove the human in one gesture",
+        "start_position": "close-up level with the cup rim",
+        "path": "camera remains locked on the filling cup",
+        "speed_curve": "static throughout the shot",
+        "focus_transition": "falling stream to rising crema line",
+        "end_position": "same locked close-up position",
+        "axis_lock": "stream falls center while the hand exits right",
+        "stop_condition": "cut when the hand fully leaves the frame",
+        "primary_move": "static",
+        "path_changes": 0
+      }
+    },
+    {
+      "shot_id": "P6_crown_nebula",
+      "start": 3.5, "end": 7.5,
+      "transition_in": "match_cut",
+      "shot_size": "extreme_close_up",
+      "visual_state": "one cold milk drop crowns on the dark espresso and cream threads swirl into a golden-brown nebula",
+      "subject_action": "the crown collapses into rings that merge into a slow marble galaxy",
+      "camera_action": "one slow push-in toward the swirl center",
+      "focus": "crown edge then the galaxy core",
+      "lighting_state": "sunrise key warps into liquid caustics inside the swirl",
+      "end_state": "the swirl settles near-still with one last thread",
+      "camera_plan": {
+        "motivation": "make the cup a small universe worth entering",
+        "start_position": "macro level just above the cup rim",
+        "path": "push straight down toward the swirl core",
+        "speed_curve": "slow constant push with gentle ease-out",
+        "focus_transition": "crown peak to cream threads to galaxy core",
+        "end_position": "extreme macro on the settled swirl core",
+        "axis_lock": "push vertically only while the swirl rotates clockwise",
+        "stop_condition": "cut when the core turns near-still",
+        "primary_move": "dolly_in",
+        "path_changes": 0
+      }
+    },
+    {
+      "shot_id": "P7_barista_exit",
+      "start": 7.5, "end": 11,
+      "transition_in": "match_cut",
+      "shot_size": "medium",
+      "visual_state": "the barista, full-length for the first time, carries the finished cup to the window counter in full sunrise light",
+      "subject_action": "the cup lands softly on the counter; the barista gives one closed-mouth smile and turns away out of frame",
+      "camera_action": "one smooth pull back as the person exits, keeping the cup central",
+      "focus": "cup in the barista's hands, then the cup alone on the counter",
+      "lighting_state": "full morning sun floods the counter with the cool city beyond the glass",
+      "end_state": "the frame holds the lit cup with the barista gone",
+      "camera_plan": {
+        "motivation": "the human hands over the spotlight to the product",
+        "start_position": "medium framing following the cup at counter height",
+        "path": "pull straight back along the window axis as the person steps out",
+        "speed_curve": "smooth medium pull with steady ease",
+        "focus_transition": "cup in hands to cup on counter to empty space",
+        "end_position": "medium wide on the counter with the cup centered",
+        "axis_lock": "cup stays centered while the person exits frame left",
+        "stop_condition": "cut once the person fully clears the frame",
+        "primary_move": "dolly_out",
+        "path_changes": 0
+      }
+    },
+    {
+      "shot_id": "P8_hero_hold",
+      "start": 11, "end": 15,
+      "transition_in": "match_cut",
+      "shot_size": "wide",
+      "visual_state": "final hero - the white cup with marbled crema centered on the lit counter, bean jar and brewer flanking, steam curling upward",
+      "subject_action": "one last steam ribbon rises and dissolves while the crema marbling holds",
+      "camera_action": "locked hero framing that stays perfectly still through the final hold",
+      "focus": "crema marbling and the steam silhouette",
+      "lighting_state": "balanced sunrise key and cool fill with a gentle highlight bloom",
+      "end_state": "a clean brand-ready hero frame with steam still curling and no person visible",
+      "camera_plan": {
+        "motivation": "resolve the journey into a single readable product image",
+        "start_position": "medium wide centered on the cup",
+        "path": "camera locked in place while only the steam moves",
+        "speed_curve": "static throughout the shot",
+        "focus_transition": "crema marbling to the rising steam",
+        "end_position": "same locked hero framing",
+        "axis_lock": "cup stays centered and vertical with nothing drifting",
+        "stop_condition": "hold the still frame for the final one and a half seconds",
+        "primary_move": "static",
+        "path_changes": 0
+      }
+    }
+  ],
+  "first_frame": "close-up of dark amber coffee streaming into the white ceramic cup",
+  "last_frame": "held hero frame of the marbled coffee cup centered in window light with bean jar and brewer flanking, no person visible",
+  "final_hold_seconds": 1.5
+}

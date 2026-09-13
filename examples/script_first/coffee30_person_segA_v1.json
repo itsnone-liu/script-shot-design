@@ -1,0 +1,118 @@
+{
+  "duration": 15,
+  "edit_role": "middle",
+  "main_visual_task": "A real barista opens the cafe to the sunrise and makes the first coffee of the day - blinds rise, beans pour, the bed blooms - in four motivated internal shots where the person always serves the coffee and never competes with it.",
+  "user_script_review": {"status": "approved", "script_version": "coffee30-person-v1", "reviewed_by": "user", "approved_at": "2026-09-13T03:12:00+08:00", "note": "「日出开门」有人版8镜方案获用户批准（飞书），含产品记忆收尾+反动漫三道闸"},
+  "prompt_bible": {
+    "subject_lock": "one real barista seen from behind or by the hands only in this segment, wearing a charcoal linen apron over a plain white shirt with short dark hair, natural human proportions with five fingers per hand, plus the unlabeled glass pour-over set, wooden bean jar and gooseneck kettle; no branding anywhere",
+    "environment_lock": "a small modern city cafe interior before opening, wooden counter, rain-fresh window, soft blue pre-dawn light warming into sunrise, no other people inside or outside",
+    "material_lock": "real human skin with visible pores and micro-texture, real linen and cotton fabric weave, real oily beans, fine coffee powder, glass refraction, crema bubbles and rising steam, all physically plausible",
+    "lighting_lock": "first hard warm sunrise key from upper left with a fixed cool blue fill from the window",
+    "palette_lock": "deep espresso brown, morning gold, cool window blue, charcoal linen gray, cream white",
+    "lens_texture": "live-action 35mm commercial cinematography on a real cinema camera, true-to-life photographic rendering, natural skin subsurface scattering, practical light falloff, filmic contrast, shallow macro depth of field",
+    "screen_direction": "energy and liquid travel left-to-right across cuts; label areas remain blank",
+    "audio_policy": "diegetic rhythm only: blinds rise, beans rattle, water spiral hiss, pour; no voice and no dialogue",
+    "never_show": ["readable text", "brand logo", "watermark", "UI", "anime", "manga", "illustration", "CGI render look", "plastic skin", "wax figure", "stylized proportions", "ancient costume", "extra characters", "duplicate cup", "floating fake beans"]
+  },
+  "internal_shots": [
+    {
+      "shot_id": "P1_blinds_light",
+      "start": 0, "end": 3.5,
+      "transition_in": "opening",
+      "shot_size": "wide",
+      "visual_state": "dim pre-dawn cafe interior, the barista stands at the window with their back to camera raising the blinds",
+      "subject_action": "the blinds rise and the first sunrise beam lands on the bean jar at the wooden counter",
+      "camera_action": "one slow push-in from the room toward the lit counter",
+      "focus": "barista silhouette then the bean jar catching the light",
+      "lighting_state": "cool blue pre-dawn interior warms where the beam strikes",
+      "end_state": "the beam fully owns the bean jar and counter as the barista begins to turn",
+      "camera_plan": {
+        "motivation": "let the light choose the product before the person is ever seen",
+        "start_position": "wide interior framing from the door",
+        "path": "push slowly toward the window counter along the beam axis",
+        "speed_curve": "slow constant creep with no acceleration",
+        "focus_transition": "silhouette outline to bean jar highlight",
+        "end_position": "medium wide on the lit counter",
+        "axis_lock": "beam travels from upper-left window to counter, camera on that axis",
+        "stop_condition": "cut when the beam lands full on the jar",
+        "primary_move": "slow_dolly_in",
+        "path_changes": 0
+      }
+    },
+    {
+      "shot_id": "P2_beans_hands",
+      "start": 3.5, "end": 7.5,
+      "transition_in": "match_cut",
+      "shot_size": "close_up",
+      "visual_state": "the barista's two hands tip roasted beans from a small wooden scoop into the grinder hopper",
+      "subject_action": "beans tumble and rattle into the hopper with real skin and fabric weave visible",
+      "camera_action": "one slow push-in toward the falling bean stream",
+      "focus": "falling beans and the hands' skin texture",
+      "lighting_state": "sunrise key now steady, raking across knuckles and beans",
+      "end_state": "the last beans settle as the hand withdraws toward the grinder crank",
+      "camera_plan": {
+        "motivation": "the first tactile human contact belongs to the beans",
+        "start_position": "close-up level with the hopper mouth",
+        "path": "push slowly toward the hopper opening following the bean stream",
+        "speed_curve": "slow constant push with gentle ease",
+        "focus_transition": "falling beans to settling mound to withdrawing hand",
+        "end_position": "close-up on the filled hopper",
+        "axis_lock": "beans fall front-to-back while hands stay right-of-center",
+        "stop_condition": "cut when the hand leaves the frame edge",
+        "primary_move": "dolly_in",
+        "path_changes": 0
+      }
+    },
+    {
+      "shot_id": "P3_bloom_orbit",
+      "start": 7.5, "end": 11.5,
+      "transition_in": "smash_cut",
+      "shot_size": "extreme_close_up",
+      "visual_state": "the coffee bed swells under a thin spiral pour as the bloom crust rises and exhales steam",
+      "subject_action": "grounds bubble and glisten while crema oils surface",
+      "camera_action": "one slow short orbit around the blooming bed",
+      "focus": "spiral water tongue and the swelling crust",
+      "lighting_state": "sunrise key strobes softly through rising steam",
+      "end_state": "the crust settles into a dark glossy pool",
+      "camera_plan": {
+        "motivation": "the transformation core needs no human interference",
+        "start_position": "low macro orbit position at crust level",
+        "path": "orbit a short thirty-degree arc around the crust center",
+        "speed_curve": "smooth constant slow arc",
+        "focus_transition": "water spiral to crust bubbles to glossy pool",
+        "end_position": "low macro on the settled dark pool",
+        "axis_lock": "orbit clockwise only with no vertical drift",
+        "stop_condition": "cut when the pool turns mirror-still",
+        "primary_move": "orbit",
+        "path_changes": 0
+      }
+    },
+    {
+      "shot_id": "P4_spiral_pour",
+      "start": 11.5, "end": 15,
+      "transition_in": "match_cut",
+      "shot_size": "close_up",
+      "visual_state": "a hand in a white shirt sleeve holds the gooseneck kettle and pours a steady spiral over the coffee bed",
+      "subject_action": "the pour spirals evenly while steam ribbons rise past the sleeve",
+      "camera_action": "one vertical tracking move descending with the pour stream",
+      "focus": "water stream spiral and the visible sleeve cuff",
+      "lighting_state": "sunrise key backlights the steam and the falling stream",
+      "end_state": "the kettle lifts and the bed sits glossy and ready to draw",
+      "camera_plan": {
+        "motivation": "the human hand steers but the water is the event",
+        "start_position": "close-up level with the kettle spout",
+        "path": "track straight down alongside the pour stream to the bed",
+        "speed_curve": "match the pour then ease as the kettle lifts",
+        "focus_transition": "spout stream to bed sheen to lifting kettle",
+        "end_position": "close-up on the glossy coffee bed",
+        "axis_lock": "vertical descent only with the pour left-of-center",
+        "stop_condition": "cut when the kettle leaves the frame top",
+        "primary_move": "tracking",
+        "path_changes": 0
+      }
+    }
+  ],
+  "first_frame": "dim cafe interior at pre-dawn with a barista silhouette at the window and a beam of sunrise light landing on the bean jar",
+  "last_frame": "close-up of the glossy bloomed coffee bed with steam rising after the kettle lifts",
+  "final_hold_seconds": 0
+}
