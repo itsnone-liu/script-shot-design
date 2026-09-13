@@ -1,0 +1,118 @@
+{
+  "duration": 15,
+  "edit_role": "middle",
+  "main_visual_task": "A single roasted coffee bean turns morning light into liquid gold through a chain of physical transformations - crack, grind, bloom, pour - told in four motivated internal shots with no people.",
+  "user_script_review": {"status": "approved", "script_version": "coffee30-dir1-v1", "reviewed_by": "user", "approved_at": "2026-09-13T01:40:00+08:00", "note": "方向1「一粒豆子的日出」8镜两段分镜表获用户选定（飞书）"},
+  "prompt_bible": {
+    "subject_lock": "one unlabeled transparent glass pour-over set - carafe, paper filter, dark roasted beans, golden espresso liquid; no branding anywhere",
+    "environment_lock": "sunlit wooden cafe table beside a rain-fresh window, soft blue morning city light outside, no people inside or outside",
+    "material_lock": "real oily bean surfaces, fine coffee powder, paper filter fibers, glass refraction, crema bubbles and rising steam, all physically plausible",
+    "lighting_lock": "hard warm sunrise key from upper left with a fixed cool blue fill from the window",
+    "palette_lock": "deep espresso brown, morning gold, cool window blue, transparent glass highlights",
+    "lens_texture": "photoreal commercial tabletop cinematography, macro depth of field, crisp glass and steam wisps, controlled high-speed bursts",
+    "screen_direction": "energy and liquid travel left-to-right across cuts; the carafe stays right of center; label areas remain blank",
+    "audio_policy": "four diegetic rhythmic accents: bean crack, grinder pulse, water spiral hiss, carafe pour; no voice",
+    "never_show": ["readable text", "brand logo", "watermark", "UI", "people", "hands", "costume characters", "duplicate carafe", "plastic container", "floating fake beans"]
+  },
+  "internal_shots": [
+    {
+      "shot_id": "C1_bean_crack",
+      "start": 0, "end": 3.5,
+      "transition_in": "opening",
+      "shot_size": "extreme_close_up",
+      "visual_state": "one glossy dark roasted bean lies in a narrow shaft of sunrise light on the wooden table",
+      "subject_action": "the bean seam splits with a visible spring and a wisp of aroma escapes",
+      "camera_action": "locked high-speed macro camera; the subject motion supplies the energy",
+      "focus": "bean seam and escaping aroma wisp",
+      "lighting_state": "sunrise key rims the bean crest while cool blue fill holds the shadows",
+      "end_state": "the aroma wisp drifts right as the crack springs fully open",
+      "camera_plan": {
+        "motivation": "let the smallest object open the film with tactile calm",
+        "start_position": "extreme macro level with the single bean on wood",
+        "path": "camera stays locked on the bean in its shaft of light",
+        "speed_curve": "static throughout the shot",
+        "focus_transition": "bean seam to escaping aroma wisp",
+        "end_position": "same locked macro position",
+        "axis_lock": "aroma drifts left-to-right only",
+        "stop_condition": "cut exactly when the crack springs open",
+        "primary_move": "static",
+        "path_changes": 0
+      }
+    },
+    {
+      "shot_id": "C2_grind_mound",
+      "start": 3.5, "end": 7.5,
+      "transition_in": "match_cut",
+      "shot_size": "close_up",
+      "visual_state": "fine dark coffee powder falls and builds a soft cone inside the paper filter",
+      "subject_action": "the powder mound grows and glossy oil flecks catch the raking light",
+      "camera_action": "one slow push-in toward the growing mound",
+      "focus": "falling particles then the mound crest",
+      "lighting_state": "sunrise key rakes across the powder texture",
+      "end_state": "the mound crest quivers as the first water touches it",
+      "camera_plan": {
+        "motivation": "turn the crack's promise into tactile abundance",
+        "start_position": "medium macro above the filter rim",
+        "path": "push straight down toward the powder cone crest",
+        "speed_curve": "slow constant push with no acceleration",
+        "focus_transition": "falling grains to mound crest to first damp spot",
+        "end_position": "close macro on the damp cone crest",
+        "axis_lock": "powder falls front-to-back; camera axis vertical only",
+        "stop_condition": "cut when the first water drop darkens the crest",
+        "primary_move": "dolly_in",
+        "path_changes": 0
+      }
+    },
+    {
+      "shot_id": "C3_bloom_orbit",
+      "start": 7.5, "end": 11.5,
+      "transition_in": "smash_cut",
+      "shot_size": "extreme_close_up",
+      "visual_state": "a thin water spiral sweeps across the coffee bed and the grounds swell into a bubbling crust",
+      "subject_action": "the bloom rises, exhaling steam and glistening oils",
+      "camera_action": "one slow short orbit around the blooming bed",
+      "focus": "spiral water tongue and swelling crust",
+      "lighting_state": "sunrise key strobes softly through rising steam",
+      "end_state": "the crust sinks into a dark glossy pool ready to draw",
+      "camera_plan": {
+        "motivation": "show extraction as a living breathing event",
+        "start_position": "low macro orbit position at crust level",
+        "path": "orbit a short thirty-degree arc around the crust center",
+        "speed_curve": "smooth constant slow arc",
+        "focus_transition": "water spiral to crust bubbles to glossy pool",
+        "end_position": "low macro on the settled dark pool",
+        "axis_lock": "orbit clockwise only with no vertical drift",
+        "stop_condition": "cut when the pool surface turns mirror-still",
+        "primary_move": "orbit",
+        "path_changes": 0
+      }
+    },
+    {
+      "shot_id": "C4_amber_pour",
+      "start": 11.5, "end": 15,
+      "transition_in": "match_cut",
+      "shot_size": "close_up",
+      "visual_state": "dark brewed coffee draws down and pours as a translucent amber column into the glass carafe",
+      "subject_action": "the falling column braids with light and swelling bubbles",
+      "camera_action": "one vertical tracking move descending with the pour",
+      "focus": "column braids and the carafe fill line",
+      "lighting_state": "sunrise key refracts through glass into liquid gold",
+      "end_state": "the carafe brims full and glows with steam curling off its neck",
+      "camera_plan": {
+        "motivation": "bank the whole transformation into one luminous volume",
+        "start_position": "macro level with the filter outlet",
+        "path": "track straight down alongside the falling column to the carafe",
+        "speed_curve": "match the pour speed then ease as the carafe fills",
+        "focus_transition": "outlet stream to column braids to rising fill line",
+        "end_position": "close macro on the full amber carafe",
+        "axis_lock": "vertical descent only with the pour left-of-center",
+        "stop_condition": "cut on the brim-full glow before any overflow",
+        "primary_move": "tracking",
+        "path_changes": 0
+      }
+    }
+  ],
+  "first_frame": "extreme macro of one glossy roasted coffee bean lying in a shaft of sunrise light",
+  "last_frame": "close macro of the brimming amber glass carafe glowing in sunrise light",
+  "final_hold_seconds": 0
+}

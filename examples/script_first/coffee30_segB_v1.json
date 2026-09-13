@@ -1,0 +1,118 @@
+{
+  "duration": 15,
+  "edit_role": "final",
+  "main_visual_task": "Cold milk meets the brewed espresso and becomes the hero cup - crown, nebula, reveal and a held hero composition, four motivated internal shots with no people.",
+  "user_script_review": {"status": "approved", "script_version": "coffee30-dir1-v1", "reviewed_by": "user", "approved_at": "2026-09-13T01:40:00+08:00", "note": "方向1「一粒豆子的日出」8镜两段分镜表获用户选定（飞书）"},
+  "prompt_bible": {
+    "subject_lock": "the same unlabeled pour-over set plus one white ceramic cup filled with dark espresso and cold cream milk; no branding anywhere",
+    "environment_lock": "sunlit wooden cafe table beside a rain-fresh window, soft blue morning city light outside, no people inside or outside",
+    "material_lock": "real crema marbling, cream threads, glass and ceramic surfaces, physically plausible splashes and steam ribbons",
+    "lighting_lock": "hard warm sunrise key from upper left with a fixed cool blue fill from the window",
+    "palette_lock": "deep espresso brown, cream white, morning gold, cool window blue",
+    "lens_texture": "photoreal commercial tabletop cinematography, macro depth of field, crisp steam silhouettes, controlled high-speed impact",
+    "screen_direction": "energy travels left-to-right across cuts; the cup ends centered; label areas remain blank",
+    "audio_policy": "four diegetic rhythmic accents: milk drop splash, soft swirl, settling cup, final steam hiss; no voice",
+    "never_show": ["readable text", "brand logo", "watermark", "UI", "people", "hands", "costume characters", "duplicate cup", "plastic container", "floating fake beans"]
+  },
+  "internal_shots": [
+    {
+      "shot_id": "C5_milk_crown",
+      "start": 0, "end": 3.5,
+      "transition_in": "opening",
+      "shot_size": "extreme_close_up",
+      "visual_state": "one cold milk drop strikes the dark espresso surface inside the white ceramic cup",
+      "subject_action": "the impact crowns into a ring that collapses into spreading cream ripples",
+      "camera_action": "locked high-speed macro camera; the impact supplies the motion",
+      "focus": "crown edge and the first cream rings",
+      "lighting_state": "sunrise key backlights the crown while cool fill holds the crema",
+      "end_state": "cream rings widen toward the cup rim",
+      "camera_plan": {
+        "motivation": "restart the energy at the smallest scale with a tactile impact",
+        "start_position": "extreme macro level with the espresso surface",
+        "path": "camera remains locked on the impact point",
+        "speed_curve": "static throughout the shot",
+        "focus_transition": "crown peak to spreading cream rings",
+        "end_position": "same locked macro position",
+        "axis_lock": "ripples expand radially with no lateral drift",
+        "stop_condition": "cut exactly when the rings touch the rim",
+        "primary_move": "static",
+        "path_changes": 0
+      }
+    },
+    {
+      "shot_id": "C6_cream_nebula",
+      "start": 3.5, "end": 7.5,
+      "transition_in": "match_cut",
+      "shot_size": "close_up",
+      "visual_state": "cream threads swirl into a golden-brown nebula across the espresso surface",
+      "subject_action": "marble patterns merge and slow into one soft galaxy",
+      "camera_action": "one slow push-in toward the swirl center",
+      "focus": "leading cream thread and the galaxy core",
+      "lighting_state": "sunrise key warps into liquid caustics inside the swirl",
+      "end_state": "the swirl settles near-still with one last thread",
+      "camera_plan": {
+        "motivation": "make the cup a small universe worth entering",
+        "start_position": "macro level just above the cup rim",
+        "path": "push straight down toward the swirl core",
+        "speed_curve": "slow constant push with gentle ease-out",
+        "focus_transition": "outer cream threads to galaxy core",
+        "end_position": "extreme macro on the settled swirl core",
+        "axis_lock": "push vertically only while the swirl rotates clockwise",
+        "stop_condition": "cut when the core turns near-still",
+        "primary_move": "dolly_in",
+        "path_changes": 0
+      }
+    },
+    {
+      "shot_id": "C7_table_reveal",
+      "start": 7.5, "end": 11,
+      "transition_in": "match_cut",
+      "shot_size": "medium",
+      "visual_state": "the camera leaves the swirl and reveals the white cup on the wooden table with steam ribbons rising",
+      "subject_action": "steam ribbons climb through a shaft of sunrise while beans and the amber carafe sit quiet",
+      "camera_action": "one smooth pull back from the cup rim to the full table scene",
+      "focus": "cup silhouette then the whole tabletop",
+      "lighting_state": "sunrise key now reads as full morning across the table",
+      "end_state": "table scene composes - cup left-of-center, carafe right, window glow behind",
+      "camera_plan": {
+        "motivation": "give the transformed liquid its real-world home",
+        "start_position": "extreme macro on the settled swirl",
+        "path": "pull straight back and slightly up to tabletop level",
+        "speed_curve": "smooth medium pull with steady ease",
+        "focus_transition": "swirl core to cup silhouette to full tabletop",
+        "end_position": "medium wide tabletop composition",
+        "axis_lock": "cup remains left-of-center while the pull stays on its axis",
+        "stop_condition": "cut when the full setting reads in one glance",
+        "primary_move": "dolly_out",
+        "path_changes": 0
+      }
+    },
+    {
+      "shot_id": "C8_hero_hold",
+      "start": 11, "end": 15,
+      "transition_in": "match_cut",
+      "shot_size": "wide",
+      "visual_state": "final hero - the white cup with marbled crema centered, carafe and beans flanking, steam curling upward",
+      "subject_action": "one last steam ribbon rises and dissolves while the crema marbling holds",
+      "camera_action": "locked hero framing that stays perfectly still through the final hold",
+      "focus": "crema marbling and the steam silhouette",
+      "lighting_state": "balanced sunrise key and cool fill with a gentle highlight bloom",
+      "end_state": "a clean brand-ready hero frame with steam still curling",
+      "camera_plan": {
+        "motivation": "resolve the journey into a single readable product image",
+        "start_position": "medium wide centered on the cup",
+        "path": "camera locked in place while only the steam moves",
+        "speed_curve": "static throughout the shot",
+        "focus_transition": "crema marbling to the rising steam",
+        "end_position": "same locked hero framing",
+        "axis_lock": "cup stays centered and vertical with nothing drifting",
+        "stop_condition": "hold the still frame for the final one and a half seconds",
+        "primary_move": "static",
+        "path_changes": 0
+      }
+    }
+  ],
+  "first_frame": "extreme macro of one milk drop crowning on dark espresso",
+  "last_frame": "held hero frame of the marbled coffee cup with steam curling, carafe and beans flanking",
+  "final_hold_seconds": 1.5
+}
