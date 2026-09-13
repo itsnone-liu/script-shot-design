@@ -32,7 +32,7 @@ def _prompt(packet: dict) -> str:
 
 
 def build_node_info(packet: dict, *, workflow: str = "t2v", reference_file: str = "",
-                    last_reference_file: str = "") -> list[dict]:
+                    last_reference_file: str = "", extra_nodes: list | None = None) -> list[dict]:
     """Build the minimum verified nodeInfoList for 820's video cards."""
     duration=float(packet["duration"])
     ranges={"t2v":(4,10),"t2v_quality":(4,10),"t2v_variable":(5,15),"i2v":(4,15)}
@@ -55,6 +55,13 @@ def build_node_info(packet: dict, *, workflow: str = "t2v", reference_file: str 
                 {"nodeId": "137", "fieldName": "image", "fieldValue": reference_file},
                 {"nodeId": "143", "fieldName": "image", "fieldValue": last_reference_file or reference_file},
             ])
+        if extra_nodes:
+            # Verified node-level overrides for this card (node map confirmed
+            # via getJsonApiFormat 2026-09-13): 142 Float = first-frame
+            # megapixels (default 0.4); 175 LoraLoaderModelOnly = research
+            # style LoRA baked into the snapshot (strength_model -> 0 to
+            # decontaminate); 159 boolean = last-frame switch (already on).
+            nodes.extend(extra_nodes)
         return nodes
     nodes = [
         {"nodeId": "138", "fieldName": "value", "fieldValue": _prompt(packet)},
@@ -71,9 +78,12 @@ def build_node_info(packet: dict, *, workflow: str = "t2v", reference_file: str 
             {"nodeId":"182","fieldName":"value","fieldValue":"1.2"},
         ])
     if reference_file:
+        # Same caching caveat as i2v: set both first (137) and last (139)
+        # explicitly or stale snapshot images can leak in. On this card the
+        # slots act as first/last-frame conditioning when supplied.
         nodes.extend([
             {"nodeId": "137", "fieldName": "image", "fieldValue": reference_file},
-            {"nodeId": "139", "fieldName": "image", "fieldValue": reference_file},
+            {"nodeId": "139", "fieldName": "image", "fieldValue": last_reference_file or reference_file},
         ])
     return nodes
 
@@ -81,20 +91,34 @@ def build_node_info(packet: dict, *, workflow: str = "t2v", reference_file: str 
 def render_packet(packet: dict, output_dir: str | Path, *, workflow: str = "t2v",
                   api_key: str = "", dry_run: bool = False, poll: float = 10.0,
                   max_wait: float = 1200.0, reference_file: str = "",
-                  last_reference_file: str = "") -> dict:
+                  last_reference_file: str = "", extra_nodes: list | None = None) -> dict:
     """Render one packet synchronously and download its video outputs."""
     output_dir = Path(output_dir)
     output_dir.mkdir(parents=True, exist_ok=True)
     workflow_id = (I2V_WORKFLOW if workflow == "i2v" else
                    T2V_VARIABLE_WORKFLOW if workflow == "t2v_variable" else T2V_WORKFLOW)
     nodes = build_node_info(packet, workflow=workflow, reference_file=reference_file,
-                            last_reference_file=last_reference_file)
+                            last_reference_file=last_reference_file, extra_nodes=extra_nodes)
     if dry_run:
         return {"shot_id": packet["shot_id"], "workflow_id": workflow_id,
                 "nodeInfoList": nodes, "status": "dry-run"}
     key = rh_task.load_api_key(api_key)
     if not key:
         raise RuntimeError("RH API key unavailable; configure 820/.rh_apikey or RH_API_KEY")
+
+    def _prep_ref(p: str) -> str:
+        # LoadImage nodes need an RH-uploaded fileName (openapi/...), never a
+        # local path (server-side validation rejects it: error 433).
+        if not p or p.startswith("openapi/") or p.startswith("http"):
+            return p
+        up = rh_task.upload_file(key, p)
+        print(f"[{packet['shot_id']}] uploaded {Path(p).name} -> {up}")
+        return up
+
+    reference_file = _prep_ref(reference_file)
+    last_reference_file = _prep_ref(last_reference_file)
+    nodes = build_node_info(packet, workflow=workflow, reference_file=reference_file,
+                            last_reference_file=last_reference_file, extra_nodes=extra_nodes)
     task_id = rh_task.run_workflow(key, workflow_id, nodes)
     result = rh_task.wait_task(key, task_id, poll=poll, max_wait=max_wait,
                                on_progress=lambda _tid, state: print(f"[{packet['shot_id']}] {state}"))

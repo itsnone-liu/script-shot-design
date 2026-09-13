@@ -1,5 +1,18 @@
 [
   {
+    "id": "reference_image_i2v_v1",
+    "scenario": "跨段人物一致性 - 参考图工作流（2026-09-13 coffee30_story_v1 全链路实测有效）",
+    "problem": "同一人物跨 15s 段出现时纯文本 bible 锚定容貌会漂移；t2v_variable 卡无图输入槽（137/139 注图=SUCCESS 零产物）",
+    "recipe": {
+      "step1_portrait": "820 Z-Image 骨架链副本 2094584429485608961 生成人物参考：单人骨架(COCO-18)+photoreal 正负提示+钉种子，70s/张出 4 候选交用户选人；反动漫负向词全量",
+      "step2_keyframes": "同种子+同人物描述生成首尾帧关键帧（静物用空白骨架=纯文本无人物注入）；按视频目标画幅预裁(16:9)再上传",
+      "step3_render": "i2v 卡 2092512701252022274：136=prompt/135=时长/137=首帧/143=尾帧；nodeInfoList 覆盖 142(megapixels 0.4→0.6)+175(固化研究LoRA MysticXXX strength_model→0 去污染)；LoadImage 必须传 openapi/ 上传名(本地路径433秒拒)",
+      "identity_mechanism": "同种子+同描述=Z-Image 跨图身份保持；i2v 尾帧锚定=段内容貌向关键帧插值；跨段(A纯t2v)靠bible+静态露脸语境兜底"
+    },
+    "evidence": "output/script_first/coffee30_story_v1/qa/QA_REPORT.md - A睡颜/B微笑/参考图三方判定同一人；首尾帧遵从度双确认；7/7切点+6/6抽检吻合；带图渲染>30-45min(max_wait给足2700s)",
+    "acceptance_tests": ["三方容貌一致性VLM判定同一人", "首尾帧与关键帧构图近似", "无研究LoRA风格污染", "零动漫感"]
+  },
+  {
     "id": "photoreal_person_lock_v1",
     "scenario": "有人咖啡广告 - 反动漫/反插画风格锁定（2026-09-13 coffee30_person_v1 实测有效，单渲染即过）",
     "problem": "历史多版有人咖啡出现动漫感/塑料皮肤/古装漂移",

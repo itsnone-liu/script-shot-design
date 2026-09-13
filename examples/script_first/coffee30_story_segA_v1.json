@@ -1,0 +1,118 @@
+{
+  "duration": 15,
+  "edit_role": "middle",
+  "main_visual_task": "Morning light wakes the room and quiet hands make coffee - the beam travels from the bedside still-life to a sleeping woman's calm face, then the coffee itself blooms in one long breath and finishes as milk foam, four unequal shots with stillness and beauty.",
+  "user_script_review": {"status": "approved", "script_version": "coffee30-story-v1", "reviewed_by": "user", "approved_at": "2026-09-13T05:05:00+08:00", "note": "用户故事梗概8镜方案+参考图工作流批准；女主角=候选4(seed 20260916)"},
+  "prompt_bible": {
+    "subject_lock": "one young Chinese woman around twenty-eight with dark shoulder-length hair and natural East Asian features wearing a cream cotton sleep top; one man present only as hands with rolled-up sleeves of a light blue shirt; the same unlabeled glass bean jar, white ceramic cups, pour-over brewer and gooseneck kettle; no branding anywhere",
+    "environment_lock": "a quiet modern Chinese home bedroom and its bedside corner, soft white bedding, light wooden furniture, sheer curtains, a rain-fresh window with soft blue morning city outside, no other people",
+    "material_lock": "real human skin with visible pores and micro-texture, real cotton and linen fabric weave, real oily beans, fine coffee powder, glass refraction, crema bubbles, milk foam and rising steam, all physically plausible",
+    "lighting_lock": "one hard warm sunrise beam entering from the upper-left window and traveling shot to shot, with a fixed cool blue fill",
+    "palette_lock": "morning gold, cream white bedding, warm wood, espresso brown, soft window blue",
+    "lens_texture": "live-action 35mm commercial cinematography on a real cinema camera, true-to-life photographic rendering, natural skin subsurface scattering, practical light falloff, filmic soft contrast, shallow depth of field",
+    "screen_direction": "the light beam and all energy travel left-to-right across cuts; label areas remain blank",
+    "audio_policy": "calm diegetic rhythm only: the faint city waking, a soft bean pour, one long brew breath, milk folding into foam, her gentle breath; no voice and no dialogue",
+    "never_show": ["readable text", "brand logo", "watermark", "UI", "anime", "manga", "illustration", "CGI render look", "plastic skin", "wax figure", "stylized proportions", "ancient costume", "third person", "duplicate cup", "floating fake beans"]
+  },
+  "internal_shots": [
+    {
+      "shot_id": "S1_light_to_face",
+      "start": 0, "end": 4,
+      "transition_in": "opening",
+      "shot_size": "wide",
+      "visual_state": "first sunrise light through sheer curtains picks out the bedside still-life - glass bean jar and two white cups on the wooden table",
+      "subject_action": "the woman sleeps peacefully just beyond, her calm face turned toward the light",
+      "camera_action": "one slow lateral pan following the beam from the still-life across to her sleeping face",
+      "focus": "lit jar and cups, then her face as the light grazes her hair",
+      "lighting_state": "one warm beam crossing the cool dim bedroom",
+      "end_state": "the beam settles on her hair edge as she sleeps on calmly",
+      "camera_plan": {
+        "motivation": "let the light connect the objects to the person in one quiet move",
+        "start_position": "framing the lit bedside still-life",
+        "path": "pan slowly left-to-right along the beam toward the bed",
+        "speed_curve": "constant gentle drift with no acceleration",
+        "focus_transition": "still-life highlight to her sleeping face",
+        "end_position": "medium framing on her calm sleeping face",
+        "axis_lock": "pan strictly along the beam axis, no vertical drift",
+        "stop_condition": "stop as the light settles on her hair edge",
+        "primary_move": "pan",
+        "path_changes": 0
+      }
+    },
+    {
+      "shot_id": "S2_quiet_hands",
+      "start": 4, "end": 6.5,
+      "transition_in": "match_cut",
+      "shot_size": "close_up",
+      "visual_state": "the man's hands with rolled-up light blue sleeves quietly lift the bean jar and tip beans toward the brewer",
+      "subject_action": "he measures beans with hushed care, moving gently so as not to wake her",
+      "camera_action": "locked close-up on the hands and jar",
+      "focus": "hands, jar and tumbling beans with real skin texture",
+      "lighting_state": "the same beam now rakes the jar from the left",
+      "end_state": "the beans settle and the hands slide softly away",
+      "camera_plan": {
+        "motivation": "the man exists only as quiet caring hands",
+        "start_position": "close-up level with the jar mouth",
+        "path": "camera stays locked while the hands work",
+        "speed_curve": "static throughout the shot",
+        "focus_transition": "jar mouth to falling beans to withdrawing hands",
+        "end_position": "same locked close-up position",
+        "axis_lock": "action stays right-of-center, light from the left",
+        "stop_condition": "cut when the hands leave the frame",
+        "primary_move": "static",
+        "path_changes": 0
+      }
+    },
+    {
+      "shot_id": "S3_coffee_breath",
+      "start": 6.5, "end": 12,
+      "transition_in": "match_cut",
+      "shot_size": "extreme_close_up",
+      "visual_state": "one continuous breathing macro - the grounds mound forms, a thin water spiral sweeps across, the bed swells into a bubbling bloom and settles into a dark glossy pool",
+      "subject_action": "the coffee bed rises, exhales steam and glistening oils, and falls still like a completed breath",
+      "camera_action": "one slow continuous orbit across the whole transformation",
+      "focus": "spiral tongue to swelling crust to settling pool",
+      "lighting_state": "the sunrise beam strokes through passing steam",
+      "end_state": "a mirror-still dark pool ready to draw",
+      "camera_plan": {
+        "motivation": "the making is a meditation, not a procedure",
+        "start_position": "low macro at coffee bed level",
+        "path": "orbit a slow sixty-degree arc around the bed while it transforms",
+        "speed_curve": "constant slow drift matching the breath of the bed",
+        "focus_transition": "water spiral to crust bubbles to mirror pool",
+        "end_position": "low macro on the still pool",
+        "axis_lock": "one clockwise drift with no vertical movement",
+        "stop_condition": "cut on the instant the pool turns mirror-still",
+        "primary_move": "orbit",
+        "path_changes": 0
+      }
+    },
+    {
+      "shot_id": "S4_foam_heart",
+      "start": 12, "end": 15,
+      "transition_in": "match_cut",
+      "shot_size": "extreme_close_up",
+      "visual_state": "cold milk folds into the dark coffee and a soft heart of white foam draws itself on the surface",
+      "subject_action": "the foam pattern completes and rests into still perfection",
+      "camera_action": "one slow push-in toward the finished foam heart",
+      "focus": "the folding milk stream then the resting heart",
+      "lighting_state": "the beam lands across the cup rim gilding the foam",
+      "end_state": "a perfect still foam heart glowing in morning light",
+      "camera_plan": {
+        "motivation": "end the making on a small silent gift",
+        "start_position": "macro level above the cup",
+        "path": "push slowly down toward the foam surface",
+        "speed_curve": "slow constant push with gentle ease-out",
+        "focus_transition": "folding milk to completed foam heart",
+        "end_position": "extreme macro on the resting foam heart",
+        "axis_lock": "push vertically only, heart centered",
+        "stop_condition": "hold on the still heart as the cut comes",
+        "primary_move": "dolly_in",
+        "path_changes": 0
+      }
+    }
+  ],
+  "first_frame": "first sunrise light through sheer curtains picking out a glass bean jar and two white cups on the bedside table",
+  "last_frame": "extreme macro of a perfect white foam heart resting on dark coffee in morning light",
+  "final_hold_seconds": 0
+}

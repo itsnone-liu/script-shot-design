@@ -1,0 +1,118 @@
+{
+  "duration": 15,
+  "edit_role": "final",
+  "main_visual_task": "The coffee wakes her - the finished cup lands steaming at the bedside, her eyes open calmly in the light, she sits up and cradles the cup, then turns to the window and smiles as steam curls through the sunbeam, ending on a held hero frame where the cup and her quiet joy share the light.",
+  "user_script_review": {"status": "approved", "script_version": "coffee30-story-v1", "reviewed_by": "user", "approved_at": "2026-09-13T05:05:00+08:00", "note": "同 segA；B段注入首尾帧关键帧(参考图工作流)"},
+  "prompt_bible": {
+    "subject_lock": "the same young Chinese woman around twenty-eight with dark shoulder-length hair and natural East Asian features wearing a cream cotton sleep top; the man appears only as the hands that set the cup down; the same unlabeled white ceramic cup, glass bean jar and brewer; no branding anywhere",
+    "environment_lock": "the same quiet modern Chinese home bedroom, soft white bedding, light wooden bedside table, sheer curtains, rain-fresh window with soft blue morning city outside, no other people",
+    "material_lock": "real human skin with visible pores and micro-texture, real cotton bedding weave, real crema and milk foam, ceramic glaze, physically plausible steam ribbons",
+    "lighting_lock": "the same hard warm sunrise beam from the upper-left window now fully in the room, with a fixed cool blue fill",
+    "palette_lock": "morning gold, cream white bedding, warm wood, espresso brown, soft window blue",
+    "lens_texture": "live-action 35mm commercial cinematography on a real cinema camera, true-to-life photographic rendering, natural skin subsurface scattering, practical light falloff, filmic soft contrast, shallow depth of field",
+    "screen_direction": "the light beam travels left-to-right; the cup ends centered with her smile above it; label areas remain blank",
+    "audio_policy": "calm diegetic rhythm only: the cup landing softly, her gentle waking breath, a distant waking city, one final steam hiss; no voice and no dialogue",
+    "never_show": ["readable text", "brand logo", "watermark", "UI", "anime", "manga", "illustration", "CGI render look", "plastic skin", "wax figure", "stylized proportions", "ancient costume", "third person", "duplicate cup", "floating fake beans"]
+  },
+  "internal_shots": [
+    {
+      "shot_id": "S5_cup_arrives",
+      "start": 0, "end": 2.5,
+      "transition_in": "opening",
+      "shot_size": "close_up",
+      "visual_state": "the finished white cup with its foam heart is set gently on the bedside table, landing inside the sunbeam",
+      "subject_action": "the man's hands place the cup and slide quietly out of frame as thin steam rises",
+      "camera_action": "locked close-up on the cup in the beam",
+      "focus": "foam heart and the rising steam",
+      "lighting_state": "the beam gilds the cup rim against the cool bedroom",
+      "end_state": "the cup stands alone steaming in the light",
+      "camera_plan": {
+        "motivation": "the gift arrives with the light",
+        "start_position": "close-up level with the bedside table",
+        "path": "camera remains locked as the hands place and leave",
+        "speed_curve": "static throughout the shot",
+        "focus_transition": "hands and cup to the rising steam",
+        "end_position": "same locked close-up position",
+        "axis_lock": "cup centered in the beam, hands exit right",
+        "stop_condition": "cut when the hands fully leave the frame",
+        "primary_move": "static",
+        "path_changes": 0
+      }
+    },
+    {
+      "shot_id": "S6_eyes_open",
+      "start": 2.5, "end": 6.5,
+      "transition_in": "match_cut",
+      "shot_size": "close_up",
+      "visual_state": "her sleeping face in the soft light, lashes trembling as the steam and aroma reach her",
+      "subject_action": "her eyes open calmly, a breath passes, and the beginning of a smile touches her mouth",
+      "camera_action": "locked close-up holding perfect stillness",
+      "focus": "her lashes and eyes as they open",
+      "lighting_state": "warm beam light softens across her face",
+      "end_state": "she is awake, calm, gently present",
+      "camera_plan": {
+        "motivation": "stillness makes the waking feel real",
+        "start_position": "close-up on her face at pillow level",
+        "path": "camera does not move at all",
+        "speed_curve": "static throughout the shot",
+        "focus_transition": "closed lashes to opening eyes",
+        "end_position": "same locked framing",
+        "axis_lock": "her face stays centered, light from the left",
+        "stop_condition": "cut as the first smile begins",
+        "primary_move": "static",
+        "path_changes": 0
+      }
+    },
+    {
+      "shot_id": "S7_she_rises",
+      "start": 6.5, "end": 10.5,
+      "transition_in": "match_cut",
+      "shot_size": "medium",
+      "visual_state": "she sits up in the white bedding and cradles the steaming cup in both hands, bringing it close",
+      "subject_action": "she wraps her hands around the warm cup and lifts it toward her face as steam drifts past",
+      "camera_action": "one slow push-in as she settles with the cup",
+      "focus": "her hands around the cup, then the cup and her face together",
+      "lighting_state": "full morning sun warms her side while cool light holds the room",
+      "end_state": "she holds the cup near her chest, peaceful",
+      "camera_plan": {
+        "motivation": "the warmth passes from cup to hands to heart",
+        "start_position": "medium framing at bed level",
+        "path": "push slowly in toward the cup in her hands",
+        "speed_curve": "slow constant push with gentle ease",
+        "focus_transition": "cup on the table to her hands to her face above the rim",
+        "end_position": "medium close-up on the cup and her face",
+        "axis_lock": "push along the bed axis only, cup stays centered",
+        "stop_condition": "cut once the cup rests near her chest",
+        "primary_move": "slow_dolly_in",
+        "path_changes": 0
+      }
+    },
+    {
+      "shot_id": "S8_window_smile",
+      "start": 10.5, "end": 15,
+      "transition_in": "match_cut",
+      "shot_size": "medium_close_up",
+      "visual_state": "she turns to the window and her smile blooms as she raises the cup toward the light, steam curling through the sunbeam",
+      "subject_action": "she gazes out at the morning city and smiles while the steam ribbons rise past her face",
+      "camera_action": "locked hero framing holding perfectly still through the final hold",
+      "focus": "her smile above the cup with the steam and window glow",
+      "lighting_state": "balanced sunrise key and cool fill with a gentle bloom",
+      "end_state": "a held hero frame - the cup centered low in the light, her soft smile above it, steam still rising",
+      "camera_plan": {
+        "motivation": "the product and her quiet joy share one final light",
+        "start_position": "medium close-up with her and the cup in the beam",
+        "path": "camera locked in place while only the steam moves",
+        "speed_curve": "static throughout the shot",
+        "focus_transition": "her smile to the steaming cup below",
+        "end_position": "same locked hero framing",
+        "axis_lock": "cup centered and vertical, nothing drifts",
+        "stop_condition": "hold the still frame for the final one and a half seconds",
+        "primary_move": "static",
+        "path_changes": 0
+      }
+    }
+  ],
+  "first_frame": "the white cup with a foam heart standing steaming in the sunbeam on the bedside table",
+  "last_frame": "held hero frame of the woman smiling toward the window with the steaming cup centered in the sunbeam below her face",
+  "final_hold_seconds": 1.5
+}
