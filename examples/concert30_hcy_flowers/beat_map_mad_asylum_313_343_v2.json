@@ -1,0 +1,27 @@
+{
+  "project": "concert30-hcy-flowers-v2",
+  "song": "疯人院（电音版+尾奏）",
+  "event": "2024-07-21 火星演唱会南昌站",
+  "source_url": "https://www.bilibili.com/video/BV1dZvdePEyp/",
+  "source_media": {
+    "duration_seconds": 473.855833,
+    "video": "1920x1080 h264 25fps",
+    "audio": "aac 48000Hz stereo"
+  },
+  "selected_window": {
+    "source_start_seconds": 313.0,
+    "source_end_seconds": 343.0,
+    "duration_seconds": 30.0,
+    "selection_evidence": "highest 30-second mean RMS window cluster in full 474-second scan; 313-343s mean RMS 5145, peak 1s RMS 6304"
+  },
+  "transient_anchors_relative_seconds": [0.20,0.85,1.20,1.55,1.95,2.40,3.35,3.80,4.90,5.20,5.75,6.70,7.55,8.30,8.75,9.00,9.25,9.85,11.95,13.55,14.15,14.90,18.00,19.30,22.90,23.80,24.85,27.85,28.90,29.50],
+  "story_windows": [
+    {"id":"S1","start":0.00,"end":4.90,"action":"performance already at full energy; singer, drummer, arena and runway cuts","cut_anchors":[0.20,0.85,1.55,2.40,3.35,3.80,4.90]},
+    {"id":"S2","start":4.90,"end":9.85,"action":"singer points; spotlight sweeps and hits the girl; crowd erupts","cut_anchors":[4.90,5.75,6.70,7.55,8.30,9.00,9.85]},
+    {"id":"S3","start":9.85,"end":14.90,"action":"beat montage: bouquet, security gap, sprint, stair, reaching hand, spotlight entry","cut_anchors":[9.85,11.95,13.55,14.15,14.90]},
+    {"id":"S4","start":14.90,"end":19.30,"action":"singing continues; one-hand flower receipt; immediate turn toward center stage","cut_anchors":[14.90,18.00,19.30]},
+    {"id":"S5","start":19.30,"end":24.85,"action":"raise bouquet to arena; LED and crowd energy explode; screen becomes two-shot","cut_anchors":[19.30,22.90,23.80,24.85]},
+    {"id":"S6","start":24.85,"end":30.00,"action":"three flash-photo scales; final downbeat returns to singer continuing performance","cut_anchors":[24.85,27.85,28.90,29.50]}
+  ],
+  "note": "Transient anchors are automated RMS-onset candidates and must be audited against audible phrasing during final edit. No lyrics are fabricated."
+}

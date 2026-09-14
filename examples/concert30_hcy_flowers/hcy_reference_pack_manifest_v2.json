@@ -1,6 +1,8 @@
 {
   "project": "concert30-hcy-flowers-v2",
-  "status": "waiting_user_song_choice",
+  "status": "choice_A_selected_extracting_official_2024_identity_refs",
+  "selected": {"choice": "A", "song": "疯人院（电音版+尾奏）", "event": "2024-07-21 南昌站", "audio_and_stage_source": "https://www.bilibili.com/video/BV1dZvdePEyp/"},
+  "identity_source_candidate": {"title": "晨光里有你（2024火星演唱会现场版）", "uploader": "华晨宇工作室", "url": "https://www.bilibili.com/video/BV1WwiRYoEHi/", "duration_seconds": 320.686, "resolution": "1920x1080", "usage": "face identity only; no audio or stage look", "pending": "manual hair/makeup compatibility QA"},
   "identity": "Hua Chenyu",
   "public_figure_reference_policy": {
     "same_event_or_era_only": true,
@@ -47,5 +49,12 @@
     "cross_identity_margin_min": 0.12,
     "manual_checks": ["hair and makeup match selected event", "no face morph into the girl", "mouth remains plausible while singing"]
   },
-  "selection_required_before_download_or_paid_generation": true
+  "selection_required_before_download_or_paid_generation": false,
+  "selected_song_confirmed_by_user": true,
+  "reference_qa": {
+    "nanchang_fan_video": "REJECTED for face identity: 0/20 exact-review frames show a clear physical face; valid only for audio/stage energy",
+    "official_2024_video": "source verified as Hua Chenyu Studio upload, but initial sparse candidates failed strict H1-H5 face/pose requirements",
+    "invalid_frames_quarantined": "refs_hcy_v2/rejected_far_or_led",
+    "paid_generation_unlock": "forbidden until H1-H4 clear face refs and H5 full-body ref pass manual QA"
+  }
 }
