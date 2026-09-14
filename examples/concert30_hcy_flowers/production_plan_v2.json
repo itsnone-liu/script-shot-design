@@ -3,7 +3,9 @@
   "status": "script_approved_song_selected_building_reference_pack",
   "user_script_review": {"status": "approved", "script_version": "concert30-hcy-flowers-v2", "reviewed_by": "user", "reviewed_at": "2026-09-14T18:48:00+08:00", "feedback": ["剧本可以，就疯人院吧"]},
   "song_selection": {"choice": "A", "song": "疯人院（电音版+尾奏）", "event": "2024-07-21 火星演唱会南昌站", "source": "https://www.bilibili.com/video/BV1dZvdePEyp/", "preliminary_window_seconds": [313, 343]},
-  "paid_generation_locked": true,
+  "paid_generation_locked": false,
+  "paid_generation_approval_basis": "direct user approval: 剧本可以，就疯人院吧",
+  "generation_strategy": "S1 paid smoke first; continue S2-S6 only after visual and Hua Chenyu identity QA",
   "supersedes": "concert30-hcy-flowers-v1",
   "audio_first": {
     "master_track": "user-specified or user-provided genuine Hua Chenyu live recording, approximately 30 seconds",
