@@ -1,0 +1,14 @@
+{
+  "policy":"direct original-photo content only; deterministic crop is allowed solely to isolate the correct person in a multi-face original; no generative lookalike intermediate",
+  "references":[
+    {"id":"G1","file":"refs/ref05_dessert_tshirt.jpg","use":"original full image"},
+    {"id":"G2","file":"refs_hcy_v2/G_ref06_direct_facecrop_PASS.jpg","source":"refs/ref06_concert_poster_red_tee.jpg","use":"YuNet-detected girl face with 40% context margin","detection":{"bbox":[388,415,130,163],"confidence":0.9413},"reason":"full original contains a second, larger Hua Chenyu poster face which caused largest-face identity contamination"},
+    {"id":"G3","file":"refs/ref03_stadium_selfie.jpg","use":"original full image"},
+    {"id":"G4","file":"refs/ref04_theater_hoodie.jpg","use":"original full image"},
+    {"id":"G5","file":"refs/ref01_burgundy_dress_fork.jpg","use":"original full image"}
+  ],
+  "sface_checks":{"threshold":0.363,"G2_G1":0.5574,"G2_G3":0.5550,"G2_G4":0.5897,"G2_G5":0.5491,"result":"4/4 PASS"},
+  "other_original_pair_range":"0.6029-0.7199 excluding contaminated full ref06",
+  "full_ref06_prohibited_as_identity_input":true,
+  "status":"PASS"
+}
