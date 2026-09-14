@@ -92,17 +92,18 @@ SPECS = {
             HER
             + HIM
             + "A real photograph frozen mid-flash at a concert: warm print tone, visible photo "
-            "grain, both facing the camera shoulder to shoulder — she makes a clearly readable "
+            "grain, preserve the same two people and the woman's round glasses from the reference image; both face the camera shoulder to shoulder — she makes a clearly readable "
             "single-hand heart beside her shoulder by touching thumb and index finger into a heart "
             "shape, the other three fingers naturally curled, never a V sign; he holds the red-rose "
-            "bouquet over his shoulder with one hand and a clearly bright-red microphone body, "
-            "including its grille, in the other, smiling. Camera flashes bloom as soft white circles "
+            "large, unmistakable bouquet of red roses visibly raised high in his left hand, the bouquet occupying a clear upper part of the frame; he holds a clearly bright-red microphone body, "
+            "including its grille, in his right hand, smiling. Camera flashes bloom as soft white circles "
             "over the blurred red glow sea behind them. " + STYLE + ANTI
         ),
     },
 }
 
 REF_MAIN = SRC / "refs" / "ref06_concert_poster_red_tee.jpg"
+REF_B_PAIR = OUT / "KF_B_FIRST.png"
 
 
 def check_approval() -> None:
@@ -176,8 +177,9 @@ def main() -> int:
         print("dry run only: no tasks submitted")
         return 0
     key = rh_task.load_api_key()
-    ref_uploaded = rh_task.upload_file(key, str(REF_MAIN))
-    print("ref uploaded:", ref_uploaded, flush=True)
+    ref_path = REF_B_PAIR if requested == "KF_B_LAST" and REF_B_PAIR.exists() else REF_MAIN
+    ref_uploaded = rh_task.upload_file(key, str(ref_path))
+    print("ref uploaded:", ref_uploaded, "from", ref_path.name, flush=True)
     for n in names:
         if not force and by.get(n, {}).get("status") == "success" and Path(by[n]["final"]).exists():
             print(n, "already successful")
