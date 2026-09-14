@@ -14,28 +14,63 @@ CID='2093518439926218753'
 
 G=[BASE/'refs_hcy_v2'/'G_ref06_direct_facecrop_PASS.jpg',BASE/'refs'/'ref05_dessert_tshirt.jpg',BASE/'refs'/'ref03_stadium_selfie.jpg',BASE/'refs'/'ref04_theater_hoodie.jpg']
 H=[BASE/'refs_hcy_v2'/'H1_front_natural_PASS.jpg',BASE/'refs_hcy_v2'/'H2_left_threequarter_PASS.jpg',BASE/'refs_hcy_v2'/'H4_singing_openmouth_PASS.jpg',BASE/'refs_hcy_v2'/'H3_right_threequarter_LOW_WEIGHT.jpg',BASE/'refs_hcy_v2'/'H5_fullbody_look_PASS.jpg']
+# v3: singer face-crop anchor FIRST (transpose of validated girl recipe), SameFace 0.5
+HF=[BASE/'refs_hcy_v2'/'H1_facecrop.jpg',BASE/'refs_hcy_v2'/'H4_singing_openmouth_PASS.jpg',BASE/'refs_hcy_v2'/'H1_front_natural_PASS.jpg',BASE/'refs_hcy_v2'/'H5_fullbody_look_PASS.jpg']
+SEGS='segments_v3.json' if (BASE/'segments_v3.json').exists() else 'segments_v2.json'
 
-def load(): return json.loads((BASE/'segments_v2.json').read_text(encoding='utf-8'))
+def load(): return json.loads((BASE/SEGS).read_text(encoding='utf-8'))
 def plan(): return json.loads((BASE/'production_plan_v2.json').read_text(encoding='utf-8'))
 
 def refs_for(seg):
     mode=seg.get('generation_mode','')
     if mode=='real_cut': return []
     if mode=='girl_plate_plus_real_insert': return G
+    if mode=='hua_plate': return HF
+    if mode=='two_person_plate': return G+HF
     return G+H
 
 def prompt(seg, refs):
     mode=seg.get('generation_mode','')
     rel=[round(a-seg['time'][0],2) for a in seg['anchors']]
+    if mode=='hua_plate':
+        defs=('<Picture 1> supplies singer H exact face geometry (frontal anchor crop); '
+              '<Picture 2> supplies his open-mouth singing expression; '
+              '<Picture 3> supplies his hair and frontal look; '
+              '<Picture 4> supplies his full-body stage costume. '
+              'All four pictures define the same real singer H; preserve his exact facial geometry, not a lookalike.')
+        return defs+f"""
+summary:
+[reference generation] {seg['id']} singer plate for a loud, packed 2024 Mars Concert. One single continuous scene, no montage: {seg['plate']}.
+retention_analysis:
+Only one identity appears: singer H, the continuous main subject of every frame from start to end. His face is clearly visible toward camera within the first second and again in the last second; between them he stays mid-performance. Crowd faces remain unresolved smears in darkness. H keeps his platinum-blonde shaggy hair, pink sequin-embroidered stage costume and red wireless microphone in every frame.
+detailed_description:
+Loud, kinetic live-concert realism: darkness beyond the stage light, glow-stick ocean, sweeping beams, haze, LED glare. Every movement hits these relative audio anchors: {rel}. Hard mandatory attributes in EVERY frame: platinum-blonde shaggy hair, pink sequin stage costume, red wireless microphone in hand, visibly singing with mouth open. Strictly forbidden: any second prominent man, backup dancers, resolved audience faces, quiet pauses, stillness, walking off stage, instrument playing.
+overall_soundscape: arena screaming, live vocals from the stage; no quiet gap.
+non_diegetic_music: none; final edit uses the approved genuine live master window."""
+    if mode=='two_person_plate':
+        defs=[]
+        for i,p in enumerate(refs,1):
+            role='girl G' if p in G else 'singer H'
+            defs.append(f'<Picture {i}> supplies the exact face and look of {role};' if i in (1,len(G)+1) else f'<Picture {i}> is another view of {role};')
+        defs='\n'.join(defs)+' Girl G and singer H are two distinct real identities; preserve each one\'s exact facial geometry, never blend, swap, average or morph their faces.'
+        return defs+f"""
+summary:
+[reference generation] {seg['id']} in a loud, packed 2024 Mars Concert. One single continuous scene, no montage: {seg['plate']}.
+retention_analysis:
+Both identities appear and stay themselves in every frame: girl G with her thin round glasses and long dark hair, singer H with platinum-blonde shaggy hair, pink sequin costume and red microphone. Their faces are both clearly visible toward camera within the first second and again in the last second. Crowd faces remain unresolved smears in darkness.
+detailed_description:
+Loud, kinetic live-concert realism: darkness around the action, glow-stick ocean, sweeping beams, haze, LED glare. Every movement hits these relative audio anchors: {rel}. Both faces stay in frame together for most of the clip; no coverage where either face vanishes. Hands anatomically correct; the bouquet stays intact and held high. Strictly forbidden: face blending or swapping between G and H, any third prominent person, resolved audience faces, quiet pauses.
+overall_soundscape: arena screaming, live vocals, band and drums; no quiet gap.
+non_diegetic_music: none; final edit uses the approved genuine live master window."""
     if mode=='girl_plate_plus_real_insert':
         defs='\n'.join(f'<Picture {i}> defines the same real girl G in different daily contexts; preserve her exact facial geometry, glasses and proportions, not a lookalike.' for i in range(1,len(refs)+1))
         return defs+f"""
 summary:
 [reference generation] {seg['id']} girl plate for a loud, packed 2024 Mars Concert. One single continuous scene, no montage: {seg['plate']}.
 retention_analysis:
-Only one identity appears: girl G, and she is the continuous main subject of every frame from start to end — never a background figure. Her face is clearly visible toward camera within the first second and again in the last second; between them she may be mid-action but never vanishes. No male singer is generated; any distant stage figure stays tiny, backlit and unresolved. Crowd faces remain unresolved smears. G keeps her thin round glasses and exact facial geometry from the references at every visible moment.
+Only one identity appears: girl G, and she is the continuous main subject of every frame from start to end — never a background figure. Her face is clearly visible toward camera within the first second and again in the last second; between them she may be mid-action but never vanishes. No male singer is generated in sharp focus; any stage figure stays tiny, backlit and unresolved. Crowd faces remain unresolved smears. G keeps her thin round glasses and exact facial geometry from the references at every visible moment.
 detailed_description:
-Fast, noisy, kinetic live-concert realism: red glow-stick ocean, sweeping beams, haze, LED glare, motion blur on the crowd and on her sprinting body. Every movement hits these relative audio anchors: {rel}. Hard mandatory attributes in EVERY frame: girl G wears her thin round glasses and has her long dark hair exactly as in the references; she RUNS at full sprint from the first frame to the last — never walking, never standing still, never slowing down; bouquet held firmly in both arms with anatomically correct hands. The clip opens mid-sprint with her determined face flashing toward camera and closes on her face toward camera at the stage stair. Strictly forbidden: selfies, group photos, phones facing the viewer, vlogging poses, quiet pauses, calm walking, standing and smiling at the camera, any second prominent woman.
+Fast, noisy, kinetic live-concert realism: darkness beyond the follow spot, red glow-stick ocean flickering in the dark, sweeping beams, haze, distant stage glare, motion blur on the dark crowd around her. Every movement hits these relative audio anchors: {rel}. Hard mandatory attributes in EVERY frame: girl G wears her thin round glasses and has her long dark hair exactly as in the references; {seg.get('action_mandate','she moves at an energetic fast pace from the first frame to the last — never calm walking, never standing still')}; bouquet held firmly with anatomically correct hands. Strictly forbidden: selfies, group photos, phones facing the viewer, vlogging poses, quiet pauses, calm walking, standing and smiling at the camera, any second prominent woman, empty corridors or backstage tunnels — she is always inside a dense dark crowd or lit by the follow spot within the arena.
 overall_soundscape: arena screaming, live drums and vocals bleeding from the stage; no quiet gap.
 non_diegetic_music: none; final edit uses the approved genuine live master window."""
     defs=[]
@@ -63,7 +98,7 @@ def build(seg):
     ri=fmt['136']['inputs']; ri['ref_image_size']='max'; ri['width']=1344; ri['height']=768
     dur=round(seg['time'][1]-seg['time'][0],2); fmt['132']['inputs']['value']=dur; fmt['138']['inputs']['value']=prompt(seg,refs)
     fmt['127']['inputs']['unet_name']='minimax_h3_ref2va_pruned_int8_convrot.safetensors'
-    sameface=0.5 if seg.get('generation_mode')=='girl_plate_plus_real_insert' else 0.35
+    sameface=0.5 if seg.get('generation_mode') in ('girl_plate_plus_real_insert','hua_plate','two_person_plate') else 0.35
     fmt['158']={'class_type':'LoraLoaderModelOnly','inputs':{'lora_name':'SameFace_Fix.safetensors','strength_model':sameface,'model':['127',0]}}
     fmt['159']={'class_type':'LoraLoaderModelOnly','inputs':{'lora_name':'minimax_h3_turbo_6step_ema.safetensors','strength_model':1.0,'model':['158',0]}}
     fmt['141']['inputs']['model']=['159',0]
