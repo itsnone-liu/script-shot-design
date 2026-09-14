@@ -1,0 +1,18 @@
+{
+  "version": "concert30-hcy-flowers-v2",
+  "status": "script_approved_preproduction",
+  "user_script_review": {"status":"approved","reviewed_by":"user","feedback":["剧本可以，就疯人院吧"]},
+  "paid_generation_locked": true,
+  "unlock_requirements": ["Hua Chenyu H1-H4 clear face references PASS", "H5 full-body look reference PASS", "girl direct-original-photo input preflight PASS", "all six prompts compile within workflow limits"],
+  "audio": {"song":"疯人院（电音版+尾奏）","event":"2024-07-21 南昌站","source_window_seconds":[313.0,343.0],"beat_map":"beat_map_mad_asylum_313_343_v2.json"},
+  "segments": [
+    {"id":"S1","time":[0.0,4.9],"identity_roles":["hua_chenyu"],"visual":"Performance already at full energy: face, drum hit, arena, runway attack.","audio":"genuine live master 313.00-317.90s","anchors":[0.20,0.85,1.55,2.40,3.35,3.80,4.90]},
+    {"id":"S2","time":[4.9,9.85],"identity_roles":["hua_chenyu","girl"],"visual":"Singer points while singing; follow-spot whips across crowd and hits girl; nearby crowd erupts.","audio":"genuine live master 317.90-322.85s","anchors":[4.90,5.75,6.70,7.55,8.30,9.00,9.85]},
+    {"id":"S3","time":[9.85,14.9],"identity_roles":["girl","hua_chenyu"],"visual":"Beat montage, never a slow walk: bouquet grip, security gap, sprint, stair hit, singer reaches while singing, spotlight entry.","audio":"genuine live master 322.85-327.90s","anchors":[9.85,11.95,13.55,14.15,14.90]},
+    {"id":"S4","time":[14.9,19.3],"identity_roles":["girl","hua_chenyu"],"visual":"Singer keeps microphone and vocal line active; receives bouquet with free hand on beat; turns immediately toward center stage.","audio":"genuine live master 327.90-332.30s","anchors":[14.90,18.00,19.30]},
+    {"id":"S5","time":[19.3,24.85],"identity_roles":["hua_chenyu","girl"],"visual":"He raises bouquet to arena while singing; girl jumps to beat; LED becomes their two-shot; light field explodes.","audio":"genuine live master 332.30-337.85s","anchors":[19.30,22.90,23.80,24.85]},
+    {"id":"S6","time":[24.85,30.0],"identity_roles":["girl","hua_chenyu"],"visual":"Three camera flashes cut close pair, LED two-shot, arena wide; final downbeat returns to singer continuing performance as girl exits.","audio":"genuine live master 337.85-343.00s","anchors":[24.85,27.85,28.90,29.50]}
+  ],
+  "identity_input_policy": {"girl":"only original user photos G1-G5","hua_chenyu":"only QA-passed public references H1-H5","two_person":"explicit role tags and spatial descriptions; sequential role-isolated repair after generation"},
+  "delivery_identity_gate": {"clear_face_median_min":0.60,"hero_photo_frame_min":0.70,"clear_face_floor":0.50,"cross_id_margin_min":0.12}
+}
