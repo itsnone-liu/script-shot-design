@@ -33,7 +33,8 @@ SEED = 20260914
 HER = (
     "Capture the same young Chinese woman from the reference photo — soft oval face, fair skin, "
     "thin round metal-framed glasses always worn, dark brown mid-parted hair past her shoulders, "
-    "matte red-brown lips, loose bright-red long-sleeve tee, fine thin necklace. "
+    "matte red-brown lips, plain unbranded loose bright-red long-sleeve top with no logo or print, "
+    "fine thin necklace. "
 )
 HIM = (
     "Beside her stands the same Chinese male pop singer around thirty — slim build, silver-gray "
@@ -91,10 +92,12 @@ SPECS = {
             HER
             + HIM
             + "A real photograph frozen mid-flash at a concert: warm print tone, visible photo "
-            "grain, both facing the camera shoulder to shoulder — she makes a small heart gesture "
-            "with her fingers beside her shoulder and smiles wide; he holds the red-rose bouquet "
-            "over his shoulder with one hand, red microphone in the other, smiling. Camera flashes "
-            "bloom as soft white circles over the blurred red glow sea behind them. " + STYLE + ANTI
+            "grain, both facing the camera shoulder to shoulder — she makes a clearly readable "
+            "single-hand heart beside her shoulder by touching thumb and index finger into a heart "
+            "shape, the other three fingers naturally curled, never a V sign; he holds the red-rose "
+            "bouquet over his shoulder with one hand and a clearly bright-red microphone body, "
+            "including its grille, in the other, smiling. Camera flashes bloom as soft white circles "
+            "over the blurred red glow sea behind them. " + STYLE + ANTI
         ),
     },
 }
@@ -153,7 +156,8 @@ def generate(name: str, ref_uploaded: str) -> dict:
 def main() -> int:
     args = sys.argv[1:]
     dry = "--dry" in args
-    args = [a for a in args if a != "--dry"]
+    force = "--force" in args
+    args = [a for a in args if a not in ("--dry", "--force")]
     requested = args[0] if args else "all"
     names = list(SPECS) if requested == "all" else [requested]
     for n in names:
@@ -175,7 +179,7 @@ def main() -> int:
     ref_uploaded = rh_task.upload_file(key, str(REF_MAIN))
     print("ref uploaded:", ref_uploaded, flush=True)
     for n in names:
-        if by.get(n, {}).get("status") == "success" and Path(by[n]["final"]).exists():
+        if not force and by.get(n, {}).get("status") == "success" and Path(by[n]["final"]).exists():
             print(n, "already successful")
             continue
         result = generate(n, ref_uploaded)

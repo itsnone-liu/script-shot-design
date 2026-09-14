@@ -7,7 +7,7 @@
   "12": {"class_type": "UNETLoader", "inputs": {"unet_name": "flux1-kontext-dev.safetensors", "weight_dtype": "fp8_e4m3fn"}},
   "13": {"class_type": "SamplerCustomAdvanced", "inputs": {"noise": ["25", 0], "guider": ["22", 0], "sampler": ["16", 0], "sigmas": ["17", 0], "latent_image": ["27", 0]}},
   "16": {"class_type": "KSamplerSelect", "inputs": {"sampler_name": "euler"}},
-  "17": {"class_type": "BasicScheduler", "inputs": {"scheduler": "simple", "steps": 20, "denoise": 1.0}},
+  "17": {"class_type": "BasicScheduler", "inputs": {"model": ["30", 0], "scheduler": "simple", "steps": 20, "denoise": 1.0}},
   "22": {"class_type": "BasicGuider", "inputs": {"model": ["30", 0], "conditioning": ["42", 0]}},
   "25": {"class_type": "RandomNoise", "inputs": {"noise_seed": 1}},
   "26": {"class_type": "FluxGuidance", "inputs": {"conditioning": ["6", 0], "guidance": 2.5}},
