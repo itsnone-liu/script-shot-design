@@ -1,1 +1,11 @@
-{"schema_version":"0.1","beats":[{"id":"B01","state_in":"设计师面对失衡的最后一页","visible_event":"倒计时开始，三次微调失败","character_choice":"继续盯屏幕修改","state_out":"页面更拥挤且压力升级","causal_hook":"无效方法迫使他寻找不同观察方式"},{"id":"B02","state_in":"倒计时逼近，人物意识到原地打转","visible_event":"鼠标停住，窗边出现咖啡杯和光影","character_choice":"推开椅子离开工位","state_out":"他把注意力从屏幕移到现实空间","causal_hook":"光影引出观察行为"},{"id":"B03","state_in":"人物站在窗边观察杯影","visible_event":"转动杯子，杯影和窗格形成稳定几何关系","character_choice":"停下并记住主次、留白、基线","state_out":"他获得可执行的构图参照","causal_hook":"观察必须转化为设计动作"},{"id":"B04","state_in":"人物带着参照回到电脑前","visible_event":"删除装饰、扩大留白、重组标题与色块","character_choice":"放弃微调，进行结构性重组","state_out":"页面重心稳定并接近完成","causal_hook":"主动行动产生可见结果"},{"id":"B05","state_in":"最后一页完成，倒计时只剩数十秒","visible_event":"人物检查全页并按下提交","character_choice":"接受结果而非继续无效修改","state_out":"上传成功，焦虑转为松弛","causal_hook":"结果由重组行动造成"}],"total_duration_sec":30}
+{
+  "schema_version": "0.2",
+  "beats": [
+    {"id":"B01","state_in":"设计师面对失衡的最后一页","visible_event":"倒计时开始，三次添加使页面更拥挤","character_choice":"继续添加","state_out":"压力升级且画面失衡","causal_hook":"错误方法必须被打断","duration_sec":6,"audience_question":"片头成功声为什么没有让他放松","new_information":"听到的结果与看到的人物状态冲突","motif_state":"空白被元素挤压","escalation_level":1},
+    {"id":"B02","state_in":"他仍处于别人的成功节奏里","visible_event":"镜头揭示成功声来自隔壁工位","character_choice":"主动静音并离开鼠标","state_out":"第一次退出竞争节奏","causal_hook":"安静让现实空间进入注意力","duration_sec":5,"audience_question":"停下来会让他更失败还是看见新东西","new_information":"主角并未完成，片头是声音误导","motif_state":"门框和屏幕形成两块互不相同的空间","escalation_level":2},
+    {"id":"B03","state_in":"他停止盯屏幕","visible_event":"杯影越过拥挤废稿后停在空白处","character_choice":"转杯观察并反扣废稿","state_out":"获得删减而非添加的线索","causal_hook":"线索必须转化成不可逆选择","duration_sec":6,"audience_question":"他敢删到什么程度","new_information":"咖啡只改变观察，不提供魔法答案","motif_state":"负空间第一次成为可见主体","escalation_level":3},
+    {"id":"B04","state_in":"他理解问题是结构过满","visible_event":"删装饰、删核心图形、关屏后重建","character_choice":"放弃保守微调","state_out":"页面重心被重新建立","causal_hook":"最终必须接受留白而非继续填满","duration_sec":8,"audience_question":"最大的空白会成立还是暴露失败","new_information":"删除不是退让而是掌控","motif_state":"留白逐级扩大并与房间光区同构","escalation_level":5},
+    {"id":"B05","state_in":"页面已平衡但仍可继续修改","visible_event":"他无声提交并把杯子推入光区","character_choice":"接受结果，不再添加","state_out":"焦虑转为松弛","causal_hook":"片头空白获得最终意义","duration_sec":5,"audience_question":"无","new_information":"未完成感就是完成后的核心选择","motif_state":"页面、桌面和杯影共享同一块留白","escalation_level":4}
+  ],
+  "total_duration_sec": 30
+}

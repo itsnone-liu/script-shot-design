@@ -4,6 +4,41 @@ Command failures and integration errors.
 
 ---
 
+## [ERR-20260914-001] Zhihu article retrieval unavailable without live CDP session
+
+**Logged**: 2026-09-14T00:00:00+08:00
+**Priority**: medium
+**Status**: resolved
+**Area**: infra
+
+### Summary
+The camera-reference Zhihu article could not initially be retrieved because the previously required live Chrome CDP endpoint was not running; direct page and API requests both returned 403.
+
+### Error
+```text
+connect ECONNREFUSED 127.0.0.1:9222
+HTTP 403 from zhuanlan page and /api/v4/articles endpoint
+```
+
+### Context
+- Target article: `2082574274066436836`
+- Existing project learning already establishes that anonymous/direct Zhihu access is blocked and a user-owned Chrome session must be reused.
+- No repeated CDP retries were attempted after the endpoint was confirmed unavailable.
+
+### Suggested Fix
+Ask the user to open the article in the existing Chrome debug profile on port 9222, then rerun `_read_zhihu_camera_article.py`; meanwhile rely only on clearly labelled related-source research and local pipeline analysis.
+
+### Metadata
+- Reproducible: yes
+- Related Files: `_read_zhihu_camera_article.py`, `data/zhihu_camera_research/`
+- See Also: LRN-20260912-001
+
+### Resolution
+- **Resolved**: 2026-09-14T10:34:00+08:00
+- **Notes**: With user permission, started the established `C:\chrome-debug-profile` as an independent Chrome instance on port 9222, reused its real browser context, and successfully exported the full UTF-8 article text.
+
+---
+
 ## [ERR-20260912-001] Story pipeline import and fixture shape mismatch
 
 **Logged**: 2026-09-12T06:30:00+08:00

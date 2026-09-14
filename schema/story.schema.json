@@ -1,1 +1,21 @@
-{"$schema":"https://json-schema.org/draft/2020-12/schema","type":"object","required":["logline","protagonist","desire","obstacle","stakes","arc"],"properties":{"schema_version":{"type":"string"},"logline":{"type":"string"},"protagonist":{"type":"string"},"desire":{"type":"string"},"obstacle":{"type":"string"},"stakes":{"type":"string"},"arc":{"type":"string"},"twist":{"type":"string"},"theme":{"type":"string"}}}
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "required": ["logline", "protagonist", "desire", "obstacle", "stakes", "arc", "world_rule", "visual_motif_progression", "information_strategy", "escalation_logic", "ending_reframe"],
+  "properties": {
+    "schema_version": {"type": "string"},
+    "logline": {"type": "string"},
+    "protagonist": {"type": "string"},
+    "desire": {"type": "string"},
+    "obstacle": {"type": "string"},
+    "stakes": {"type": "string"},
+    "arc": {"type": "string"},
+    "twist": {"type": "string"},
+    "theme": {"type": "string"},
+    "world_rule": {"type": "string"},
+    "visual_motif_progression": {"type": "array", "minItems": 3, "items": {"type": "string"}},
+    "information_strategy": {"type": "object"},
+    "escalation_logic": {"type": "array", "minItems": 3, "items": {"type": "string"}},
+    "ending_reframe": {"type": "string"}
+  }
+}

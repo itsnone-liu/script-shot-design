@@ -1,1 +1,80 @@
-{"schema_version":"0.1","scenes":[{"id":"SC01","beat_id":"B01","location":"工作室工位","time_of_day":"清晨","characters":["设计师"],"action":"反复调整最后一页并看到失败版本","dialogue_intent":"none","visual_notes":"冷色屏幕、局部暖色咖啡杯，界面文字后期叠加","shot_hints":["close-up cursor","medium desk pressure","match-cut failed layouts"],"audio_notes":"鼠标、键盘、时钟脉冲","est_duration_sec":8},{"id":"SC02","beat_id":"B02","location":"窗边","time_of_day":"清晨","characters":["设计师"],"action":"拿杯离席并观察杯影","dialogue_intent":"none","visual_notes":"窗光穿过杯身，影子与窗格形成几何关系","shot_hints":["slow move to window","macro cup shadow","hands rotate cup"],"audio_notes":"环境声替代时钟脉冲","est_duration_sec":6},{"id":"SC03","beat_id":"B03","location":"窗边与工位之间","time_of_day":"清晨","characters":["设计师"],"action":"记住光影结构并回到电脑","dialogue_intent":"none","visual_notes":"观察先于行动，避免突然灵感表演","shot_hints":["eye-line match shadow to layout","tracking return","insert remembered geometry"],"audio_notes":"克制节奏层进入","est_duration_sec":5},{"id":"SC04","beat_id":"B04","location":"工作室工位","time_of_day":"清晨","characters":["设计师"],"action":"删除装饰、扩大留白、重组页面","dialogue_intent":"none","visual_notes":"前后页面差异由后期合成保证可读","shot_hints":["hands decisive edits","before-after match cut","screen reflection"],"audio_notes":"键盘和节奏逐渐稳定","est_duration_sec":7},{"id":"SC05","beat_id":"B05","location":"工作室工位/产品英雄镜头","time_of_day":"清晨","characters":["设计师"],"action":"提交并进入产品与完成稿收束","dialogue_intent":"none","visual_notes":"杯影、完成稿、窗格保持同构，品牌后期叠加","shot_hints":["submit insert","hero still","slow hold"],"audio_notes":"提交声、半秒安静、品牌声音","est_duration_sec":4}]}
+{
+  "schema_version": "0.2",
+  "scenes": [
+    {
+      "id": "SC01", "beat_id": "B01", "action": "他在倒计时中继续添加元素，页面反而失衡", "visual_notes": "冷屏幕和逼仄前景制造压力", "est_duration_sec": 6,
+      "shot_list": [{
+        "shot_id": "S01_overfilled_page", "start": 0, "end": 6, "framing": "medium_close_up", "attention_subject": "主角被前景屏幕挤压的脸", "action": "他加上新装饰，停顿，眼神短暂下沉后立刻回正", "camera_move": "restrained handheld breathing", "transition_in": "opening", "audio_cue": "鼠标点击后出现不属于他的提交成功声", "exit_state": "他没有放松，观众开始怀疑声音归属",
+        "cinematic_design": {
+          "narrative_job": "制造成功错觉并立即留下反常反应",
+          "audience_knowledge": {"knows": "听见成功声", "does_not_know": "声音属于谁", "question": "为什么他没有成功后的反应"},
+          "composition_logic": "三分法加屏幕前景遮挡，把人物压在右侧窄区",
+          "blocking_map": {"subject_position": "人物在画面右三分之一", "movement_path": "只有右手在桌面短距离移动", "camera_position": "屏幕左后方肩上机位", "screen_direction": "手和视线保持左向"},
+          "performance_detail": {"micro_action": "眼神向下一瞬后回正，呼吸停半拍", "reaction_order": "先拍他的错误反应，再解释声音"},
+          "light_motivation": {"source": "左侧显示器与右后方清晨窗", "direction": "冷光左前，暖光右后", "color_temperature": "4300K冷屏幕对5600K晨光"},
+          "event_budget": {"max_concurrent_events": 2, "timed_events": ["点击", "成功声与眼神微反应"]}
+        }
+      }]
+    },
+    {
+      "id": "SC02", "beat_id": "B02", "action": "镜头揭示隔壁工位的人完成提交，他关掉提示音", "visual_notes": "门框形成框中框揭示真正的成功者", "est_duration_sec": 5,
+      "shot_list": [{
+        "shot_id": "S02_wrong_winner", "start": 6, "end": 11, "framing": "wide", "attention_subject": "门框另一侧放松的同事与近景主角手", "action": "同事先松肩，主角随后静音电脑并把手离开鼠标", "camera_move": "slow lateral reveal", "transition_in": "hard_cut", "audio_cue": "提示音来源变得明确，然后归于安静", "exit_state": "主角第一次脱离竞争节奏",
+        "cinematic_design": {
+          "narrative_job": "兑现片头误导并让人物做出第一项主动选择",
+          "audience_knowledge": {"knows": "成功声属于同事", "does_not_know": "主角接下来为何停下", "question": "停下来会让他更失败还是看见新东西"},
+          "composition_logic": "门廊框中框把成功者放远景，主角手占前景",
+          "blocking_map": {"subject_position": "主角手在左前景，同事在右后景", "movement_path": "同事后靠，主角手从鼠标退回", "camera_position": "两工位侧面低机位", "screen_direction": "前后景动作相向但不越轴"},
+          "performance_detail": {"micro_action": "同事肩膀先松下，主角拇指悬在静音键上半秒", "reaction_order": "配角先反应，主角后选择"},
+          "light_motivation": {"source": "右后方真实窗光", "direction": "从成功者一侧斜穿到主角手", "color_temperature": "5600K晨光"},
+          "event_budget": {"max_concurrent_events": 2, "timed_events": ["同事松肩", "主角静音"]}
+        }
+      }]
+    },
+    {
+      "id": "SC03", "beat_id": "B03", "action": "咖啡杯落在桌面，杯影露出页面中缺失的留白关系", "visual_notes": "影子不是答案，只是观察线索", "est_duration_sec": 6,
+      "shot_list": [{
+        "shot_id": "S03_shadow_clue", "start": 11, "end": 17, "framing": "close_up", "attention_subject": "杯耳影子与打印废稿的空白", "action": "他缓慢转动杯子，影子越过拥挤图形后停在空白处", "camera_move": "locked", "transition_in": "match_cut", "match_point": "静音键圆形匹配杯口", "audio_cue": "杯底轻触桌面和一次呼吸", "exit_state": "他没有微笑，只把一张废稿反扣",
+        "cinematic_design": {
+          "narrative_job": "提供可执行线索但拒绝突然灵感表演",
+          "audience_knowledge": {"knows": "他看见影子和留白的关系", "does_not_know": "他会删到什么程度", "question": "观察会怎样转化为行动"},
+          "composition_logic": "极端俯拍用负空间包围杯子和废稿",
+          "blocking_map": {"subject_position": "杯子在左下交点，手从右侧进入", "movement_path": "杯子原地旋转不平移", "camera_position": "桌面正上方俯拍", "screen_direction": "影子左向右移动"},
+          "performance_detail": {"micro_action": "指尖转杯后停住，手掌压住废稿再反扣", "reaction_order": "先见影子停下，再见手作选择"},
+          "light_motivation": {"source": "左上方窗光", "direction": "影子统一拖向右下", "color_temperature": "5600K硬晨光"},
+          "event_budget": {"max_concurrent_events": 2, "timed_events": ["转杯", "反扣废稿"]}
+        }
+      }]
+    },
+    {
+      "id": "SC04", "beat_id": "B04", "action": "他回到页面，但先连续删除而不是添加", "visual_notes": "删除动作三级升级，画面空间同步释放", "est_duration_sec": 8,
+      "shot_list": [{
+        "shot_id": "S04_delete_escalation", "start": 17, "end": 25, "framing": "close_up", "attention_subject": "手、屏幕反光与逐步扩大的留白", "action": "删除装饰，删除核心图形，最后关闭显示器凭打印结构重建", "camera_move": "three explicit cuts with one static setup each", "transition_in": "smash_cut", "audio_cue": "三次删除声逐次拉开间隔", "exit_state": "黑屏反光中人物轮廓和纸面留白对齐",
+        "cinematic_design": {
+          "narrative_job": "用三级不可逆选择完成真正的情节升级",
+          "audience_knowledge": {"knows": "删除是有意重建", "does_not_know": "最终页面会否成立", "question": "他是否敢保留最大的空白"},
+          "composition_logic": "三次切镜由拥挤近景逐步扩展到平衡中景",
+          "blocking_map": {"subject_position": "手始终在右下，页面主体在左上", "movement_path": "手从小范围点击扩大到合上屏幕", "camera_position": "同侧三种景别且轴线不变", "screen_direction": "动作始终右向左清除元素"},
+          "performance_detail": {"micro_action": "每次删除后手指离键时间更长，最后呼气", "reaction_order": "动作结果先出现，脸部只在黑屏反光中回应"},
+          "light_motivation": {"source": "同一扇左上方窗", "direction": "影子始终右下，屏幕熄灭后晨光接管", "color_temperature": "从4300K屏幕混光过渡到5600K自然光"},
+          "event_budget": {"max_concurrent_events": 2, "timed_events": ["删装饰", "删核心图形", "关屏重建"]}
+        }
+      }]
+    },
+    {
+      "id": "SC05", "beat_id": "B05", "action": "最终页面保留大片空白，主角无提示音地完成", "visual_notes": "片头的未完成感在结尾被重释为选择", "est_duration_sec": 5,
+      "shot_list": [{
+        "shot_id": "S05_silent_finish", "start": 25, "end": 30, "framing": "wide", "attention_subject": "页面留白、咖啡杯与人物平静呼吸", "action": "他按下提交，关掉声音，把杯子推入留白投下的光中", "camera_move": "slow restrained pullback", "transition_in": "match_cut", "match_point": "黑屏中的人物轮廓匹配成品页面留白", "audio_cue": "没有成功提示音，只有杯底落桌和一次完整呼吸", "exit_state": "观众理解空白不是没做完，而是最终选择",
+        "cinematic_design": {
+          "narrative_job": "用声音缺席和视觉回环完成结尾重释",
+          "audience_knowledge": {"knows": "任务完成且片头空白具有意义", "does_not_know": "无", "question": "无，情绪得到兑现"},
+          "composition_logic": "街道式纵深引导线被转化为桌面光线，引向三分点上的杯子",
+          "blocking_map": {"subject_position": "人物左中景，杯子右前景，页面居中偏上", "movement_path": "杯子短距离进入光区", "camera_position": "工位后方略低广角", "screen_direction": "杯子向右移动，与前文影子方向一致"},
+          "performance_detail": {"micro_action": "按键后手掌放松，肩膀延迟半秒下降", "reaction_order": "杯子落桌后身体才真正放松"},
+          "light_motivation": {"source": "左上方窗光", "direction": "阴影仍拖向右下", "color_temperature": "5600K自然晨光"},
+          "event_budget": {"max_concurrent_events": 2, "timed_events": ["提交", "推杯与呼吸"]}
+        }
+      }]
+    }
+  ]
+}

@@ -1,1 +1,48 @@
-{"$schema":"https://json-schema.org/draft/2020-12/schema","type":"object","required":["candidates"],"properties":{"schema_version":{"type":"string"},"candidates":{"type":"array","minItems":3,"items":{"type":"object","required":["id","hook","tension","risk_flags"],"properties":{"id":{"type":"string"},"hook":{"type":"string"},"tension":{"type":"string"},"minimax_visual_fit":{"type":"string"},"risk_flags":{"type":"array","items":{"type":"string"}}}}},"selected_id":{"type":"string"}}}
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "required": ["candidates"],
+  "properties": {
+    "schema_version": {"type": "string"},
+    "candidates": {
+      "type": "array",
+      "minItems": 3,
+      "items": {
+        "type": "object",
+        "required": ["id", "hook", "tension", "creative_strategy", "risk_flags"],
+        "properties": {
+          "id": {"type": "string"},
+          "hook": {"type": "string"},
+          "tension": {"type": "string"},
+          "minimax_visual_fit": {"type": "string"},
+          "risk_flags": {"type": "array", "items": {"type": "string"}},
+          "creative_strategy": {
+            "type": "object",
+            "required": ["audience_assumption", "expectation_break", "creative_engine", "world_rule", "visual_motif", "escalation_ladder", "reveal_design", "ending_reframe", "product_truth", "cliche_rejected"],
+            "properties": {
+              "audience_assumption": {"type": "string"},
+              "expectation_break": {"type": "string"},
+              "creative_engine": {"type": "string"},
+              "world_rule": {"type": "string"},
+              "visual_motif": {"type": "string"},
+              "escalation_ladder": {"type": "array", "minItems": 3, "items": {"type": "string"}},
+              "reveal_design": {
+                "type": "object",
+                "required": ["withhold", "clue", "reveal"],
+                "properties": {
+                  "withhold": {"type": "string"},
+                  "clue": {"type": "string"},
+                  "reveal": {"type": "string"}
+                }
+              },
+              "ending_reframe": {"type": "string"},
+              "product_truth": {"type": "string"},
+              "cliche_rejected": {"type": "string"}
+            }
+          }
+        }
+      }
+    },
+    "selected_id": {"type": "string"}
+  }
+}

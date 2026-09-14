@@ -3,6 +3,13 @@ from __future__ import annotations
 import re
 from typing import Any
 
+from shortfilm.creative_quality import (
+    validate_beat_design,
+    validate_cinematic_scene_design,
+    validate_creative_strategy,
+    validate_story_design,
+)
+
 BEAT_FIELDS = ("state_in", "visible_event", "character_choice", "state_out", "causal_hook")
 
 def validate_package(package: dict[str, Any], brief: dict[str, Any]) -> list[dict[str, Any]]:
@@ -35,6 +42,10 @@ def validate_package(package: dict[str, Any], brief: dict[str, Any]) -> list[dic
     if re.search(r"突然成功|一键完成|喝完就成功|灵感爆发", script): issues.append({"severity":"blocker","code":"sudden_success"})
     if len(re.findall(r"喝|饮用|拿起|产品特写|展示产品", script))>2: issues.append({"severity":"warning","code":"repeated_product_action"})
     if any(x in script.lower() for x in ("nsfw", "explicit sexual", "pornographic")): issues.append({"severity":"blocker","code":"nsfw_advisor_only"})
+    issues.extend(validate_creative_strategy(package.get("concept_candidates") or {}))
+    issues.extend(validate_story_design(package.get("story_statement") or {}))
+    issues.extend(validate_beat_design(package.get("beat_sheet") or {}))
+    issues.extend(validate_cinematic_scene_design(package.get("scene_cards") or {}))
     return issues
 
 def validate_visual_design(document: dict[str, Any]) -> list[dict[str, Any]]:
@@ -107,5 +118,14 @@ def validate_document(document: dict[str, Any], schema_name: str) -> list[dict[s
         "concept_candidates": ("candidates",), "story_statement": ("logline", "protagonist", "desire", "obstacle"),
         "beat_sheet": ("beats",), "scene_cards": ("scenes",), "script_markdown": ("markdown",), "reviews": ("reviews",),
     }.get(schema_name, ())
-    return [{"severity":"blocker", "code":"missing_contract_field", "stage":schema_name, "field":field}
-            for field in required if not document.get(field)]
+    issues = [{"severity":"blocker", "code":"missing_contract_field", "stage":schema_name, "field":field}
+              for field in required if not document.get(field)]
+    if schema_name == "concept_candidates" and document.get("candidates"):
+        issues.extend(validate_creative_strategy(document))
+    if schema_name == "story_statement" and document.get("logline"):
+        issues.extend(validate_story_design(document))
+    if schema_name == "beat_sheet" and document.get("beats"):
+        issues.extend(validate_beat_design(document))
+    if schema_name == "scene_cards" and document.get("scenes"):
+        issues.extend(validate_cinematic_scene_design(document))
+    return issues

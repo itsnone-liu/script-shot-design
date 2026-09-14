@@ -22,7 +22,7 @@ def main():
     reviews=package.get('reviews',{})
     prompt={
       'role':'senior screenplay revision room',
-      'task':'Revise this short ad package using the review findings. Return one JSON object with story_statement, beat_sheet, scene_cards, script_markdown, revision_log, reviews.',
+      'task':'Revise this short ad package using the review findings. Preserve or strengthen its expectation break, creative engine, world rule, motif progression, information design, escalation and ending reframe. Return one JSON object with story_statement, beat_sheet, scene_cards, script_markdown, revision_log, reviews.',
       'must_fix':[
         'replace any magical/glowing VFX discovery with a practical, pre-existing visual clue already present in the workspace',
         'make the emotional transition gradual: anxiety -> hesitation -> pause -> clearer judgment',
@@ -30,6 +30,9 @@ def main():
         'keep one protagonist, one location if possible, no dialogue, 30 seconds, and MiniMax-friendly short segments',
         'all readable text and brand UI are post-production; do not rely on generated text',
         'product action no more than two times; product can remain a visual anchor without extra drinking',
+        'do not normalize an unusual concept into a familiar problem-solution sequence during revision',
+        'every beat must change audience knowledge, motif meaning, stakes or irreversible action',
+        'every editorial shot must retain cinematic_design: information job, composition, blocking, micro-performance, motivated light and a maximum of three concurrent visual events',
       ],
       'brief':brief,'package':package,'reviews':reviews,
       'output_contract':{'story_statement':'object','beat_sheet':'object with beats list','scene_cards':'object with scenes list','script_markdown':'object with markdown string','revision_log':'object','reviews':'object'},

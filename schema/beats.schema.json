@@ -1,1 +1,29 @@
-{"$schema":"https://json-schema.org/draft/2020-12/schema","type":"object","required":["beats"],"properties":{"schema_version":{"type":"string"},"beats":{"type":"array","minItems":4,"items":{"type":"object","required":["id","state_in","visible_event","character_choice","state_out","causal_hook"],"properties":{"id":{"type":"string"},"state_in":{"type":"string"},"visible_event":{"type":"string"},"character_choice":{"type":"string"},"state_out":{"type":"string"},"causal_hook":{"type":"string"},"duration_sec":{"type":"number"}}}}}
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "required": ["beats"],
+  "properties": {
+    "schema_version": {"type": "string"},
+    "beats": {
+      "type": "array",
+      "minItems": 4,
+      "items": {
+        "type": "object",
+        "required": ["id", "state_in", "visible_event", "character_choice", "state_out", "causal_hook", "audience_question", "new_information", "motif_state", "escalation_level"],
+        "properties": {
+          "id": {"type": "string"},
+          "state_in": {"type": "string"},
+          "visible_event": {"type": "string"},
+          "character_choice": {"type": "string"},
+          "state_out": {"type": "string"},
+          "causal_hook": {"type": "string"},
+          "duration_sec": {"type": "number"},
+          "audience_question": {"type": "string"},
+          "new_information": {"type": "string"},
+          "motif_state": {"type": "string"},
+          "escalation_level": {"type": "number"}
+        }
+      }
+    }
+  }
+}

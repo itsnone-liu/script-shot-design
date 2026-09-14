@@ -1,10 +1,64 @@
 {
-  "schema_version":"0.1",
-  "candidates":[
-    {"id":"coffee_reframe","hook":"最后一页不是缺内容，而是缺少离开屏幕的观察","insight":"高压创作者需要改变观察方式","angle":"现实光影成为构图参照","tension":"倒计时与反复修改冲突","why_it_works":"产品通过光影触发行动改变","minimax_visual_fit":"杯影、窗光、页面几何适合MiniMax短段落","risk_flags":["光影因果需清楚"]},
-    {"id":"coffee_pause","hook":"暂停播放才能找回片尾","insight":"删减比继续添加更重要","angle":"剪辑师观察咖啡倒影","tension":"修改意见不断堆积","why_it_works":"倒影成为筛选注意力的锚点","minimax_visual_fit":"屏幕与倒影适合首尾帧衔接","risk_flags":["屏幕文字后期"]},
-    {"id":"coffee_send","hook":"发送前的一次停顿避免交付错误","insight":"速度压力掩盖了真正问题","angle":"咖啡桌面让人物重新阅读","tension":"发送倒计时与方案空洞冲突","why_it_works":"产品触发重新判断","minimax_visual_fit":"桌面、手部、屏幕可拆为短镜头","risk_flags":["界面信息需后期"]}
+  "schema_version": "0.2",
+  "candidates": [
+    {
+      "id": "coffee_reframe",
+      "hook": "设计师删掉完成稿，而不是继续完成它",
+      "tension": "倒计时越近，他删除得越多",
+      "minimax_visual_fit": "杯影、窗格与页面留白可做形状匹配切",
+      "risk_flags": ["界面内容需后期"],
+      "creative_strategy": {
+        "audience_assumption": "临近截止时间的人会不断添加内容直到完成",
+        "expectation_break": "主角在最后十分钟反而开始删除完成稿",
+        "creative_engine": "role_reversal",
+        "world_rule": "现实中的阴影会暴露设计中多余的部分，但不会给出完整答案",
+        "visual_motif": "逐步扩大的留白从杯影蔓延到页面与房间",
+        "escalation_ladder": ["删掉一个装饰", "删掉核心图形", "关闭屏幕后凭记忆重建"],
+        "reveal_design": {"withhold": "他为何破坏完成稿", "clue": "杯影中的空白与页面缺口同形", "reveal": "删除是在恢复真正的视觉重心"},
+        "ending_reframe": "片头看似未完成的空白，在片尾成为整个方案最有力量的部分",
+        "product_truth": "咖啡提供的不是魔法灵感，而是一次减速和重新观察",
+        "cliche_rejected": "喝一口咖啡后突然灵感爆发并一键完成"
+      }
+    },
+    {
+      "id": "coffee_shadow_audition",
+      "hook": "房间里所有物体的影子都在竞争进入最后一页",
+      "tension": "每个影子都更漂亮，但页面无法容纳全部",
+      "minimax_visual_fit": "单一实景光源、影子变形和反应镜头适合短镜生成",
+      "risk_flags": ["影子行为必须保持物理可信"],
+      "creative_strategy": {
+        "audience_assumption": "设计元素由人在屏幕中挑选",
+        "expectation_break": "候选元素以现实影子的方式主动参加无声试镜",
+        "creative_engine": "impossible_rule",
+        "world_rule": "只有被咖啡蒸汽短暂触碰的影子会移动一次，其他物理规律不变",
+        "visual_motif": "不同形状的影子依次越过桌面边界",
+        "escalation_ladder": ["杯耳影子轻移", "多件物品影子排队", "主角自己的影子挡住全部候选"],
+        "reveal_design": {"withhold": "影子为何移动", "clue": "每次移动前都有蒸汽掠过", "reveal": "真正该进入页面的是人的选择而非任何现成形状"},
+        "ending_reframe": "最终页面保留的不是某个影子，而是影子让出的空位",
+        "product_truth": "咖啡让日常空间短暂成为观察和选择的舞台",
+        "cliche_rejected": "把咖啡蒸汽直接变成漂亮图案"
+      }
+    },
+    {
+      "id": "coffee_wrong_winner",
+      "hook": "提交成功声在片头先响起，但画面中的人仍在失败",
+      "tension": "观众逐渐发现成功声属于隔壁陌生人",
+      "minimax_visual_fit": "声音误导、反应先于主角、狭窄视角揭示可低成本实现",
+      "risk_flags": ["关键信息依赖声音设计"],
+      "creative_strategy": {
+        "audience_assumption": "片头成功提示音意味着主角已经完成任务",
+        "expectation_break": "镜头拉开后发现成功属于画外另一个人",
+        "creative_engine": "misdirection_reveal",
+        "world_rule": "先听见结果、后看见结果归属，声音始终领先画面一次",
+        "visual_motif": "每次提示音后主角眼神先下沉再回正",
+        "escalation_ladder": ["误认第一次成功声", "第二次声音带来更大压力", "主角主动关掉提示音寻找自己的节奏"],
+        "reveal_design": {"withhold": "成功声属于谁", "clue": "主角没有任何放松反应", "reveal": "隔壁工位完成，而主角仍卡住"},
+        "ending_reframe": "片尾没有成功音，只有杯子落桌和主角完成后的呼吸",
+        "product_truth": "咖啡不是竞争加速器，而是找回自己节奏的感官锚点",
+        "cliche_rejected": "用倒计时和快速剪辑直接表现工作压力"
+      }
+    }
   ],
-  "selected_id":"coffee_reframe",
-  "selection_rationale":"优先选择因果最清楚、最适合MiniMax视觉表达且可复用到非产品故事的方案"
+  "selected_id": "coffee_reframe",
+  "selection_rationale": "角色反转在30秒内最清晰，且产品作用不依赖魔法"
 }

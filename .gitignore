@@ -1,6 +1,7 @@
 # runtime artifacts
 data/
 output/
+.jspace/
 __pycache__/
 *.pyc
 !data/codegraph.json

@@ -1,0 +1,94 @@
+{
+  "schema_version": "0.2",
+  "project_id": "coffee30-creative-v2",
+  "approval_status": "pending_user_selection",
+  "source_asset_scope": "reuse the established bedroom, sunrise, young woman, male hands, white cups, coffee-making and i2v reference workflow where the selected concept permits",
+  "candidates": [
+    {
+      "id": "C1_dont_wake_her",
+      "title": "《别吵醒她》",
+      "hook": "一支咖啡广告被拍成一场无声拆弹：每一个正常的冲泡声都可能叫醒她。",
+      "tension": "磨豆、壶盖、杯底、滴水声逐级逼近失控，做咖啡的人不断用笨拙而真实的微动作救场。",
+      "minimax_visual_fit": "单一卧室、手部近景、物理动作、声音驱动切镜；可复用现有女主和首尾帧体系。",
+      "risk_flags": ["需要精确拟音与后期节奏", "手部动作需best-of-N"],
+      "creative_strategy": {
+        "audience_assumption": "晨间咖啡广告会顺滑展示冲泡并把人自然唤醒",
+        "expectation_break": "冲泡不是享受过程，而是不能发出声音的高风险任务",
+        "creative_engine": "constraint_game",
+        "world_rule": "整个房间必须保持安静；所有危险都来自真实冲泡声音，没有魔法",
+        "visual_motif": "每次将要碰撞的硬物都在离接触面一毫米处停住",
+        "escalation_ladder": ["豆子差点落地，被手背接住", "壶盖将响，袖口垫住", "杯底将落桌，另一只手及时托住"],
+        "reveal_design": {"withhold": "她到底有没有被吵醒", "clue": "每次险情后她的睫毛都有极轻微反应", "reveal": "她早已醒着，只是在配合这份笨拙的体贴"},
+        "ending_reframe": "片头的沉睡在结尾被理解为她主动留给对方完成仪式的空间",
+        "product_truth": "咖啡的价值不只是提神，也可以成为照顾一个人的具体行动",
+        "cliche_rejected": "咖啡香飘过后女主自然睁眼微笑"
+      },
+      "provisional_ending": "杯子终于无声落下。她仍闭眼，手却准确地从被子里伸出，轻轻压住还没来得及撤走的手。睁眼。两人都笑，但不说话。"
+    },
+    {
+      "id": "C2_wrong_recipient",
+      "title": "《这杯不是给她的》",
+      "hook": "所有镜头都让人以为咖啡是为床上的女人准备，直到第二只杯子进入光里。",
+      "tension": "做咖啡的手越来越疲惫，观众开始怀疑真正需要被唤醒的人是谁。",
+      "minimax_visual_fit": "可用手部、双杯、影子和反应镜头完成误导；场景及人物资产复用率高。",
+      "risk_flags": ["必须让手部疲惫线索清楚但不提前泄底", "双杯连续性需参考图锁定"],
+      "creative_strategy": {
+        "audience_assumption": "画外男性在为睡着的女人准备晨间咖啡",
+        "expectation_break": "她醒来后没有拿第一杯，而是把第二杯推回给已经伏在床边睡着的人",
+        "creative_engine": "misdirection_reveal",
+        "world_rule": "镜头前半段只拍手和她的反应，不展示两人的完整空间关系",
+        "visual_motif": "画面始终保留一个用途不明的空位：空杯、空椅、空出的半边光",
+        "escalation_ladder": ["手部动作略慢", "倒水时短暂停顿", "放杯后手停在桌上没有撤走"],
+        "reveal_design": {"withhold": "第一杯真正为谁准备、做咖啡的人为何疲惫", "clue": "桌上从一开始就有第二只空杯，手腕有熬夜后的迟钝", "reveal": "他做完她的那杯后睡着，她把另一杯留给他"},
+        "ending_reframe": "片头看似多余的空杯成为关系中被照顾者互换的证据",
+        "product_truth": "一杯咖啡可以传递照顾，但照顾不是单向的",
+        "cliche_rejected": "男性做咖啡、女性醒来享用的单向温情"
+      },
+      "provisional_ending": "她醒来，先看咖啡，再看停在桌边不动的手。镜头第一次拉开：他伏在床边睡着。她把自己的杯子推到他手边，自己拿起那只一直空着的杯。"
+    },
+    {
+      "id": "C3_room_wakes_first",
+      "title": "《房间先醒》",
+      "hook": "人还在睡，房间里的五个局部却依次像演员一样醒来，但没有任何物体违反物理规律。",
+      "tension": "光、窗帘、水、咖啡床、蒸汽形成接力；任何一环断掉，晨间仪式就无法到达她。",
+      "minimax_visual_fit": "用形状、方向、声音匹配切制造拟人化，不要求真实物体魔法变形；适合高审美产品片。",
+      "risk_flags": ["人物戏较弱", "需要严格的光向和匹配剪辑设计"],
+      "creative_strategy": {
+        "audience_assumption": "人醒来后才启动晨间空间和咖啡动作",
+        "expectation_break": "空间先通过一连串真实物理事件完成醒来，最后才把清晨交给人物",
+        "creative_engine": "perspective_shift",
+        "world_rule": "所有动作都保持物理真实，但剪辑把不同物体组织成一次有意志的接力",
+        "visual_motif": "一条左向右移动的亮边，从窗帘、壶嘴、水线、杯沿一直传到她的睫毛",
+        "escalation_ladder": ["光推开房间层次", "水启动咖啡的呼吸", "蒸汽越过最后的空间抵达人物"],
+        "reveal_design": {"withhold": "是谁在完成这场接力", "clue": "画外只偶尔出现同一双手", "reveal": "并非房间有魔法，而是有人在极安静地替她安排清晨"},
+        "ending_reframe": "片头无人推动的亮边，在片尾落到画外人的手上，揭示每个自然瞬间都有人为选择",
+        "product_truth": "好的咖啡把时间、材料和注意力组织成一次完整的感官过程",
+        "cliche_rejected": "纯粹按步骤展示磨豆、注水、拉花、饮用"
+      },
+      "provisional_ending": "她睁眼后没有立刻拿杯，而是沿着光看向画外。最后一镜只见那双手退出光线，观众才理解前面的自然接力是被精心安排的。"
+    },
+    {
+      "id": "C4_first_cup_fails",
+      "title": "《第一杯失败了》",
+      "hook": "广告敢在第一镜展示一杯明显失败的咖啡：泡沫塌陷、液面不完整。",
+      "tension": "做咖啡的人试图偷偷替换失败品，却发现睡着的人早已看见全过程。",
+      "minimax_visual_fit": "失败—补救—接受主要依赖可见材料状态与人物微表演，易于分镜控制。",
+      "risk_flags": ["产品必须拍得真实但不能显得低质", "液体连续性需要独立关键帧"],
+      "creative_strategy": {
+        "audience_assumption": "产品广告只会展示完美成品",
+        "expectation_break": "第一杯失败，故事重点从产品完美转向人的在意",
+        "creative_engine": "emotional_contradiction",
+        "world_rule": "咖啡可以失败，但任何失败都不通过魔法复原，只能重做或接受",
+        "visual_motif": "不完整的泡沫圆形在杯面、窗外月影和两人手势间重复",
+        "escalation_ladder": ["泡沫塌陷", "替换时杯子相碰险些出声", "女主伸手留下失败的第一杯"],
+        "reveal_design": {"withhold": "她为何留下失败品", "clue": "她在闭眼时嘴角短暂压住笑", "reveal": "她在意的是对方笨拙完成的第一杯，而不是英雄镜头里的第二杯"},
+        "ending_reframe": "开头的产品缺陷在结尾成为无法复制的情感证据",
+        "product_truth": "咖啡既有工艺价值，也承载亲手完成的关系价值",
+        "cliche_rejected": "每一滴、每一层泡沫都完美无瑕的产品炫技"
+      },
+      "provisional_ending": "完美的第二杯被留在后景。她把塌了一角的第一杯捧到光里，手指遮住缺口。画外的手停顿，随后轻轻碰一下杯沿。"
+    }
+  ],
+  "recommended_order": ["C1_dont_wake_her", "C2_wrong_recipient", "C4_first_cup_fails", "C3_room_wakes_first"],
+  "recommendation": "优先 C1：约束游戏天然产生节奏、悬念、微表演和声音设计，同时保留现有资产；C2 情感反转最强；C3 视觉电影感最强但人物弧线较弱；C4 最反广告套路但需要控制产品负面观感。"
+}
