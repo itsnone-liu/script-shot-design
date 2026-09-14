@@ -1,0 +1,51 @@
+{
+  "project": "concert30-hcy-flowers-v2",
+  "status": "waiting_user_song_choice",
+  "identity": "Hua Chenyu",
+  "public_figure_reference_policy": {
+    "same_event_or_era_only": true,
+    "prefer_sources": ["official concert photography", "official live recording frames", "user-provided live video"],
+    "do_not_mix": ["different concert years", "different hair colors", "studio portraits with incompatible stage makeup", "fan edits or face-altered images"],
+    "minimum_resolution": "face short side >= 256 px after crop",
+    "no_text_only_identity": true
+  },
+  "candidate_sets": {
+    "A": {
+      "song": "疯人院（电音版+尾奏）",
+      "event": "2024-07-21 火星演唱会南昌站",
+      "source": "https://www.bilibili.com/video/BV1dZvdePEyp/",
+      "recommendation": "primary",
+      "status": "not_selected"
+    },
+    "B": {
+      "song": "齐天大圣（改编版）",
+      "event": "2024 火星演唱会烟台站 DAY1",
+      "source": "https://www.bilibili.com/video/BV1RH4y1u7gs/",
+      "recommendation": "alternate",
+      "status": "not_selected"
+    },
+    "C": {
+      "song": "向阳而生（体育馆开场版）",
+      "event": "2024 火星演唱会体育馆开场版",
+      "source": "https://www.bilibili.com/video/BV1a1tCeuEt6/",
+      "recommendation": "alternate",
+      "status": "not_selected"
+    }
+  },
+  "required_slots_after_selection": [
+    {"slot": "H1", "view": "front close-up", "purpose": "primary identity embedding"},
+    {"slot": "H2", "view": "left three-quarter", "purpose": "turning and stage-motion identity"},
+    {"slot": "H3", "view": "right three-quarter", "purpose": "two-person interaction identity"},
+    {"slot": "H4", "view": "singing expression close-up", "purpose": "open-mouth singing face"},
+    {"slot": "H5", "view": "full-body stage costume", "purpose": "costume and body proportion"}
+  ],
+  "identity_gate": {
+    "metric": "FaceComparator / InsightFace cosine",
+    "same_identity_median_min": 0.60,
+    "hero_frame_min": 0.70,
+    "clear_face_floor": 0.50,
+    "cross_identity_margin_min": 0.12,
+    "manual_checks": ["hair and makeup match selected event", "no face morph into the girl", "mouth remains plausible while singing"]
+  },
+  "selection_required_before_download_or_paid_generation": true
+}
