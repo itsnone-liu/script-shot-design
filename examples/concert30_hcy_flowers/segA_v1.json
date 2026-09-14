@@ -2,7 +2,7 @@
   "duration": 15,
   "edit_role": "opening",
   "main_visual_task": "A quiet girl in a red tee holds a flower bouquet inside a vast red-glowing stadium crowd; a single moving spotlight finds her, walks her down the passage toward the stage, and ends looking up at the singer turning toward her from the stage edge.",
-  "user_script_review": {"status": "approved", "script_version": "concert30-hcy-flowers-v1", "reviewed_by": "user", "reviewed_at": "2026-09-14T15:40:00+08:00", "feedback": ["剧本可以"]},
+  "user_script_review": {"status": "rejected", "script_version": "concert30-hcy-flowers-v1", "reviewed_by": "user", "reviewed_at": "2026-09-14T18:35:00+08:00", "feedback": ["人物一致性不行；华晨宇必须本人一致；缺少歌声、演唱会氛围和现场张力；慢慢走上台献花不成立；剧本和技术方案重来"]},
   "prompt_bible": {
     "subject_lock": "the same young Chinese woman from the reference photo: soft oval face, fair skin, thin round metal-frame glasses, dark brown mid-parted hair past her shoulders, matte red-brown lips; she wears a loose bright-red long-sleeve tee and a fine necklace; she carries one wrapped flower bouquet (red roses, kraft-paper wrap)",
     "environment_lock": "night open-air stadium concert, ocean of red glow sticks held by a blurred crowd (crowd never resolves into clear faces), giant curved LED screen far background, stage on frame right; then a dark side passage with red light strips; then the stage-edge stairs",

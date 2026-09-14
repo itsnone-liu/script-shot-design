@@ -1,0 +1,68 @@
+{
+  "project": "concert30-hcy-flowers-v2",
+  "status": "draft_waiting_song_and_hcy_era",
+  "paid_generation_locked": true,
+  "supersedes": "concert30-hcy-flowers-v1",
+  "audio_first": {
+    "master_track": "user-specified or user-provided genuine Hua Chenyu live recording, approximately 30 seconds",
+    "voice_policy": "do not synthesize or imitate Hua Chenyu's singing voice",
+    "editing_rule": "mark cuts from the real waveform, downbeats and phrase boundaries",
+    "generation_audio": "feed time-windowed reference audio into MiniMax H3 Ref2VA when useful; replace all generated singing with the genuine master in post"
+  },
+  "video_structure": {
+    "containers": 6,
+    "nominal_seconds_each": "4.0-6.0",
+    "reason": "one high-energy action per container; reduces identity drift and avoids slow 2x15s pacing",
+    "script": "examples/concert30_hcy_flowers/concert30_hcy_flowers_script_v2.md"
+  },
+  "girl_identity": {
+    "policy": "original user photos go directly into every relevant generation; no generative lookalike intermediate",
+    "primary_refs": [
+      "refs/ref05_dessert_tshirt.jpg",
+      "refs/ref06_concert_poster_red_tee.jpg",
+      "refs/ref03_stadium_selfie.jpg",
+      "refs/ref04_theater_hoodie.jpg",
+      "refs/ref01_burgundy_dress_fork.jpg"
+    ],
+    "role_tag": "<Picture G1>..<Picture G5>",
+    "hard_attributes": ["thin round metal-frame glasses", "dark brown mid-parted hair", "soft oval face"],
+    "prohibited": ["generated lookalike reference", "identity judged only by visual description"]
+  },
+  "hua_chenyu_identity": {
+    "status": "reference pack not yet built",
+    "required_era": "single user-selected concert year/appearance",
+    "required_public_refs": ["front stage close-up", "left three-quarter", "right three-quarter", "singing face", "full-body stage costume"],
+    "source_policy": "official studio/concert photography or user-provided live footage; do not mix eras",
+    "role_tag": "<Picture H1>..<Picture H5>",
+    "prohibited": ["text-only identity", "silver hair or red microphone used as identity substitute"]
+  },
+  "primary_workflow": {
+    "workflow_id": "2093518439926218753",
+    "name": "MiniMax H3 Ref2VA final configuration",
+    "capabilities": ["up to 9 reference images", "reference audio", "native stereo audio", "4-15 second clips"],
+    "validated_recipe": ["ref_image_size=max", "1MP 1344x768", "SameFace_Fix 0.35", "int8 + turbo 6-step"],
+    "prior_evidence": "single-person clear frontal anchors scored 0.72-0.89; median depends on face visibility"
+  },
+  "post_identity_repair": {
+    "required": true,
+    "method": "track two faces independently; repair girl and Hua Chenyu sequentially with isolated masks; prevent cross-ID leakage",
+    "candidate_workflows": [
+      {"workflow_id": "1927622543950385153", "role": "PuLID image face repair"},
+      {"workflow_id": "1927585502306656257", "role": "VACE video face replacement/repair"},
+      {"workflow_id": "2005804455352303618", "role": "precise video face replacement + interpolation"}
+    ]
+  },
+  "identity_gate": {
+    "metric": "FaceComparator / InsightFace embedding cosine",
+    "girl": {"clear_face_median_min": 0.60, "hero_or_photo_frame_min": 0.70, "clear_face_floor": 0.50},
+    "hua_chenyu": {"clear_face_median_min": 0.60, "hero_or_photo_frame_min": 0.70, "clear_face_floor": 0.50},
+    "cross_id_margin_min": 0.12,
+    "failure_action": "reject or run role-isolated identity repair; never accept costume/hair similarity as identity"
+  },
+  "open_inputs": [
+    "song title and exact live-recording time window",
+    "concert year/era and Hua Chenyu appearance",
+    "user-provided audio/video when available"
+  ],
+  "approval_gate": "after open inputs are resolved, generate v2 contracts and obtain new direct user approval before any paid task"
+}

@@ -52,6 +52,9 @@ def load_json(path: Path) -> dict[str, Any]:
 
 def approval_errors(documents: list[dict[str, Any]]) -> list[str]:
     errors: list[str] = []
+    plan = load_json(BASE / "production_plan_v1.json")
+    if plan.get("paid_generation_locked"):
+        errors.append("v1 is rejected and paid_generation_locked")
     for segment, doc in zip(SEGMENTS, documents):
         review = doc.get("user_script_review") or {}
         if review.get("status") != "approved":

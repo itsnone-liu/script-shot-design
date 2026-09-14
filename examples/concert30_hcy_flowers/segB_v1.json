@@ -2,7 +2,7 @@
   "duration": 15,
   "edit_role": "end",
   "main_visual_task": "On stage she presents the bouquet with both hands; the singer steps down half a stair and bows to receive it with both hands, then stands beside her facing the red sea while the giant screen behind switches to their two-shot; camera flashes freeze them into a saved photograph.",
-  "user_script_review": {"status": "approved", "script_version": "concert30-hcy-flowers-v1", "reviewed_by": "user", "reviewed_at": "2026-09-14T15:40:00+08:00", "feedback": ["剧本可以"]},
+  "user_script_review": {"status": "rejected", "script_version": "concert30-hcy-flowers-v1", "reviewed_by": "user", "reviewed_at": "2026-09-14T18:35:00+08:00", "feedback": ["人物一致性不行；华晨宇必须本人一致；缺少歌声、演唱会氛围和现场张力；慢慢走上台献花不成立；剧本和技术方案重来"]},
   "prompt_bible": {
     "subject_lock": "the same young Chinese woman from the reference photo: soft oval face, fair skin, thin round metal-frame glasses, dark brown mid-parted hair past her shoulders, matte red-brown lips, loose bright-red long-sleeve tee, fine necklace; and the same Chinese male pop singer around thirty: slim, silver-gray highlighted short hair, black stage shirt, red microphone",
     "environment_lock": "open-air stadium main stage at night; giant curved LED screen behind; stage-edge stairs on frame left; red glow sea beyond the stage lights; volume haze in the beams; no other person ever resolves in frame",

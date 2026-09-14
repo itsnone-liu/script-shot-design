@@ -2,7 +2,15 @@
   "project": "concert30-hcy-flowers-v1",
   "title": "火星红的三十秒",
   "created_at": "2026-09-14",
-  "status": "awaiting_user_approval",
+  "status": "rejected_by_user_do_not_produce",
+  "rejected_at": "2026-09-14T18:35:00+08:00",
+  "rejection_reasons": [
+    "女孩人物一致性不合格：应直接使用原始照片作为身份参考",
+    "华晨宇人物一致性不合格：公众人物也必须使用公开照片参考集保证身份",
+    "剧本缺失演唱会歌声、氛围和现场张力；慢慢走上台献花不成立",
+    "唯一可保留设计：演唱进行中追光扫到台下女生"
+  ],
+  "paid_generation_locked": true,
   "script_version": "concert30-hcy-flowers-v1",
   "segments": [
     {"id": "segA", "contract": "examples/concert30_hcy_flowers/segA_v1.json", "duration": 15, "role": "opening"},

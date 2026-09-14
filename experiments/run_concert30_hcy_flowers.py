@@ -107,6 +107,9 @@ REF_B_PAIR = OUT / "KF_B_FIRST.png"
 
 
 def check_approval() -> None:
+    plan = json.loads((SRC / "production_plan_v1.json").read_text(encoding="utf-8"))
+    if plan.get("paid_generation_locked"):
+        raise SystemExit("v1 is rejected and paid_generation_locked — refusing render")
     for name in ("segA_v1.json", "segB_v1.json"):
         doc = json.loads((SRC / name).read_text(encoding="utf-8"))
         rv = doc.get("user_script_review", {})

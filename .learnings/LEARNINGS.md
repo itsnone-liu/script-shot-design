@@ -6,6 +6,29 @@ Corrections, insights, and knowledge gaps captured during development.
 
 ---
 
+## [LRN-20260914-001] correction
+
+**Logged**: 2026-09-14T18:36:00+08:00
+**Priority**: critical
+**Status**: in_progress
+**Area**: docs
+
+### Summary
+Concert storytelling and dual-person identity require a different production grammar from the coffee-ad pipeline.
+
+### Details
+concert30 v1 reused calm, restrained pacing; this removed live singing, drums, lighting, crowd noise and arena tension. It also generated a lookalike girl and described Hua Chenyu symbolically instead of conditioning both identities from real references.
+
+### Suggested Action
+Let the live song drive every cut; compress audience-to-stage travel into rhythmic montage; keep performance running through the flower exchange and photo. Feed the girl's original photos directly. Build a single-era public Hua Chenyu reference pack and enforce two independent identity gates plus cross-ID separation.
+
+### Metadata
+- Source: user_feedback
+- Related Files: examples/concert30_hcy_flowers/production_plan_v1.json, examples/concert30_hcy_flowers/production_plan_v2.json
+- Tags: concert, screenplay, identity, qa
+
+---
+
 ## [LRN-20260912-006] best_practice
 
 **Logged**: 2026-09-12T09:42:00+08:00
