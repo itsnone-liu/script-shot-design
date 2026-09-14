@@ -46,14 +46,7 @@ def contact_sheet(path: Path, segment: str, take: int) -> Path:
         inputs.extend(["-i", str(frame)])
     cols = 4
     layout = "|".join(f"{(i%cols)*480}_{(i//cols)*280}" for i in range(len(extracted)))
-    labels = ",".join(
-        f"drawtext=text='{TIMES[segment][i]:g}s':x=12:y=12:fontsize=24:fontcolor=white:box=1:boxcolor=black@0.6"
-        for i in range(len(extracted))
-    )
-    chains = ";".join(
-        f"[{i}:v]scale=480:270,drawtext=text='{TIMES[segment][i]:g}s':x=12:y=12:fontsize=24:fontcolor=white:box=1:boxcolor=black@0.6[v{i}]"
-        for i in range(len(extracted))
-    )
+    chains = ";".join(f"[{i}:v]scale=480:270[v{i}]" for i in range(len(extracted)))
     stack_inputs = "".join(f"[v{i}]" for i in range(len(extracted)))
     sheet = qa / "contact_sheet.jpg"
     filter_complex = f"{chains};{stack_inputs}xstack=inputs={len(extracted)}:layout={layout}:fill=black[out]"
