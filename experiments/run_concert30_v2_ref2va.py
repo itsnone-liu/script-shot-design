@@ -19,22 +19,36 @@ def load(): return json.loads((BASE/'segments_v2.json').read_text(encoding='utf-
 def plan(): return json.loads((BASE/'production_plan_v2.json').read_text(encoding='utf-8'))
 
 def refs_for(seg):
-    roles=seg['identity_roles']
-    if roles==['hua_chenyu']: return H
+    mode=seg.get('generation_mode','')
+    if mode=='real_cut': return []
+    if mode=='girl_plate_plus_real_insert': return G
     return G+H
 
 def prompt(seg, refs):
+    mode=seg.get('generation_mode','')
+    rel=[round(a-seg['time'][0],2) for a in seg['anchors']]
+    if mode=='girl_plate_plus_real_insert':
+        defs='\n'.join(f'<Picture {i}> defines the same real girl G in different daily contexts; preserve her exact facial geometry, glasses and proportions, not a lookalike.' for i in range(1,len(refs)+1))
+        return defs+f"""
+summary:
+[reference generation] {seg['id']} girl plate for a loud, packed 2024 Mars Concert. One single continuous scene, no montage: {seg['plate']}.
+retention_analysis:
+Only one identity appears: girl G, and she is the continuous main subject of every frame from start to end — never a background figure. Her face is clearly visible toward camera within the first second and again in the last second; between them she may be mid-action but never vanishes. No male singer is generated; any distant stage figure stays tiny, backlit and unresolved. Crowd faces remain unresolved smears. G keeps her thin round glasses and exact facial geometry from the references at every visible moment.
+detailed_description:
+Fast, noisy, kinetic live-concert realism: red glow-stick ocean, sweeping beams, haze, LED glare, motion blur on the crowd. Every movement hits these relative audio anchors: {rel}. Strictly forbidden: selfies, group photos, phones facing the viewer, vlogging poses, quiet pauses, calm walking, any second prominent woman.
+overall_soundscape: arena screaming, live drums and vocals bleeding from the stage; no quiet gap.
+non_diegetic_music: none; final edit uses the approved genuine live master window."""
     defs=[]
     for i,p in enumerate(refs,1):
         role='the same real girl G' if p in G else 'the same real Hua Chenyu H'
         defs.append(f'<Picture {i}> defines {role}; preserve exact facial geometry, not a lookalike.')
     return '\n'.join(defs)+f"""
 summary:
-[reference generation] {seg['id']} in a loud, packed 2024 Mars Concert. {seg['visual']}
+[reference generation] {seg['id']} in a loud, packed 2024 Mars Concert. {seg['plate'] or seg['visual']}
 retention_analysis:
-G and H are two distinct real identities. Never blend, swap, average or morph their faces. Girl G keeps thin round glasses. Hua Chenyu H keeps the selected 2024 gold-hair stage look and red microphone. Crowd faces remain unresolved.
+G and H are two distinct real identities. Never blend, swap, average or morph their faces. Girl G keeps thin round glasses. The singer keeps the 2024 gold-hair stage look with red microphone and must stay visibly singing; his face will be role-isolated repaired or replaced by genuine footage in post — keep his blocking simple and his face angles few. Crowd faces remain unresolved.
 detailed_description:
-Fast, noisy, kinetic live-concert realism. Every cut and movement hits these relative audio anchors: {seg['anchors']}. Hua Chenyu is visibly singing whenever on screen. Huge LED arrays, moving beams, haze, glow-stick ocean, jumping crowd and handheld stage-camera energy. No calm walking, no quiet pause, no ceremonial slowdown. End with at least one clear identity-validation face angle when physically plausible.
+Fast, noisy, kinetic live-concert realism. Every cut and movement hits these relative audio anchors: {rel}. Huge LED arrays, moving beams, haze, glow-stick ocean, jumping crowd and handheld stage-camera energy. No calm walking, no quiet pause, no ceremonial slowdown. End with at least one clear identity-validation face angle when physically plausible.
 overall_soundscape: genuine arena vocal performance, live band, drums, crowd singing and screaming; no quiet gap.
 non_diegetic_music: none; final edit uses the approved genuine live master window."""
 
@@ -60,6 +74,10 @@ def build(seg):
 def preflight():
     errors=[]; rows=[]
     for seg in load()['segments']:
+        mode=seg.get('generation_mode','')
+        if mode=='real_cut':
+            rows.append({'id':seg['id'],'mode':mode,'refs':0,'note':'genuine footage cut, no generation'})
+            continue
         refs,fmt=build(seg); dur=fmt['132']['inputs']['value']; text=fmt['138']['inputs']['value']
         miss=[str(p) for p in refs if not p.exists()]
         if miss: errors.append(f"{seg['id']} missing refs: {miss}")
@@ -77,6 +95,7 @@ def run_one(sid):
     if plan().get('paid_generation_locked'): raise SystemExit('REFUSED: v2 paid_generation_locked')
     seg=next((x for x in load()['segments'] if x['id']==sid),None)
     if not seg: raise SystemExit(f'unknown segment {sid}')
+    if seg.get('generation_mode')=='real_cut': raise SystemExit(f'{sid} is a real-footage cut; use ffmpeg, no paid run')
     refs,fmt=build(seg); key=rh_task.load_api_key()
     if not key: raise SystemExit('missing RunningHub API key')
     for i,p in enumerate(refs):
