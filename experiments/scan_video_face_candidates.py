@@ -32,11 +32,13 @@ def main() -> int:
             continue
         t = frame_index / fps
         h, w = img.shape[:2]
-        det.setInputSize((w, h))
-        _, faces = det.detect(img)
+        detect_scale = min(1.0, 960.0 / w)
+        detect_img = cv2.resize(img, (round(w * detect_scale), round(h * detect_scale))) if detect_scale < 1 else img
+        det.setInputSize((detect_img.shape[1], detect_img.shape[0]))
+        _, faces = det.detect(detect_img)
         if faces is not None:
             for f in faces:
-                x, y, fw, fh = [int(v) for v in f[:4]]
+                x, y, fw, fh = [int(v / detect_scale) for v in f[:4]]
                 conf = float(f[-1])
                 x0, y0 = max(0, x), max(0, y)
                 x1, y1 = min(w, x + fw), min(h, y + fh)

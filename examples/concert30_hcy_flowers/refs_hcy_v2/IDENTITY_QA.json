@@ -1,0 +1,21 @@
+{
+  "source": {"title":"晨光里有你（2024火星演唱会现场版）","uploader":"华晨宇工作室","url":"https://www.bilibili.com/video/BV1WwiRYoEHi/","resolution":"1920x1080","fps":30},
+  "scan": {"frames_sampled":321,"face_detections":208,"method":"ffmpeg 1fps 960px + OpenCV YuNet area/confidence/sharpness ranking"},
+  "passed": [
+    {"slot":"H1","file":"H1_front_natural_PASS.jpg","source_second":98,"manual":"PASS front near-natural, face clear, microphone below face","detected_face_px_at_960":[141,148]},
+    {"slot":"H2","file":"H2_left_threequarter_PASS.jpg","source_second":37,"manual":"PASS left three-quarter, mouth visible, no severe overexposure","detected_face_px_at_960":[126,185]},
+    {"slot":"H4","file":"H4_singing_openmouth_PASS.jpg","source_second":130,"manual":"PASS singing open-mouth, face clear, acceptable microphone overlap","detected_face_px_at_960":[142,169]}
+  ],
+  "same_identity_sface": {
+    "threshold":0.363,
+    "H1_H2":0.4638,
+    "H1_H4":0.6361,
+    "H2_H4":0.4384,
+    "result":"3/3 PASS"
+  },
+  "missing": [
+    {"slot":"H3","requirement":"clear right three-quarter physical face","status":"not passed"},
+    {"slot":"H5","requirement":"same-era full-body stage look","status":"not passed"}
+  ],
+  "generation_unlock": false
+}
