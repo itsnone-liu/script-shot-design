@@ -1,0 +1,77 @@
+{
+  "duration": 15,
+  "edit_role": "middle",
+  "main_visual_task": "A silent suspense game in a real morning bedroom: careful hands stop a rolling coffee bean, muffle a grinder and loose kettle lid, then let the coffee bloom; the sleeping woman may be reacting, but the film withholds certainty.",
+  "user_script_review": {"status": "pending", "script_version": "coffee30-dont-wake-her-v1", "reviewed_by": "", "feedback": []},
+  "prompt_bible": {
+    "subject_lock": "the established young Chinese woman around twenty-eight, dark shoulder-length hair, natural East Asian features, cream cotton sleep top; one man visible only as realistic five-fingered hands and light-blue rolled sleeves; one glass bean jar, hand grinder, gooseneck kettle, pour-over brewer and one unlabeled white ceramic cup",
+    "environment_lock": "the established quiet modern Chinese bedroom, white bedding, light wooden bedside table, sheer curtains, rain-fresh window, no other people",
+    "material_lock": "real skin pores, cotton weave, oily roasted beans, brushed metal kettle, ceramic glaze, coffee grounds, water and steam; physically plausible contact and gravity",
+    "lighting_lock": "one real hard sunrise source from upper left, cool ambient window fill; every shadow falls lower right",
+    "palette_lock": "morning gold, cream white, pale blue, warm wood and espresso brown",
+    "lens_texture": "live-action 35mm cinema camera, shallow depth of field, restrained handheld breathing only where requested, natural film grain and contrast",
+    "screen_direction": "all object risk travels left to right; woman remains on frame-right side across cuts",
+    "audio_policy": "no dialogue; amplified bean roll, suppressed grinding, almost-metal click, soft water and one natural breath; exact sound mix in post",
+    "never_show": ["readable text", "logo", "watermark", "UI", "anime", "illustration", "CGI look", "plastic skin", "wax face", "extra fingers", "extra person", "duplicate cup", "visible fragrance", "default smooth gimbal"]
+  },
+  "internal_shots": [
+    {
+      "shot_id": "A1_bean_stop", "start": 0, "end": 2.6, "transition_in": "opening", "shot_size": "extreme_close_up",
+      "visual_state": "one coffee bean rolls across the wooden bedside table toward its edge; her closed face is soft in the distant background",
+      "subject_action": "a realistic index finger pins the bean one millimeter before it falls, then holds for half a second",
+      "camera_action": "locked camera at tabletop height",
+      "focus": "sharp rolling bean and fingertip; sleeping face remains soft risk context",
+      "lighting_state": "sunrise edge light from upper left, shadow lower right",
+      "end_state": "bean and finger settle completely for a hard cut",
+      "camera_plan": {"motivation":"make tiny sound feel dangerous","start_position":"table-edge macro level","path":"camera stays locked beside the bean path","speed_curve":"static throughout","focus_transition":"bean to stopping fingertip","end_position":"same macro position","axis_lock":"object moves left to right only","stop_condition":"cut after the half-second stop","primary_move":"static","path_changes":0},
+      "cinematic_design": {"narrative_job":"establish the silence rule as suspense","audience_knowledge":{"knows":"the bean must not fall","does_not_know":"why sound is dangerous","question":"who must not wake"},"composition_logic":"bean on lower third, sleeping face on upper-right third","foreground":"bean and finger","midground":"empty wood as danger distance","background":"soft closed face","blocking_map":{"subject_position":"bean lower-left to lower-right","movement_path":"straight left-to-right roll","camera_position":"table edge at bean height","screen_direction":"left to right"},"performance_detail":{"micro_action":"finger freezes after contact","reaction_order":"bean stops before her breath changes"},"light_motivation":{"source":"upper-left window","direction":"upper-left to lower-right","color_temperature":"5600K warm sunrise"},"event_budget":{"max_concurrent_events":2,"timed_events":["bean rolls","finger stops it"]}}
+    },
+    {
+      "shot_id": "A2_lash_clue", "start": 2.6, "end": 4.6, "transition_in": "hard_cut", "shot_size": "extreme_close_up",
+      "visual_state": "her closed eye and cheek on a white pillow, real pores and one natural breath",
+      "subject_action": "half a beat after silence, eyelashes tremble once and return; eyes stay closed, no smile",
+      "camera_action": "locked close-up with no reframing",
+      "focus": "eyelashes, then subtle nose breath",
+      "lighting_state": "soft window edge on lashes from upper left",
+      "end_state": "breathing returns stable and the shot cuts before certainty",
+      "camera_plan": {"motivation":"plant an ambiguous clue without revealing awareness","start_position":"pillow-height close-up","path":"camera remains locked beside her eye line","speed_curve":"static throughout","focus_transition":"lashes to cheek breath","end_position":"same close-up","axis_lock":"face remains on right third","stop_condition":"cut as breathing settles","primary_move":"static","path_changes":0},
+      "cinematic_design": {"narrative_job":"make the audience suspect but not know","audience_knowledge":{"knows":"she reacted slightly","does_not_know":"awake or reflex","question":"did she hear it"},"composition_logic":"eye on upper-right intersection with pillow negative space","foreground":"soft bedding edge","midground":"eye and cheek","background":"dark hair","blocking_map":{"subject_position":"face frame right","movement_path":"only eyelash and breath micro-motion","camera_position":"pillow height profile","screen_direction":"still axis"},"performance_detail":{"micro_action":"single lash tremor after a delay","reaction_order":"sound stops, then lash reacts"},"light_motivation":{"source":"upper-left window","direction":"rakes across lashes to lower right","color_temperature":"5600K softened daylight"},"event_budget":{"max_concurrent_events":2,"timed_events":["natural breath","one lash tremor"]}}
+    },
+    {
+      "shot_id": "A3_grinder_muffle", "start": 4.6, "end": 7.8, "transition_in": "match_cut", "shot_size": "close_up",
+      "visual_state": "top-down hand grinder on wood beside a broad area of white bedding",
+      "subject_action": "one hand turns the crank slowly; when the base begins to slide, the other hand places a soft sleeve beneath it, actions staggered",
+      "camera_action": "locked extreme overhead camera",
+      "focus": "grinder base, sleeve and realistic hands",
+      "lighting_state": "hard diagonal window strip crosses grinder, shadows lower right",
+      "end_state": "grinder becomes quiet and stable, then cut",
+      "camera_plan": {"motivation":"escalate from one accident to sustained sound control","start_position":"directly above tabletop","path":"camera stays locked above the grinder center","speed_curve":"static throughout","focus_transition":"crank to sliding base to sleeve","end_position":"same overhead position","axis_lock":"hands enter from right only","stop_condition":"cut when base settles on cloth","primary_move":"static","path_changes":0},
+      "cinematic_design": {"narrative_job":"show care becoming difficult labor","audience_knowledge":{"knows":"he is protecting silence","does_not_know":"whether she is asleep","question":"can he finish quietly"},"composition_logic":"extreme overhead negative-space composition","foreground":"none","midground":"grinder at lower-left third","background":"white bedding fills upper frame","blocking_map":{"subject_position":"grinder lower left","movement_path":"crank circles, sleeve enters right","camera_position":"ninety-degree overhead","screen_direction":"support action right to left"},"performance_detail":{"micro_action":"supporting palm pauses before sliding sleeve","reaction_order":"base slips before sleeve responds"},"light_motivation":{"source":"upper-left window","direction":"diagonal upper-left to lower-right","color_temperature":"5600K hard daylight"},"event_budget":{"max_concurrent_events":2,"timed_events":["slow grind","base slips then sleeve cushions"]}}
+    },
+    {
+      "shot_id": "A4_lid_muffle", "start": 7.8, "end": 10.8, "transition_in": "hard_cut", "shot_size": "close_up",
+      "visual_state": "loose metal kettle lid lifts above its rim with sleeping woman framed far through the doorway",
+      "subject_action": "a soft rolled sleeve slips into the gap; the lid lands silently on cloth, hot steam makes the hand recoil once then steady",
+      "camera_action": "one short controlled push in toward the lid and stop",
+      "focus": "metal gap, cloth contact, then recoiling knuckles",
+      "lighting_state": "metal rim catches real upper-left sunlight",
+      "end_state": "lid and hand settle; cut on the recovered grip",
+      "camera_plan": {"motivation":"increase danger from bean to metal impact","start_position":"close-up thirty centimeters from lid","path":"push straight toward the lid gap and stop before contact","speed_curve":"brief fast start then sharp deceleration","focus_transition":"lid gap to cloth to hand","end_position":"macro on muffled lid","axis_lock":"optical axis stays on lid","stop_condition":"stop and cut when grip recovers","primary_move":"dolly_in","path_changes":0},
+      "cinematic_design": {"narrative_job":"deliver the second distinct save and bodily cost","audience_knowledge":{"knows":"metal would wake her","does_not_know":"how alert she is","question":"will heat break his control"},"composition_logic":"doorframe frame-within-frame, danger foreground and sleeper far background","foreground":"kettle lid","midground":"hands and steam","background":"woman in bed","blocking_map":{"subject_position":"lid left third, woman right third","movement_path":"cloth enters downward, hand recoils right","camera_position":"kettle-height side angle","screen_direction":"risk and response stay left-to-right"},"performance_detail":{"micro_action":"hand recoils from steam then forces itself steady","reaction_order":"cloth catches lid before heat recoil"},"light_motivation":{"source":"upper-left window","direction":"rim light left, shadow lower right","color_temperature":"5600K with warm metal reflection"},"event_budget":{"max_concurrent_events":2,"timed_events":["lid drops onto sleeve","hand recoils then steadies"]}}
+    },
+    {
+      "shot_id": "A5_coffee_breath", "start": 10.8, "end": 15, "transition_in": "match_cut", "shot_size": "extreme_close_up",
+      "visual_state": "real coffee grounds receive a thin water stream, swell into a bloom, release bubbles and settle into dark liquid",
+      "subject_action": "water briefly drifts after the heat recoil, then returns to a stable circle; no latte art or magic shape",
+      "camera_action": "locked macro camera; material transformation supplies motion",
+      "focus": "water contact, swelling grounds and settling surface",
+      "lighting_state": "steam crosses one real sunrise shaft from upper left",
+      "end_state": "dark liquid settles mirror-still for the segment cut",
+      "camera_plan": {"motivation":"release prior tension into tactile product process","start_position":"low macro at coffee-bed level","path":"camera remains locked beside the brewer rim","speed_curve":"static throughout","focus_transition":"water contact to bubbles to settled pool","end_position":"same low macro","axis_lock":"water enters upper left only","stop_condition":"cut when liquid settles stable","primary_move":"static","path_changes":0},
+      "cinematic_design": {"narrative_job":"reward suspense with a product-centered sensory breath","audience_knowledge":{"knows":"coffee is nearly ready","does_not_know":"whether silence held","question":"will delivery create the final risk"},"composition_logic":"macro diagonal from water upper-left to dark pool lower-right","foreground":"brewer rim","midground":"grounds and water","background":"steam and warm light","blocking_map":{"subject_position":"coffee bed center-left","movement_path":"water spirals within bed","camera_position":"low at brewer rim","screen_direction":"energy upper-left to lower-right"},"performance_detail":{"micro_action":"water stream wavers once then stabilizes","reaction_order":"waver follows prior heat recoil"},"light_motivation":{"source":"upper-left window","direction":"through steam toward lower right","color_temperature":"5600K sunrise"},"event_budget":{"max_concurrent_events":2,"timed_events":["water enters and bed blooms","bubbles subside"]}}
+    }
+  ],
+  "first_frame": "macro tabletop frame: one roasted coffee bean begins rolling toward the wooden edge, sleeping woman's closed face soft in upper-right background",
+  "last_frame": "macro of dark brewed coffee surface settling mirror-still beneath a thin sunrise-lit steam ribbon",
+  "final_hold_seconds": 0
+}

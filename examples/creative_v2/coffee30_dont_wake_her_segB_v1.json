@@ -1,0 +1,77 @@
+{
+  "duration": 15,
+  "edit_role": "final",
+  "main_visual_task": "The silent coffee mission reaches its largest risk: the full cup nearly touches the bedside table, is lowered without a click, then the apparently sleeping woman stops the retreating hand and reveals she was awake; finish on coffee as the final memory.",
+  "user_script_review": {"status": "pending", "script_version": "coffee30-dont-wake-her-v1", "reviewed_by": "", "feedback": []},
+  "prompt_bible": {
+    "subject_lock": "the same established young Chinese woman around twenty-eight, dark shoulder-length hair, natural East Asian features, cream cotton sleep top; the same man's realistic five-fingered hands and light-blue rolled sleeves; one unlabeled white ceramic cup filled with real dark coffee",
+    "environment_lock": "the same quiet modern Chinese bedroom, white bedding, light wooden bedside table, sheer curtains and rain-fresh window, no other people",
+    "material_lock": "real skin pores, cotton weave, ceramic glaze, dark coffee, subtle crema and physically plausible steam; accurate fingers and hand contact",
+    "lighting_lock": "the same one real sunrise source from upper left and cool ambient fill; every shadow falls lower right",
+    "palette_lock": "morning gold, cream white, pale blue, warm wood and espresso brown",
+    "lens_texture": "live-action 35mm cinema camera, shallow depth of field, natural film grain, restrained movement and true skin texture",
+    "screen_direction": "cup travels left to right toward the bedside table; woman stays frame right; hands withdraw right before she stops one",
+    "audio_policy": "no dialogue; one deeper breath, amplified almost-contact, cloth compression, release into room tone and a final music chord added in post",
+    "never_show": ["readable text", "logo", "watermark", "UI", "anime", "illustration", "CGI look", "plastic skin", "wax face", "extra fingers", "fused hands", "extra person", "duplicate cup", "visible fragrance", "large grin", "cup removed from final frame"]
+  },
+  "internal_shots": [
+    {
+      "shot_id": "B1_second_clue", "start": 0, "end": 3, "transition_in": "opening", "shot_size": "close_up",
+      "visual_state": "her profile remains apparently asleep; warm steam drifts through the foreground without becoming visible fragrance",
+      "subject_action": "eyelashes tremble once; one fingertip tightens beneath the white blanket; the corner of her mouth almost rises but cut before a smile forms",
+      "camera_action": "locked profile close-up with a slow focus pull from eyelashes to hidden fingertip",
+      "focus": "lashes first, then fingertip under blanket edge",
+      "lighting_state": "soft upper-left sunlight across real skin and cotton",
+      "end_state": "fingertip settles and the cut withholds confirmation",
+      "camera_plan": {"motivation":"raise suspicion without revealing awareness","start_position":"pillow-height profile","path":"camera stays locked while focus shifts from eye to blanket edge","speed_curve":"static camera with slow optical focus transition","focus_transition":"eyelashes to fingertip","end_position":"same profile position","axis_lock":"woman remains frame right","stop_condition":"cut before a smile becomes readable","primary_move":"static","path_changes":0},
+      "cinematic_design": {"narrative_job":"turn the first ambiguous clue into active suspicion","audience_knowledge":{"knows":"two separate reactions occurred","does_not_know":"whether she is deliberately pretending","question":"is she protecting the ritual too"},"composition_logic":"profile on right third, steam as soft foreground veil","foreground":"thin real steam","midground":"face and lashes","background":"blanket edge and fingertip","blocking_map":{"subject_position":"face right, fingertip lower center","movement_path":"only lash and fingertip micro-motion","camera_position":"pillow-height side view","screen_direction":"still axis"},"performance_detail":{"micro_action":"fingertip tightens after lash tremor; mouth almost moves","reaction_order":"lash, fingertip, almost-smile, then cut"},"light_motivation":{"source":"upper-left window","direction":"upper-left across face to lower right","color_temperature":"5600K soft sunlight"},"event_budget":{"max_concurrent_events":2,"timed_events":["lash tremor","fingertip tightens"]}}
+    },
+    {
+      "shot_id": "B2_full_cup_risk", "start": 3, "end": 6.5, "transition_in": "hard_cut", "shot_size": "close_up",
+      "visual_state": "the same full white coffee cup moves left-to-right above the bedside table; dark liquid rests close to the rim",
+      "subject_action": "one hand holds the handle and another supports the base; the lower hand withdraws too early and the cup drops slightly",
+      "camera_action": "one restrained lateral tracking move following the cup",
+      "focus": "cup base, coffee rim and supporting hand",
+      "lighting_state": "ceramic rim catches upper-left sunrise, shadow lower right",
+      "end_state": "cup is descending toward hard wood and the shot cuts at maximum risk",
+      "camera_plan": {"motivation":"make the completed product the largest irreversible risk","start_position":"close beside cup at hand height","path":"track left-to-right parallel to cup toward table center","speed_curve":"slow steady track then abrupt stop at drop","focus_transition":"handle hand to liquid rim to cup base","end_position":"close above table contact point","axis_lock":"horizontal left-to-right only","stop_condition":"cut while cup descends before contact","primary_move":"tracking","path_changes":0},
+      "cinematic_design": {"narrative_job":"escalate from ingredients and tools to losing the finished coffee","audience_knowledge":{"knows":"a ceramic click or spill may wake her","does_not_know":"whether he can recover","question":"will the entire careful ritual fail now"},"composition_logic":"cup dominates center with sleeping face soft upper right","foreground":"supporting hand","midground":"cup and coffee surface","background":"woman and bedding","blocking_map":{"subject_position":"cup center moving right","movement_path":"horizontal carry then short drop","camera_position":"table-height side tracking","screen_direction":"left to right"},"performance_detail":{"micro_action":"lower hand withdraws a fraction too early","reaction_order":"hand leaves, cup drops, upper grip tightens"},"light_motivation":{"source":"upper-left window","direction":"rim highlight left, shadow lower right","color_temperature":"5600K sunrise"},"event_budget":{"max_concurrent_events":2,"timed_events":["cup travels","support hand withdraws and cup drops"]}}
+    },
+    {
+      "shot_id": "B3_one_millimeter", "start": 6.5, "end": 9.4, "transition_in": "smash_cut", "shot_size": "extreme_close_up",
+      "visual_state": "cup base stops one millimeter above hard wood, dark coffee still inside, realistic steam edge-lit",
+      "subject_action": "the second hand catches beneath the base, knuckles whiten, then both hands lower the cup onto folded cotton without a click; one hand remains beside it",
+      "camera_action": "locked extreme close-up on the one-millimeter gap",
+      "focus": "gap, compressed cloth and relaxing knuckles",
+      "lighting_state": "hard side rim from upper left makes the gap readable",
+      "end_state": "cup settles stable on cloth; remaining hand starts to withdraw for a match cut",
+      "camera_plan": {"motivation":"pay off the one-millimeter motif at maximum stakes","start_position":"macro level with cup base","path":"camera stays locked beside the contact plane","speed_curve":"static throughout","focus_transition":"gap to cloth compression to hand release","end_position":"same macro position","axis_lock":"cup remains vertical and centered","stop_condition":"cut as remaining hand begins to exit","primary_move":"static","path_changes":0},
+      "cinematic_design": {"narrative_job":"deliver the third and largest distinct save","audience_knowledge":{"knows":"the coffee is safe and silent","does_not_know":"whether she noticed","question":"did the mission actually matter"},"composition_logic":"extreme horizontal tension line between cup base and table","foreground":"hand beneath cup","midground":"one-millimeter gap and cloth","background":"soft steam","blocking_map":{"subject_position":"cup center","movement_path":"vertical stop then controlled lower","camera_position":"macro at table surface","screen_direction":"vertical only"},"performance_detail":{"micro_action":"knuckles whiten then relax after cloth compresses","reaction_order":"catch, pause, lower, release"},"light_motivation":{"source":"upper-left window","direction":"side light reveals gap and steam","color_temperature":"5600K sunrise"},"event_budget":{"max_concurrent_events":2,"timed_events":["hand catches cup","cup lowers onto cloth"]}}
+    },
+    {
+      "shot_id": "B4_hand_reveal", "start": 9.4, "end": 12.5, "transition_in": "match_cut", "shot_size": "medium_close_up",
+      "visual_state": "the man's hand retreats from the stable cup; her hand emerges from the blanket and rests gently across his hand back",
+      "subject_action": "she stops his hand first, then opens her eyes with a tiny knowing smile; his fingers freeze and only afterward relax",
+      "camera_action": "locked two-plane composition with one slow focus pull from hands to her eyes",
+      "focus": "hands first, then her opening eyes; coffee remains readable foreground",
+      "lighting_state": "same sunrise connects cup, hands and face",
+      "end_state": "she is awake, their hands relaxed beside the cup, cut to product resolve",
+      "camera_plan": {"motivation":"reveal awareness through action before facial explanation","start_position":"bedside medium close-up across cup","path":"camera remains locked while focus pulls from hands to eyes","speed_curve":"static camera, slow focus transition","focus_transition":"her hand on his to her opening eyes","end_position":"same bedside composition","axis_lock":"cup foreground center, woman frame right","stop_condition":"cut after his fingers relax","primary_move":"static","path_changes":0},
+      "cinematic_design": {"narrative_job":"reveal she was awake and make care reciprocal","audience_knowledge":{"knows":"she deliberately protected his ritual","does_not_know":"none essential","question":"how will the product remain the final memory"},"composition_logic":"foreground cup, midground hands, background eyes create three-step reveal","foreground":"coffee cup","midground":"two hands","background":"her face","blocking_map":{"subject_position":"cup lower center, hands center, face upper right","movement_path":"his hand rightward, her hand forward to stop it","camera_position":"bedside at hand height","screen_direction":"withdrawal right, interception left"},"performance_detail":{"micro_action":"she presses lightly before opening eyes; his fingers relax later","reaction_order":"her hand, her eyes, his relaxation"},"light_motivation":{"source":"upper-left window","direction":"diagonal links cup to hands to face","color_temperature":"5600K warm sunrise"},"event_budget":{"max_concurrent_events":2,"timed_events":["her hand stops his","eyes open then his fingers relax"]}}
+    },
+    {
+      "shot_id": "B5_coffee_final_memory", "start": 12.5, "end": 15, "transition_in": "match_cut", "shot_size": "close_up",
+      "visual_state": "one unlabeled white coffee cup rests in clean sunrise hero light; their relaxed hands remain at each side without hiding the cup, her smile is only soft background context",
+      "subject_action": "hands stay naturally still while real steam rises; no one removes or drinks the coffee",
+      "camera_action": "one very slight pull back into a clean product hero composition, then fully stable for the final one and a half seconds",
+      "focus": "ceramic cup, dark coffee surface and steam",
+      "lighting_state": "single upper-left sunrise gilds rim and steam, clean shadow lower right",
+      "end_state": "stable coffee hero frame held for final 1.5 seconds",
+      "camera_plan": {"motivation":"return the audience's final memory from relationship reveal to coffee","start_position":"close over the joined hands","path":"pull straight back a short distance to center the cup and stop","speed_curve":"gentle one-second retreat then complete stop","focus_transition":"hands to cup rim and steam","end_position":"clean frontal product close-up","axis_lock":"cup stays centered and vertical","stop_condition":"stop and hold final composition for 1.5 seconds","primary_move":"dolly_out","path_changes":0},
+      "cinematic_design": {"narrative_job":"make coffee the final remembered image","audience_knowledge":{"knows":"care was mutual and coffee carried it","does_not_know":"none","question":"none; emotional and product payoff complete"},"composition_logic":"cup centered on lower-third hero point, hands symmetrical but imperfect","foreground":"cup and steam","midground":"relaxed hands","background":"soft face and window glow","blocking_map":{"subject_position":"cup lower center","movement_path":"hands remain; only steam rises","camera_position":"frontal bedside close-up","screen_direction":"stable final axis"},"performance_detail":{"micro_action":"one finger relaxes after the reveal; otherwise stillness","reaction_order":"hands settle before hero hold"},"light_motivation":{"source":"upper-left window","direction":"rim and steam left to lower-right shadow","color_temperature":"5600K sunrise"},"event_budget":{"max_concurrent_events":2,"timed_events":["short camera retreat","natural steam during hold"]}}
+    }
+  ],
+  "first_frame": "profile close-up of the same woman apparently asleep, thin real coffee steam soft in foreground and one fingertip hidden beneath the white blanket edge",
+  "last_frame": "clean close product hero frame: one white ceramic coffee cup in sunrise, real steam rising, two relaxed hands at its sides and her knowing smile soft behind",
+  "final_hold_seconds": 1.5
+}

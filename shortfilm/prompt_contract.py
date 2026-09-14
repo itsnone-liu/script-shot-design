@@ -153,21 +153,26 @@ def compile_minimax_prompt(document:dict[str,Any])->str:
             performance=design.get("performance_detail") or {}
             light=design.get("light_motivation") or {}
             budget=design.get("event_budget") or {}
-            director_note=""
             if design:
-                director_note=(
-                    f"\nNarrative job: {_text(design.get('narrative_job'))}"
-                    f"\nAudience information: knows={_text(audience.get('knows'))}; withheld={_text(audience.get('does_not_know'))}; question={_text(audience.get('question'))}"
-                    f"\nComposition: {_text(design.get('composition_logic'))}; foreground={_text(design.get('foreground'))}; midground={_text(design.get('midground'))}; background={_text(design.get('background'))}"
-                    f"\nBlocking map: subject={_text(blocking.get('subject_position'))}; movement={_text(blocking.get('movement_path'))}; camera={_text(blocking.get('camera_position'))}; screen direction={_text(blocking.get('screen_direction'))}"
-                    f"\nPerformance: micro-action={_text(performance.get('micro_action'))}; reaction order={_text(performance.get('reaction_order'))}"
-                    f"\nMotivated light: source={_text(light.get('source'))}; direction={_text(light.get('direction'))}; color temperature={_text(light.get('color_temperature'))}"
-                    f"\nEvent density: at most {_text(budget.get('max_concurrent_events'))} concurrent visual events; timed events={_text(budget.get('timed_events'))}"
+                # The full contract retains audience-information analysis for editorial
+                # review. The video model receives only compact, executable on-set
+                # instructions so five-shot 15s containers stay inside 7000 chars.
+                blocks.append(
+                    f"SHOT {i} [{s.shot_id}] {s.start:g}-{s.end:g}s | CUT: {s.transition_in.upper()}\n"
+                    f"Frame: {s.shot_size}, {_text(design.get('composition_logic'))}\n"
+                    f"Action: {s.subject_action}\n"
+                    f"Blocking: {_text(blocking.get('subject_position'))}; motion={_text(blocking.get('movement_path'))}; camera={_text(blocking.get('camera_position'))}; direction={_text(blocking.get('screen_direction'))}\n"
+                    f"Camera: {p.primary_move}; path={p.path}; focus={p.focus_transition}; stop={p.stop_condition}\n"
+                    f"Performance: {_text(performance.get('micro_action'))}; order={_text(performance.get('reaction_order'))}\n"
+                    f"Light: {_text(light.get('source'))}; {_text(light.get('direction'))}; {_text(light.get('color_temperature'))}\n"
+                    f"Density: max {_text(budget.get('max_concurrent_events'))}; sequence={_text(budget.get('timed_events'))}\n"
+                    f"Exit: {s.end_state}"
                 )
-            blocks.append(f"SHOT {i} [{s.shot_id}] {s.start:g}-{s.end:g}s | CUT IN: {s.transition_in.upper()}\nFraming: {s.shot_size}\nVisual state: {s.visual_state}\nSubject action: {s.subject_action}\nCamera action: {s.camera_action}\nShot camera plan: {p.primary_move}; path={p.path}; speed={p.speed_curve}; focus={p.focus_transition}; axis={p.axis_lock}; stop={p.stop_condition}\nLighting: {s.lighting_state}\nExit state: {s.end_state}{director_note}")
+            else:
+                blocks.append(f"SHOT {i} [{s.shot_id}] {s.start:g}-{s.end:g}s | CUT IN: {s.transition_in.upper()}\nFraming: {s.shot_size}\nVisual state: {s.visual_state}\nSubject action: {s.subject_action}\nCamera action: {s.camera_action}\nShot camera plan: {p.primary_move}; path={p.path}; speed={p.speed_curve}; focus={p.focus_transition}; axis={p.axis_lock}; stop={p.stop_condition}\nLighting: {s.lighting_state}\nExit state: {s.end_state}")
         hold=float(document.get("final_hold_seconds",0) or 0)
         exit_rule=(f"Hold the final composition still for {hold:g} seconds." if hold>0 else "Exit on the declared action or visual state for the edit; do not insert an artificial pause.")
-        prompt=f"""MAIN VISUAL TASK\n{_text(document['main_visual_task'])}\n\nPROMPT BIBLE / CONTINUITY LOCK\n{_bible_text(bible)}\n\nINTERNAL EDIT / SHOT LIST\n{chr(10).join(blocks)}\n\nEDITING AND PERFORMANCE RULE\nHonor every explicit cut and its timing. Each internal shot has its own information job and camera move; do not blend different shots into one continuous camera path. Preserve subject, material, physically motivated light and screen direction across cuts. Execute written micro-actions and reaction order; do not make people move in perfect synchronization. Never exceed the declared concurrent visual-event budget. Use restrained human breathing only where requested; do not add default frictionless gimbal motion.\n\nFIRST FRAME\n{_text(document['first_frame'])}\n\nLAST FRAME\n{_text(document['last_frame'])}\n\nSEGMENT EXIT\n{exit_rule}\n\nNEVER SHOW\n{_text(bible.never_show)}"""
+        prompt=f"""MAIN VISUAL TASK\n{_text(document['main_visual_task'])}\n\nPROMPT BIBLE / CONTINUITY LOCK\n{_bible_text(bible)}\n\nINTERNAL EDIT / SHOT LIST\n{chr(10).join(blocks)}\n\nEDITING AND PERFORMANCE RULE\nHonor cut timing and each shot's own camera move. Preserve subject, material, light and screen direction. Execute micro-actions in order, avoid synchronized acting, obey event budgets, and add no unrequested gimbal motion.\n\nFIRST FRAME\n{_text(document['first_frame'])}\n\nLAST FRAME\n{_text(document['last_frame'])}\n\nSEGMENT EXIT\n{exit_rule}\n\nNEVER SHOW\n{_text(bible.never_show)}"""
     else:
         plan=CameraPlan.from_dict(document["camera_plan"]); beats=[TimelineBeat.from_dict(x) for x in document["timeline"]]
         timeline="\n".join(f"{b.start:g}-{b.end:g}s | {b.shot_size} | visual state: {b.visual_state} | subject action: {b.subject_action} | camera: {b.camera_action} | focus: {b.focus} | lighting: {b.lighting_state} | end state: {b.end_state}" for b in beats)

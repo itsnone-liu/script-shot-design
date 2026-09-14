@@ -89,11 +89,22 @@ class CreativeQualityTests(unittest.TestCase):
             "event_budget": {"max_concurrent_events": 2, "timed_events": ["light travel", "eyelid response"]},
         }
         prompt = compile_minimax_prompt(contract)
-        self.assertIn("Narrative job:", prompt)
-        self.assertIn("Audience information:", prompt)
-        self.assertIn("Motivated light:", prompt)
-        self.assertIn("at most 2 concurrent visual events", prompt)
+        self.assertIn("Frame:", prompt)
+        self.assertIn("Blocking:", prompt)
+        self.assertIn("Performance:", prompt)
+        self.assertIn("Light:", prompt)
+        self.assertIn("Density: max 2", prompt)
+        self.assertNotIn("Audience information:", prompt)
         self.assertIn("EDITING AND PERFORMANCE RULE", prompt)
+
+    def test_five_shot_cinematic_contract_stays_inside_prompt_budget(self):
+        for name in ("coffee30_dont_wake_her_segA_v1.json", "coffee30_dont_wake_her_segB_v1.json"):
+            contract = json.loads((ROOT / "examples/creative_v2" / name).read_text(encoding="utf-8"))
+            contract["user_script_review"] = {"status":"approved", "script_version":"draft", "reviewed_by":"test"}
+            prompt = compile_minimax_prompt(contract)
+            self.assertLessEqual(len(prompt), 7000)
+            self.assertIn("Performance:", prompt)
+            self.assertIn("Density: max", prompt)
 
     def test_stage_prompt_separates_creative_and_cinematic_work(self):
         concept_prompt = messages_for("concept_candidates", {}, {}, {}, [])[1]["content"]
