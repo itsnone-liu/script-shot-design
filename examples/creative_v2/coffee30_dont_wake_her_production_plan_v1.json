@@ -1,0 +1,82 @@
+{
+  "schema_version": "0.1",
+  "project_id": "coffee30-dont-wake-her-v1",
+  "status": "preproduction_pending_user_approval",
+  "contracts": [
+    "examples/creative_v2/coffee30_dont_wake_her_segA_v1.json",
+    "examples/creative_v2/coffee30_dont_wake_her_segB_v1.json"
+  ],
+  "reference_strategy": {
+    "identity_anchor": "reuse output/script_first/coffee30_story_v1/ref/portrait_20260916.png",
+    "generation_method": "reuse the established Z-Image OpenPose workflow for cinematic keyframes, then the verified i2v first/last-frame card with node 142=0.6MP and baked LoRA node 175 strength_model=0",
+    "required_keyframes": [
+      {
+        "id": "KF_A_FIRST",
+        "for": "segment A first frame",
+        "description": "16:9 macro at wooden bedside-table height: one roasted coffee bean just beginning to roll toward the right edge; the same sleeping woman is soft and identifiable only in upper-right background; sunrise from upper left",
+        "continuity_lock": ["woman frame right", "bean travels left-to-right", "one window source upper left", "no extra cup or person"],
+        "qa": ["photoreal bean and fingertip scale", "face remains background risk context", "no generated text/UI", "shadow lower right"]
+      },
+      {
+        "id": "KF_A_LAST",
+        "for": "segment A last frame and A-to-B bridge",
+        "description": "16:9 macro of brewed dark coffee surface settling inside the same white ceramic cup/brewer, thin real steam crossing sunrise; no hand, no decorative latte art",
+        "continuity_lock": ["same coffee apparatus", "upper-left source", "espresso-brown liquid", "stable surface"],
+        "qa": ["real coffee grounds/liquid", "no magical shape", "no logo", "clean editable boundary"]
+      },
+      {
+        "id": "KF_B_FIRST",
+        "for": "segment B first frame",
+        "description": "16:9 pillow-height profile close-up of the same woman with eyes softly closed, thin coffee steam in foreground, one fingertip subtly visible under blanket edge; no smile yet",
+        "continuity_lock": ["same selected face", "dark shoulder-length hair", "cream sleep top", "woman frame right", "upper-left light"],
+        "qa": ["identity match", "real pores and eyelashes", "eyes closed", "five-finger structure only where visible", "no anime/plastic skin"]
+      },
+      {
+        "id": "KF_B_LAST",
+        "for": "segment B final frame",
+        "description": "16:9 clean coffee product hero: one unlabeled white ceramic cup centered in sunrise, real steam; two relaxed realistic hands remain at either side without covering cup; same woman's tiny knowing smile soft in background",
+        "continuity_lock": ["single cup", "cup final visual priority", "same woman", "hands do not fuse", "shadow lower right"],
+        "qa": ["coffee is strongest final memory", "exactly two anatomically valid hands", "no hand overlaps cup silhouette", "face remains secondary", "1.5-second hold composition"]
+      }
+    ]
+  },
+  "shot_risk_budget": [
+    {"shot":"A1_bean_stop","risk":"medium","takes":2,"failure_modes":["bean scale drift","finger misses bean","background face takes focus"],"acceptance":"one bean visibly stops at table edge; one valid fingertip; woman stays soft background"},
+    {"shot":"A2_lash_clue","risk":"high","takes":3,"failure_modes":["eye opens","large smile","wax skin","tremor invisible"],"acceptance":"eyes remain closed; exactly one readable micro-tremor; no smile"},
+    {"shot":"A3_grinder_muffle","risk":"high","takes":2,"failure_modes":["extra fingers","simultaneous actions","grinder morphs"],"acceptance":"grinding precedes sliding; sleeve cushions after slip; valid hands"},
+    {"shot":"A4_lid_muffle","risk":"high","takes":3,"failure_modes":["metal morph","sleeve passes through lid","heat recoil becomes large gesture"],"acceptance":"cloth intercepts lid, then restrained recoil; no collision"},
+    {"shot":"A5_coffee_breath","risk":"medium","takes":2,"failure_modes":["magic latte art","whole beans return","large splash"],"acceptance":"grounds bloom and settle physically; no geometry/text"},
+    {"shot":"B1_second_clue","risk":"high","takes":3,"failure_modes":["reveal too early","fused hidden fingers","visible perfume trail"],"acceptance":"eyes closed, fingertip tightens after lash, almost-smile remains ambiguous"},
+    {"shot":"B2_full_cup_risk","risk":"high","takes":3,"failure_modes":["spill","duplicate cup","liquid level jumps","hand anatomy"],"acceptance":"single full cup travels then drops slightly; coffee stays contained"},
+    {"shot":"B3_one_millimeter","risk":"critical","takes":4,"failure_modes":["cup hits table","hand penetrates cup","gap unreadable","coffee disappears"],"acceptance":"base pauses visibly above wood, second hand catches, cup lowers onto cloth"},
+    {"shot":"B4_hand_reveal","risk":"critical","takes":4,"failure_modes":["fused hands","simultaneous action","large grin","cup loses prominence"],"acceptance":"her hand stops his first, eyes open second, his fingers relax third; cup remains foreground"},
+    {"shot":"B5_coffee_final_memory","risk":"high","takes":3,"failure_modes":["cup removed","hands cover cup","face dominates","no stable hold"],"acceptance":"single cup dominates; hands frame but do not cover; final 1.5 seconds stable"}
+  ],
+  "container_budget": {
+    "note": "MiniMax generates each 15-second container, not independent shot calls; take budget is therefore assigned by container using the highest-risk internal shots.",
+    "segment_A": {"planned_takes": 3, "selection_priority": ["A4 lid-save readability", "A2/A3 human micro-performance", "A5 product physics"]},
+    "segment_B": {"planned_takes": 4, "selection_priority": ["B3 cup catch", "B4 ordered hand reveal", "B5 product hold"]},
+    "estimated_paid_calls_after_approval": 7
+  },
+  "qa_plan": {
+    "temporal_contact_sheet_seconds": [0.0, 1.3, 2.6, 3.6, 4.6, 6.2, 7.8, 9.3, 10.8, 12.8, 15.0, 16.5, 18.0, 20.0, 21.5, 23.0, 24.4, 26.0, 27.5, 28.5, 30.0],
+    "hard_checks": [
+      "all intended cuts occur within 0.6 seconds of contract timing",
+      "no readable text, logo, UI, watermark or blue MiniMax demo artifact",
+      "same woman identity across B first/reveal/final",
+      "single cup continuity and stable coffee liquid",
+      "all visible hands have plausible five-finger anatomy and no fusion",
+      "three saves are readable and mechanically different",
+      "reveal action order is hand-stop -> eyes-open -> his-hand-relax",
+      "last 1.5 seconds are product-dominant and stable",
+      "A-to-B seam has no unrelated cached frame or empty output"
+    ],
+    "review_method": "explicit ffmpeg frame extraction and xstack/contact sheet; inspect with external vision model; task SUCCESS alone is insufficient"
+  },
+  "approval_gate": {
+    "required_phrase_or_equivalent": "批准 C1 v1",
+    "required_contract_fields": {"status":"approved","script_version":"coffee30-dont-wake-her-v1","reviewed_by":"user"},
+    "before_approval": "keyframe prompts and dry-run only; no RunningHub task creation",
+    "after_any_script_change": "reset both contracts to pending and require renewed approval"
+  }
+}
