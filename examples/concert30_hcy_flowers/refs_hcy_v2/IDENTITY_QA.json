@@ -4,7 +4,8 @@
   "passed": [
     {"slot":"H1","file":"H1_front_natural_PASS.jpg","source_second":98,"manual":"PASS front near-natural, face clear, microphone below face","detected_face_px_at_960":[141,148]},
     {"slot":"H2","file":"H2_left_threequarter_PASS.jpg","source_second":37,"manual":"PASS left three-quarter, mouth visible, no severe overexposure","detected_face_px_at_960":[126,185]},
-    {"slot":"H4","file":"H4_singing_openmouth_PASS.jpg","source_second":130,"manual":"PASS singing open-mouth, face clear, acceptable microphone overlap","detected_face_px_at_960":[142,169]}
+    {"slot":"H4","file":"H4_singing_openmouth_PASS.jpg","source_second":130,"manual":"PASS singing open-mouth, face clear, acceptable microphone overlap","detected_face_px_at_960":[142,169]},
+    {"slot":"H5","file":"H5_fullbody_look_PASS.jpg","source_second":45,"manual":"PASS full body from hair to shoes, same 2024 gold-hair pink-sequin stage look; look/body reference only, not face embedding"}
   ],
   "same_identity_sface": {
     "threshold":0.363,
@@ -14,8 +15,7 @@
     "result":"3/3 PASS"
   },
   "missing": [
-    {"slot":"H3","requirement":"clear right three-quarter physical face","status":"not passed"},
-    {"slot":"H5","requirement":"same-era full-body stage look","status":"not passed"}
+    {"slot":"H3","requirement":"clear right three-quarter physical face","status":"not passed; ranks 5-12 checked, no valid geometry"}
   ],
   "generation_unlock": false
 }
