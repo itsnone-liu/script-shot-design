@@ -74,21 +74,21 @@ SPECS = {
         "pose": "sleep_close",
         "positive": (
             "pillow-height cinematic profile close-up of " + WOMAN + " apparently asleep on frame right, eyes softly closed, no smile, "
-            "one thin real coffee steam ribbon soft in the left foreground; at the lower blanket edge only one subtle realistic fingertip is visible beneath cotton, "
+            "the blurred rim of one white hot coffee cup is visibly present at the lower-left foreground and one thin natural steam ribbon rises directly from that rim; "
+            "at the lower-center blanket edge exactly one anatomically correct fingertip visibly peeks from beneath a cotton fold, small but readable; "
             "face and eyelashes are the focus, fingertip is a quiet secondary clue, " + COMMON_POS
         ),
         "negative": COMMON_NEG + ", open eyes, grin, cup covering face, hand near face, more than one visible finger, perfume smoke",
     },
     "KF_B_LAST": {
-        "seed": SEED,
-        "pose": "hero_bg",
+        "seed": SEED + 103,
+        "pose": "blank",
         "positive": (
-            "clean cinematic coffee product hero composition, exactly one unlabeled white ceramic cup filled with dark coffee centered on the lower third in hard sunrise, "
-            "real steam rising; exactly two anatomically correct relaxed hands rest on the table, one at each side of the cup without touching or hiding its silhouette; "
-            "in the soft background on frame right, " + WOMAN + " is awake with only a tiny knowing smile, face secondary and out of focus; "
-            "cup is the strongest visual subject, ample clean negative space, " + COMMON_POS
+            "clean cinematic product-only hero composition, exactly one unlabeled white ceramic cup filled with dark coffee alone and centered on the lower third in hard sunrise, "
+            "the full cup silhouette is completely unobstructed, one irregular natural steam ribbon rises from the coffee, ample clean negative space, "
+            "no person, no face, no hand and no human body anywhere in this final image; coffee is the only visual subject, " + COMMON_POS
         ),
-        "negative": COMMON_NEG + ", hands holding cup, fingers over cup, face in foreground, large smile, drinking, two cups, empty cup",
+        "negative": COMMON_NEG + ", person, woman, man, face, portrait, hand, finger, arm, holding cup, drinking, two cups, empty cup",
     },
 }
 

@@ -34,9 +34,9 @@
       {
         "id": "KF_B_LAST",
         "for": "segment B final frame",
-        "description": "16:9 clean coffee product hero: one unlabeled white ceramic cup centered in sunrise, real steam; two relaxed realistic hands remain at either side without covering cup; same woman's tiny knowing smile soft in background",
-        "continuity_lock": ["single cup", "cup final visual priority", "same woman", "hands do not fuse", "shadow lower right"],
-        "qa": ["coffee is strongest final memory", "exactly two anatomically valid hands", "no hand overlaps cup silhouette", "face remains secondary", "1.5-second hold composition"]
+        "description": "16:9 pure coffee product hero: exactly one unlabeled white ceramic cup alone and centered in sunrise, completely unobstructed, real steam; no person, face, hand or body visible",
+        "continuity_lock": ["single cup", "cup is the only visual subject", "same ceramic and coffee material", "no human anatomy", "shadow lower right"],
+        "qa": ["coffee is strongest and only final memory", "full cup silhouette visible", "no person or hand", "real irregular steam", "1.5-second hold composition"]
       }
     ]
   },
@@ -55,7 +55,7 @@
   "container_budget": {
     "note": "MiniMax generates each 15-second container, not independent shot calls; take budget is therefore assigned by container using the highest-risk internal shots.",
     "segment_A": {"planned_takes": 3, "selection_priority": ["A4 lid-save readability", "A2/A3 human micro-performance", "A5 product physics"]},
-    "segment_B": {"planned_takes": 4, "selection_priority": ["B3 cup catch", "B4 ordered hand reveal", "B5 product hold"]},
+    "segment_B": {"planned_takes": 4, "selection_priority": ["B3 cup catch", "B4 ordered hand reveal", "B5 pure product hold"]},
     "estimated_paid_calls_after_approval": 7
   },
   "qa_plan": {
