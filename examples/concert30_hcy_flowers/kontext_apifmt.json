@@ -1,0 +1,20 @@
+{
+  "6":  {"class_type": "CLIPTextEncode", "inputs": {"text": "PLACEHOLDER", "clip": ["11", 0]}},
+  "8":  {"class_type": "VAEDecode", "inputs": {"samples": ["13", 0], "vae": ["10", 0]}},
+  "9":  {"class_type": "SaveImage", "inputs": {"filename_prefix": "concert30", "images": ["8", 0]}},
+  "10": {"class_type": "VAELoader", "inputs": {"vae_name": "ae.safetensors"}},
+  "11": {"class_type": "DualCLIPLoader", "inputs": {"clip_name1": "t5xxl_fp16.safetensors", "clip_name2": "clip_l.safetensors", "type": "flux", "device": "default"}},
+  "12": {"class_type": "UNETLoader", "inputs": {"unet_name": "flux1-kontext-dev.safetensors", "weight_dtype": "fp8_e4m3fn"}},
+  "13": {"class_type": "SamplerCustomAdvanced", "inputs": {"noise": ["25", 0], "guider": ["22", 0], "sampler": ["16", 0], "sigmas": ["17", 0], "latent_image": ["27", 0]}},
+  "16": {"class_type": "KSamplerSelect", "inputs": {"sampler_name": "euler"}},
+  "17": {"class_type": "BasicScheduler", "inputs": {"scheduler": "simple", "steps": 20, "denoise": 1.0}},
+  "22": {"class_type": "BasicGuider", "inputs": {"model": ["30", 0], "conditioning": ["42", 0]}},
+  "25": {"class_type": "RandomNoise", "inputs": {"noise_seed": 1}},
+  "26": {"class_type": "FluxGuidance", "inputs": {"conditioning": ["6", 0], "guidance": 2.5}},
+  "27": {"class_type": "EmptySD3LatentImage", "inputs": {"width": 1376, "height": 768, "batch_size": 1}},
+  "30": {"class_type": "ModelSamplingFlux", "inputs": {"model": ["12", 0], "max_shift": 1.15, "base_shift": 0.5, "width": 1376, "height": 768}},
+  "39": {"class_type": "VAEEncode", "inputs": {"pixels": ["40", 0], "vae": ["10", 0]}},
+  "40": {"class_type": "FluxKontextImageScale", "inputs": {"image": ["41", 0], "width": 1376, "height": 768, "upscale_method": "lanczos", "crop": "center"}},
+  "41": {"class_type": "LoadImage", "inputs": {"image": "REF_FILE"}},
+  "42": {"class_type": "ReferenceLatent", "inputs": {"conditioning": ["26", 0], "latent": ["39", 0]}}
+}
