@@ -13,6 +13,9 @@ ROOT = Path(__file__).resolve().parents[1] / "output" / "creative_v2"
 
 
 class PreviewHandler(SimpleHTTPRequestHandler):
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, directory=str(ROOT), **kwargs)
+
     def translate_path(self, path: str) -> str:
         stripped = path.split("?", 1)[0].split("#", 1)[0]
         if stripped in ("/%60", "/`", "/%60/", "/%27", "/%22", "/%C2%B7"):
