@@ -21,7 +21,10 @@ class DontWakeHerRunnerTests(unittest.TestCase):
         return [RUNNER.load_json(spec["contract"]) for spec in RUNNER.SEGMENTS.values()]
 
     def test_pending_contracts_are_refused(self):
-        errors = RUNNER.approval_errors(self.documents())
+        docs = self.documents()
+        for doc in docs:
+            doc["user_script_review"] = {"status": "pending", "script_version": RUNNER.VERSION, "reviewed_by": ""}
+        errors = RUNNER.approval_errors(docs)
         self.assertTrue(errors)
         self.assertTrue(all("approval" in x or "reviewed_by" in x for x in errors))
 
@@ -43,6 +46,8 @@ class DontWakeHerRunnerTests(unittest.TestCase):
 
     def test_approval_check_does_not_call_renderer(self):
         docs = self.documents()
+        for doc in docs:
+            doc["user_script_review"] = {"status": "pending", "script_version": RUNNER.VERSION, "reviewed_by": ""}
         with patch.object(RUNNER, "render_packet") as render:
             self.assertTrue(RUNNER.approval_errors(docs))
             render.assert_not_called()

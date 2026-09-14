@@ -1,7 +1,7 @@
 {
   "schema_version": "0.1",
   "project_id": "coffee30-dont-wake-her-v1",
-  "status": "preproduction_pending_user_approval",
+  "status": "approved_preproduction",
   "contracts": [
     "examples/creative_v2/coffee30_dont_wake_her_segA_v1.json",
     "examples/creative_v2/coffee30_dont_wake_her_segB_v1.json"

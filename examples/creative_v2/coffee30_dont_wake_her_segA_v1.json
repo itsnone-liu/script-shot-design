@@ -2,7 +2,7 @@
   "duration": 15,
   "edit_role": "middle",
   "main_visual_task": "A silent suspense game in a real morning bedroom: careful hands stop a rolling coffee bean, muffle a grinder and loose kettle lid, then let the coffee bloom; the sleeping woman may be reacting, but the film withholds certainty.",
-  "user_script_review": {"status": "pending", "script_version": "coffee30-dont-wake-her-v1", "reviewed_by": "", "feedback": []},
+  "user_script_review": {"status": "approved", "script_version": "coffee30-dont-wake-her-v1", "reviewed_by": "user", "reviewed_at": "2026-09-14T11:06:00+08:00", "feedback": ["先做C1，注意镜头设计"]},
   "prompt_bible": {
     "subject_lock": "the established young Chinese woman around twenty-eight, dark shoulder-length hair, natural East Asian features, cream cotton sleep top; one man visible only as realistic five-fingered hands and light-blue rolled sleeves; one glass bean jar, hand grinder, gooseneck kettle, pour-over brewer and one unlabeled white ceramic cup",
     "environment_lock": "the established quiet modern Chinese bedroom, white bedding, light wooden bedside table, sheer curtains, rain-fresh window, no other people",

@@ -2,7 +2,7 @@
   "duration": 15,
   "edit_role": "final",
   "main_visual_task": "The silent coffee mission reaches its largest risk: the full cup nearly touches the bedside table, is lowered without a click, then the apparently sleeping woman stops the retreating hand and reveals she was awake; finish on coffee as the final memory.",
-  "user_script_review": {"status": "pending", "script_version": "coffee30-dont-wake-her-v1", "reviewed_by": "", "feedback": []},
+  "user_script_review": {"status": "approved", "script_version": "coffee30-dont-wake-her-v1", "reviewed_by": "user", "reviewed_at": "2026-09-14T11:06:00+08:00", "feedback": ["先做C1，注意镜头设计"]},
   "prompt_bible": {
     "subject_lock": "the same established young Chinese woman around twenty-eight, dark shoulder-length hair, natural East Asian features, cream cotton sleep top; the same man's realistic five-fingered hands and light-blue rolled sleeves; one unlabeled white ceramic cup filled with real dark coffee",
     "environment_lock": "the same quiet modern Chinese bedroom, white bedding, light wooden bedside table, sheer curtains and rain-fresh window, no other people",
