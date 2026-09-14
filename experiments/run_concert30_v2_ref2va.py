@@ -12,7 +12,7 @@ P820=ROOT.parent/'820'
 TEMPLATE=P820/'_h3ref2va_apifmt.json'
 CID='2093518439926218753'
 
-G=[BASE/'refs'/'ref05_dessert_tshirt.jpg',BASE/'refs_hcy_v2'/'G_ref06_direct_facecrop_PASS.jpg',BASE/'refs'/'ref03_stadium_selfie.jpg',BASE/'refs'/'ref04_theater_hoodie.jpg']
+G=[BASE/'refs_hcy_v2'/'G_ref06_direct_facecrop_PASS.jpg',BASE/'refs'/'ref05_dessert_tshirt.jpg',BASE/'refs'/'ref03_stadium_selfie.jpg',BASE/'refs'/'ref04_theater_hoodie.jpg']
 H=[BASE/'refs_hcy_v2'/'H1_front_natural_PASS.jpg',BASE/'refs_hcy_v2'/'H2_left_threequarter_PASS.jpg',BASE/'refs_hcy_v2'/'H4_singing_openmouth_PASS.jpg',BASE/'refs_hcy_v2'/'H3_right_threequarter_LOW_WEIGHT.jpg',BASE/'refs_hcy_v2'/'H5_fullbody_look_PASS.jpg']
 
 def load(): return json.loads((BASE/'segments_v2.json').read_text(encoding='utf-8'))
@@ -35,7 +35,7 @@ summary:
 retention_analysis:
 Only one identity appears: girl G, and she is the continuous main subject of every frame from start to end — never a background figure. Her face is clearly visible toward camera within the first second and again in the last second; between them she may be mid-action but never vanishes. No male singer is generated; any distant stage figure stays tiny, backlit and unresolved. Crowd faces remain unresolved smears. G keeps her thin round glasses and exact facial geometry from the references at every visible moment.
 detailed_description:
-Fast, noisy, kinetic live-concert realism: red glow-stick ocean, sweeping beams, haze, LED glare, motion blur on the crowd. Every movement hits these relative audio anchors: {rel}. Strictly forbidden: selfies, group photos, phones facing the viewer, vlogging poses, quiet pauses, calm walking, any second prominent woman.
+Fast, noisy, kinetic live-concert realism: red glow-stick ocean, sweeping beams, haze, LED glare, motion blur on the crowd and on her sprinting body. Every movement hits these relative audio anchors: {rel}. Hard mandatory attributes in EVERY frame: girl G wears her thin round glasses and has her long dark hair exactly as in the references; she RUNS at full sprint from the first frame to the last — never walking, never standing still, never slowing down; bouquet held firmly in both arms with anatomically correct hands. The clip opens mid-sprint with her determined face flashing toward camera and closes on her face toward camera at the stage stair. Strictly forbidden: selfies, group photos, phones facing the viewer, vlogging poses, quiet pauses, calm walking, standing and smiling at the camera, any second prominent woman.
 overall_soundscape: arena screaming, live drums and vocals bleeding from the stage; no quiet gap.
 non_diegetic_music: none; final edit uses the approved genuine live master window."""
     defs=[]
@@ -63,7 +63,8 @@ def build(seg):
     ri=fmt['136']['inputs']; ri['ref_image_size']='max'; ri['width']=1344; ri['height']=768
     dur=round(seg['time'][1]-seg['time'][0],2); fmt['132']['inputs']['value']=dur; fmt['138']['inputs']['value']=prompt(seg,refs)
     fmt['127']['inputs']['unet_name']='minimax_h3_ref2va_pruned_int8_convrot.safetensors'
-    fmt['158']={'class_type':'LoraLoaderModelOnly','inputs':{'lora_name':'SameFace_Fix.safetensors','strength_model':0.35,'model':['127',0]}}
+    sameface=0.5 if seg.get('generation_mode')=='girl_plate_plus_real_insert' else 0.35
+    fmt['158']={'class_type':'LoraLoaderModelOnly','inputs':{'lora_name':'SameFace_Fix.safetensors','strength_model':sameface,'model':['127',0]}}
     fmt['159']={'class_type':'LoraLoaderModelOnly','inputs':{'lora_name':'minimax_h3_turbo_6step_ema.safetensors','strength_model':1.0,'model':['158',0]}}
     fmt['141']['inputs']['model']=['159',0]
     for nid in ('124','126'):
