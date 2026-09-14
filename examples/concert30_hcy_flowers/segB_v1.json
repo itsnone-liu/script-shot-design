@@ -1,0 +1,77 @@
+{
+  "duration": 15,
+  "edit_role": "end",
+  "main_visual_task": "On stage she presents the bouquet with both hands; the singer steps down half a stair and bows to receive it with both hands, then stands beside her facing the red sea while the giant screen behind switches to their two-shot; camera flashes freeze them into a saved photograph.",
+  "user_script_review": {"status": "pending", "script_version": "concert30-hcy-flowers-v1", "reviewed_by": null, "reviewed_at": null, "feedback": []},
+  "prompt_bible": {
+    "subject_lock": "the same young Chinese woman from the reference photo: soft oval face, fair skin, thin round metal-frame glasses, dark brown mid-parted hair past her shoulders, matte red-brown lips, loose bright-red long-sleeve tee, fine necklace; and the same Chinese male pop singer around thirty: slim, silver-gray highlighted short hair, black stage shirt, red microphone",
+    "environment_lock": "open-air stadium main stage at night; giant curved LED screen behind; stage-edge stairs on frame left; red glow sea beyond the stage lights; volume haze in the beams; no other person ever resolves in frame",
+    "material_lock": "real skin pores with faint sweat sheen, kraft paper and velvet rose petals, black shirt fabric weave, matte microphone body, LED screen pixel glow softly diffused by haze; every contact physically plausible",
+    "lighting_lock": "one follow-spot-language world: front follow-spot on the pair, red ambient from the sea, cool screen backlight behind them; flash sequence in B4-B5 as true white strobes; shadows obey the follow-spot",
+    "palette_lock": "night blue-black base, ember red (bouquet, tee, sea, screen), warm skin, silver hair accent, then pure white flashes",
+    "lens_texture": "live-action 35mm cinema camera, shallow depth of field, natural film grain, no gimbal smoothness; the final photograph freeze carries true photo grain",
+    "screen_direction": "she stands frame left, he stands frame right, facing camera together from B3; his receiving step comes down toward frame left",
+    "audio_policy": "no dialogue; crowd swell, one warm instrumental rise, flash shutter clicks, a held breath before the last flash; exact sound mix in post",
+    "never_show": ["readable text", "logo", "watermark", "UI", "anime", "illustration", "CGI look", "plastic skin", "wax face", "extra fingers", "fused fingers", "clear faces in the crowd", "third person in frame", "duplicate bouquet", "duplicate microphone", "hand covering her face"]
+  },
+  "internal_shots": [
+    {
+      "shot_id": "B1_presenting", "start": 0, "end": 3.0, "transition_in": "hard", "shot_size": "medium_two",
+      "visual_state": "on stage, the two face each other; he is half a head taller, silver-gray hair catching the rim light; she extends the wrapped bouquet with both hands toward him; red microphone in his right hand",
+      "subject_action": "she offers the bouquet with both hands and a slight bow of her head; he receives her gaze",
+      "camera_action": "locked medium two-shot",
+      "focus": "both faces and the bouquet plane sharp; screen bokeh behind",
+      "lighting_state": "front follow-spot on the pair, cool LED backlight halo, red ambient from the sea",
+      "end_state": "the bouquet fully extended between them; cut at the moment before his hands arrive",
+      "camera_plan": {"motivation":"the offering itself, held long enough to matter","start_position":"stage-level frontal medium","path":"camera locked at stage level frontal to the bouquet bridge between the two figures, zero travel","speed_curve":"static","focus_transition":"none","end_position":"same","axis_lock":"she left, he right","stop_condition":"cut just before his hands reach the wrap","primary_move":"static","path_changes":0},
+      "cinematic_design": {"narrative_job":"the ask made visible","audience_knowledge":{"knows":"she is giving him the flowers","does_not_know":"how he will answer","question":"what kind of reception"},"composition_logic":"bouquet centered as the bridge between the two bodies; equal visual weight","foreground":"bouquet between them","midground":"two figures facing","background":"giant screen bokeh and haze","blocking_map":{"subject_position":"her frame left, him frame right","movement_path":"bouquet travels from her chest to full extension","camera_position":"frontal medium, stage level","screen_direction":"offer moves rightward from her to him"},"performance_detail":{"micro_action":"both hands extend, elbows soften, small head bow","reaction_order":"her bow completes as the bouquet reaches full extension"},"light_motivation":{"source":"follow-spot front, LED screen back","direction":"frontal key plus cool backlight","color_temperature":"5600K key over cool screen wash"},"event_budget":{"max_concurrent_events":2,"timed_events":["bouquet extends","his gaze settles on her"]}}
+    },
+    {
+      "shot_id": "B2_receiving", "start": 3.0, "end": 6.5, "transition_in": "hard", "shot_size": "close_up_two",
+      "visual_state": "close-up: he steps down half a stair toward her side and bows slightly, receiving the bouquet with both hands and cradling it against his chest; the red microphone stays in his right hand; her hands release the wrap",
+      "subject_action": "his two hands close gently around the wrap; he lowers his head toward her in a small bow and smiles; her fingers release and draw back",
+      "camera_action": "locked close-up on the hand-off plane",
+      "focus": "sharp on the two pairs of hands and the wrap; faces soft above the exchange",
+      "lighting_state": "follow-spot key on the exchange; bouquet petals glow red; screen halo behind",
+      "end_state": "he cradles the bouquet; her hands have fully released; cut on his smile",
+      "camera_plan": {"motivation":"the reversal: the stage bows to receive","start_position":"close-up at bouquet height","path":"camera locked at close bouquet height on the hand-off plane between both pairs of hands, zero travel","speed_curve":"static","focus_transition":"hands sharp, faces soft","end_position":"same","axis_lock":"exchange travels leftward into his cradle","stop_condition":"cut on the completed smile","primary_move":"static","path_changes":0},
+      "cinematic_design": {"narrative_job":"expectation break pays off","audience_knowledge":{"knows":"he honored the gift","does_not_know":"there is more coming","question":"what the stage gives back"},"composition_logic":"four hands around one red object filling the lower frame; his bow above","foreground":"bouquet and hands","midground":"his descending bow","background":"stage haze bokeh","blocking_map":{"subject_position":"exchange center frame","movement_path":"bouquet transfers from her side to his chest","camera_position":"close, slightly below the wrap","screen_direction":"transfer moves right-to-left into his cradle"},"performance_detail":{"micro_action":"his hands close, he bows a few degrees, smile arrives last","reaction_order":"hands, bow, smile; her release begins as his hands close"},"light_motivation":{"source":"follow-spot front","direction":"onto the wrap and hands","color_temperature":"warm key, red petal glow"},"event_budget":{"max_concurrent_events":2,"timed_events":["hand transfer","small bow with smile"]}}
+    },
+    {
+      "shot_id": "B3_beside_sea", "start": 6.5, "end": 9.5, "transition_in": "hard", "shot_size": "wide_two",
+      "visual_state": "he steps beside her; the two stand shoulder to shoulder facing the audience; behind them the giant screen switches from his solo close-up to their live two-shot; the red sea surges",
+      "subject_action": "he turns and stands at her right side facing front; she lifts her chin to the sea; the screen content switches",
+      "camera_action": "slow pull back from medium two to wide along the stage center axis",
+      "focus": "both sharp; screen content readable as shapes not text; sea as red bokeh",
+      "lighting_state": "follow-spot widens to cover both; screen backlight brightens on the switch; sea glow rises",
+      "end_state": "wide framing with the pair centered on stage inside the light; cut as the sea peaks",
+      "camera_plan": {"motivation":"reveal: the night now belongs to both of them","start_position":"medium two, frontal","path":"smooth pull back along the stage center axis from the pair medium framing out to full wide stage framing","speed_curve":"ease-out","focus_transition":"stays on the pair","end_position":"wide stage framing","axis_lock":"her left, him right, camera center retreating","stop_condition":"cut on the sea surge peak","primary_move":"dolly_out","path_changes":0},
+      "cinematic_design": {"narrative_job":"the late reveal: ten thousand people see them together","audience_knowledge":{"knows":"they stand together","does_not_know":"the moment will be kept forever","question":"how this ends"},"composition_logic":"pair centered under the screen two-shot; stage symmetry; red sea as frame","foreground":"stage floor edge","midground":"the pair side by side","background":"giant screen showing their two-shot, red sea beyond","blocking_map":{"subject_position":"center stage","movement_path":"he moves from facing her to beside her","camera_position":"pulling back along center axis","screen_direction":"both face camera"},"performance_detail":{"micro_action":"he settles beside her, she lifts her chin, screen switches","reaction_order":"his settle, her chin lift, screen switch, sea surge"},"light_motivation":{"source":"follow-spot plus screen","direction":"frontal key, cool back rim","color_temperature":"5600K key, cool screen, red sea"},"event_budget":{"max_concurrent_events":3,"timed_events":["he stands beside her","screen switches to two-shot","sea surge"]}}
+    },
+    {
+      "shot_id": "B4_photo_pose", "start": 9.5, "end": 12.5, "transition_in": "hard", "shot_size": "medium_two",
+      "visual_state": "photo composition: she makes a small heart with her fingers near her shoulder; he raises the bouquet over his shoulder with one hand, red microphone in the other; first camera flashes begin firing from the sea",
+      "subject_action": "she forms the heart and smiles wide; he lifts the bouquet; white flashes strobe in pairs",
+      "camera_action": "locked medium, framing them like a photograph",
+      "focus": "both faces sharp; flashes bloom as soft white circles",
+      "lighting_state": "follow-spot steady; each flash adds a true white pop for a few frames",
+      "end_state": "flashes intensify toward a peak; cut into the brightest flash",
+      "camera_plan": {"motivation":"the audience takes the picture with them","start_position":"photograph-like medium two","path":"camera locked at frontal photograph framing on the posed pair, zero travel, symmetric stage backdrop","speed_curve":"static","focus_transition":"none","end_position":"same","axis_lock":"her left, him right","stop_condition":"cut on the brightest flash frame","primary_move":"static","path_changes":0},
+      "cinematic_design": {"narrative_job":"the collective camera","audience_knowledge":{"knows":"this is being recorded by everyone","does_not_know":"which frame survives","question":"the kept second"},"composition_logic":"classic photo pose centered, symmetrical, bouquet elevated on his side, heart on hers","foreground":"nothing between lens and pair","midground":"the pair in pose","background":"flash circles blooming over red sea","blocking_map":{"subject_position":"center","movement_path":"pose forms in place","camera_position":"frontal photograph framing","screen_direction":"both face camera"},"performance_detail":{"micro_action":"heart forms, bouquet lifts, flashes fire in pairs","reaction_order":"heart first, bouquet lift, flash pairs accelerating"},"light_motivation":{"source":"follow-spot plus flashes","direction":"frontal","color_temperature":"5600K key with 6000K+ white flash pops"},"event_budget":{"max_concurrent_events":3,"timed_events":["heart forms","bouquet lifts","flash pairs accelerate"]}}
+    },
+    {
+      "shot_id": "B5_saved_photo", "start": 12.5, "end": 15.0, "transition_in": "flash_white", "shot_size": "medium_two",
+      "visual_state": "the brightest flash washes to white; the image resolves as a real photograph: the same pose, photo grain, gentle warm print tone; a very slow push toward the photograph",
+      "subject_action": "frozen pose inside the photograph; nothing moves except the slow zoom",
+      "camera_action": "freeze then slow push-in on the still photograph",
+      "focus": "whole photograph evenly sharp with photo grain",
+      "lighting_state": "photograph print lighting, soft and warm, no stage light anymore",
+      "end_state": "slow push settles; hold the saved photograph to the end",
+      "camera_plan": {"motivation":"ending reframe: the moment was kept, not consumed","start_position":"full-frame photograph","path":"slow push in on the frozen photograph print from full-frame toward the two smiling faces","speed_curve":"ease-in to settle","focus_transition":"none","end_position":"slightly closer on the two faces","axis_lock":"frozen composition unchanged","stop_condition":"end of container, hold final frame","primary_move":"dolly_in","path_changes":0},
+      "cinematic_design": {"narrative_job":"memory beats spectacle","audience_knowledge":{"knows":"this second now exists forever","does_not_know":"nothing more; the film is over","question":"resolved"},"composition_logic":"photograph composition identical to B4 pose; grain and tone say print","foreground":"photograph surface","midground":"the frozen pair","background":"photograph background within the print","blocking_map":{"subject_position":"frozen as B4","movement_path":"none","camera_position":"slow push on the print","screen_direction":"frozen"},"performance_detail":{"micro_action":"none; only the slow zoom lives","reaction_order":"flash white resolves to print in the first half second"},"light_motivation":{"source":"print lighting","direction":"even soft frontal","color_temperature":"warm print tone"},"event_budget":{"max_concurrent_events":1,"timed_events":["white resolves to photograph"]}}
+    }
+  ],
+  "first_frame": "on stage, medium two-shot: she extends the kraft-wrapped red bouquet with both hands toward the silver-haired singer in a black shirt holding a red microphone; front follow-spot, cool LED backlight, red sea bokeh beyond",
+  "last_frame": "a real photograph with warm print tone and photo grain: she makes a small heart by her shoulder and he holds the bouquet over his, shoulder, both smiling at camera, flashes blooming behind them",
+  "final_hold_seconds": 1.5
+}

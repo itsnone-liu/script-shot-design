@@ -1,0 +1,57 @@
+{
+  "project": "concert30-hcy-flowers-v1",
+  "title": "火星红的三十秒",
+  "created_at": "2026-09-14",
+  "status": "awaiting_user_approval",
+  "script_version": "concert30-hcy-flowers-v1",
+  "segments": [
+    {"id": "segA", "contract": "examples/concert30_hcy_flowers/segA_v1.json", "duration": 15, "role": "opening"},
+    {"id": "segB", "contract": "examples/concert30_hcy_flowers/segB_v1.json", "duration": 15, "role": "end"}
+  ],
+  "capability_check": {
+    "done_at": "2026-09-14",
+    "gap_found": "Z-Image 关键帧链路（pose+text）无身份参考输入；本项目需要真人身份保持",
+    "resolution": "KB 已有现成角色一致性工作流，无需新建（工作流先行原则：先查能力池）",
+    "primary": {"workflow_id": "1940886562836213761", "name": "Consistent Characters with Kontext (Flux)", "why": "单参考图+指令改写，写实 Flux，22 节点干净链路，分辨率可设横版"},
+    "fallbacks": [
+      {"workflow_id": "1930656665035845633", "name": "PuLID+InstantID 人脸栈", "why": "多参考图人脸保真，特写镜头兜底"},
+      {"workflow_id": "2054763247810686977", "name": "双参考图分镜出图 (Flux.2 Klein)", "why": "1920x1280 横版原生，双参考图"}
+    ],
+    "i2v": {"workflow_id": "2092512701252022274", "model": "MiniMax i2v", "format": "15s / 1056x576 / 24fps / first-last frame anchored", "status": "validated asset (coffee C1)"}
+  },
+  "identity": {
+    "her": {
+      "ref_main": "refs/ref06_concert_poster_red_tee.jpg",
+      "ref_aux": ["refs/ref03_stadium_selfie.jpg", "refs/ref05_dessert_tshirt.jpg", "refs/ref01_burgundy_dress_fork.jpg"],
+      "locked_features": "soft oval face, fair skin, thin round metal-frame glasses, dark brown mid-parted hair past shoulders, matte red-brown lips",
+      "costume_in_film": "loose bright-red long-sleeve tee (as ref06), fine necklace"
+    },
+    "him": {
+      "source": "text prior + poster style anchor from ref06 background",
+      "locked_features": "Chinese male pop singer around thirty, slim, silver-gray highlighted short hair, black stage shirt, red microphone",
+      "risk": "likeness 相似度取决于模型先验；验收标准=可识别的华晨宇式舞台形象，非逐帧复刻"
+    }
+  },
+  "keyframes": [
+    {"id": "KF_A_FIRST", "contract_anchor": "segA.first_frame", "aspect": "16:9", "must_hold": "her identity from ref, red glow sea bokeh, bouquet, half-lit face"},
+    {"id": "KF_A_LAST", "contract_anchor": "segA.last_frame", "aspect": "16:9", "must_hold": "stair-base low angle, her identity, his silver-hair silhouette, two reds in one frame"},
+    {"id": "KF_B_FIRST", "contract_anchor": "segB.first_frame", "aspect": "16:9", "must_hold": "two-shot facing, bouquet extended with both hands, red microphone, follow-spot + screen backlight"},
+    {"id": "KF_B_LAST", "contract_anchor": "segB.last_frame", "aspect": "16:9", "must_hold": "photo-print tone and grain, heart gesture + bouquet over shoulder, frozen pose"}
+  ],
+  "budget": {
+    "keyframes": {"planned": 4, "rework_allowance": 4, "unit": "RH paid render"},
+    "video": {"planned": 2, "rework_allowance": 2, "unit": "MiniMax 15s container take"},
+    "note": "任何付费调用前必须有 user_script_review.status=approved"
+  },
+  "risks": [
+    {"risk": "B2 双人手部交互（接花）", "level": "high", "mitigation": "关键帧阶段先验证手部特写；i2v 动作幅度收窄为『双手环抱入怀』"},
+    {"risk": "人群清晰化导致崩脸", "level": "medium", "mitigation": "负向锁 + 景深锁，人群永远 bokeh"},
+    {"risk": "B3 大屏内容切换 i2v 不稳", "level": "medium", "mitigation": "接受弱化执行：屏幕亮起两人同框即算达标"},
+    {"risk": "他侧 likeness 不足", "level": "accepted", "mitigation": "银灰发+红麦克风+黑衬衫三符号锚定；验收标准已放宽"}
+  ],
+  "hard_gates": [
+    "user_script_review.status=approved（两份合同同版本）后才允许付费渲染",
+    "关键帧验收：身份（眼镜/发型/唇色）、构图、光线锁逐项过",
+    "视频验收：A/B 接缝、结尾定格、无崩坏帧"
+  ]
+}
