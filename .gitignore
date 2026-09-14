@@ -43,5 +43,7 @@ output/ad30_visual_reset_v7/
 .tools/
 examples/concert30_hcy_flowers/source/
 examples/concert30_hcy_flowers/refs_hcy_v2/*.jpg
+examples/concert30_hcy_flowers/refs_hcy_v2/*.wav
+examples/concert30_hcy_flowers/refs_hcy_v2/*.mp4
 examples/concert30_hcy_flowers/refs_hcy_v2/candidates/
 examples/concert30_hcy_flowers/refs_hcy_v2/rejected_far_or_led/
