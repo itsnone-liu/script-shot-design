@@ -33,17 +33,18 @@ def wait_tolerant(key, tid, prefix, max_wait=2400):
             time.sleep(30)
     raise SystemExit(f'[{prefix}] timeout waiting for {tid}')
 
-def repair(plate: Path, face: Path, prefix: str, face_index: int = 0) -> dict:
+def repair(plate: Path, face: Path, prefix: str, face_index: int = 0, gender: str = 'no') -> dict:
     plan = json.loads((ROOT/'examples'/'concert30_hcy_flowers'/'production_plan_v2.json').read_text(encoding='utf-8'))
     if plan.get('paid_generation_locked'): raise SystemExit('REFUSED: paid_generation_locked')
     fmt = json.loads(FMT.read_text(encoding='utf-8'))
     key = rh_task.load_api_key()
     u_face = rh_task.upload_file(key, face)
     u_vid = rh_task.upload_file(key, plate)
-    print(f'[{prefix}] face(idx {face_index}) -> {u_face}\n[{prefix}] plate -> {u_vid}', flush=True)
+    print(f'[{prefix}] face(idx {face_index}, gender {gender}) -> {u_face}\n[{prefix}] plate -> {u_vid}', flush=True)
     fmt['10']['inputs']['image'] = u_face
     fmt['11']['inputs']['video'] = u_vid
     fmt['15']['inputs']['input_faces_index'] = str(face_index)
+    fmt['15']['inputs']['detect_gender_input'] = gender
     fmt['18']['inputs']['save_output'] = True
     fmt['21']['inputs']['save_output'] = False  # comparison video not needed as artifact
     tid = rh_task.run_workflow_json(key, fmt, sandbox_id=CARRIER)
@@ -56,10 +57,12 @@ def repair(plate: Path, face: Path, prefix: str, face_index: int = 0) -> dict:
         target = out/f'{prefix}_{n:02d}{ext}'; rh_task.download(u, target); records.append(str(target))
         if ext == '.zip':
             with zipfile.ZipFile(target) as z: z.extractall(out/f'{prefix}_unzipped')
-    state = {'prefix': prefix, 'task_id': tid, 'face_index': face_index, 'outputs': records}
+    state = {'prefix': prefix, 'task_id': tid, 'face_index': face_index, 'gender': gender, 'outputs': records}
     (out/f'{prefix}_state.json').write_text(json.dumps(state, ensure_ascii=False, indent=2), encoding='utf-8')
     print(json.dumps(state, ensure_ascii=False, indent=2))
     return state
 
 if __name__ == '__main__':
-    repair(Path(sys.argv[1]), Path(sys.argv[2]), sys.argv[3], int(sys.argv[4]) if len(sys.argv) > 4 else 0)
+    g = 'no'
+    if len(sys.argv) > 5: g = sys.argv[5]
+    repair(Path(sys.argv[1]), Path(sys.argv[2]), sys.argv[3], int(sys.argv[4]) if len(sys.argv) > 4 else 0, g)
