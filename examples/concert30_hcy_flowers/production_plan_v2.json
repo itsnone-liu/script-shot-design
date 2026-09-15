@@ -1,13 +1,37 @@
 {
   "project": "concert30-hcy-flowers-v2",
   "status": "script_approved_song_selected_building_reference_pack",
-  "user_script_review": {"status": "approved", "script_version": "concert30-hcy-flowers-v2", "reviewed_by": "user", "reviewed_at": "2026-09-14T18:48:00+08:00", "feedback": ["剧本可以，就疯人院吧"]},
-  "song_selection": {"choice": "A", "song": "疯人院（电音版+尾奏）", "event": "2024-07-21 火星演唱会南昌站", "source": "https://www.bilibili.com/video/BV1dZvdePEyp/", "preliminary_window_seconds": [313, 343]},
+  "user_script_review": {
+    "status": "approved",
+    "script_version": "concert30-hcy-flowers-v2",
+    "reviewed_by": "user",
+    "reviewed_at": "2026-09-14T18:48:00+08:00",
+    "feedback": [
+      "剧本可以，就疯人院吧"
+    ]
+  },
+  "song_selection": {
+    "choice": "A",
+    "song": "疯人院（电音版+尾奏）",
+    "event": "2024-07-21 火星演唱会南昌站",
+    "source": "https://www.bilibili.com/video/BV1dZvdePEyp/",
+    "preliminary_window_seconds": [
+      313,
+      343
+    ]
+  },
   "paid_generation_locked": false,
   "paid_generation_approval_basis": "direct user approval: 剧本可以，就疯人院吧",
   "generation_strategy": "HYBRID LIVE-FOOTAGE + VFX. S1 pure Ref2VA smoke failed Hua Chenyu identity (median 0.3482 vs 0.60 gate); prohibit pure generated singer. Use genuine official/live Hua Chenyu footage as performance backbone, generate only girl/crowd/action plates, and reserve role-isolated face repair for unavoidable two-person interaction shots.",
   "pure_ref2va_singer_prohibited": true,
-  "failed_smoke": {"segment":"S1","task_id":"2099469569821593602","visual_energy":"PASS","hua_identity_median":0.3482,"required":0.60,"result":"REJECT"},
+  "failed_smoke": {
+    "segment": "S1",
+    "task_id": "2099469569821593602",
+    "visual_energy": "PASS",
+    "hua_identity_median": 0.3482,
+    "required": 0.6,
+    "result": "REJECT"
+  },
   "supersedes": "concert30-hcy-flowers-v1",
   "audio_first": {
     "master_track": "user-specified or user-provided genuine Hua Chenyu live recording, approximately 30 seconds",
@@ -31,37 +55,80 @@
       "refs/ref01_burgundy_dress_fork.jpg"
     ],
     "role_tag": "<Picture G1>..<Picture G5>",
-    "hard_attributes": ["thin round metal-frame glasses", "dark brown mid-parted hair", "soft oval face"],
-    "prohibited": ["generated lookalike reference", "identity judged only by visual description"]
+    "hard_attributes": [
+      "thin round metal-frame glasses",
+      "dark brown mid-parted hair",
+      "soft oval face"
+    ],
+    "prohibited": [
+      "generated lookalike reference",
+      "identity judged only by visual description"
+    ]
   },
   "hua_chenyu_identity": {
     "status": "reference pack not yet built",
     "required_era": "single user-selected concert year/appearance",
-    "required_public_refs": ["front stage close-up", "left three-quarter", "right three-quarter", "singing face", "full-body stage costume"],
+    "required_public_refs": [
+      "front stage close-up",
+      "left three-quarter",
+      "right three-quarter",
+      "singing face",
+      "full-body stage costume"
+    ],
     "source_policy": "official studio/concert photography or user-provided live footage; do not mix eras",
     "role_tag": "<Picture H1>..<Picture H5>",
-    "prohibited": ["text-only identity", "silver hair or red microphone used as identity substitute"]
+    "prohibited": [
+      "text-only identity",
+      "silver hair or red microphone used as identity substitute"
+    ]
   },
   "primary_workflow": {
     "workflow_id": "2093518439926218753",
     "name": "MiniMax H3 Ref2VA final configuration",
-    "capabilities": ["up to 9 reference images", "reference audio", "native stereo audio", "4-15 second clips"],
-    "validated_recipe": ["ref_image_size=max", "1MP 1344x768", "SameFace_Fix 0.35", "int8 + turbo 6-step"],
+    "capabilities": [
+      "up to 9 reference images",
+      "reference audio",
+      "native stereo audio",
+      "4-15 second clips"
+    ],
+    "validated_recipe": [
+      "ref_image_size=max",
+      "1MP 1344x768",
+      "SameFace_Fix 0.35",
+      "int8 + turbo 6-step"
+    ],
     "prior_evidence": "single-person clear frontal anchors scored 0.72-0.89; median depends on face visibility"
   },
   "post_identity_repair": {
     "required": true,
     "method": "track two faces independently; repair girl and Hua Chenyu sequentially with isolated masks; prevent cross-ID leakage",
     "candidate_workflows": [
-      {"workflow_id": "1927622543950385153", "role": "PuLID image face repair"},
-      {"workflow_id": "1927585502306656257", "role": "VACE video face replacement/repair"},
-      {"workflow_id": "2005804455352303618", "role": "precise video face replacement + interpolation"}
+      {
+        "workflow_id": "1927622543950385153",
+        "role": "PuLID image face repair"
+      },
+      {
+        "workflow_id": "1927585502306656257",
+        "role": "VACE video face replacement/repair"
+      },
+      {
+        "workflow_id": "2005804455352303618",
+        "role": "precise video face replacement + interpolation"
+      }
     ]
   },
   "identity_gate": {
     "metric": "FaceComparator / InsightFace embedding cosine",
-    "girl": {"clear_face_median_min": 0.60, "hero_or_photo_frame_min": 0.70, "clear_face_floor": 0.50},
-    "hua_chenyu": {"clear_face_median_min": 0.60, "hero_or_photo_frame_min": 0.70, "clear_face_floor": 0.50},
+    "girl": {
+      "clear_face_median_min": 0.6,
+      "hero_or_photo_frame_min": 0.7,
+      "clear_face_floor": 0.5
+    },
+    "hua_chenyu": {
+      "clear_face_median_min": 0.6,
+      "hero_or_photo_frame_min": 0.7,
+      "clear_face_floor": 0.5
+    },
     "cross_id_margin_min": 0.12,
     "failure_action": "reject or run role-isolated identity repair; never accept costume/hair similarity as identity"
   },
@@ -70,5 +137,7 @@
     "concert year/era and Hua Chenyu appearance",
     "user-provided audio/video when available"
   ],
-  "approval_gate": "after open inputs are resolved, generate v2 contracts and obtain new direct user approval before any paid task"
+  "approval_gate": "after open inputs are resolved, generate v2 contracts and obtain new direct user approval before any paid task",
+  "operation_mode": "manual",
+  "operation_mode_note": "2026-09-15 用户定调：本条试验手工运行——不进自动执行/自动交付编排，所有付费生成与修复由人工发起（executor 模式不适用于此试验线）。"
 }
