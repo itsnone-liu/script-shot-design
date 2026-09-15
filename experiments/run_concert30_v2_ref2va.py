@@ -12,12 +12,15 @@ P820=ROOT.parent/'820'
 TEMPLATE=P820/'_h3ref2va_apifmt.json'
 CID='2093518439926218753'
 
-G=[BASE/'refs_hcy_v2'/'G_ref06_direct_facecrop_PASS.jpg',BASE/'refs'/'ref01_burgundy_dress_fork.jpg',BASE/'refs'/'ref05_dessert_tshirt.jpg',BASE/'refs'/'ref08_plush_toys_cardigan_v2.jpg',BASE/'refs'/'ref09_plush_toys_sweater.jpg']
-# G pack v4 (2026-09-15 user feedback: prototype chin more pointed, eyes smaller): frontal verified-her refs only.
-# Dropped ref03 (blur, 3 faces) and ref04 (largest face vs anchor 0.275 below same-person threshold — extreme angle/expression).
+G=[BASE/'refs_hcy_v2'/'G_ref06_direct_facecrop_PASS.jpg',BASE/'refs_hcy_v2'/'ref01_crop.jpg',BASE/'refs'/'ref05_dessert_tshirt.jpg',BASE/'refs'/'ref08_plush_toys_cardigan_v2.jpg',BASE/'refs'/'ref09_plush_toys_sweater.jpg']
+# G pack v5 (2026-09-15 user: S2 regen bled the burgundy dress from ref01 full photo): swap full -> face crop.
+# ref01_crop keeps the strongest geometry anchor without its clothing; ref03 (blur) & ref04 (weak anchor 0.275) stay out.
 GEO_G=('Girl G exact face geometry from the references: a distinctly pointed chin with a V-shaped jawline '
        'tapering to a narrow chin, and proportionally small eyes with narrow lids. Never enlarge her eyes, '
        'never round or soften her chin, no beautification.')
+COSTUME_G=('Costume rule: girl G wears a plain black casual top (matching her look throughout the film). '
+           'Never copy clothing from the reference photos — no burgundy or red dress, no cardigan, '
+           'no plush-toy sweater; the references define her FACE only.')
 H=[BASE/'refs_hcy_v2'/'H1_front_natural_PASS.jpg',BASE/'refs_hcy_v2'/'H2_left_threequarter_PASS.jpg',BASE/'refs_hcy_v2'/'H4_singing_openmouth_PASS.jpg',BASE/'refs_hcy_v2'/'H3_right_threequarter_LOW_WEIGHT.jpg',BASE/'refs_hcy_v2'/'H5_fullbody_look_PASS.jpg']
 # v3: singer face-crop anchor FIRST (transpose of validated girl recipe), SameFace 0.5
 HF=[BASE/'refs_hcy_v2'/'H1_facecrop.jpg',BASE/'refs_hcy_v2'/'H4_singing_openmouth_PASS.jpg',BASE/'refs_hcy_v2'/'H1_front_natural_PASS.jpg',BASE/'refs_hcy_v2'/'H5_fullbody_look_PASS.jpg']
@@ -64,7 +67,7 @@ summary:
 retention_analysis:
 Both identities appear and stay themselves in every frame: girl G with her thin round glasses and long dark hair, singer H with platinum-blonde shaggy hair, pink sequin costume and red microphone. {GEO_G} Their faces are both clearly visible toward camera within the first second and again in the last second. Crowd faces remain unresolved smears in darkness.
 detailed_description:
-Loud, kinetic live-concert realism: darkness around the action, glow-stick ocean, sweeping beams, haze, LED glare. Every movement hits these relative audio anchors: {rel}. Both faces stay in frame together for most of the clip; no coverage where either face vanishes. Hands anatomically correct; the bouquet stays intact and held high. Strictly forbidden: face blending or swapping between G and H, any third prominent person, resolved audience faces, quiet pauses.
+Loud, kinetic live-concert realism: darkness around the action, glow-stick ocean, sweeping beams, haze, LED glare. Every movement hits these relative audio anchors: {rel}. Both faces stay in frame together for most of the clip; no coverage where either face vanishes. {GEO_G} {COSTUME_G} Hands anatomically correct; the bouquet stays intact and held high. Strictly forbidden: face blending or swapping between G and H, any third prominent person, resolved audience faces, quiet pauses.
 overall_soundscape: arena screaming, live vocals, band and drums; no quiet gap.
 non_diegetic_music: none; final edit uses the approved genuine live master window."""
     if mode=='girl_plate_plus_real_insert':
@@ -75,7 +78,7 @@ summary:
 retention_analysis:
 Only one identity appears: girl G, and she is the continuous main subject of every frame from start to end — never a background figure. Her face is clearly visible toward camera within the first second and again in the last second; between them she may be mid-action but never vanishes. {GEO_G} No male singer is generated in sharp focus; any stage figure stays tiny, backlit and unresolved. Crowd faces remain unresolved smears. G keeps her thin round glasses and exact facial geometry from the references at every visible moment.
 detailed_description:
-Fast, noisy, kinetic live-concert realism: darkness beyond the follow spot, red glow-stick ocean flickering in the dark, sweeping beams, haze, distant stage glare, motion blur on the dark crowd around her. Every movement hits these relative audio anchors: {rel}. Hard mandatory attributes in EVERY frame: girl G wears her thin round glasses and has her long dark hair exactly as in the references; {seg.get('action_mandate','she moves at an energetic fast pace from the first frame to the last — never calm walking, never standing still')}; bouquet held firmly with anatomically correct hands. Strictly forbidden: selfies, group photos, phones facing the viewer, vlogging poses, quiet pauses, calm walking, standing and smiling at the camera, any second prominent woman, empty corridors or backstage tunnels — she is always inside a dense dark crowd or lit by the follow spot within the arena.
+Fast, noisy, kinetic live-concert realism: darkness beyond the follow spot, red glow-stick ocean flickering in the dark, sweeping beams, haze, distant stage glare, motion blur on the dark crowd around her. Every movement hits these relative audio anchors: {rel}. Hard mandatory attributes in EVERY frame: girl G wears her thin round glasses and has her long dark hair exactly as in the references; {COSTUME_G} {GEO_G} {seg.get('action_mandate','she moves at an energetic fast pace from the first frame to the last — never calm walking, never standing still')}; bouquet held firmly with anatomically correct hands. Strictly forbidden: selfies, group photos, phones facing the viewer, vlogging poses, quiet pauses, calm walking, standing and smiling at the camera, any second prominent woman, empty corridors or backstage tunnels — she is always inside a dense dark crowd or lit by the follow spot within the arena.
 overall_soundscape: arena screaming, live drums and vocals bleeding from the stage; no quiet gap.
 non_diegetic_music: none; final edit uses the approved genuine live master window."""
     defs=[]
