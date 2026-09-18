@@ -1,0 +1,209 @@
+{
+  "duration": 7,
+  "edit_role": "middle",
+  "main_visual_task": "The reversal beat: the man suddenly stops pretending, wraps her in his arms and rolls over, swapping their positions in one playful move; she ends up laughing on her back wrapped in the duvet while he leans over her — the film's biggest body-movement test in one continuous container.",
+  "user_script_review": {
+    "status": "approved",
+    "script_version": "couple30-v1",
+    "reviewed_by": "user",
+    "reviewed_at": "2026-09-17T17:40:00+08:00",
+    "feedback": [
+      "通过（关键帧全集5张终审）"
+    ]
+  },
+  "prompt_bible": {
+    "subject_lock": "exactly the same two people from segment A: the young Chinese woman with dark-brown shoulder-length straight hair in a cream-white pajama set, and the Chinese man around thirty with short black slightly messy hair in a light-grey long-sleeve pajama top; both fully clothed in every frame; identities never swap or blend during the roll",
+    "environment_lock": "the same cozy modern bedroom: rumpled white duvet, white pillows, light wooden headboard, sheer half-closed curtains, soft morning light; no other people",
+    "material_lock": "real cotton weave, duvet folds that swing and settle with the roll, natural skin, plausible body weight transfer between the two",
+    "lighting_lock": "one soft warm morning source from the window at upper right; shadows toward lower left; light constant through the motion",
+    "palette_lock": "morning cream, white bedding, pale grey, warm wood, gentle gold",
+    "lens_texture": "live-action 35mm cinema look at bed level, shallow depth of field, light handheld energy during the roll then settling still",
+    "screen_direction": "the roll travels as one rotation toward camera-left; after landing the woman lies on her back in the lower-left of frame and the man leans over her from frame-right; this end arrangement matches the approved keyframe exactly",
+    "audio_policy": "a short triumphant spoken line from him mid-roll, her laughing protest from inside the duvet, fabric and pillow sounds; exact TTS mix in post",
+    "never_show": [
+      "readable text",
+      "logo",
+      "watermark",
+      "extra person",
+      "nudity",
+      "kiss close-up",
+      "fused bodies",
+      "extra limbs",
+      "identity swap faces",
+      "two women"
+    ]
+  },
+  "internal_shots": [
+    {
+      "shot_id": "B1_eyes_open",
+      "start": 0,
+      "end": 2.5,
+      "transition_in": "opening",
+      "shot_size": "medium",
+      "visual_state": "exactly the approved nose-pinch pose from segment A's end; morning light upper right",
+      "subject_action": "his eyes snap open with a mischievous glint; his arms slide around her waist under the duvet while she still grins in victory",
+      "camera_action": "static bedside view, same axis as segment A",
+      "focus": "his suddenly open eyes, her unnoticing smile",
+      "lighting_state": "same warm morning key from upper right",
+      "end_state": "his grip is set and her smile starts to falter as the moment cuts",
+      "camera_plan": {
+        "motivation": "reveal the trap was loaded all along",
+        "start_position": "same bedside framing as segment A end",
+        "path": "camera stays locked at bedside on the nose-pinch pair pose",
+        "speed_curve": "static throughout",
+        "focus_transition": "his opening eyes to his moving arms",
+        "end_position": "same framing",
+        "axis_lock": "woman upper frame, man lower frame until the roll",
+        "stop_condition": "cut at the falter of her smile",
+        "primary_move": "static",
+        "path_changes": 0
+      },
+      "cinematic_design": {
+        "narrative_job": "the reveal that he was awake",
+        "audience_knowledge": {
+          "knows": "he was pretending",
+          "does_not_know": "the move comes now",
+          "question": "what does he do"
+        },
+        "composition_logic": "identical composition to A's end for a seamless join",
+        "blocking_map": {
+          "subject_position": "as approved keyframe",
+          "movement_path": "eyes open, arms slide",
+          "camera_position": "locked bedside",
+          "screen_direction": "vertical axis pre-roll"
+        },
+        "performance_detail": {
+          "micro_action": "one slow blink before the grin",
+          "reaction_order": "eyes open, arms wrap, her smile fades"
+        },
+        "light_motivation": {
+          "source": "window upper right",
+          "direction": "steady",
+          "color_temperature": "4800K"
+        },
+        "event_budget": {
+          "max_concurrent_events": 2,
+          "timed_events": [
+            "eyes snap open",
+            "waist grip sets"
+          ]
+        }
+      }
+    },
+    {
+      "shot_id": "B2_the_roll",
+      "start": 2.5,
+      "end": 5.0,
+      "transition_in": "continuous",
+      "shot_size": "medium",
+      "visual_state": "the two bodies rotate together inside the moving duvet; bedding swings and pillows shift; motion blur stays natural",
+      "subject_action": "he rolls them both over in one smooth playful motion toward camera-left, delivering his triumphant line mid-turn; she yelps with laughter inside the duvet",
+      "camera_action": "light handheld follow of the rotation, then easing",
+      "focus": "the rotating pair, faces kept recognizable through the turn",
+      "lighting_state": "same morning key, shadows moving naturally with the bedding",
+      "end_state": "the rotation completes and the duvet settles",
+      "camera_plan": {
+        "motivation": "sell the biggest physical move of the film while keeping both faces readable",
+        "start_position": "locked bedside framing",
+        "path": "camera drifts left tracking the roll, then eases back toward bed center",
+        "speed_curve": "quick follow then smooth deceleration",
+        "focus_transition": "faces through the turn to the landing",
+        "end_position": "bed-center framing of the landed pair",
+        "axis_lock": "roll direction strictly toward camera-left",
+        "stop_condition": "stop as the duvet settles",
+        "primary_move": "handheld",
+        "path_changes": 1
+      },
+      "cinematic_design": {
+        "narrative_job": "the power flip, played for laughter",
+        "audience_knowledge": {
+          "knows": "he chose this moment all along",
+          "does_not_know": "how she will answer",
+          "question": "who owns the morning now"
+        },
+        "composition_logic": "rotation sweeps the vertical axis into a diagonal, resolving into the reversed stack",
+        "blocking_map": {
+          "subject_position": "both center frame through the roll",
+          "movement_path": "one leftward rotation",
+          "camera_position": "bedside drifting left then center",
+          "screen_direction": "toward camera-left"
+        },
+        "performance_detail": {
+          "micro_action": "her hand slaps the duvet in mock protest",
+          "reaction_order": "his line, her yelp, landing laugh"
+        },
+        "light_motivation": {
+          "source": "window upper right",
+          "direction": "steady while shadows swing with fabric",
+          "color_temperature": "4800K"
+        },
+        "event_budget": {
+          "max_concurrent_events": 2,
+          "timed_events": [
+            "the roll",
+            "mid-turn spoken line"
+          ]
+        }
+      }
+    },
+    {
+      "shot_id": "B3_landed",
+      "start": 5.0,
+      "end": 7.0,
+      "transition_in": "continuous",
+      "shot_size": "medium",
+      "visual_state": "matching the approved reversed keyframe: she now lies on her back wrapped in the duvet, laughing; he leans over her supported on his straight arms, grinning",
+      "subject_action": "she laughs her protest that he was faking; he just grins down, holding the new position; breathing settles",
+      "camera_action": "locked on the new arrangement",
+      "focus": "her laughing face below, his grinning face above-right",
+      "lighting_state": "same morning key on the new arrangement",
+      "end_state": "hold the approved reversed pose for the segment cut",
+      "camera_plan": {
+        "motivation": "land exactly on the approved reversed keyframe",
+        "start_position": "bed-center framing",
+        "path": "camera stays locked on the landed reversed pair at bed center",
+        "speed_curve": "static throughout",
+        "focus_transition": "her laugh to his grin",
+        "end_position": "the approved reversed framing",
+        "axis_lock": "woman lower-left, man upper-right",
+        "stop_condition": "cut on the held reversed pose",
+        "primary_move": "static",
+        "path_changes": 0
+      },
+      "cinematic_design": {
+        "narrative_job": "seal the reversal and hand off to the finale",
+        "audience_knowledge": {
+          "knows": "positions and power swapped",
+          "does_not_know": "his confession is next",
+          "question": "what will he say"
+        },
+        "composition_logic": "exact match to approved keyframe composition",
+        "blocking_map": {
+          "subject_position": "as approved keyframe",
+          "movement_path": "all motion eases to stillness",
+          "camera_position": "locked",
+          "screen_direction": "reversed diagonal axis"
+        },
+        "performance_detail": {
+          "micro_action": "duvet corner stops fluttering",
+          "reaction_order": "her protest, his silent grin, settle"
+        },
+        "light_motivation": {
+          "source": "window upper right",
+          "direction": "steady",
+          "color_temperature": "4800K"
+        },
+        "event_budget": {
+          "max_concurrent_events": 2,
+          "timed_events": [
+            "her laughing protest",
+            "pose settles"
+          ]
+        }
+      }
+    }
+  ],
+  "first_frame": "the approved end keyframe of segment A: she lies prone on him pinching his nose triumphantly, his eyes just snapping open with mischief",
+  "last_frame": "the approved reversed keyframe: she lies on her back laughing in the duvet at lower-left, he leans over her from upper-right on straight arms, both fully clothed",
+  "final_hold_seconds": 0
+}

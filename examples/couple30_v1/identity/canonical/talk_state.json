@@ -1,0 +1,9 @@
+{
+  "name": "talk",
+  "task_id": "2100081629444730882",
+  "cosine": 0.0941,
+  "gate": 0.5,
+  "verdict": "LOW",
+  "file": "D:\\qjcNetDiskDownload\\deepseek-harness\\project\\821\\examples\\couple30_v1\\identity\\canonical\\talk.png",
+  "attempts": 1
+}

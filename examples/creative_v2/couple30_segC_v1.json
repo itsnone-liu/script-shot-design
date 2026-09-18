@@ -1,0 +1,265 @@
+{
+  "duration": 13,
+  "edit_role": "final",
+  "main_visual_task": "The afterglow finale: with positions reversed, he confesses the trap he had been planning since she first mentioned brunch; she accepts defeat with a smile, asks the time, and he pulls the duvet higher — the film ends nose to nose as curtain-gap light washes over them.",
+  "user_script_review": {
+    "status": "approved",
+    "script_version": "couple30-v1",
+    "reviewed_by": "user",
+    "reviewed_at": "2026-09-17T17:40:00+08:00",
+    "feedback": [
+      "通过（关键帧全集5张终审）"
+    ]
+  },
+  "prompt_bible": {
+    "subject_lock": "exactly the same two people: the young Chinese woman with dark-brown shoulder-length straight hair in a cream-white pajama set lying on her back, and the Chinese man around thirty with short black slightly messy hair in a light-grey long-sleeve pajama top leaning over her on straight arms; both fully clothed in every frame; tender but decent throughout",
+    "environment_lock": "the same cozy modern bedroom: rumpled white duvet, white pillows, light wooden headboard, sheer half-closed curtains; light through the curtain gap grows gently warmer; no other people",
+    "material_lock": "real cotton weave, duvet folds shifting as he pulls it higher, natural skin, soft hair on the pillow",
+    "lighting_lock": "soft warm morning source through the curtain gap at upper right; shadows toward lower left; a gentle brightening toward the end",
+    "palette_lock": "morning cream, white bedding, pale grey, warm wood, gold curtain-gap glow",
+    "lens_texture": "live-action 35mm cinema look at bed level from the reversed angle answering segment A, shallow depth of field, restrained movement, natural film grain",
+    "screen_direction": "she stays lower-left of frame on her back, he stays upper-right leaning over her; no axis flips; the camera slowly widens for the final pull-back",
+    "audio_policy": "soft spoken Chinese dialogue with natural mouth movement, quiet laughter, duvet rustle, calm breathing; exact TTS mix in post",
+    "never_show": [
+      "readable text",
+      "logo",
+      "watermark",
+      "extra person",
+      "nudity",
+      "kiss close-up",
+      "fused bodies",
+      "extra limbs",
+      "identity swap faces",
+      "two women"
+    ]
+  },
+  "internal_shots": [
+    {
+      "shot_id": "C1_gloat",
+      "start": 0,
+      "end": 3.5,
+      "transition_in": "opening",
+      "shot_size": "medium",
+      "visual_state": "the approved reversed arrangement: she on her back in the duvet at lower-left, he leaning over her from upper-right on straight arms, both still laughing from the roll",
+      "subject_action": "he delivers his triumphant five-more-minutes line, this time with her as company; she squirms in mock outrage and accuses him of faking sleep",
+      "camera_action": "locked reversed bedside view",
+      "focus": "his gloating grin above, her outraged laugh below",
+      "lighting_state": "warm morning key through the curtain gap upper right",
+      "end_state": "her outrage melts toward curiosity as the laugh settles",
+      "camera_plan": {
+        "motivation": "cash the reversal into shared laughter",
+        "start_position": "reversed-angle bedside framing of both faces",
+        "path": "camera stays locked at the reversed bedside angle on both faces",
+        "speed_curve": "static throughout",
+        "focus_transition": "his grin to her accusation",
+        "end_position": "same framing",
+        "axis_lock": "woman lower-left, man upper-right",
+        "stop_condition": "cut as her laugh softens",
+        "primary_move": "static",
+        "path_changes": 0
+      },
+      "cinematic_design": {
+        "narrative_job": "enjoy the victory before the confession",
+        "audience_knowledge": {
+          "knows": "he flipped the game",
+          "does_not_know": "how long he planned it",
+          "question": "why he waited"
+        },
+        "composition_logic": "reversed diagonal mirrors segment A's stack",
+        "blocking_map": {
+          "subject_position": "as approved keyframe",
+          "movement_path": "his head dips as he gloats, her head lifts as she protests",
+          "camera_position": "reversed-angle bedside",
+          "screen_direction": "reversed diagonal axis"
+        },
+        "performance_detail": {
+          "micro_action": "her mock-outrage eyebrow flash",
+          "reaction_order": "his line, her protest, mutual laugh"
+        },
+        "light_motivation": {
+          "source": "curtain gap upper right",
+          "direction": "steady warm wash",
+          "color_temperature": "4600K warming"
+        },
+        "event_budget": {
+          "max_concurrent_events": 2,
+          "timed_events": [
+            "his gloat line",
+            "her protest line"
+          ]
+        }
+      }
+    },
+    {
+      "shot_id": "C2_confession",
+      "start": 3.5,
+      "end": 7.0,
+      "transition_in": "continuous",
+      "shot_size": "medium_close_up",
+      "visual_state": "closer on the two faces along the reversed diagonal; his right hand rises into frame toward her face",
+      "subject_action": "he confesses softly that from her first brunch mention he was planning how to pull her back; his index finger taps her nose tip once, gently",
+      "camera_action": "very slow push in along the diagonal",
+      "focus": "her listening eyes, then his fingertip on her nose",
+      "lighting_state": "curtain-gap key gently warming",
+      "end_state": "she is disarmed, smiling up at him, the slow push settling to a stop",
+      "camera_plan": {
+        "motivation": "intimacy peaks at the confession",
+        "start_position": "reversed two-face framing",
+        "path": "camera drifts slowly along the diagonal toward their faces and eases to a stop",
+        "speed_curve": "gentle creep decelerating",
+        "focus_transition": "her eyes to the nose tap",
+        "end_position": "tighter reversed framing, stopped",
+        "axis_lock": "woman lower-left, man upper-right",
+        "stop_condition": "stop right after the nose tap",
+        "primary_move": "slow_dolly_in",
+        "path_changes": 0
+      },
+      "cinematic_design": {
+        "narrative_job": "the reveal reframes the whole film as his plan",
+        "audience_knowledge": {
+          "knows": "his laziness was strategy",
+          "does_not_know": "how she answers",
+          "question": "does she mind losing"
+        },
+        "composition_logic": "nose tap on the diagonal intersection of thirds",
+        "blocking_map": {
+          "subject_position": "faces on reversed diagonal",
+          "movement_path": "one hand rises, one finger taps",
+          "camera_position": "reversed-angle closing in",
+          "screen_direction": "reversed diagonal axis"
+        },
+        "performance_detail": {
+          "micro_action": "her blink at the nose tap",
+          "reaction_order": "confession, tap, disarmed smile"
+        },
+        "light_motivation": {
+          "source": "curtain gap upper right",
+          "direction": "warming on her cheek",
+          "color_temperature": "4500K"
+        },
+        "event_budget": {
+          "max_concurrent_events": 2,
+          "timed_events": [
+            "confession line",
+            "nose tap"
+          ]
+        }
+      }
+    },
+    {
+      "shot_id": "C3_surrender",
+      "start": 7.0,
+      "end": 9.5,
+      "transition_in": "continuous",
+      "shot_size": "close_up",
+      "visual_state": "closest framing: her face on the pillow below, his above, curtain-gap light between them",
+      "subject_action": "she gives in with a resigned smile and asks what time it is; he glances at the window light and admits he does not know",
+      "camera_action": "locked close-up",
+      "focus": "her resigned smile, then his glance at the light",
+      "lighting_state": "curtain-gap key at its warmest",
+      "end_state": "his hand moves down to grip the duvet edge for the coming cut",
+      "camera_plan": {
+        "motivation": "the game ends in shared surrender",
+        "start_position": "tight reversed close-up",
+        "path": "camera stays locked on the pillow close-up of both faces",
+        "speed_curve": "static throughout",
+        "focus_transition": "her question to his glance",
+        "end_position": "same close-up",
+        "axis_lock": "woman lower-left, man upper-right",
+        "stop_condition": "cut as his hand grips the duvet edge",
+        "primary_move": "static",
+        "path_changes": 0
+      },
+      "cinematic_design": {
+        "narrative_job": "nobody wants the morning to start",
+        "audience_knowledge": {
+          "knows": "both choose to stay",
+          "does_not_know": "the closing image",
+          "question": "how does it end"
+        },
+        "composition_logic": "faces at opposite thirds, light ribbon between them",
+        "blocking_map": {
+          "subject_position": "as established",
+          "movement_path": "only eye lines and a hand",
+          "camera_position": "locked close-up",
+          "screen_direction": "reversed diagonal axis"
+        },
+        "performance_detail": {
+          "micro_action": "his small shrug before the honest answer",
+          "reaction_order": "her question, his glance, his shrug"
+        },
+        "light_motivation": {
+          "source": "curtain gap upper right",
+          "direction": "warm ribbon of light",
+          "color_temperature": "4400K"
+        },
+        "event_budget": {
+          "max_concurrent_events": 2,
+          "timed_events": [
+            "her time question",
+            "his honest answer"
+          ]
+        }
+      }
+    },
+    {
+      "shot_id": "C4_finale",
+      "start": 9.5,
+      "end": 13,
+      "transition_in": "continuous",
+      "shot_size": "close_up",
+      "visual_state": "matching the approved final keyframe: his finger touching her nose tip, both smiling nose to nose, the duvet pulled higher, curtain-gap light washing over them",
+      "subject_action": "he says his final five-more-minutes line and pulls the duvet up over her shoulders; their noses nearly touch as they smile; everything settles still for the ending hold",
+      "camera_action": "very slow pull back and settle",
+      "focus": "the nose-to-nose pair, then softening as the frame widens",
+      "lighting_state": "curtain-gap glow at full warmth",
+      "end_state": "the approved nose-to-nose ending pose, held still",
+      "camera_plan": {
+        "motivation": "close the film exactly on the approved ending keyframe",
+        "start_position": "tight close-up of the pair",
+        "path": "camera eases slowly straight back from the faces and settles to a stop",
+        "speed_curve": "long smooth deceleration to stillness",
+        "focus_transition": "nose contact to the whole warm tableau",
+        "end_position": "the approved ending composition, stopped",
+        "axis_lock": "woman lower-left, man upper-right",
+        "stop_condition": "full stop and hold on the end pose",
+        "primary_move": "dolly_out",
+        "path_changes": 0
+      },
+      "cinematic_design": {
+        "narrative_job": "the film's final image: chosen togetherness over the day's plan",
+        "audience_knowledge": {
+          "knows": "they both wanted this ending",
+          "does_not_know": "nothing — the story closes",
+          "question": "held in the image, not asked"
+        },
+        "composition_logic": "exact match to approved keyframe with a gentle widening breath",
+        "blocking_map": {
+          "subject_position": "as approved keyframe",
+          "movement_path": "duvet rises, faces converge, all stills",
+          "camera_position": "easing back along the diagonal",
+          "screen_direction": "reversed diagonal axis"
+        },
+        "performance_detail": {
+          "micro_action": "her eyelids lower contentedly at the last beat",
+          "reaction_order": "his line, duvet pull, nose-to-nose settle"
+        },
+        "light_motivation": {
+          "source": "curtain gap upper right",
+          "direction": "warm wash over both faces",
+          "color_temperature": "4300K golden"
+        },
+        "event_budget": {
+          "max_concurrent_events": 2,
+          "timed_events": [
+            "final line",
+            "duvet pull"
+          ]
+        }
+      }
+    }
+  ],
+  "first_frame": "the approved reversed keyframe: she lies laughing on her back in the duvet at lower-left, he leans over her from upper-right on straight arms",
+  "last_frame": "the approved final keyframe: his fingertip touches her nose tip, both smiling nose to nose, duvet pulled high, golden curtain-gap light",
+  "final_hold_seconds": 1.5
+}

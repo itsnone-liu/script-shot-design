@@ -1,0 +1,56 @@
+[
+  {
+    "name": "front",
+    "task_id": "2100079935394705410",
+    "cosine": 0.4631,
+    "gate": 0.5,
+    "verdict": "LOW",
+    "file": "D:\\qjcNetDiskDownload\\deepseek-harness\\project\\821\\examples\\couple30_v1\\identity\\canonical\\front.png",
+    "attempts": 1
+  },
+  {
+    "name": "left34",
+    "task_id": "2100080737095573505",
+    "cosine": 0.1649,
+    "gate": 0.42,
+    "verdict": "LOW",
+    "file": "D:\\qjcNetDiskDownload\\deepseek-harness\\project\\821\\examples\\couple30_v1\\identity\\canonical\\left34.png",
+    "attempts": 1
+  },
+  {
+    "name": "right34",
+    "task_id": "2100080959880224769",
+    "cosine": 0.3541,
+    "gate": 0.5,
+    "verdict": "LOW",
+    "file": "D:\\qjcNetDiskDownload\\deepseek-harness\\project\\821\\examples\\couple30_v1\\identity\\canonical\\right34.png",
+    "attempts": 1
+  },
+  {
+    "name": "up",
+    "task_id": "2100081174861869057",
+    "cosine": 0.283,
+    "gate": 0.42,
+    "verdict": "LOW",
+    "file": "D:\\qjcNetDiskDownload\\deepseek-harness\\project\\821\\examples\\couple30_v1\\identity\\canonical\\up.png",
+    "attempts": 1
+  },
+  {
+    "name": "down",
+    "task_id": "2100081400574144513",
+    "cosine": 0.4756,
+    "gate": 0.42,
+    "verdict": "PASS",
+    "file": "D:\\qjcNetDiskDownload\\deepseek-harness\\project\\821\\examples\\couple30_v1\\identity\\canonical\\down.png",
+    "attempts": 1
+  },
+  {
+    "name": "talk",
+    "task_id": "2100081629444730882",
+    "cosine": 0.0941,
+    "gate": 0.5,
+    "verdict": "LOW",
+    "file": "D:\\qjcNetDiskDownload\\deepseek-harness\\project\\821\\examples\\couple30_v1\\identity\\canonical\\talk.png",
+    "attempts": 1
+  }
+]

@@ -1,0 +1,30 @@
+[
+  {
+    "name": "front",
+    "file": "D:\\qjcNetDiskDownload\\deepseek-harness\\project\\821\\examples\\couple30_v1\\identity\\canonical_v4\\front.png",
+    "cos_center": 0.7373,
+    "face_ratio": 1.153,
+    "verdict": "PASS"
+  },
+  {
+    "name": "up",
+    "file": "D:\\qjcNetDiskDownload\\deepseek-harness\\project\\821\\examples\\couple30_v1\\identity\\canonical_v4\\up.png",
+    "cos_center": 0.3799,
+    "face_ratio": 1.313,
+    "verdict": "LOW"
+  },
+  {
+    "name": "down",
+    "file": "D:\\qjcNetDiskDownload\\deepseek-harness\\project\\821\\examples\\couple30_v1\\identity\\canonical_v4\\down.png",
+    "cos_center": 0.1779,
+    "face_ratio": 1.096,
+    "verdict": "LOW"
+  },
+  {
+    "name": "talk",
+    "file": "D:\\qjcNetDiskDownload\\deepseek-harness\\project\\821\\examples\\couple30_v1\\identity\\canonical_v4\\talk.png",
+    "cos_center": 0.2107,
+    "face_ratio": 1.233,
+    "verdict": "LOW"
+  }
+]

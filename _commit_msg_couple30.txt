@@ -1,0 +1,17 @@
+couple30 v1 重制收官（v2.8 用户验收）：音画联合生成范式 + 三闸门
+
+知识库:
+- knowledge/COUPLE30_AUDIO_JOINT_GENERATION_V1.md: 驱动音轨=最终音轨范式、
+  三层音频架构、线性 loudnorm 纪律、三闸门（剧情/ASR/声学）、10 条实测失败模式、
+  身份修复增量与成本台账
+- knowledge/VOICE_LINE_RESEARCH.md: RH 音色候选调研
+
+管线脚本 (experiments/):
+- couple30_plotgate.py / couple30_asr_gate.py: 可复跑验收闸门
+- couple30_perf6.py / couple30_bcregen.py / couple30_fixb4.py: 表演驱动重掷与定向修复
+- couple30_mix.py: 三层混音（v28=验收臂）、两段式线性 loudnorm
+- 其余 couple30_*.py: 关键帧/正典/修复/TTS/调研全链
+
+结果: 37.5s 成片 plotgate 4/4、ASR 10/11、B 段 W 0.445；
+遗留: W 克隆换声（等素材）、A 段长发锚定（等拍板）。
+经验已结晶为 skill couple30-video-pipeline v1.0.0。

@@ -1,0 +1,26 @@
+[
+  {
+    "name": "front",
+    "cos_center": 0.7677,
+    "verdict": "PASS"
+  },
+  {
+    "name": "up",
+    "cos_center": 0.0892,
+    "verdict": "LOW"
+  },
+  {
+    "name": "down",
+    "cos_center": 0.2547,
+    "verdict": "LOW"
+  },
+  {
+    "name": "talk",
+    "cos_center": 0.7914,
+    "verdict": "PASS"
+  },
+  {
+    "name": "front_2notch",
+    "cos_center": 0.7013
+  }
+]

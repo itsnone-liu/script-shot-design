@@ -1,0 +1,50 @@
+[
+  {
+    "name": "front",
+    "file": "D:\\qjcNetDiskDownload\\deepseek-harness\\project\\821\\examples\\couple30_v1\\identity\\canonical_v2\\front.png",
+    "source": "D:\\qjcNetDiskDownload\\deepseek-harness\\project\\820\\data\\swap\\couple30_canon_v2_front\\out_00.png",
+    "cosine": 0.7366,
+    "gate": 0.55,
+    "verdict": "PASS"
+  },
+  {
+    "name": "right34",
+    "file": "D:\\qjcNetDiskDownload\\deepseek-harness\\project\\821\\examples\\couple30_v1\\identity\\canonical_v2\\right34.png",
+    "source": "D:\\qjcNetDiskDownload\\deepseek-harness\\project\\820\\data\\swap\\couple30_canon_v2_right34\\out_00.png",
+    "cosine": 0.74,
+    "gate": 0.55,
+    "verdict": "PASS"
+  },
+  {
+    "name": "talk",
+    "file": "D:\\qjcNetDiskDownload\\deepseek-harness\\project\\821\\examples\\couple30_v1\\identity\\canonical_v2\\talk.png",
+    "source": "D:\\qjcNetDiskDownload\\deepseek-harness\\project\\820\\data\\swap\\couple30_canon_v2_talk\\out_00.png",
+    "cosine": 0.6166,
+    "gate": 0.55,
+    "verdict": "PASS"
+  },
+  {
+    "name": "left34",
+    "file": "D:\\qjcNetDiskDownload\\deepseek-harness\\project\\821\\examples\\couple30_v1\\identity\\canonical_v2\\left34.png",
+    "source": "D:\\qjcNetDiskDownload\\deepseek-harness\\project\\820\\data\\swap\\couple30_canon_v2_left34\\out_00.png",
+    "cosine": 0.0271,
+    "gate": 0.45,
+    "verdict": "LOW"
+  },
+  {
+    "name": "up",
+    "file": "D:\\qjcNetDiskDownload\\deepseek-harness\\project\\821\\examples\\couple30_v1\\identity\\canonical_v2\\up.png",
+    "source": "D:\\qjcNetDiskDownload\\deepseek-harness\\project\\820\\data\\swap\\couple30_canon_v2_up\\out_00.png",
+    "cosine": 0.2065,
+    "gate": 0.45,
+    "verdict": "LOW"
+  },
+  {
+    "name": "down",
+    "file": "D:\\qjcNetDiskDownload\\deepseek-harness\\project\\821\\examples\\couple30_v1\\identity\\canonical_v2\\down.png",
+    "source": "D:\\qjcNetDiskDownload\\deepseek-harness\\project\\820\\data\\swap\\couple30_canon_v2_down\\out_00.png",
+    "cosine": 0.7914,
+    "gate": 0.45,
+    "verdict": "PASS"
+  }
+]

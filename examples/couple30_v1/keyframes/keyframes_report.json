@@ -1,0 +1,36 @@
+[
+  {
+    "name": "KF_M",
+    "n_faces": 1,
+    "faces": [
+      {
+        "y": 563,
+        "cos_vs_W": 0.048
+      }
+    ]
+  },
+  {
+    "name": "KF_A1",
+    "n_faces": 1,
+    "faces": [
+      {
+        "y": 696,
+        "cos_vs_W": 0.105
+      }
+    ]
+  },
+  {
+    "name": "KF_B_LAST",
+    "n_faces": 2,
+    "faces": [
+      {
+        "y": 375,
+        "cos_vs_W": 0.206
+      },
+      {
+        "y": 576,
+        "cos_vs_W": 0.553
+      }
+    ]
+  }
+]

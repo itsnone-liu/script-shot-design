@@ -1,0 +1,25 @@
+{
+  "project": "C2 再睡五分钟",
+  "updated": "2026-09-16",
+  "woman_W": {
+    "hard_attributes": "深棕黑及肩中长直发；窄长鹅蛋脸（h/w≈1.40）；冷白皮；豆沙色唇；杏仁眼",
+    "identity_refs": {
+      "center_anchor": "refs_extra/ref03.jpg",
+      "original": "ref_original.jpg",
+      "frontal_real": ["refs_extra/ref08.jpg", "refs_extra/ref09.jpg", "refs_extra/ref10.jpg"],
+      "canonical_v6": ["canonical_v6/front.png", "canonical_v6/talk.png", "canonical_v6/up.png", "canonical_v6/down.png"],
+      "real_3q": ["canonical_v6/left34.jpg", "canonical_v6/right34.jpg"]
+    },
+    "excluded": "refs_extra/ref05.jpg（画面含背景第二张脸，只用裁切或排除）",
+    "face_ratio_gate_front": [1.28, 1.58],
+    "angle_policy": "A段右3/4（原图同侧）；C段仰脸用 canonical_v6/up.png 锚；禁纯左脸特写",
+    "costume": "米白/浅粉居家睡衣套装（剧情设定，严禁从参考照迁移白衬衫）"
+  },
+  "man_M": {
+    "design": "系统设计虚构男性：28-30岁中国男性；黑色短发自然微乱；清爽温和带书卷气；瘦高体型；浅灰居家长袖上衣+深色长裤",
+    "anchor": "identity/man_anchor.png（Z-Image 生成，锁定后全片唯一参考）",
+    "repair": "无真人脸，不进 ReActor；一致性靠 anchor 参考图 + 属性卡复述"
+  },
+  "ratio_gates_note": "侧脸 3/4 的 h/w 天然高于正面（透视），不与正面闸门同带比较",
+  "reactor_restore": 0.25
+}

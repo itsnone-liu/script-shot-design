@@ -47,3 +47,8 @@ examples/concert30_hcy_flowers/refs_hcy_v2/*.wav
 examples/concert30_hcy_flowers/refs_hcy_v2/*.mp4
 examples/concert30_hcy_flowers/refs_hcy_v2/candidates/
 examples/concert30_hcy_flowers/refs_hcy_v2/rejected_far_or_led/
+
+# couple30 canonical sheets are reproducible from couple30_canonical_*.py
+examples/couple30_v1/**/*.png
+examples/couple30_v1/**/*.jpg
+examples/couple30_v1/**/*.npy

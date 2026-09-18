@@ -1,0 +1,321 @@
+{
+  "duration": 14,
+  "edit_role": "middle",
+  "main_visual_task": "A playful morning wake-up game in one continuous bedside view: the woman lies prone on top of the man, face to face, coaxing him to get up for brunch while he pretends to sleep; her tactics escalate from face taps to a nose pinch until he pretends to give in — both laughing softly the whole time.",
+  "user_script_review": {
+    "status": "approved",
+    "script_version": "couple30-v1",
+    "reviewed_by": "user",
+    "reviewed_at": "2026-09-17T17:40:00+08:00",
+    "feedback": [
+      "通过（关键帧全集5张终审）"
+    ]
+  },
+  "prompt_bible": {
+    "subject_lock": "exactly two people: the established young Chinese woman with dark-brown shoulder-length straight hair, narrow oval face, fair cool skin, wearing a cream-white pajama set; and the established Chinese man around thirty with short black slightly messy hair, slim gentle look, light-grey long-sleeve pajama top; both fully clothed in every frame; she stays lying prone on his chest, faces close, his eyes mostly closed pretending to sleep",
+    "environment_lock": "the same cozy modern bedroom: rumpled white duvet, white pillows, light wooden headboard, sheer half-closed curtains with soft morning light; no other people, no other objects introduced",
+    "material_lock": "real cotton pajama weave, crumpled duvet folds, natural skin pores, loose hair strands; physically plausible body weight and contact — her chest rests on his chest, forearms beside his head",
+    "lighting_lock": "one soft warm morning source from the window at upper right, gentle ambient fill; all shadows fall toward lower left; light stays constant across the whole segment",
+    "palette_lock": "morning cream, soft white bedding, pale grey pajama, warm wood, gentle gold highlights",
+    "lens_texture": "live-action 35mm cinema look at bed level, three-quarter side angle, shallow depth of field, very subtle handheld breathing, natural film grain",
+    "screen_direction": "woman's head stays in the upper half of frame, man's head in the lower half, her nose pointing down toward his face; heads never swap sides; no axis flips",
+    "audio_policy": "soft spoken Chinese dialogue lines with natural mouth movement, bedding rustle, shared quiet laughter, morning room tone; exact TTS mix in post",
+    "never_show": [
+      "readable text",
+      "logo",
+      "watermark",
+      "extra person",
+      "nudity",
+      "kiss close-up",
+      "fused bodies",
+      "extra limbs",
+      "plastic skin",
+      "two women"
+    ]
+  },
+  "internal_shots": [
+    {
+      "shot_id": "A1_wake_call",
+      "start": 0,
+      "end": 3.0,
+      "transition_in": "opening",
+      "shot_size": "medium",
+      "visual_state": "she lies prone on his chest, chin propped near his face, he keeps his eyes shut; morning window light from upper right",
+      "subject_action": "she pats his cheek twice with her fingertips and calls him to wake up, lips moving as she speaks; he does not react",
+      "camera_action": "static bedside three-quarter view",
+      "focus": "both faces in soft-crisp balance, her face slightly dominant",
+      "lighting_state": "steady warm morning light from upper right",
+      "end_state": "her hand lowers to the duvet and the motion settles for the cut",
+      "camera_plan": {
+        "motivation": "establish the wake-up game and the face-to-face geometry",
+        "start_position": "bed-level three-quarter side view of both faces",
+        "path": "camera stays locked at bedside framing both faces",
+        "speed_curve": "static throughout",
+        "focus_transition": "her patting hand to her speaking face",
+        "end_position": "same locked bedside framing",
+        "axis_lock": "woman upper frame, man lower frame, no swaps",
+        "stop_condition": "cut after her call settles",
+        "primary_move": "static",
+        "path_changes": 0
+      },
+      "cinematic_design": {
+        "narrative_job": "open the teasing duel",
+        "audience_knowledge": {
+          "knows": "she wants brunch",
+          "does_not_know": "he is awake",
+          "question": "will he get up"
+        },
+        "composition_logic": "two stacked faces on the vertical axis, duvet texture filling lower third",
+        "blocking_map": {
+          "subject_position": "her face upper-center, his face lower-center",
+          "movement_path": "only her hand rises and falls",
+          "camera_position": "bedside at pillow height",
+          "screen_direction": "vertical face-to-face axis"
+        },
+        "performance_detail": {
+          "micro_action": "two light cheek pats then fingers curl away",
+          "reaction_order": "she speaks first, he stays limp"
+        },
+        "light_motivation": {
+          "source": "curtained window upper right",
+          "direction": "rakes from her hair down to his cheek",
+          "color_temperature": "4800K warm morning"
+        },
+        "event_budget": {
+          "max_concurrent_events": 2,
+          "timed_events": [
+            "cheek pats",
+            "her spoken line"
+          ]
+        }
+      }
+    },
+    {
+      "shot_id": "A2_sleepy_mumble",
+      "start": 3.0,
+      "end": 5.5,
+      "transition_in": "continuous",
+      "shot_size": "medium_close_up",
+      "visual_state": "closer on the two faces; his eyelids stay heavy, her brows rise waiting for an answer",
+      "subject_action": "he mumbles a lazy excuse without opening his eyes, lips barely moving; she huffs and pouts",
+      "camera_action": "very slow push in toward the faces",
+      "focus": "his mumbling mouth, then her pouting reaction",
+      "lighting_state": "same steady morning key from upper right",
+      "end_state": "her pout hardens into determination and the slow push settles to a stop",
+      "camera_plan": {
+        "motivation": "tighten the duel as he stalls",
+        "start_position": "slightly wider two-face framing",
+        "path": "camera drifts straight in toward the space between their faces and eases to a stop",
+        "speed_curve": "gentle constant creep, decelerating at the end",
+        "focus_transition": "his mouth to her eyes",
+        "end_position": "tighter two-face framing, stopped",
+        "axis_lock": "woman upper frame, man lower frame, no swaps",
+        "stop_condition": "stop as her expression hardens",
+        "primary_move": "slow_dolly_in",
+        "path_changes": 0
+      },
+      "cinematic_design": {
+        "narrative_job": "his first lazy refusal",
+        "audience_knowledge": {
+          "knows": "he answered while asleep-seeming",
+          "does_not_know": "he is acting",
+          "question": "how far will she push"
+        },
+        "composition_logic": "faces fill upper and lower thirds, negative space at the pillow edge",
+        "blocking_map": {
+          "subject_position": "her face upper, his lower",
+          "movement_path": "his lips mumble, her pout forms",
+          "camera_position": "bedside closing distance",
+          "screen_direction": "vertical face-to-face axis"
+        },
+        "performance_detail": {
+          "micro_action": "his lip-corner twitch mid-mumble",
+          "reaction_order": "he mumbles, then she pouts"
+        },
+        "light_motivation": {
+          "source": "same window upper right",
+          "direction": "soft rim on both profiles",
+          "color_temperature": "4800K"
+        },
+        "event_budget": {
+          "max_concurrent_events": 2,
+          "timed_events": [
+            "mumbled excuse",
+            "pout response"
+          ]
+        }
+      }
+    },
+    {
+      "shot_id": "A3_bargain",
+      "start": 5.5,
+      "end": 8.5,
+      "transition_in": "continuous",
+      "shot_size": "medium_close_up",
+      "visual_state": "same tighter framing; she lifts her head a few centimeters for leverage",
+      "subject_action": "she reminds him of the brunch plan and the queue, poking his shoulder once per word; he shakes his head slightly and mutters the classic five-more-minutes line",
+      "camera_action": "locked after the earlier push, letting the escalation play",
+      "focus": "her poking finger and his stubborn closed eyes",
+      "lighting_state": "same steady morning key",
+      "end_state": "her patience visibly runs out as the poke settles",
+      "camera_plan": {
+        "motivation": "hold still so the acting escalation owns the frame",
+        "start_position": "tight two-face framing",
+        "path": "camera stays locked on the faces",
+        "speed_curve": "static throughout",
+        "focus_transition": "poking finger to her narrowing eyes",
+        "end_position": "same framing",
+        "axis_lock": "woman upper frame, man lower frame",
+        "stop_condition": "cut on her narrowed eyes",
+        "primary_move": "static",
+        "path_changes": 0
+      },
+      "cinematic_design": {
+        "narrative_job": "escalate from words to physical teasing",
+        "audience_knowledge": {
+          "knows": "he keeps stalling",
+          "does_not_know": "the stall is strategic",
+          "question": "what is her next move"
+        },
+        "composition_logic": "her raised head adds tension in the upper third",
+        "blocking_map": {
+          "subject_position": "faces stacked as established",
+          "movement_path": "finger pokes travel downward",
+          "camera_position": "locked bedside",
+          "screen_direction": "vertical face-to-face axis"
+        },
+        "performance_detail": {
+          "micro_action": "one poke per stressed word",
+          "reaction_order": "poke, mumble, head shake"
+        },
+        "light_motivation": {
+          "source": "window upper right",
+          "direction": "steady",
+          "color_temperature": "4800K"
+        },
+        "event_budget": {
+          "max_concurrent_events": 2,
+          "timed_events": [
+            "shoulder pokes",
+            "five-more-minutes mutter"
+          ]
+        }
+      }
+    },
+    {
+      "shot_id": "A4_nose_pinch",
+      "start": 8.5,
+      "end": 11.5,
+      "transition_in": "continuous",
+      "shot_size": "close_up",
+      "visual_state": "closest framing yet on the two faces and her rising right hand",
+      "subject_action": "she pinches his nose shut with her fingers; his face squirms, mouth opening for air through the pinch; her grin spreads",
+      "camera_action": "locked close-up",
+      "focus": "her fingertips closing on his nose, his wriggling lips",
+      "lighting_state": "same steady morning key",
+      "end_state": "he starts to surrender, hand rising in truce, motion settling toward the cut",
+      "camera_plan": {
+        "motivation": "the escalation peak deserves the tightest frame",
+        "start_position": "close-up on both faces and her hand",
+        "path": "camera stays locked at bedside close on both faces and the pinch",
+        "speed_curve": "static throughout",
+        "focus_transition": "her pinch to his opening mouth",
+        "end_position": "same close-up",
+        "axis_lock": "woman upper frame, man lower frame",
+        "stop_condition": "cut as his hand rises in truce",
+        "primary_move": "static",
+        "path_changes": 0
+      },
+      "cinematic_design": {
+        "narrative_job": "the decisive escalation",
+        "audience_knowledge": {
+          "knows": "she found his weak point",
+          "does_not_know": "he could flip her at any moment",
+          "question": "how does he answer"
+        },
+        "composition_logic": "pinch action on the middle axis, faces top and bottom",
+        "blocking_map": {
+          "subject_position": "as established",
+          "movement_path": "hand rises from duvet to his nose",
+          "camera_position": "locked close-up bedside",
+          "screen_direction": "vertical axis"
+        },
+        "performance_detail": {
+          "micro_action": "two failed breaths before surrender",
+          "reaction_order": "pinch, squirm, truce hand"
+        },
+        "light_motivation": {
+          "source": "window upper right",
+          "direction": "steady",
+          "color_temperature": "4800K"
+        },
+        "event_budget": {
+          "max_concurrent_events": 2,
+          "timed_events": [
+            "nose pinch",
+            "his surrender gesture"
+          ]
+        }
+      }
+    },
+    {
+      "shot_id": "A5_fake_concede",
+      "start": 11.5,
+      "end": 14,
+      "transition_in": "continuous",
+      "shot_size": "close_up",
+      "visual_state": "matching the approved last keyframe: her triumphant smile above him, fingers still on his nose, his eyes closed suppressing a laugh",
+      "subject_action": "she keeps the pinch and smiles in victory; he mumbles a drawn-out agreement while hiding his grin",
+      "camera_action": "locked close-up, settling to the end pose",
+      "focus": "her victorious smile, his barely suppressed grin",
+      "lighting_state": "same steady morning key",
+      "end_state": "hold the approved nose-pinch triumphant pose for the segment cut",
+      "camera_plan": {
+        "motivation": "land exactly on the approved end keyframe",
+        "start_position": "close-up as before",
+        "path": "camera stays locked on the approved end framing of the two faces",
+        "speed_curve": "static throughout",
+        "focus_transition": "her smile to his hidden grin",
+        "end_position": "the approved end framing",
+        "axis_lock": "woman upper frame, man lower frame",
+        "stop_condition": "cut on the held pose",
+        "primary_move": "static",
+        "path_changes": 0
+      },
+      "cinematic_design": {
+        "narrative_job": "false victory before the reversal",
+        "audience_knowledge": {
+          "knows": "she won this round",
+          "does_not_know": "the counterattack is loaded",
+          "question": "what happens next"
+        },
+        "composition_logic": "exact match to approved keyframe composition",
+        "blocking_map": {
+          "subject_position": "as keyframe",
+          "movement_path": "all motion eases to stillness",
+          "camera_position": "locked",
+          "screen_direction": "vertical axis"
+        },
+        "performance_detail": {
+          "micro_action": "his lip corner twitches once",
+          "reaction_order": "pinch holds, grin leaks, freeze"
+        },
+        "light_motivation": {
+          "source": "window upper right",
+          "direction": "steady",
+          "color_temperature": "4800K"
+        },
+        "event_budget": {
+          "max_concurrent_events": 2,
+          "timed_events": [
+            "victory smile",
+            "suppressed laugh"
+          ]
+        }
+      }
+    }
+  ],
+  "first_frame": "the approved first keyframe: she lies prone on top of him on the rumpled white duvet, faces close, her nose pointing down toward his sleeping face, his eyes closed, both fully clothed, warm morning light from upper right",
+  "last_frame": "the approved end keyframe: same prone position, her right fingers playfully pinching his nose, her triumphant smile above, his eyes closed hiding a grin",
+  "final_hold_seconds": 0
+}

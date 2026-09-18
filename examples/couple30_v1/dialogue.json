@@ -1,0 +1,195 @@
+{
+  "version": "couple30-v1",
+  "source": "examples/couple30_concept_v1.md 对白 v1（用户已批准）+ 三段导演合同 shot 窗口",
+  "note": "台词时长由 TTS 实测后回填 tts_seconds；window 为该台词所属表演窗（合同 internal_shots），混合甲乙路线下 A 段窗口仅作音频时间线参考",
+  "voices": {
+    "W": {
+      "name": "女人",
+      "clone": true,
+      "material": "待用户飞书发送（10s+ 干声最佳）",
+      "engine": "RH IndexTTS2 webapp 2093959907870511105（情绪+文案+迁移音色）"
+    },
+    "M": {
+      "name": "男人",
+      "clone": false,
+      "engine": "IndexTTS2 预置男声或低强度克隆；音色方向=慵懒年轻男声"
+    }
+  },
+  "lines": [
+    {
+      "id": "L01",
+      "segment": "A",
+      "shot": "A1_wake_call",
+      "speaker": "W",
+      "window": [
+        0.0,
+        3.0
+      ],
+      "emotion": "轻快催促、带笑意",
+      "text": "醒醒，太阳晒屁股了。",
+      "tts_seconds": 2.472,
+      "tts_file": "D:\\qjcNetDiskDownload\\deepseek-harness\\project\\821\\output\\creative_v2\\couple30_v1\\audio\\L01.wav",
+      "tts_engine": "edge"
+    },
+    {
+      "id": "L02",
+      "segment": "A",
+      "shot": "A2_sleepy_mumble",
+      "speaker": "M",
+      "window": [
+        3.0,
+        5.5
+      ],
+      "emotion": "闭眼含糊、装睡",
+      "text": "……没晒到，拉了窗帘。",
+      "tts_seconds": 2.568,
+      "tts_file": "D:\\qjcNetDiskDownload\\deepseek-harness\\project\\821\\output\\creative_v2\\couple30_v1\\audio\\L02.wav",
+      "tts_engine": "edge"
+    },
+    {
+      "id": "L03",
+      "segment": "A",
+      "shot": "A3_bargain",
+      "speaker": "W",
+      "window": [
+        5.5,
+        7.2
+      ],
+      "emotion": "撒娇劝说起身",
+      "text": "起来嘛，说好的那家 brunch，去晚了排队。",
+      "tts_seconds": 3.672,
+      "tts_file": "D:\\qjcNetDiskDownload\\deepseek-harness\\project\\821\\output\\creative_v2\\couple30_v1\\audio\\L03.wav",
+      "tts_engine": "edge"
+    },
+    {
+      "id": "L04",
+      "segment": "A",
+      "shot": "A3_bargain",
+      "speaker": "M",
+      "window": [
+        7.2,
+        8.5
+      ],
+      "emotion": "赖床嘟囔",
+      "text": "再睡五分钟。",
+      "tts_seconds": 1.872,
+      "tts_file": "D:\\qjcNetDiskDownload\\deepseek-harness\\project\\821\\output\\creative_v2\\couple30_v1\\audio\\L04.wav",
+      "tts_engine": "edge"
+    },
+    {
+      "id": "L05",
+      "segment": "A",
+      "shot": "A4_nose_pinch",
+      "speaker": "W",
+      "window": [
+        8.5,
+        11.5
+      ],
+      "emotion": "得意+威胁感",
+      "text": "你五分钟之前也是这么说的。",
+      "tts_seconds": 2.76,
+      "tts_file": "D:\\qjcNetDiskDownload\\deepseek-harness\\project\\821\\output\\creative_v2\\couple30_v1\\audio\\L05.wav",
+      "tts_engine": "edge"
+    },
+    {
+      "id": "L06",
+      "segment": "A",
+      "shot": "A5_fake_concede",
+      "speaker": "M",
+      "window": [
+        11.5,
+        14.0
+      ],
+      "emotion": "憋笑认输拖长音",
+      "text": "行行行，起——",
+      "tts_seconds": 2.208,
+      "tts_file": "D:\\qjcNetDiskDownload\\deepseek-harness\\project\\821\\output\\creative_v2\\couple30_v1\\audio\\L06.wav",
+      "tts_engine": "edge"
+    },
+    {
+      "id": "L07",
+      "segment": "B",
+      "shot": "B_flip",
+      "speaker": "M",
+      "window": [
+        1.5,
+        4.0
+      ],
+      "emotion": "突然发力+大笑",
+      "text": "再睡五分钟——这回你陪我。",
+      "tts_seconds": 2.856,
+      "tts_file": "D:\\qjcNetDiskDownload\\deepseek-harness\\project\\821\\output\\creative_v2\\couple30_v1\\audio\\L07.wav",
+      "tts_engine": "edge"
+    },
+    {
+      "id": "L08",
+      "segment": "B",
+      "shot": "B_flip",
+      "speaker": "W",
+      "window": [
+        4.0,
+        6.5
+      ],
+      "emotion": "被子里笑骂",
+      "text": "你根本就是装的！",
+      "tts_seconds": 2.304,
+      "tts_file": "D:\\qjcNetDiskDownload\\deepseek-harness\\project\\821\\output\\creative_v2\\couple30_v1\\audio\\L08.wav",
+      "tts_engine": "edge"
+    },
+    {
+      "id": "L09",
+      "segment": "C",
+      "shot": "C_reveal",
+      "speaker": "M",
+      "window": [
+        0.5,
+        4.0
+      ],
+      "emotion": "低头亲昵坦白",
+      "text": "从你提 brunch 那句开始，我就在想怎么把你按回来。",
+      "tts_seconds": 4.656,
+      "tts_file": "D:\\qjcNetDiskDownload\\deepseek-harness\\project\\821\\output\\creative_v2\\couple30_v1\\audio\\L09.wav",
+      "tts_engine": "edge"
+    },
+    {
+      "id": "L10",
+      "segment": "C",
+      "shot": "C_reveal",
+      "speaker": "W",
+      "window": [
+        4.0,
+        6.5
+      ],
+      "emotion": "认命地笑",
+      "text": "那……现在几点了？",
+      "tts_seconds": 2.664,
+      "tts_file": "D:\\qjcNetDiskDownload\\deepseek-harness\\project\\821\\output\\creative_v2\\couple30_v1\\audio\\L10.wav",
+      "tts_engine": "edge"
+    },
+    {
+      "id": "L11",
+      "segment": "C",
+      "shot": "C_finale",
+      "speaker": "M",
+      "window": [
+        6.5,
+        11.0
+      ],
+      "emotion": "慵懒收尾、拉被子",
+      "text": "不知道。反正——再五分钟。",
+      "tts_seconds": 4.656,
+      "tts_file": "D:\\qjcNetDiskDownload\\deepseek-harness\\project\\821\\output\\creative_v2\\couple30_v1\\audio\\L11.wav",
+      "tts_engine": "edge"
+    }
+  ],
+  "bgm": {
+    "direction": "晨间轻氛围（用户 2026-09-18 确认维持）",
+    "ducking": "对白窗 -8~-12dB，非对白窗恢复"
+  },
+  "qa": {
+    "asr_cer_max": 0.15,
+    "asr_engine": "faster-whisper local",
+    "identity_gate": "SFace 角色感知逐帧 + 仰/侧脸 VLM 补位",
+    "final": "全速人耳+目检终审"
+  }
+}

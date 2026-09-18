@@ -1,0 +1,90 @@
+[
+  {
+    "name": "front",
+    "file": "D:\\qjcNetDiskDownload\\deepseek-harness\\project\\821\\examples\\couple30_v1\\identity\\canonical_v3\\front.png",
+    "bids": [
+      {
+        "ref": "ref03",
+        "file": "D:\\qjcNetDiskDownload\\deepseek-harness\\project\\820\\data\\swap\\c30v3_front_ref03\\out_00.png",
+        "cos_center": 0.7582
+      },
+      {
+        "ref": "ref01",
+        "file": "D:\\qjcNetDiskDownload\\deepseek-harness\\project\\820\\data\\swap\\c30v3_front_ref01\\out_00.png",
+        "cos_center": 0.7087
+      }
+    ],
+    "winner": "ref03",
+    "cos_center": 0.7582,
+    "verdict": "PASS"
+  },
+  {
+    "name": "up",
+    "file": "D:\\qjcNetDiskDownload\\deepseek-harness\\project\\821\\examples\\couple30_v1\\identity\\canonical_v3\\up.png",
+    "bids": [
+      {
+        "ref": "ref03",
+        "file": "D:\\qjcNetDiskDownload\\deepseek-harness\\project\\820\\data\\swap\\c30v3_up_ref03\\out_00.png",
+        "cos_center": 0.7488
+      },
+      {
+        "ref": "ref01",
+        "file": "D:\\qjcNetDiskDownload\\deepseek-harness\\project\\820\\data\\swap\\c30v3_up_ref01\\out_00.png",
+        "cos_center": 0.6914
+      }
+    ],
+    "winner": "ref03",
+    "cos_center": 0.7488,
+    "verdict": "PASS"
+  },
+  {
+    "name": "down",
+    "file": "D:\\qjcNetDiskDownload\\deepseek-harness\\project\\821\\examples\\couple30_v1\\identity\\canonical_v3\\down.png",
+    "bids": [
+      {
+        "ref": "ref03",
+        "file": "D:\\qjcNetDiskDownload\\deepseek-harness\\project\\820\\data\\swap\\c30v3_down_ref03\\out_00.png",
+        "cos_center": 0.2782
+      },
+      {
+        "ref": "ref07",
+        "file": "D:\\qjcNetDiskDownload\\deepseek-harness\\project\\820\\data\\swap\\c30v3_down_ref07\\out_00.png",
+        "cos_center": 0.3101
+      }
+    ],
+    "winner": "ref07",
+    "cos_center": 0.3101,
+    "verdict": "LOW"
+  },
+  {
+    "name": "talk",
+    "file": "D:\\qjcNetDiskDownload\\deepseek-harness\\project\\821\\examples\\couple30_v1\\identity\\canonical_v3\\talk.png",
+    "bids": [
+      {
+        "ref": "ref03",
+        "file": "D:\\qjcNetDiskDownload\\deepseek-harness\\project\\820\\data\\swap\\c30v3_talk_ref03\\out_00.png",
+        "cos_center": 0.7878
+      },
+      {
+        "ref": "ref06",
+        "file": "D:\\qjcNetDiskDownload\\deepseek-harness\\project\\820\\data\\swap\\c30v3_talk_ref06\\out_00.png",
+        "cos_center": 0.6837
+      }
+    ],
+    "winner": "ref03",
+    "cos_center": 0.7878,
+    "verdict": "PASS"
+  },
+  {
+    "name": "left34",
+    "file": "D:\\qjcNetDiskDownload\\deepseek-harness\\project\\821\\examples\\couple30_v1\\identity\\canonical_v3\\left34.jpg",
+    "verdict": "REAL_PHOTO",
+    "source": "D:\\qjcNetDiskDownload\\deepseek-harness\\project\\821\\examples\\couple30_v1\\identity\\refs_extra\\ref03.jpg"
+  },
+  {
+    "name": "right34",
+    "file": "D:\\qjcNetDiskDownload\\deepseek-harness\\project\\821\\examples\\couple30_v1\\identity\\canonical_v3\\right34.jpg",
+    "verdict": "REAL_PHOTO",
+    "source": "D:\\qjcNetDiskDownload\\deepseek-harness\\project\\821\\examples\\couple30_v1\\identity\\ref_original.jpg"
+  }
+]

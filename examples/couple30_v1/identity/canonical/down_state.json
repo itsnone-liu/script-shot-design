@@ -1,0 +1,9 @@
+{
+  "name": "down",
+  "task_id": "2100081400574144513",
+  "cosine": 0.4756,
+  "gate": 0.42,
+  "verdict": "PASS",
+  "file": "D:\\qjcNetDiskDownload\\deepseek-harness\\project\\821\\examples\\couple30_v1\\identity\\canonical\\down.png",
+  "attempts": 1
+}

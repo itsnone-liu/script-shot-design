@@ -1,0 +1,75 @@
+[
+  {
+    "name": "A1",
+    "input_index": 0,
+    "output": "D:\\qjcNetDiskDownload\\deepseek-harness\\project\\821\\examples\\couple30_v1\\keyframes\\A1_idx0.png",
+    "faces": [
+      {
+        "det_i": 0,
+        "x": 381,
+        "y": 598,
+        "w": 138,
+        "h": 196,
+        "score": 0.886,
+        "cos": 0.1054
+      }
+    ]
+  },
+  {
+    "name": "A1",
+    "input_index": 1,
+    "output": "D:\\qjcNetDiskDownload\\deepseek-harness\\project\\821\\examples\\couple30_v1\\keyframes\\A1_idx1.png",
+    "faces": [
+      {
+        "det_i": 0,
+        "x": 387,
+        "y": 606,
+        "w": 136,
+        "h": 189,
+        "score": 0.898,
+        "cos": 0.6511
+      }
+    ]
+  },
+  {
+    "name": "B_LAST",
+    "input_index": 0,
+    "output": "D:\\qjcNetDiskDownload\\deepseek-harness\\project\\821\\examples\\couple30_v1\\keyframes\\B_LAST_idx0.png",
+    "faces": [
+      {
+        "det_i": 0,
+        "x": 261,
+        "y": 452,
+        "w": 152,
+        "h": 238,
+        "score": 0.857,
+        "cos": 0.0614
+      }
+    ]
+  },
+  {
+    "name": "B_LAST",
+    "input_index": 1,
+    "output": "D:\\qjcNetDiskDownload\\deepseek-harness\\project\\821\\examples\\couple30_v1\\keyframes\\B_LAST_idx1.png",
+    "faces": [
+      {
+        "det_i": 1,
+        "x": 504,
+        "y": 247,
+        "w": 248,
+        "h": 258,
+        "score": 0.62,
+        "cos": 0.2059
+      },
+      {
+        "det_i": 0,
+        "x": 256,
+        "y": 448,
+        "w": 160,
+        "h": 255,
+        "score": 0.841,
+        "cos": 0.5531
+      }
+    ]
+  }
+]
