@@ -1,0 +1,113 @@
+{
+  "schema_version": "asset-cards-v1",
+  "cards": [
+    {
+      "id": "char_woman",
+      "type": "character",
+      "name": "couple30 女主（叫醒游戏发起方）",
+      "character": {
+        "identity_points": [
+          "dark-brown shoulder-length straight hair",
+          "narrow oval face",
+          "fair cool skin"
+        ],
+        "wardrobe": "cream-white pajama set; fully clothed in every frame",
+        "demeanor": "young Chinese woman; playful, coaxing, physically affectionate; escalates tactics with light touches rather than force",
+        "approved_performance_range": [
+          "soft spoken Chinese dialogue with natural mouth movement",
+          "face taps / nose pinch escalation within the wake-up game",
+          "shared quiet laughter"
+        ]
+      },
+      "prompt_fragments": {
+        "subject_lock_text": "the established young Chinese woman with dark-brown shoulder-length straight hair, narrow oval face, fair cool skin, wearing a cream-white pajama set; fully clothed in every frame",
+        "material_lock_text": "natural skin pores, loose hair strands, real cotton pajama weave"
+      },
+      "continuity_rules": [
+        "no nudity",
+        "no plastic skin",
+        "never a second woman in frame (two women = hard fail)"
+      ],
+      "refs": {
+        "canonical_chain_version": "canonical_v6",
+        "reactor_calibration": "couple30 per-index calibration (see IDENTITY_HYBRID_PIPELINE_V1)"
+      },
+      "voice_anchor": {
+        "performance_notes": "原版直出 take 优先策略（couple30 v2.8 教训：完整笑声表演做驱动，成片铺原声本体，不取重渲染）"
+      },
+      "used_by": [
+        "couple30_segA_v1.json"
+      ],
+      "provenance": "拆自 couple30_segA_v1.json prompt_bible.subject_lock/material_lock（script_version couple30-v1，2026-09-17 用户关键帧全集 5 张终审通过）；拆卡 2026-09-21，拆分结果待用户过目；segB/segC 的 used_by 待回填"
+    },
+    {
+      "id": "char_man",
+      "type": "character",
+      "name": "couple30 男主（装睡的对抗方）",
+      "character": {
+        "identity_points": [
+          "short black slightly messy hair",
+          "slim gentle look"
+        ],
+        "wardrobe": "light-grey long-sleeve pajama top; fully clothed in every frame",
+        "demeanor": "Chinese man around thirty; mock-resistance — pretends to sleep through escalating tactics, finally pretends to give in; soft laughter throughout",
+        "approved_performance_range": [
+          "lazy mumbled excuses without opening eyes",
+          "pretend-to-give-in beat",
+          "shared quiet laughter"
+        ]
+      },
+      "prompt_fragments": {
+        "subject_lock_text": "the established Chinese man around thirty with short black slightly messy hair, slim gentle look, light-grey long-sleeve pajama top; fully clothed in every frame",
+        "material_lock_text": "natural skin pores, real cotton pajama weave"
+      },
+      "continuity_rules": [
+        "no nudity",
+        "no plastic skin",
+        "no extra limbs"
+      ],
+      "refs": {
+        "canonical_chain_version": "canonical_v6",
+        "reactor_calibration": "couple30 per-index calibration (see IDENTITY_HYBRID_PIPELINE_V1)"
+      },
+      "voice_anchor": {
+        "performance_notes": "含糊嘟囔台词靠嘴部微动；具体 take 策略见 seg audio_policy"
+      },
+      "used_by": [
+        "couple30_segA_v1.json"
+      ],
+      "provenance": "拆自 couple30_segA_v1.json prompt_bible.subject_lock/material_lock；拆卡 2026-09-21，待用户过目；segB/segC 待回填"
+    },
+    {
+      "id": "scene_bedroom",
+      "type": "scene",
+      "name": "couple30 清晨主卧",
+      "scene": {
+        "spatial_structure": "cozy modern bedroom; bed level is the playing field; window with sheer half-closed curtains at upper right of the camera-facing geometry; no other rooms or openings shown",
+        "visual_anchors": [
+          "rumpled white duvet",
+          "white pillows",
+          "light wooden headboard",
+          "sheer half-closed curtains (window, upper right)"
+        ],
+        "light_plan": "one soft warm morning source from the window at upper right (~4800K), gentle ambient fill; all shadows fall toward lower left; light stays constant across the whole segment",
+        "palette": "morning cream, soft white bedding, pale grey pajama, warm wood, gentle gold highlights"
+      },
+      "prompt_fragments": {
+        "environment_lock_text": "the same cozy modern bedroom: rumpled white duvet, white pillows, light wooden headboard, sheer half-closed curtains with soft morning light; no other people, no other objects introduced",
+        "lighting_lock_text": "one soft warm morning source from the window at upper right, gentle ambient fill; all shadows fall toward lower left; light stays constant across the whole segment",
+        "palette_lock_text": "morning cream, soft white bedding, pale grey pajama, warm wood, gentle gold highlights",
+        "material_lock_text": "crumpled duvet folds"
+      },
+      "continuity_rules": [
+        "no extra person enters the bedroom",
+        "no new objects introduced beyond the visual anchors",
+        "curtain openness and duvet rumple level stay consistent within a segment"
+      ],
+      "used_by": [
+        "couple30_segA_v1.json"
+      ],
+      "provenance": "拆自 couple30_segA_v1.json prompt_bible.environment_lock/lighting_lock/palette_lock；拆卡 2026-09-21，待用户过目；segB/segC 待回填"
+    }
+  ]
+}

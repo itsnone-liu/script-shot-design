@@ -1,0 +1,38 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "821 shot extensions V1",
+  "description": "分镜六字段增量的落点：在现有 shot 对象（scenes.schema.json / creative_v2 seg JSON）上新增四个可选字段 cast / scene_ref / dialogue / first_frame。YoLuster 六字段=画面描述+动作提示+对白旁白+出镜人物+关键场景+首帧预览；前三者 821 已有（visual_state/subject_action/…/audio_policy），本文件补后四者。",
+  "type": "object",
+  "$defs": {
+    "cast": {
+      "type": "array",
+      "items": {"type": "string"},
+      "description": "出镜人物：asset card id 列表（如 [char_woman, char_man]）。生成前校验：shot 声明的 cast ⊆ 该 seg prompt_bible 合成的卡片集合，防串场"
+    },
+    "scene_ref": {
+      "type": "string",
+      "description": "关键场景：本镜所在场景卡 id（如 scene_bedroom）。同场镜头必须同 ref；换 ref = 转场，须与 transition_in 一致"
+    },
+    "dialogue": {
+      "type": "object",
+      "description": "对白旁白（镜头级；seg 级 audio_policy 仍管环境音/整体策略）",
+      "properties": {
+        "speaker": {"type": "string", "description": "asset card id"},
+        "line": {"type": "string", "description": "台词原文（TTS/口型驱动源；H3 口型稳定法=台词入 prompt 引号+音频 reference）"},
+        "voice_take_ref": {"type": "string", "description": "配音 take 引用（直出 take 优先策略见 couple30 v2.8 教训）"},
+        "subtitle_policy": {"type": "string"}
+      }
+    },
+    "first_frame": {
+      "type": "object",
+      "description": "首帧预览：本镜第一帧的锚定与审批挂钩",
+      "properties": {
+        "keyframe_id": {"type": "string", "description": "5-keyframe 审批门里的帧 id（keyframe 全集=各镜首帧）"},
+        "source": {"type": "string", "description": "图源：生图任务 id / 上帧 end_state 续接 / 真实素材"},
+        "approval": {"type": "string", "enum": ["pending", "approved", "rejected"], "description": "过人才进视频生成（pay-gate）"},
+        "continuity_from": {"type": "string", "description": "上一镜 end_state 的引用：剪辑续接时首帧必须与之相容"}
+      },
+      "required": ["keyframe_id", "approval"]
+    }
+  }
+}

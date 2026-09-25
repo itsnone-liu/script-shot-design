@@ -1,0 +1,116 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "821 asset cards V1",
+  "description": "角色/场景/道具资产卡：一等公民可复用对象。设计来源 YoLuster Shorts 挖掘(820 kb capability_notes #29) + 821 IDENTITY_HYBRID_PIPELINE_V1 / AI_CREATIVE_ROLE_BOUNDARY_V1 整合。seg 级 prompt_bible 的各 lock 文本由卡派生，卡片是单一事实源。",
+  "type": "object",
+  "required": ["cards", "schema_version"],
+  "properties": {
+    "schema_version": {"type": "string", "const": "asset-cards-v1"},
+    "cards": {
+      "type": "array",
+      "minItems": 1,
+      "items": {"$ref": "#/$defs/asset_card"}
+    }
+  },
+  "$defs": {
+    "asset_card": {
+      "type": "object",
+      "required": ["id", "type", "name", "prompt_fragments", "continuity_rules", "used_by"],
+      "properties": {
+        "id": {"type": "string", "description": "稳定 slug，如 char_woman / scene_bedroom / prop_flower"},
+        "type": {"type": "string", "enum": ["character", "scene", "prop"]},
+        "name": {"type": "string"},
+        "character": {"$ref": "#/$defs/character_fields"},
+        "scene": {"$ref": "#/$defs/scene_fields"},
+        "prop": {"$ref": "#/$defs/prop_fields"},
+        "prompt_fragments": {
+          "type": "object",
+          "description": "卡片派生出的 lock 文本（合成进 seg prompt_bible 的原料，人可读可审）",
+          "properties": {
+            "subject_lock_text": {"type": "string"},
+            "environment_lock_text": {"type": "string"},
+            "lighting_lock_text": {"type": "string"},
+            "palette_lock_text": {"type": "string"},
+            "material_lock_text": {"type": "string"}
+          }
+        },
+        "continuity_rules": {
+          "type": "array",
+          "items": {"type": "string"},
+          "description": "该资产专属的 never/always 规则（合成进 never_show 与 subject_lock）"
+        },
+        "refs": {
+          "type": "object",
+          "description": "参考图/参考链锚点",
+          "properties": {
+            "images": {"type": "array", "items": {"type": "string"}},
+            "canonical_chain_version": {"type": "string", "description": "IDENTITY_HYBRID_PIPELINE 的 canonical 链版本，如 canonical_v6"},
+            "reactor_calibration": {"type": "string", "description": "ReActor 逐位标定档（per-index calibration id）"}
+          }
+        },
+        "voice_anchor": {
+          "type": "object",
+          "description": "角色卡专属：声音锚（TTS 音色 / 真声克隆 ref）",
+          "properties": {
+            "tts_voice_id": {"type": "string"},
+            "clone_ref": {"type": "string"},
+            "performance_notes": {"type": "string"}
+          }
+        },
+        "used_by": {
+          "type": "array",
+          "items": {"type": "string"},
+          "description": "引用该卡的 shot_id / seg_id / 片名列表（反向索引，复用证据）"
+        },
+        "provenance": {
+          "type": "string",
+          "description": "卡片来源：哪部片哪个 seg 的 lock 拆出、何人何时批准"
+        }
+      }
+    },
+    "character_fields": {
+      "type": "object",
+      "description": "YoLuster 角色模板 + 821 身份管线整合",
+      "properties": {
+        "identity_points": {"type": "array", "items": {"type": "string"}, "description": "识别点：脸型/发/肤等不可漂移特征"},
+        "wardrobe": {"type": "string", "description": "服饰 lock（款式/颜色/材质，跨镜不变项）"},
+        "demeanor": {"type": "string", "description": "气质：年龄感/体态/神态基调"},
+        "approved_performance_range": {"type": "array", "items": {"type": "string"}, "description": "用户已批准的表演范围（情绪主张的执行边界；新情绪须回人审批）"}
+      }
+    },
+    "scene_fields": {
+      "type": "object",
+      "description": "YoLuster 场景模板",
+      "properties": {
+        "spatial_structure": {"type": "string", "description": "空间结构：布局/方位/家具位置关系"},
+        "visual_anchors": {"type": "array", "items": {"type": "string"}, "description": "视觉锚点：跨镜可指认的固定物"},
+        "light_plan": {"type": "string", "description": "光源/方向/色温（= lighting_lock 原料）"},
+        "palette": {"type": "string", "description": "色板（= palette_lock 原料）"}
+      }
+    },
+    "prop_fields": {
+      "type": "object",
+      "description": "YoLuster 道具模板 + 《逆流》教训：道具状态变化=情绪事件，必须记动机",
+      "properties": {
+        "shape": {"type": "string"},
+        "material": {"type": "string"},
+        "ratio": {"type": "string", "description": "比例（相对人体/场景的尺寸参照）"},
+        "style_lock": {"type": "string"},
+        "state_timeline": {
+          "type": "array",
+          "description": "状态时间线：每个状态=一个叙事事实，换状态必须挂 beat+情绪动机",
+          "items": {
+            "type": "object",
+            "required": ["state", "beat_id"],
+            "properties": {
+              "state": {"type": "string"},
+              "beat_id": {"type": "string", "description": "状态变化发生在哪个 beat"},
+              "emotion_intent": {"type": "string", "description": "该状态输出的情绪（一状态一情绪，打架上报人）"},
+              "motivation": {"type": "string", "description": "状态变化的因果支撑（谁/为何造成）"}
+            }
+          }
+        }
+      }
+    }
+  }
+}
