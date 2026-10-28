@@ -105,6 +105,11 @@ seg.prompt_bible.never_show       = 全局 never ∪ Σ(卡.continuity_rules)
 2. `used_by` 回填全片 seg/shot。
 3. 写合成脚本（input: 卡+seg 附加项 → output: lock），对旧 seg 跑 diff，
    差异=拆卡时的语义损失，逐条修到零 diff。
+   **已实现（2026-10-28）**：`shortfilm/assets.py` + `shortfilm/cli/synth_bible.py`
+   （本公式纯函数实现；couple30 segA 回归：env/light/palette/subject 零 diff，
+   material 同片段集不同序，never_show 剩 1 条文案级差异待卡片复审；
+   测试 `tests/test_assets.py`）。refs 内容哈希清单：
+   `couple30_refs_manifest_v1.json`（审批门输入）。
 4. 此后新 seg 只写"引用+增量"，不写整段 lock。
 
 ## 6. 反模式（本设计的）

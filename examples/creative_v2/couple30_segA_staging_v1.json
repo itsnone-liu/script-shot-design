@@ -1,0 +1,10 @@
+{
+  "schema_version": "seg-staging-v1",
+  "provenance": "拆自 couple30_segA_v1.json 手写 prompt_bible 的 seg 附加项（ASSET_STORYBOARD_SCHEMA_V1 §5 迁移），2026-10-28。卡合成 + 本附加项 = 原 lock。",
+  "subject_suffix": "she stays lying prone on his chest, faces close, his eyes mostly closed pretending to sleep",
+  "material_suffix": "physically plausible body weight and contact — her chest rests on his chest, forearms beside his head",
+  "never_show_extra": [
+    "kiss close-up",
+    "fused bodies"
+  ]
+}

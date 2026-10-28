@@ -1,0 +1,52 @@
+{
+  "schema_version": "asset-refs-manifest-v1",
+  "cards": {
+    "char_woman": {
+      "canonical_chain_version": "canonical_v6",
+      "files": {
+        "_v6_compare.jpg": "975e55e667c90c47d9cf5e78669a43dfa19941a34e4632a9af468bb61259b25a",
+        "down.png": "e96f61135c786adb2946618b05e4422f52bdfb66236c643be112c29932f0144e",
+        "down_carrier2.png": "0faa193dce9842cdfa3ed614e659fb4bcf9c4b65ad4c014b579ec3e886decd25",
+        "down_raw.png": "27f791aaba2ce2183d6736b00c076926cf165b6e7cfbfd1fd0937f85f869cd06",
+        "front.png": "147a578f4728862fcb6c9ea76173b737f3496b7b0208c0f501d44df4ea2b0c44",
+        "front_carrier.png": "1f5924746252b5074487f27862684598c1429af940e27faa43177de6b5918363",
+        "front_raw.png": "a75fcd3c0e836f0919b544b4a4db000f925e616d412d8fd3cea2a7df3fde9ae4",
+        "talk.png": "d2f8ff4f5d9a6621653064495946f64d35af30276d43b83f8b0f01a2c34df8bf",
+        "talk_carrier.png": "60a9e5b9351e731ba1b28ff8311163952a13640df6244019512f8ae7560322cf",
+        "talk_carrier2.png": "d6e12dc8fc1f0f85e0c0ebc11574c233f920da416ab10ef6f1221370f9aee300",
+        "talk_raw.png": "fd666c3e7e0e06e3691f05d0da8f580aca49df7f6cb3ae21f4856f44280d398b",
+        "up.png": "b357ac5789b0475897c78449f63176d8e1cef956ac5f496acb5b5bd167e535ef",
+        "up_carrier2.png": "efc936bb4a4e3f050bd32821daffc58513d7692a369e363210f79f7fc288ac61",
+        "up_plate.png": "65036f815f5f77fee0600f734367b4fde987cea1d21ba2dc9633dddd226fdf25",
+        "up_raw.png": "2b08aec3c77d61946ba6b9f7fc6efe6b45dfceee84485dfbbaaa34b0806d95dd"
+      },
+      "card_sha256": "26a4984461f4cad02a667a3b5ea1cb42233ef2369c8a010724f496ca428afb89"
+    },
+    "char_man": {
+      "canonical_chain_version": "canonical_v6",
+      "files": {
+        "_v6_compare.jpg": "975e55e667c90c47d9cf5e78669a43dfa19941a34e4632a9af468bb61259b25a",
+        "down.png": "e96f61135c786adb2946618b05e4422f52bdfb66236c643be112c29932f0144e",
+        "down_carrier2.png": "0faa193dce9842cdfa3ed614e659fb4bcf9c4b65ad4c014b579ec3e886decd25",
+        "down_raw.png": "27f791aaba2ce2183d6736b00c076926cf165b6e7cfbfd1fd0937f85f869cd06",
+        "front.png": "147a578f4728862fcb6c9ea76173b737f3496b7b0208c0f501d44df4ea2b0c44",
+        "front_carrier.png": "1f5924746252b5074487f27862684598c1429af940e27faa43177de6b5918363",
+        "front_raw.png": "a75fcd3c0e836f0919b544b4a4db000f925e616d412d8fd3cea2a7df3fde9ae4",
+        "talk.png": "d2f8ff4f5d9a6621653064495946f64d35af30276d43b83f8b0f01a2c34df8bf",
+        "talk_carrier.png": "60a9e5b9351e731ba1b28ff8311163952a13640df6244019512f8ae7560322cf",
+        "talk_carrier2.png": "d6e12dc8fc1f0f85e0c0ebc11574c233f920da416ab10ef6f1221370f9aee300",
+        "talk_raw.png": "fd666c3e7e0e06e3691f05d0da8f580aca49df7f6cb3ae21f4856f44280d398b",
+        "up.png": "b357ac5789b0475897c78449f63176d8e1cef956ac5f496acb5b5bd167e535ef",
+        "up_carrier2.png": "efc936bb4a4e3f050bd32821daffc58513d7692a369e363210f79f7fc288ac61",
+        "up_plate.png": "65036f815f5f77fee0600f734367b4fde987cea1d21ba2dc9633dddd226fdf25",
+        "up_raw.png": "2b08aec3c77d61946ba6b9f7fc6efe6b45dfceee84485dfbbaaa34b0806d95dd"
+      },
+      "card_sha256": "3616e1f818f14e061572690bfdf8d1fc403442a4688270de82d8aafce81e9dcb"
+    },
+    "scene_bedroom": {
+      "canonical_chain_version": "",
+      "files": {},
+      "card_sha256": "09885d456afdd0aa6ebc48ba5dcf02ef06c14e92df120f9fc2cc23a9bdf53640"
+    }
+  }
+}
