@@ -1,0 +1,32 @@
+{
+  "schema_version": "production-plan-v1",
+  "version": "coffee30-v2",
+  "status": "draft-awaiting-user-production-approval",
+  "piece": "未发送 (unsent) — 3 containers / 10 internal shots / ~32s",
+  "assets": {
+    "cards": ["examples/creative_v2/asset_cards_couple30_v1.json", "examples/creative_v2/asset_cards_coffee30_v2_props.json"],
+    "identity_chain": "couple30 canonical_v6 (woman 'down' pose similarity CHECK — head-down shots N5-N7, N9 get strict five-point QA)",
+    "workflow": "i2v 2092512701252022274 (same as C1 baseline; required for 两遍法 comparability)"
+  },
+  "container_budget": {
+    "containers": ["A 14s", "B 9s", "C 9s"],
+    "pass_1_baseline": {"takes_per_container": 1, "paid_calls": 3, "instruments": "none (current practice)"},
+    "pass_2_enhanced": {"takes_per_container": 2, "paid_calls": 6, "instruments": ["five-point keyframe readiness checklist", "per-container keyframe gate", "method usage log M1-M4"]},
+    "estimated_paid_calls_total": 9,
+    "budget_note": "预算无上限（用户 2026-10-28），全部调用（含失败/拒付）无条件记入 cost_ledger.jsonl"
+  },
+  "gates": {
+    "script_approval": "segA/B/C user_script_review=approved by user (PENDING)",
+    "keyframe_gate": "keyframes_registry_v1.json: approval=approved + sha256 match (runner refuses otherwise)",
+    "production_approval": "THIS document approved by user"
+  },
+  "review": {
+    "method": "盲评：同一脚本两遍产物混序，评者不知道哪遍是增强法",
+    "axes": ["情绪转折可读性", "注意力揭示清晰度", "动作物理可信", "镜间连续性", "整体完成度"],
+    "winner_rule": "逐容器择优拼接；两遍各自成片对比"
+  },
+  "post": {
+    "text_overlays": ["便签字句（N7 读、N10 定格一角）", "手机屏：未发送行、删除动效、『嗯。』回复", "结尾产品文案"],
+    "audio": "临时声音先行（静态预演用），终版声音后期设计"
+  }
+}
