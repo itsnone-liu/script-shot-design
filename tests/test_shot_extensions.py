@@ -117,6 +117,21 @@ class ShotExtensionValidationTest(unittest.TestCase):
         prompt = compile_minimax_prompt(doc, cards=self.cards)
         self.assertIn("emotion=被击中的暖 triggered by: 指尖碰到温热的杯壁", prompt)
 
+    def test_camera_angle_and_relationship_compile(self):
+        doc = base_document()
+        blocking = doc["internal_shots"][0].setdefault("cinematic_design", {}).setdefault("blocking_map", {})
+        blocking["camera_angle"] = "high_angle"
+        blocking["camera_relationship"] = "over_the_shoulder"
+        prompt = compile_minimax_prompt(doc, cards=self.cards)
+        self.assertIn("angle=high_angle", prompt)
+        self.assertIn("view=over_the_shoulder", prompt)
+
+    def test_duration_intent_is_editorial_not_compiled(self):
+        doc = base_document()
+        doc["internal_shots"][0]["duration_intent"] = "information_read"
+        prompt = compile_minimax_prompt(doc, cards=self.cards)
+        self.assertNotIn("information_read", prompt)
+
     def test_legacy_segs_unchanged_without_extensions(self):
         for name in ("coffee30_dont_wake_her_segA_v1.json", "coffee30_dont_wake_her_segB_v1.json", "couple30_segA_v1.json"):
             doc = json.loads((ROOT / "examples" / "creative_v2" / name).read_text(encoding="utf-8"))

@@ -1,0 +1,34 @@
+{
+  "id": "method.shot-duration-grammar",
+  "version": 0,
+  "kind": "method",
+  "lifecycle": "candidate",
+  "title": "拍长语法（shot-duration grammar）",
+  "problem": "镜头时长按容器数学均分（4-15s容器÷镜头数），节奏平、无叙事意图；'该长不长该短不短'",
+  "intended_effect": "每镜时长由叙事意图类型决定，段落形成节奏弧（铺陈-加速-悬停-释放-定格），长对比短对比可感",
+  "applicability": ["所有含多个内部镜头的生成段", "纯物体/产品片同样适用（信息拍/产品拍）"],
+  "exclusions": ["单镜头容器（时长即容器时长）"],
+  "procedure": [
+    "每镜标 duration_intent（意图类型，见下），时长区间按类型走而非均分",
+    "类型表（candidate区间，两遍法后校准）：action_three_stage 3.5-5s（三段动作要发生完）；action_beat 1.5-3s（单动作拍，快）；reaction_breath 2-3.5s（情绪反应需要呼吸，骤停型可压到2s）；transition_accel 2-2.5s（提速拍，短）；tension_suspend 3.5-5s（悬停/紧张保持，长）；information_reveal 2.5-3.5s（揭示一拍）；information_read 4-5s（观众要读完信息：便签/屏幕/标签）；payoff_breath 3.5-4.5s（情绪兑现，不许快）；payload_hold 1.5-3s+final_hold（产品/定格，绝对静止）",
+    "段落检查节奏弧：每段至少一次'最长拍'与'最短拍'对比≥1.5s差；相邻同类型拍不允许同时长",
+    "容器切分服从节奏而非均匀：宁可13s+10s+8s，不要14+14+14",
+    "时长进合同（start/end/duration_intent），静态预演按此时序拼图验证节奏，不改时间线不进付费"
+  ],
+  "acceptance_tests": [
+    "静态预演（无表演只有时序）可读出节奏弧：观众能指出哪拍是悬停、哪拍是骤停",
+    "每段max-min时长差≥1.5s；无相邻等长拍"
+  ],
+  "failure_modes": [
+    "情绪兑现拍被压短（payoff被action节奏吃掉）→ 观众没接到",
+    "信息拍不足阅读时长 → 便签/屏内容没读就读完",
+    "为对比而对比：骤停拍低于模型可稳定生成的下限（~2s）→ 形体破碎风险"
+  ],
+  "provenance": [
+    {"source_id": "821-internal", "locator": "coffee30 v2 首版10镜均分2.5-4s，用户审读指出'基本均分，应有长有短'（2026-10-28）"},
+    {"source_id": "libtv-18ep", "locator": "第09集 节拍与景别随注意力（时长随信息量）"}
+  ],
+  "evidence_refs": [],
+  "relations": ["method.expression-chain（payoff_breath 是表情转变的时长容器）", "method.attention-reveal（information_reveal/read 是揭示的时长容器）"],
+  "consumers": ["seg internal_shots.start/end/duration_intent 字段", "静态预演时序（preview_coffee30_v2_unsent）", "盲评'节奏'轴"]
+}

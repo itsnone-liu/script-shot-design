@@ -9,10 +9,15 @@
     "workflow": "i2v 2092512701252022274 (same as C1 baseline; required for 两遍法 comparability)"
   },
   "container_budget": {
-    "containers": ["A 14s", "B 9s", "C 9s"],
+    "containers": ["A 14s", "B 9.5s", "C 8s + 1.5s hold"],
     "pass_1_baseline": {"takes_per_container": 1, "paid_calls": 3, "instruments": "none (current practice)"},
-    "pass_2_enhanced": {"takes_per_container": 2, "paid_calls": 6, "instruments": ["five-point keyframe readiness checklist", "per-container keyframe gate", "method usage log M1-M4"]},
-    "estimated_paid_calls_total": 9,
+    "pass_2_enhanced": {"takes_per_container": 2, "paid_calls": 6, "instruments": ["five-point keyframe readiness checklist", "per-container keyframe gate", "method usage log M1-M5"]},
+    "expression_ablation": {
+      "purpose": "直接回答'表情靠提示词充分指定 vs 留给模型发挥'：N7(被击中)/N8(回甘)两镜各加1条剥离Performance行的对照take（只留subject_action）",
+      "paid_calls": 2,
+      "comparison": "同镜同关键帧：全指定 vs 裸动作 的表情可读性盲评"
+    },
+    "estimated_paid_calls_total": 11,
     "budget_note": "预算无上限（用户 2026-10-28），全部调用（含失败/拒付）无条件记入 cost_ledger.jsonl"
   },
   "gates": {

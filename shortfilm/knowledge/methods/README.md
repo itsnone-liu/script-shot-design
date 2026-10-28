@@ -18,6 +18,7 @@
 | method.attention-reveal | 增强法执行工具（节拍-可见行为单）；镜头设计字段 composition_logic/focus/camera_plan |
 | method.action-three-stage | 增强法执行工具（镜间连续性登记表终止状态列）；subject_action 写作规范 |
 | method.keyframe-readiness | `shortfilm/keyframe_gate.py` + `shortfilm/cli/check_seg.py`（代码消费） |
+| method.shot-duration-grammar | `internal_shots.start/end/duration_intent`；静态预演时序；盲评"节奏"轴（`shortfilm/knowledge/ASSET_COVERAGE_MATRIX_V1.md` 管照片覆盖，本卡管时间结构） |
 
 ## 既有方法（不重复建卡）
 

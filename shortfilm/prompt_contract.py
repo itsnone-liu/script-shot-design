@@ -167,6 +167,10 @@ def compile_minimax_prompt(document:dict[str,Any],cards:dict[str,dict[str,Any]]|
             light=design.get("light_motivation") or {}
             budget=design.get("event_budget") or {}
             dialogue_line=compile_dialogue_line(raw)
+            camera_bits=_text(blocking.get('camera_position'))
+            for extra_key, label in (("camera_angle","angle"),("camera_relationship","view")):
+                value=_text(blocking.get(extra_key))
+                if value: camera_bits+=f"; {label}={value}"
             if design:
                 # The full contract retains audience-information analysis for editorial
                 # review. The video model receives only compact, executable on-set
@@ -175,7 +179,7 @@ def compile_minimax_prompt(document:dict[str,Any],cards:dict[str,dict[str,Any]]|
                     f"SHOT {i} [{s.shot_id}] {s.start:g}-{s.end:g}s | CUT: {s.transition_in.upper()}\n"
                     f"Frame: {s.shot_size}, {_text(design.get('composition_logic'))}\n"
                     f"Action: {s.subject_action}\n"
-                    f"Blocking: {_text(blocking.get('subject_position'))}; motion={_text(blocking.get('movement_path'))}; camera={_text(blocking.get('camera_position'))}; direction={_text(blocking.get('screen_direction'))}\n"
+                    f"Blocking: {_text(blocking.get('subject_position'))}; motion={_text(blocking.get('movement_path'))}; camera={camera_bits}; direction={_text(blocking.get('screen_direction'))}\n"
                     f"Camera: {p.primary_move}; path={p.path}; focus={p.focus_transition}; stop={p.stop_condition}\n"
                     f"Performance: {_text(performance.get('micro_action'))}; order={_text(performance.get('reaction_order'))}{emotion_part}\n"
                     f"{dialogue_line + chr(10) if dialogue_line else ''}Light: {_text(light.get('source'))}; {_text(light.get('direction'))}; {_text(light.get('color_temperature'))}\n"

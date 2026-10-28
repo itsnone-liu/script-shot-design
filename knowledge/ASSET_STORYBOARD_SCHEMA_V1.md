@@ -95,6 +95,12 @@ seg.prompt_bible.never_show       = 全局 never ∪ Σ(卡.continuity_rules)
 - seg 里的 lock 保留为**缓存**：卡是源，lock 是产物；手改 lock 不回写卡=违规，以脚本重合成覆盖。
 - `cast`/`scene_ref` 是合成的**输入校验器**：shot 声明了谁，lock 就必须包含谁的卡。
 
+## 4.1 镜头级增补字段（v2.1，2026-10-28）
+
+- `duration_intent`（镜头级，编辑用）：拍长意图类型，取值与区间见 `shortfilm/knowledge/methods/method.shot-duration-grammar.json`（action_three_stage / action_beat / reaction_breath / transition_accel / tension_suspend / information_reveal / information_read / payoff_breath / payload_hold）。不进提示词；消费者=静态预演时序与盲评"节奏"轴。
+- `cinematic_design.blocking_map.camera_angle` / `camera_relationship`：机位角度（eye_level / high_angle / low_angle / dutch / overhead）与镜头-主体关系（objective / over_the_shoulder / pov / mirror_reflection），由 `prompt_contract` 编译进提示词 Blocking 行（`angle=…; view=…`）。
+- 照片资产覆盖维度（景别×角度×机位关系×光态）见 `shortfilm/knowledge/ASSET_COVERAGE_MATRIX_V1.md`——文字锁管一致性，照片库管参考与QA，两者都以本 schema 的字段为坐标。
+
 ## 5. 迁移示范（couple30_segA → 资产卡）
 
 见 `examples/creative_v2/asset_cards_couple30_v1.json`：从 segA 的 prompt_bible 拆出
