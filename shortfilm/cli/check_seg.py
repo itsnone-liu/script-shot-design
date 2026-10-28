@@ -34,13 +34,19 @@ def main() -> int:
 
     document = json.loads(args.seg.read_text(encoding="utf-8"))
     cards = None
-    cards_path = args.cards or (document.get("asset_refs") or {}).get("cards_path")
-    if cards_path:
-        path = Path(str(cards_path))
-        if not path.is_absolute():
-            path = (Path(__file__).resolve().parents[2] / path) if (Path(__file__).resolve().parents[2] / path).is_file() else path
-        cards = load_asset_cards(path)
-        print(f"cards: {len(cards)} loaded from {path}")
+    raw_cards_path = args.cards or (document.get("asset_refs") or {}).get("cards_path")
+    cards_paths = [Path(str(x)) for x in raw_cards_path] if isinstance(raw_cards_path, list) else ([Path(str(raw_cards_path))] if raw_cards_path else [])
+    if cards_paths:
+        from shortfilm.assets import load_cards_files
+
+        resolved = []
+        for path in cards_paths:
+            if not path.is_absolute():
+                candidate = (Path(__file__).resolve().parents[2] / path) if (Path(__file__).resolve().parents[2] / path).is_file() else path
+                path = candidate
+            resolved.append(path)
+        cards = load_cards_files(resolved)
+        print(f"cards: {len(cards)} loaded from {len(resolved)} file(s)")
 
     blocking = 0
     contract_errors = validate_director_contract(document, require_approval=not args.draft, cards=cards)

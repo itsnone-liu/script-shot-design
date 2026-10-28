@@ -49,20 +49,26 @@ def has_extensions(document: dict[str, Any]) -> bool:
 def _load_cards(refs: dict[str, Any], cards: dict[str, dict[str, Any]] | None) -> tuple[dict[str, dict[str, Any]] | None, str | None]:
     if cards is not None:
         return cards, None
-    cards_path = _text(refs.get("cards_path"))
-    if not cards_path:
+    raw_paths = refs.get("cards_path")
+    paths = [str(x).strip() for x in raw_paths] if isinstance(raw_paths, list) else ([str(raw_paths).strip()] if _text(raw_paths) else [])
+    if not paths:
         return None, "asset_refs present but neither cards nor cards_path is supplied"
-    path = Path(cards_path)
-    if not path.is_absolute():
-        for base in (Path.cwd(), Path(__file__).resolve().parents[1]):
-            candidate = base / path
-            if candidate.is_file():
-                path = candidate
-                break
-    if not path.is_file():
-        return None, f"asset_refs.cards_path not found: {cards_path}"
+    resolved: list[Path] = []
+    for entry in paths:
+        path = Path(entry)
+        if not path.is_absolute():
+            for base in (Path.cwd(), Path(__file__).resolve().parents[1]):
+                candidate = base / path
+                if candidate.is_file():
+                    path = candidate
+                    break
+        if not path.is_file():
+            return None, f"asset_refs.cards_path not found: {entry}"
+        resolved.append(path)
     try:
-        return load_asset_cards(path), None
+        from shortfilm.assets import load_cards_files
+
+        return load_cards_files(resolved), None
     except ValueError as exc:
         return None, f"asset cards invalid: {exc}"
 
@@ -75,12 +81,13 @@ def validate_shot_extensions(
     refs = document.get("asset_refs") or {}
     seg_cast = [x.strip() for x in refs.get("cast") or [] if str(x).strip()]
     seg_scene = _text(refs.get("scene_ref"))
+    seg_props = [x.strip() for x in refs.get("props") or [] if str(x).strip()]
 
     if refs:
         cards, load_error = _load_cards(refs, cards)
         if load_error:
             return [load_error]
-        for card_id in [*seg_cast, seg_scene]:
+        for card_id in [*seg_cast, seg_scene, *seg_props]:
             if card_id and card_id not in cards:
                 errors.append(f"asset_refs: unknown card id {card_id}")
         if seg_scene and seg_scene in cards and cards[seg_scene].get("type") != "scene":
@@ -88,6 +95,9 @@ def validate_shot_extensions(
         for card_id in seg_cast:
             if card_id in cards and cards[card_id].get("type") == "scene":
                 errors.append(f"asset_refs.cast cannot contain the scene card {card_id}")
+        for card_id in seg_props:
+            if card_id in cards and cards[card_id].get("type") != "prop":
+                errors.append(f"asset_refs.props must reference type=prop cards, got {card_id}")
         if not errors and seg_cast and seg_scene:
             # locks are a cache: the seg's prompt_bible must match card synthesis
             # (crosscheck semantics: env/light/palette/subject drift = blocking
@@ -95,7 +105,7 @@ def validate_shot_extensions(
             # synth_bible --check, pending card rewording review)
             from shortfilm.assets import crosscheck_bible
 
-            report = crosscheck_bible(document, cards, seg_cast, seg_scene, document.get("staging") or {})
+            report = crosscheck_bible(document, cards, seg_cast, seg_scene, document.get("staging") or {}, prop_ids=seg_props)
             errors.extend(report["errors"])
 
     shots = _raw_shots(document)

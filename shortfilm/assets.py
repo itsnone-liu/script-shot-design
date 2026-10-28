@@ -85,15 +85,30 @@ def rule_to_never(rule: str) -> str | None:
     return term or None
 
 
+def load_cards_files(paths: list[str | Path]) -> dict[str, dict[str, Any]]:
+    """Merge multiple asset-card files into one id->card dict (single source of
+    truth stays per-file: characters/scenes live in the couple30 file, props in
+    a v2 file; ids must not collide)."""
+    merged: dict[str, dict[str, Any]] = {}
+    for path in paths:
+        for card_id, card in load_asset_cards(path).items():
+            if card_id in merged:
+                raise ValueError(f"duplicate card id {card_id} across files (last file: {path})")
+            merged[card_id] = card
+    return merged
+
+
 def synth_prompt_bible(
     cards: dict[str, dict[str, Any]],
     cast_ids: list[str],
     scene_ref: str,
     staging: dict[str, Any] | None = None,
+    prop_ids: list[str] | None = None,
 ) -> dict[str, Any]:
     staging = staging or {}
+    prop_ids = prop_ids or []
     errors: list[str] = []
-    for card_id in [*cast_ids, scene_ref]:
+    for card_id in [*cast_ids, scene_ref, *prop_ids]:
         if card_id not in cards:
             errors.append(f"unknown asset card id: {card_id}")
     if errors:
@@ -107,6 +122,12 @@ def synth_prompt_bible(
         if card.get("type") == "scene":
             raise ValueError(f"{card_id}: scene card cannot appear in cast")
         chars.append(card)
+    props = []
+    for card_id in prop_ids:
+        card = cards[card_id]
+        if card.get("type") not in ("prop",):
+            raise ValueError(f"{card_id}: asset_refs.props must reference type=prop cards")
+        props.append(card)
     if not chars and not staging.get("subject_override"):
         raise ValueError("cast is empty: character pieces need cast ids (or staging.subject_override)")
 
@@ -138,10 +159,10 @@ def synth_prompt_bible(
         if not scene_f.get(field):
             raise ValueError(f"{scene_ref}: scene card missing {field}")
 
-    # material_lock: ordered union of scene + character fragments, staging suffix
+    # material_lock: ordered union of scene + prop + character fragments, staging suffix
     material_parts = [str(scene_f.get("material_lock_text") or "")] + [
-        str(f.get("material_lock_text") or "") for f in fragments.values()
-    ]
+        str((p.get("prompt_fragments") or {}).get("material_lock_text") or "") for p in props
+    ] + [str(f.get("material_lock_text") or "") for f in fragments.values()]
     material_body = ", ".join(_ordered_union(material_parts))
     material = material_body
     if staging.get("material_suffix"):
@@ -149,7 +170,7 @@ def synth_prompt_bible(
 
     # never_show
     never: list[str] = list(BASE_NEVER_SHOW)
-    for card in [*chars, scene]:
+    for card in [*chars, *props, scene]:
         for rule in card.get("continuity_rules") or []:
             term = rule_to_never(str(rule))
             if term and term.lower() not in {n.lower() for n in never}:
@@ -168,6 +189,7 @@ def synth_prompt_bible(
         "_synthesis": {
             "cast": list(cast_ids),
             "scene_ref": scene_ref,
+            "props": list(prop_ids),
             "modesty_hoisted": hoisted,
             "material_fragment_count": len(_ordered_union(material_parts)),
         },
@@ -189,11 +211,12 @@ def crosscheck_bible(
     cast_ids: list[str],
     scene_ref: str,
     staging: dict[str, Any] | None = None,
+    prop_ids: list[str] | None = None,
 ) -> dict[str, Any]:
     """Diff a legacy seg's hand-written prompt_bible against the synthesized
     one.  errors = must fix to zero diff; diffs = card-side gaps to fix;
     info = acceptable piece-specific extras / order notes."""
-    synthesized = synth_prompt_bible(cards, cast_ids, scene_ref, staging)
+    synthesized = synth_prompt_bible(cards, cast_ids, scene_ref, staging, prop_ids=prop_ids)
     bible = seg.get("prompt_bible") or {}
     errors: list[str] = []
     diffs: list[str] = []

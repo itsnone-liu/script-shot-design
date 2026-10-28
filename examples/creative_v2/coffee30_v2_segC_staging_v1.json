@@ -1,0 +1,10 @@
+{
+  "schema_version": "seg-staging-v1",
+  "provenance": "coffee30 v2《未发送》segC 附加姿态/材质/never 项（2026-10-28）",
+  "subject_suffix": "the woman cradles the cup in both hands for the first sip, then returns it to the nightstand for the final frame; only her hand remains near the cup at the very end and slides out of frame",
+  "material_suffix": "steam thins but survives; the final frame holds the cup and the note corner in one stable composition",
+  "never_show_extra": [
+    "phone screen UI",
+    "the man"
+  ]
+}

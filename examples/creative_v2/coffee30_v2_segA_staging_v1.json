@@ -1,0 +1,10 @@
+{
+  "schema_version": "seg-staging-v1",
+  "provenance": "coffee30 v2《未发送》segA 附加姿态/材质/never 项（2026-10-28）",
+  "subject_suffix": "the man appears only in the opening shot, seen from behind; he places the cup and note and exits; the woman stays asleep until the second shot, then half-sits in bed; the cup and note sit on the nightstand at her left, the phone lies within reach at her right",
+  "material_suffix": "physically plausible hand contact with the ceramic cup; the duvet keeps a body-shaped hollow on the man's side",
+  "never_show_extra": [
+    "man's face",
+    "phone screen UI"
+  ]
+}

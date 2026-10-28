@@ -1,0 +1,10 @@
+{
+  "schema_version": "seg-staging-v1",
+  "provenance": "coffee30 v2《未发送》segB 附加姿态/材质/never 项（2026-10-28）",
+  "subject_suffix": "the woman half-sits in bed facing the nightstand at her left; the phone rests in her right hand by her lap, the cup and note wait on the nightstand; the man is gone and must not appear",
+  "material_suffix": "her fingertips meet the warm ceramic side of the cup; the paper note is blank until read",
+  "never_show_extra": [
+    "phone screen UI",
+    "the man"
+  ]
+}

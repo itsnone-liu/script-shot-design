@@ -20,11 +20,13 @@ from shortfilm.assets import (  # noqa: E402
     build_refs_manifest,
     crosscheck_bible,
     load_asset_cards,
+    load_cards_files,
     rule_to_never,
     synth_prompt_bible,
 )
 
 CARDS = ROOT / "examples" / "creative_v2" / "asset_cards_couple30_v1.json"
+CARDS_V2_PROPS = ROOT / "examples" / "creative_v2" / "asset_cards_coffee30_v2_props.json"
 SEGA = ROOT / "examples" / "creative_v2" / "couple30_segA_v1.json"
 STAGING = ROOT / "examples" / "creative_v2" / "couple30_segA_staging_v1.json"
 IDENTITY = ROOT / "examples" / "couple30_v1" / "identity"
@@ -80,6 +82,30 @@ class SynthesisTest(unittest.TestCase):
         # the known card-side gap (scene 'no new objects' rule has no never_show
         # counterpart in the hand-written segA) is reported as a diff, not an error
         self.assertTrue(any("new objects" in d for d in report["diffs"]), report["diffs"])
+
+    def test_v2_props_and_multi_file_merge(self):
+        cards = load_cards_files([CARDS, CARDS_V2_PROPS])
+        self.assertEqual(len(cards), 6)
+        staging = {"subject_suffix": "the woman half-sits in bed", "never_show_extra": ["phone screen UI"]}
+        bible = synth_prompt_bible(
+            cards, ["char_woman"], SCENE, staging,
+            prop_ids=["prop_phone", "prop_coffee_cup", "prop_note"],
+        )
+        self.assertNotIn("exactly two people", bible["subject_lock"])
+        for frag in ("matte glass phone body", "matte ceramic cup", "soft warm paper note"):
+            self.assertIn(frag, bible["material_lock"])
+        for never in ("readable screen content", "phone screen UI"):
+            self.assertIn(never, bible["never_show"])
+        self.assertEqual(bible["_synthesis"]["props"], ["prop_phone", "prop_coffee_cup", "prop_note"])
+
+    def test_props_must_be_prop_type(self):
+        cards = load_cards_files([CARDS, CARDS_V2_PROPS])
+        with self.assertRaises(ValueError):
+            synth_prompt_bible(cards, ["char_woman"], SCENE, {}, prop_ids=[SCENE])
+
+    def test_duplicate_ids_across_files_rejected(self):
+        with self.assertRaises(ValueError):
+            load_cards_files([CARDS, CARDS])
 
     def test_unknown_card_id_rejected(self):
         with self.assertRaises(ValueError):
