@@ -190,6 +190,13 @@ def checklist_errors() -> list[str]:
     entries = checklist.get("entries") or []
     if not entries:
         return ["checklist has no entries"]
+    required = {f"KF_V2_N{i}" for i in range(1, 11)} | {f"KF_V2_{s}_LAST" for s in "ABC"}
+    ids = [entry.get("keyframe_id") for entry in entries]
+    missing = required - set(ids)
+    if missing:
+        errors.append("checklist missing required keyframes: " + ", ".join(sorted(missing)))
+    if len(ids) != len(set(ids)):
+        errors.append("checklist contains duplicate keyframe ids")
     for entry in entries:
         kid = entry.get("keyframe_id", "?")
         for item in ("information", "identity_styling", "spatial", "action_ready", "continuity"):

@@ -21,6 +21,8 @@ class ProductionGateTest(unittest.TestCase):
             path=Path(folder)/'check.json'
             path.write_text(json.dumps({'entries':[{'keyframe_id':'KF','items':{}}]}),encoding='utf-8')
             with patch.object(runner,'CHECKLIST_PATH',path):
-                self.assertEqual(len(runner.checklist_errors()),5)
+                errors = runner.checklist_errors()
+                self.assertEqual(sum("not checked" in e for e in errors),5)
+                self.assertTrue(any("missing required keyframes" in e for e in errors))
 
 if __name__=='__main__':unittest.main()
