@@ -1,0 +1,16 @@
+{
+  "schema_version": "design-review-v1",
+  "status": "revision_required",
+  "reason": "Director draft v2 supersedes the v1.1 design assumptions; segs, card-derived locks and keyframe prompts have NOT yet been synchronized or approved.",
+  "source": "D:/AI-Teaching-Assistant/output/video-capability/coffee30_v2/未发送_导演执行稿_v2_待空间验证.md",
+  "unresolved": [
+    "Bed/nightstand/cup reachability not established by historical frames",
+    "World-space light and camera-relative lighting need separate representation",
+    "N4-to-N5 left-hand transition and pre-contact keyframe need synchronization",
+    "Note placement is changing from cup rim to external cup-base corner",
+    "N10 action plus included hold needs new timing budget",
+    "Production comparison design and equal retry budgets need review"
+  ],
+  "approved_by": "",
+  "note": "Readiness requires status=ready and approved_by=user after revised package review. Do not flip this to bypass pending design work."
+}

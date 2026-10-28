@@ -1,91 +1,236 @@
 {
   "schema_version": "keyframe-prompt-pack-v1",
-  "version": "coffee30-v2",
+  "version": "coffee30-v2-director-v2",
   "provenance": "13张关键帧的图像生成提示词（2026-10-28）。坐标=ASSET_COVERAGE_MATRIX_V1 维度；身份锚=canonical_v6 参考链；产出后入 keyframes_registry_v1.json 并跑 --hash-registry。生成发生在用户脚本批准之后（付费/生成闸）。",
   "identity_refs": {
     "woman": "couple30 canonical_v6 参考链（woman）；注意 'down' 姿态相似度 CHECK 0.747 — 低头镜加严比对",
     "man": "couple30 canonical_v6 参考链（man）；本片仅背影，不露正脸"
   },
-  "style_suffix": "35mm photographic look, shallow depth of field, gentle film grain, soft warm morning halation; cozy modern bedroom, rumpled white duvet, light wooden headboard, sheer half-closed curtains; one soft warm morning source from window upper right, shadows toward lower left; morning cream palette",
+  "style_suffix": "35mm photographic look, soft depth and grain; white bedding, light wood; warm morning light from room east-north, projected by camera viewpoint (layout requires staging validation).",
   "never_suffix": "no readable text anywhere, no logos, no watermark, no nudity, both fully clothed, no extra people, no extra objects beyond: cup, folded note, phone, bed, nightstand, curtains",
   "keyframes": [
     {
       "keyframe_id": "KF_V2_N1",
-      "matrix": {"subject": "man", "size": "medium", "angle": "eye_level", "relationship": "objective", "pose": "standing-back", "light": "morning-constant"},
-      "prompt": "Seen from behind: a Chinese man around thirty in a light-grey long-sleeve pajama top stands at the bedside nightstand, both hands lowering a matte ceramic coffee cup onto the light wood, a small folded paper note tucked under the rim, thin steam rising; in the soft-blurred background a young Chinese woman with dark-brown shoulder-length hair sleeps under a rumpled white duvet; his face is not visible",
-      "qa_strict": ["man's face must not be visible", "hands physically plausible on cup", "note clearly under rim"]
+      "matrix": {
+        "subject": "man",
+        "size": "medium",
+        "angle": "eye_level",
+        "relationship": "objective",
+        "pose": "standing-back",
+        "light": "morning-constant"
+      },
+      "prompt": "Seen from behind: a Chinese man around thirty in a light-grey long-sleeve pajama top stands at the bedside nightstand, both hands lowering a matte ceramic coffee cup onto the light wood, a small folded paper note tucked under an outer corner of the base, thin steam rising; in the soft-blurred background a young Chinese woman with dark-brown shoulder-length hair sleeps under a rumpled white duvet; his face is not visible",
+      "qa_strict": [
+        "man's face must not be visible",
+        "hands physically plausible on cup",
+        "note clearly under rim"
+      ]
     },
     {
       "keyframe_id": "KF_V2_N2",
-      "matrix": {"subject": "woman", "size": "medium", "angle": "eye_level", "relationship": "objective", "pose": "lying-mid-stretch-stopped", "light": "morning-constant"},
+      "matrix": {
+        "subject": "woman",
+        "size": "medium",
+        "angle": "eye_level",
+        "relationship": "objective",
+        "pose": "lying-mid-stretch-stopped",
+        "light": "morning-constant"
+      },
       "prompt": "Bed-level side view: a young Chinese woman with dark-brown shoulder-length straight hair in a cream-white pajama set lies on the left half of the bed, her waking stretch stopped mid-arc, right hand resting on the body-shaped hollow pressed into the duvet of the empty other half, eyes just open toward the ceiling",
-      "qa_strict": ["hollow visible on empty side", "hand ON hollow (touch, not hover)", "eyes open but unfocused"]
+      "qa_strict": [
+        "hollow visible on empty side",
+        "hand ON hollow (touch, not hover)",
+        "eyes open but unfocused"
+      ]
     },
     {
       "keyframe_id": "KF_V2_N3",
-      "matrix": {"subject": "woman", "size": "medium_close_up", "angle": "high_angle", "relationship": "objective", "pose": "half-sitting-propped", "light": "morning-constant"},
+      "matrix": {
+        "subject": "woman",
+        "size": "medium_close_up",
+        "angle": "high_angle",
+        "relationship": "objective",
+        "pose": "half-sitting-propped",
+        "light": "morning-constant"
+      },
       "prompt": "Slightly high bedside view: the same woman half-sits propped on her left elbow, brow beginning to tighten, her gaze moving from the empty bed side toward the silent doorway off frame; a dark-screen smartphone lies on the duvet within reach of her right hand",
-      "qa_strict": ["phone present at right-hand reach, screen dark", "doorway direction consistent (screen left)", "brow only slightly tightened — this is the START of N3"]
+      "qa_strict": [
+        "phone present at right-hand reach, screen dark",
+        "doorway direction consistent (screen left)",
+        "brow only slightly tightened — this is the START of N3"
+      ]
     },
     {
       "keyframe_id": "KF_V2_N4",
-      "matrix": {"subject": "woman-hands", "size": "extreme_close_up", "angle": "eye_level", "relationship": "over_the_shoulder", "pose": "thumbs-ready", "light": "morning-constant"},
+      "matrix": {
+        "subject": "woman-hands",
+        "size": "extreme_close_up",
+        "angle": "eye_level",
+        "relationship": "over_the_shoulder",
+        "pose": "thumbs-ready",
+        "light": "morning-constant"
+      },
       "prompt": "Tight over-the-shoulder shot: her two thumbs hover ready above the dark unlit glass of the smartphone in her lap, screen reflecting only soft window light; in the blurred depth beyond, the matte ceramic cup's steam drifts up from the nightstand, unnoticed",
-      "qa_strict": ["screen completely dark, zero UI/text", "steam visible in depth", "typing NOT started yet (first frame = before action)"]
+      "qa_strict": [
+        "screen completely dark, zero UI/text",
+        "steam visible in depth",
+        "typing NOT started yet (first frame = before action)"
+      ]
     },
     {
       "keyframe_id": "KF_V2_N5",
-      "matrix": {"subject": "woman-hands", "size": "close_up", "angle": "eye_level", "relationship": "objective", "pose": "head-down-turning", "light": "morning-constant"},
-      "prompt": "Close shot across her lap: her right thumb frozen mid-hover above the dark phone at the right of frame while the fingertips of her left hand have just met the warm ceramic side of the steaming cup on the nightstand at the left; her head just beginning to turn toward it",
-      "qa_strict": ["DOWN-POSE RISK: face turned away/down — identity check extra strict", "two objects one frame: phone right, cup left", "touch contact real (fingertips ON ceramic)"]
+      "matrix": {
+        "subject": "woman-hands",
+        "size": "close_up",
+        "angle": "eye_level",
+        "relationship": "objective",
+        "pose": "head-down-turning",
+        "light": "morning-constant"
+      },
+      "prompt": "Pillow-supported half-seated woman. Right hand holds dark phone over lap, thumb hovering. Left hand rests on bedside duvet BEFORE touching cup. Cup sits at reachable near side of west nightstand; blank note under outer cup-base corner. Show pre-contact path clearly.",
+      "qa_strict": [
+        "PRE-contact: left fingers NOT on cup yet",
+        "verify reach path and pillow body support",
+        "phone right, cup stays still",
+        "DOWN-POSE identity check"
+      ]
     },
     {
       "keyframe_id": "KF_V2_N6",
-      "matrix": {"subject": "woman", "size": "medium_close_up", "angle": "eye_level", "relationship": "over_the_shoulder", "pose": "gaze-to-nightstand", "light": "morning-constant"},
-      "prompt": "Over-the-shoulder medium close-up: her profile in soft focus right of frame, eyes arriving at the nightstand where the steaming cup and the folded note under its rim wait in the near-distance, about to pull into focus; the dark phone soft in the foreground right edge",
-      "qa_strict": ["DOWN-POSE RISK: profile gaze angled down toward nightstand — identity check extra strict", "eyes lead, head slightly behind (turn in progress)", "note visible under rim", "focus plane on HER (first frame), rack happens in video"]
+      "matrix": {
+        "subject": "woman",
+        "size": "medium_close_up",
+        "angle": "eye_level",
+        "relationship": "over_the_shoulder",
+        "pose": "gaze-to-nightstand",
+        "light": "morning-constant"
+      },
+      "prompt": "Over-the-shoulder medium close-up: her profile in soft focus right of frame, eyes arriving at the nightstand where the steaming cup and the folded note under an outer corner of its base wait in the near-distance, about to pull into focus; the dark phone soft in the foreground right edge",
+      "qa_strict": [
+        "DOWN-POSE RISK: profile gaze angled down toward nightstand — identity check extra strict",
+        "eyes lead, head slightly behind (turn in progress)",
+        "note visible under rim",
+        "focus plane on HER (first frame), rack happens in video"
+      ]
     },
     {
       "keyframe_id": "KF_V2_N7",
-      "matrix": {"subject": "woman", "size": "close_up", "angle": "eye_level", "relationship": "objective", "pose": "head-down-reading", "light": "morning-constant"},
-      "prompt": "Close-up slightly above hands: the smartphone lies face-down on the duvet at the bottom of frame; both her hands lift the small folded blank paper note from under the cup rim, her face above with the brow just beginning to release",
-      "qa_strict": ["DOWN-POSE RISK: reading pose, face angled down — identity check extra strict", "note BLANK (text is post overlay)", "phone face-down (screen hidden)"]
+      "matrix": {
+        "subject": "woman",
+        "size": "close_up",
+        "angle": "eye_level",
+        "relationship": "objective",
+        "pose": "head-down-reading",
+        "light": "morning-constant"
+      },
+      "prompt": "Phone STILL in her right hand, blank folded note STILL under an external cup-base corner; left hand ready to take it after phone is set down. Face partly down but visible; do not show paper already extracted.",
+      "qa_strict": [
+        "DOWN-POSE RISK: reading pose, face angled down — identity check extra strict",
+        "note BLANK (text is post overlay)",
+        "phone face-down (screen hidden)"
+      ]
     },
     {
       "keyframe_id": "KF_V2_N8",
-      "matrix": {"subject": "woman", "size": "medium_close_up", "angle": "eye_level", "relationship": "objective", "pose": "cup-to-lips-approach", "light": "morning-constant"},
+      "matrix": {
+        "subject": "woman",
+        "size": "medium_close_up",
+        "angle": "eye_level",
+        "relationship": "objective",
+        "pose": "cup-to-lips-approach",
+        "light": "morning-constant"
+      },
       "prompt": "Bed-level medium close-up: the note back beside the cup's spot on the nightstand; she cradles the matte ceramic cup in both hands at chest height, beginning to lift it toward her lips, shoulders starting to drop, lips still closed — the first smile has NOT arrived yet",
-      "qa_strict": ["both hands wrap the cup", "smile NOT yet (pre-action frame)", "note back on nightstand"]
+      "qa_strict": [
+        "both hands wrap the cup",
+        "smile NOT yet (pre-action frame)",
+        "note back on nightstand"
+      ]
     },
     {
       "keyframe_id": "KF_V2_N9",
-      "matrix": {"subject": "woman-hands", "size": "close_up", "angle": "eye_level", "relationship": "objective", "pose": "head-down-phone", "light": "morning-constant"},
+      "matrix": {
+        "subject": "woman-hands",
+        "size": "close_up",
+        "angle": "eye_level",
+        "relationship": "objective",
+        "pose": "head-down-phone",
+        "light": "morning-constant"
+      },
       "prompt": "Close-up on hands: the cup back steaming on the nightstand at frame left; she holds the smartphone in both hands, dark screen tilted slightly to camera, thumbs hovering at the ready — deletion not started",
-      "qa_strict": ["DOWN-POSE RISK: gaze down at phone — identity check extra strict", "screen dark, no UI", "cup back on nightstand (liquid level unchanged)"]
+      "qa_strict": [
+        "DOWN-POSE RISK: gaze down at phone — identity check extra strict",
+        "screen dark, no UI",
+        "cup back on nightstand (liquid level unchanged)"
+      ]
     },
     {
       "keyframe_id": "KF_V2_N10",
-      "matrix": {"subject": "scene-product", "size": "close_up", "angle": "eye_level", "relationship": "objective", "pose": "product-hero", "light": "morning-gold-rim"},
-      "prompt": "Product hero framing at nightstand height: the matte ceramic coffee cup alone with thin steam catching a gentle gold rim of morning light, the corner of the folded paper note beside it, her fingertips resting against the warm cup side about to slide out of frame",
-      "qa_strict": ["fingertips STILL in frame (they exit during video)", "steam thin but alive", "composition stable, lower-third center cup"]
+      "matrix": {
+        "subject": "scene-product",
+        "size": "close_up",
+        "angle": "eye_level",
+        "relationship": "objective",
+        "pose": "product-hero",
+        "light": "morning-gold-rim"
+      },
+      "prompt": "Stable nightstand product framing: cup, blank note corner, thin steam; fingertips STILL against cup wall before exiting during first 1.5s.",
+      "qa_strict": [
+        "fingertips STILL in frame (they exit during video)",
+        "steam thin but alive",
+        "composition stable, lower-third center cup"
+      ]
     },
     {
       "keyframe_id": "KF_V2_A_LAST",
-      "matrix": {"subject": "woman-hands", "size": "extreme_close_up", "angle": "eye_level", "relationship": "over_the_shoulder", "pose": "thumb-hover-frozen", "light": "morning-constant"},
-      "prompt": "Extreme close-up: her right thumb frozen mid-hover above the dark phone glass, the unsent action suspended; in deep focus beyond her hands the cup's steam keeps drifting upward on the nightstand",
-      "qa_strict": ["hover gap visible (thumb not touching)", "steam steady in depth"]
+      "matrix": {
+        "subject": "woman-hands",
+        "size": "extreme_close_up",
+        "angle": "eye_level",
+        "relationship": "over_the_shoulder",
+        "pose": "thumb-hover-frozen",
+        "light": "morning-constant"
+      },
+      "prompt": "Right hand holds dark phone with thumb hovering; left hand has left phone and now rests on bedside duvet, NOT touching cup. Thin steam in depth.",
+      "qa_strict": [
+        "hover gap visible (thumb not touching)",
+        "steam steady in depth"
+      ]
     },
     {
       "keyframe_id": "KF_V2_B_LAST",
-      "matrix": {"subject": "woman", "size": "close_up", "angle": "eye_level", "relationship": "objective", "pose": "note-at-chest", "light": "morning-constant"},
+      "matrix": {
+        "subject": "woman",
+        "size": "close_up",
+        "angle": "eye_level",
+        "relationship": "objective",
+        "pose": "note-at-chest",
+        "light": "morning-constant"
+      },
       "prompt": "Close-up: the small folded blank note held in both her hands at chest height, her expression fully softened — brow released, the start of a small quiet smile; the cup still steaming on the nightstand behind",
-      "qa_strict": ["note blank", "expression = end state of N7 (released)", "steam behind still rising"]
+      "qa_strict": [
+        "note blank",
+        "expression = end state of N7 (released)",
+        "steam behind still rising"
+      ]
     },
     {
       "keyframe_id": "KF_V2_C_LAST",
-      "matrix": {"subject": "scene-product", "size": "close_up", "angle": "eye_level", "relationship": "objective", "pose": "final-frame", "light": "morning-gold-rim"},
+      "matrix": {
+        "subject": "scene-product",
+        "size": "close_up",
+        "angle": "eye_level",
+        "relationship": "objective",
+        "pose": "final-frame",
+        "light": "morning-gold-rim"
+      },
       "prompt": "Final frame, no people, no hands: the matte ceramic cup alone on the light wooden nightstand in warm morning light, thin steam still rising with a gentle gold rim, the folded note's corner beside it — one perfectly stable composition",
-      "qa_strict": ["NO hands, NO faces", "steam present (thinner than N1)", "absolutely static framing"]
+      "qa_strict": [
+        "NO hands, NO faces",
+        "steam present (thinner than N1)",
+        "absolutely static framing"
+      ]
     }
-  ]
+  ],
+  "status": "synchronized-draft-spatial-qa-pending"
 }

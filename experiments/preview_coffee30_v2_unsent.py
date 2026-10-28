@@ -88,12 +88,20 @@ def build_plan() -> list[dict]:
             caption = f"{head}  |  {emotion}: {trigger}" if emotion else head
             plan.append({"image": str(image), "seconds": shot["end"] - shot["start"],
                          "caption": caption, "shot_id": shot["shot_id"]})
-        if seg_name == "C":  # final product frame holds for final_hold_seconds
+        if seg_name == "C":  # hold is INCLUDED in the final shot, never appended
             last = files.get("KF_V2_C_LAST")
             doc_hold = float(doc.get("final_hold_seconds", 0) or 0)
-            if last is not None and last.is_file() and doc_hold > 0:
-                plan.append({"image": str(last), "seconds": doc_hold,
-                             "caption": "PRODUCT FRAME (final hold)", "shot_id": "N10_hold"})
+            if doc_hold > 0:
+                if last is None or not last.is_file():
+                    missing.append("KF_V2_C_LAST")
+                elif plan and plan[-1]["shot_id"] == doc["internal_shots"][-1]["shot_id"]:
+                    if doc_hold > plan[-1]["seconds"]:
+                        raise ValueError("final hold exceeds final shot duration")
+                    plan[-1]["seconds"] -= doc_hold
+                    if plan[-1]["seconds"] == 0:
+                        plan.pop()
+                    plan.append({"image": str(last), "seconds": doc_hold,
+                                 "caption": "PRODUCT FRAME (included final hold)", "shot_id": "N10_hold"})
     if missing:
         raise FileNotFoundError("missing keyframes: " + ", ".join(missing))
     return plan

@@ -1,0 +1,19 @@
+{
+  "schema_version": "script-approval-v1",
+  "status": "approved",
+  "approved_by": "user",
+  "user_statement": "同意脚本",
+  "approved_document": "D:/AI-Teaching-Assistant/output/video-capability/coffee30_v2/未发送_导演执行稿_v2_待空间验证.md",
+  "scope": "Approval of the latest director execution draft v2 delivered in this conversation. Proceed with technical synchronization, spatial reference preparation and keyframe preparation.",
+  "not_approved": [
+    "Unchanged legacy v1.1 seg contracts or keyframe prompt pack",
+    "Keyframe visual acceptance",
+    "Final paid video production plan or experimental budget"
+  ],
+  "technical_dependencies": [
+    "Synchronize segs, prop placement, world-space layout and keyframe prompt pack to the approved director draft",
+    "Resolve scene-reference reachability and shot timing without silently changing story intent",
+    "Keep keyframe acceptance and production approvals separate"
+  ],
+  "date": "2026-10-28"
+}

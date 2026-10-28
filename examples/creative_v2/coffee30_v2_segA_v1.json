@@ -3,24 +3,25 @@
   "edit_role": "opening",
   "main_visual_task": "A silent hand-off: the man places a steaming cup and folded note on the nightstand and leaves; the woman wakes to an empty bed, assumes she was left, and starts typing an unsent hurt message — while the steam drifting in deep focus is the answer.",
   "user_script_review": {
-    "status": "pending",
-    "script_version": "coffee30-v2",
-    "reviewed_by": "",
-    "reviewed_at": "",
+    "status": "approved",
+    "script_version": "coffee30-v2-director-v2",
+    "reviewed_by": "user",
+    "reviewed_at": "2026-10-28",
     "feedback": [
-      "《未发送》逐镜脚本 v1 待用户审批（2026-10-28）"
+      "User: 同意脚本; approved latest director draft v2. Execution remains subject to design synchronization and keyframe/production gates."
     ]
   },
   "asset_refs": {
     "cards_path": [
       "examples/creative_v2/asset_cards_couple30_v1.json",
-      "examples/creative_v2/asset_cards_coffee30_v2_props.json"
+      "examples/creative_v2/asset_cards_coffee30_v2_props.json",
+      "examples/creative_v2/asset_cards_coffee30_v2_scene.json"
     ],
     "cast": [
       "char_woman",
       "char_man"
     ],
-    "scene_ref": "scene_bedroom",
+    "scene_ref": "scene_bedroom_unsent_v2",
     "props": [
       "prop_phone",
       "prop_coffee_cup",
@@ -29,22 +30,19 @@
   },
   "staging": {
     "schema_version": "seg-staging-v1",
-    "subject_suffix": "the man appears only in the opening shot, seen from behind; he places the cup and note and exits; the woman stays asleep until the second shot, then half-sits in bed; the cup and note sit on the nightstand at her left, the phone lies within reach at her right",
-    "material_suffix": "physically plausible hand contact with the ceramic cup; the duvet keeps a body-shaped hollow on the man's side",
+    "subject_suffix": "man visible only at opening, sleeping woman behind; later she wakes and half-sits with pillow support; phone right, cup on west bedside table",
+    "material_suffix": "cup contact physically grounded; note under outer base corner, never in liquid",
     "never_show_extra": [
       "man's face",
       "phone screen UI"
     ]
   },
   "prompt_bible": {
-    "subject_lock": "exactly two people: the established young Chinese woman with dark-brown shoulder-length straight hair, narrow oval face, fair cool skin, wearing a cream-white pajama set; and the established Chinese man around thirty with short black slightly messy hair, slim gentle look, light-grey long-sleeve pajama top; both fully clothed in every frame; the man appears only in the opening shot, seen from behind; he places the cup and note and exits; the woman stays asleep until the second shot, then half-sits in bed; the cup and note sit on the nightstand at her left, the phone lies within reach at her right",
-    "environment_lock": "the same cozy modern bedroom: rumpled white duvet, white pillows, light wooden headboard, sheer half-closed curtains with soft morning light; no other people, no other objects introduced",
-    "lighting_lock": "one soft warm morning source from the window at upper right, gentle ambient fill; all shadows fall toward lower left; light stays constant across the whole segment",
+    "subject_lock": "exactly two people: the established young Chinese woman with dark-brown shoulder-length straight hair, narrow oval face, fair cool skin, wearing a cream-white pajama set; and the established Chinese man around thirty with short black slightly messy hair, slim gentle look, light-grey long-sleeve pajama top; both fully clothed in every frame; man visible only at opening, sleeping woman behind; later she wakes and half-sits with pillow support; phone right, cup on west bedside table",
+    "environment_lock": "modern bedroom, white duvet and pillows, light wood headboard; west bedside table holding cup and blank note, dark phone at her right; no unlisted people or props",
+    "lighting_lock": "warm morning window light from room east-north, soft fill; camera-relative highlights and shadows follow viewpoint; world source stays fixed",
     "palette_lock": "morning cream, soft white bedding, pale grey pajama, warm wood, gentle gold highlights",
-    "material_lock": "crumpled duvet folds, matte glass phone body, dark unlit screen with soft window reflections, matte ceramic cup, thin rising steam, warm condensation ring on wood, soft warm paper note, one gentle fold, blank surface, natural skin pores, loose hair strands, real cotton pajama weave; physically plausible hand contact with the ceramic cup; the duvet keeps a body-shaped hollow on the man's side",
-    "lens_texture": "35mm look, shallow depth of field, gentle film grain, soft morning halation on the steam",
-    "screen_direction": "nightstand sits left of frame, bed right; the man exits frame right; her attention later travels right-to-left toward the nightstand; window light stays upper right — no axis flips",
-    "audio_policy": "no dialogue for the model; quiet room tone only; all sound designed in post",
+    "material_lock": "crumpled duvet folds, matte glass phone body, dark unlit screen with soft window reflections, matte ceramic cup, thin rising steam, warm condensation ring on wood, soft warm paper note, one gentle fold, blank surface, natural skin pores, loose hair strands, real cotton pajama weave; cup contact physically grounded; note under outer base corner, never in liquid",
     "never_show": [
       "readable text",
       "logo",
@@ -55,11 +53,13 @@
       "extra limbs",
       "readable screen content",
       "handwritten text generated by the video model",
-      "extra person enters the bedroom",
-      "new objects introduced beyond the visual anchors",
+      "unlisted props",
       "man's face",
       "phone screen UI"
-    ]
+    ],
+    "lens_texture": "35mm look, shallow depth of field, gentle film grain, soft morning halation on the steam",
+    "screen_direction": "Respect room-world bed/table/window geometry and shot axis; do not mirror props between cuts.",
+    "audio_policy": "no dialogue for the model; quiet room tone only; all sound designed in post"
   },
   "internal_shots": [
     {
@@ -68,11 +68,11 @@
       "end": 4.5,
       "transition_in": "opening",
       "shot_size": "medium",
-      "visual_state": "morning bedroom; the woman asleep in soft blur; the man's back and hands at the nightstand lowering a steaming ceramic cup, a folded note tucked under the rim",
-      "subject_action": "he sets the cup down silently, tucks the note deeper under the rim, pauses, exits frame right",
+      "visual_state": "morning bedroom; the woman asleep in soft blur; the man's back and hands at the nightstand lowering a steaming ceramic cup, a folded note tucked under an outer corner of the base",
+      "subject_action": "He lowers the cup onto one outer corner of the blank note, releases after it settles, glances back, exits; sleeping woman stays soft behind.",
       "camera_action": "static bedside view at nightstand height",
       "focus": "cup and hands sharp; her sleeping face soft in background",
-      "lighting_state": "steady warm morning light from upper right",
+      "lighting_state": "Fixed room east-north window light; camera-relative projection to be checked in staging refs.",
       "end_state": "the man gone from frame; the cup and note alone on the nightstand, steam rising",
       "camera_plan": {
         "motivation": "witness the hand-off without alerting the sleeper",
@@ -103,9 +103,9 @@
           "trigger": "one glance back at her sleeping face"
         },
         "light_motivation": {
-          "source": "window upper right",
-          "direction": "shadows toward lower left",
-          "color_temperature": "warm ~4800K"
+          "source": "room east-north window",
+          "direction": "world-fixed, projected per camera",
+          "color_temperature": "warm morning"
         },
         "event_budget": {
           "max_concurrent_events": 1,
@@ -113,9 +113,10 @@
         }
       },
       "cast": [
-        "char_man"
+        "char_man",
+        "char_woman"
       ],
-      "scene_ref": "scene_bedroom",
+      "scene_ref": "scene_bedroom_unsent_v2",
       "first_frame": {
         "keyframe_id": "KF_V2_N1",
         "source": "planned keyframe",
@@ -134,7 +135,7 @@
       "subject_action": "her waking stretch stops halfway as her hand meets the hollow; eyes open, drift to the vacant side",
       "camera_action": "static bed-level side view",
       "focus": "her face and the reaching hand share focus; the hollow readable between them",
-      "lighting_state": "steady warm morning light from upper right",
+      "lighting_state": "Fixed room east-north window light; camera-relative projection to be checked in staging refs.",
       "end_state": "her hand rests on the hollow; gaze settles toward the doorway",
       "camera_plan": {
         "motivation": "let the emptiness be felt through touch before it is understood",
@@ -165,9 +166,9 @@
           "trigger": "her hand meets the body-shaped hollow"
         },
         "light_motivation": {
-          "source": "window upper right",
-          "direction": "shadows toward lower left",
-          "color_temperature": "warm ~4800K"
+          "source": "room east-north window",
+          "direction": "world-fixed, projected per camera",
+          "color_temperature": "warm morning"
         },
         "event_budget": {
           "max_concurrent_events": 1,
@@ -177,7 +178,7 @@
       "cast": [
         "char_woman"
       ],
-      "scene_ref": "scene_bedroom",
+      "scene_ref": "scene_bedroom_unsent_v2",
       "first_frame": {
         "keyframe_id": "KF_V2_N2",
         "source": "planned keyframe",
@@ -196,7 +197,7 @@
       "subject_action": "she scans from empty side to doorway, brow tightening; her right hand finds the phone",
       "camera_action": "static slightly high bedside view",
       "focus": "her face, phone entering frame edge",
-      "lighting_state": "steady warm morning light from upper right",
+      "lighting_state": "Fixed room east-north window light; camera-relative projection to be checked in staging refs.",
       "end_state": "phone in her right hand at lap height, screen dark, thumb hovering — settled cut point",
       "camera_plan": {
         "motivation": "follow the blame forming: silence, then the phone as outlet",
@@ -227,9 +228,9 @@
           "trigger": "the doorway stays silent, the room empty"
         },
         "light_motivation": {
-          "source": "window upper right",
-          "direction": "shadows toward lower left",
-          "color_temperature": "warm ~4800K"
+          "source": "room east-north window",
+          "direction": "world-fixed, projected per camera",
+          "color_temperature": "warm morning"
         },
         "event_budget": {
           "max_concurrent_events": 1,
@@ -239,7 +240,7 @@
       "cast": [
         "char_woman"
       ],
-      "scene_ref": "scene_bedroom",
+      "scene_ref": "scene_bedroom_unsent_v2",
       "first_frame": {
         "keyframe_id": "KF_V2_N3",
         "source": "planned keyframe",
@@ -255,11 +256,11 @@
       "transition_in": "hard_cut",
       "shot_size": "extreme_close_up",
       "visual_state": "her two thumbs over the dark glass; in deep focus beyond them, the cup's steam drifts up from the nightstand, unnoticed",
-      "subject_action": "she types a short line with deliberate taps, then her right thumb hovers over send and does not press",
+      "subject_action": "Both thumbs type; right thumb hovers without sending. Left hand then leaves the phone and rests on the duvet near the nightstand; right hand keeps the phone.",
       "camera_action": "static tight shot on hands and screen",
       "focus": "thumbs sharp; screen reflections only; steam soft in depth",
-      "lighting_state": "steady warm morning light from upper right",
-      "end_state": "thumb frozen mid-hover above the glass; the steam steady behind — hold to cut",
+      "lighting_state": "Fixed room east-north window light; camera-relative projection to be checked in staging refs.",
+      "end_state": "Right hand holds phone, thumb suspended; left hand settled on bedside duvet, NOT touching cup; cut.",
       "camera_plan": {
         "motivation": "plant the answer one arm's length from her attention",
         "start_position": "tight over-the-shoulder angle on hands and dark screen",
@@ -276,7 +277,7 @@
         "composition_logic": "phone on the lower-third line; steam threads the upper-left blur",
         "blocking_map": {
           "subject_position": "hands center, nightstand background left",
-          "movement_path": "tap, tap, hover",
+          "movement_path": "type, right-thumb hover, left hand to duvet",
           "camera_position": "tight over her shoulder",
           "screen_direction": "thumbs move down-frame; steam rises as counter-motion",
           "camera_angle": "eye_level",
@@ -284,14 +285,14 @@
         },
         "performance_detail": {
           "micro_action": "deliberate taps, then a thumb stopping a breath above the glass",
-          "reaction_order": "type, stop, hover",
+          "reaction_order": "type, hover, left hand leaves phone",
           "emotion": "sulky annoyance",
           "trigger": "the unsent line sitting complete in the field"
         },
         "light_motivation": {
-          "source": "window upper right",
-          "direction": "shadows toward lower left",
-          "color_temperature": "warm ~4800K"
+          "source": "room east-north window",
+          "direction": "world-fixed, projected per camera",
+          "color_temperature": "warm morning"
         },
         "event_budget": {
           "max_concurrent_events": 2,
@@ -301,7 +302,7 @@
       "cast": [
         "char_woman"
       ],
-      "scene_ref": "scene_bedroom",
+      "scene_ref": "scene_bedroom_unsent_v2",
       "first_frame": {
         "keyframe_id": "KF_V2_N4",
         "source": "planned keyframe",
@@ -311,7 +312,7 @@
       "duration_intent": "tension_suspend"
     }
   ],
-  "first_frame": "The man from behind at the nightstand, hands lowering the steaming cup, folded note under the rim; the woman asleep in soft blur behind; warm morning light from upper right.",
-  "last_frame": "Extreme close-up: her thumb hovering above the dark phone glass, the unsent line finished but not sent; the cup's steam drifting in deep focus beyond.",
+  "first_frame": "The man from behind at the nightstand, hands lowering the steaming cup, folded note under an outer corner of the base; the woman asleep in soft blur behind; warm morning light from upper right.",
+  "last_frame": "Right hand holds phone, thumb above send; left hand settled on bedside duvet, not touching cup; steam behind.",
   "final_hold_seconds": 0
 }

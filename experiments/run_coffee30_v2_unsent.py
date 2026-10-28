@@ -40,7 +40,7 @@ from shortfilm.prompt_contract import compile_minimax_prompt, validate_director_
 from shortfilm.rh_adapter import render_packet
 from shortfilm.shot_extensions import validate_shot_extensions
 
-VERSION = "coffee30-v2"
+VERSION = "coffee30-v2-director-v2"
 BASE = ROOT / "examples" / "creative_v2"
 OUT = ROOT / "output" / "creative_v2" / "coffee30_v2_unsent"
 REGISTRY_PATH = OUT / "keyframes_registry_v1.json"
@@ -87,6 +87,21 @@ def contract_errors(documents: dict[str, dict[str, Any]], *, require_approval: b
     return errors
 
 
+def production_errors() -> list[str]:
+    """Fail closed on pending design synchronization and production approval."""
+    errors: list[str] = []
+    design_path = BASE / "coffee30_v2_design_review.json"
+    for label, path in (("design package", design_path), ("production plan", PLAN_PATH)):
+        if not path.is_file():
+            errors.append(f"{label}: approval record missing")
+            continue
+        record = load_json(path)
+        expected = "ready" if label == "design package" else "approved"
+        if record.get("status") != expected or record.get("approved_by") != "user":
+            errors.append(f"{label}: requires status={expected} and approved_by=user")
+    return errors
+
+
 def approval_errors(documents: dict[str, dict[str, Any]]) -> list[str]:
     errors: list[str] = []
     for segment, doc in documents.items():
@@ -108,6 +123,9 @@ def registry_errors(documents: dict[str, dict[str, Any]]) -> list[str]:
     errors: list[str] = []
     for segment, doc in documents.items():
         errors.extend(f"segment {segment}: GATE {x}" for x in gate_errors(doc, registry, registry_path=REGISTRY_PATH))
+        endpoint = {"internal_shots": [{"shot_id": f"{segment}_container_end", "first_frame": {
+            "keyframe_id": f"KF_V2_{segment}_LAST", "approval": "approved"}}]}
+        errors.extend(f"segment {segment}: ENDPOINT {x}" for x in gate_errors(endpoint, registry, registry_path=REGISTRY_PATH))
     return errors
 
 
@@ -157,6 +175,27 @@ def render_take(pass_id: int, segment: str, take: int, doc: dict[str, Any], prom
         reference_file=first, last_reference_file=last,
         extra_nodes=I2V_OVERRIDES, dry_run=dry, poll=10, max_wait=2700,
     )
+
+
+def checklist_errors() -> list[str]:
+    """Pass-2 tripwire: the five-point readiness checklist must exist AND be
+    fully checked — an empty/unchecked template must NOT unlock paid calls."""
+    if not CHECKLIST_PATH.exists():
+        return [f"pass 2 requires the five-point keyframe readiness checklist: {CHECKLIST_PATH}"]
+    try:
+        checklist = load_json(CHECKLIST_PATH)
+    except Exception as exc:  # noqa: BLE001
+        return [f"checklist unreadable: {exc}"]
+    errors: list[str] = []
+    entries = checklist.get("entries") or []
+    if not entries:
+        return ["checklist has no entries"]
+    for entry in entries:
+        kid = entry.get("keyframe_id", "?")
+        for item in ("information", "identity_styling", "spatial", "action_ready", "continuity"):
+            if entry.get("items", {}).get(item) is not True:
+                errors.append(f"checklist: {kid} item '{item}' not checked")
+    return errors
 
 
 def load_manifest() -> dict[str, Any]:
@@ -232,7 +271,7 @@ def main() -> int:
         ledger_append({"event": "preflight", "status": report["status"], "gate_errors": len(gate)})
         return 0
 
-    approvals = approval_errors(documents)
+    approvals = approval_errors(documents) + production_errors()
     gates = registry_errors(documents)
     if approvals or gates:
         print("REFUSED - no paid task created")
@@ -265,8 +304,10 @@ def main() -> int:
     if args.take < 1 or args.take > pass_cfg["takes"]:
         print(f"take out of planned range for pass {args.pass_id} ({pass_cfg['takes']})")
         return 4
-    if pass_cfg["checklist_required"] and not CHECKLIST_PATH.exists():
-        print(f"pass 2 requires the five-point keyframe readiness checklist: {CHECKLIST_PATH}")
+    if pass_cfg["checklist_required"] and checklist_errors():
+        for err in checklist_errors():
+            print(err)
+        print(f"pass 2 requires ALL five-point readiness items checked: {CHECKLIST_PATH}")
         return 4
 
     manifest = load_manifest()

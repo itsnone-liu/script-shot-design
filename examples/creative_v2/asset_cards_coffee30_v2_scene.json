@@ -1,0 +1,38 @@
+{
+  "schema_version": "asset-cards-v1",
+  "cards": [
+    {
+      "id": "scene_bedroom_unsent_v2",
+      "type": "scene",
+      "name": "Unsent bedroom staging variant (layout unverified)",
+      "scene": {
+        "spatial_structure": "Proposed layout: headboard north, foot south; woman west bed side, nightstand west, window east-north, exit southeast. Reachability and camera projections must be checked against new staging reference images.",
+        "visual_anchors": [
+          "rumpled white duvet",
+          "white pillows",
+          "light wooden headboard",
+          "sheer half-closed curtains (window, upper right)"
+        ],
+        "light_plan": "one soft warm morning source from the window at upper right (~4800K), gentle ambient fill; all shadows fall toward lower left; light stays constant across the whole segment",
+        "palette": "morning cream, soft white bedding, pale grey pajama, warm wood, gentle gold highlights"
+      },
+      "prompt_fragments": {
+        "environment_lock_text": "modern bedroom, white duvet and pillows, light wood headboard; west bedside table holding cup and blank note, dark phone at her right; no unlisted people or props",
+        "lighting_lock_text": "warm morning window light from room east-north, soft fill; camera-relative highlights and shadows follow viewpoint; world source stays fixed",
+        "palette_lock_text": "morning cream, soft white bedding, pale grey pajama, warm wood, gentle gold highlights",
+        "material_lock_text": "crumpled duvet folds"
+      },
+      "continuity_rules": [
+        "no unlisted props",
+        "window light source stays fixed in world space; projection changes with camera",
+        "bedside reachability must be verified in a staging image"
+      ],
+      "used_by": [
+        "coffee30_v2_segA_v1.json",
+        "coffee30_v2_segB_v1.json",
+        "coffee30_v2_segC_v1.json"
+      ],
+      "provenance": "Director v2 approved by user 2026-10-28; layout is a PROPOSAL, not observed from historical frames."
+    }
+  ]
+}
