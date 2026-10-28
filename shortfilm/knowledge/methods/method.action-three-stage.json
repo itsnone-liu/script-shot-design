@@ -1,0 +1,31 @@
+{
+  "id": "method.action-three-stage",
+  "version": 0,
+  "kind": "method",
+  "lifecycle": "candidate",
+  "title": "动作三段拆解+接触关系",
+  "problem": "动作只写结果（'拿起手机'），手/物件位置跳变、接触凭空发生、镜间无法衔接",
+  "intended_effect": "取放/打字/捧杯等动作物理可信、镜间可衔接",
+  "applicability": ["有手-物交互的镜头（手机、杯、便签、被角）"],
+  "exclusions": ["纯氛围运动", "远景群体动作"],
+  "procedure": [
+    "起始：手与物件各自位置、支撑点；物件在关键帧中真实存在",
+    "过程：路径+速度档+力度档（轻柔/沉稳）；一次一个动作",
+    "终止：终止姿态+物件新位置，登记为下一镜的起始状态（镜间连续性登记表）",
+    "双手两物时写明分工（左手机右手杯），镜间不换手"
+  ],
+  "acceptance_tests": [
+    "无凭空出现的物件；无重复拿取；终止状态与下一镜起始一致"
+  ],
+  "failure_modes": [
+    "两动作并发→手畸形概率上升",
+    "关键帧里物件缺失（课程第16集缺手机教训）"
+  ],
+  "provenance": [
+    {"source_id": "libtv-18ep", "locator": "第08集 动作三段+重心+力度三档（口播）"},
+    {"source_id": "libtv-18ep", "locator": "第13-16集 关键帧迭代与失败修正"}
+  ],
+  "evidence_refs": [],
+  "relations": ["method.keyframe-readiness（起始段直接进就绪检查第4项）"],
+  "consumers": ["coffee30 v2 增强法执行工具（镜间连续性登记表）", "subject_action 写作规范"]
+}

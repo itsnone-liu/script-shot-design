@@ -49,13 +49,13 @@ python -m uvicorn app.main:app --port 8840
 
 短片生产采用“创意先审批，再编译生产”：LLM脚本即使通过结构验证，也必须存在明确的 `user_script_review`（`status=approved`、`script_version`、`reviewed_by`）才能通过项目验证或导出镜头。修改脚本后应重新审批。
 
-镜内导演合同将 Prompt Bible、3–6个连续时间节拍、Camera Plan、首尾帧和稳定尾帧拆成结构化字段，再确定性编译为MiniMax提示词：
+镜内导演合同分两代：legacy 连续镜头（3–6个时间节拍+整段 Camera Plan）仅兼容已批实验；现行权威格式是 creative_v2 多镜头合同——一个 4–15 秒生成段只是**技术容器**（时长上限来自模型/工作流能力，不是全片节奏规则），段内 `internal_shots` 各自带切点、景别与独立运镜计划（单运镜约束只作用于内部镜头）。两者都编译为 MiniMax 提示词：
 
 ```powershell
 python -m shortfilm.cli.compile_director_prompt examples/director_contract/coffee_camera_v1.json output/director_prompt.txt
 ```
 
-合同和运镜lint会拦截：缺少用户审批、时间线间隙、超过15秒、多于一次路径变化、无动机运镜、静止/运动冲突、没有稳定尾帧以及超过7000字符。
+合同和运镜lint会拦截：缺少用户审批、时间线间隙、生成段超出 4–15 秒、多于一次路径变化、无动机运镜、静止/运动冲突、没有稳定尾帧以及超过7000字符。资产卡引用（`asset_refs`）与镜头扩展（cast/scene_ref/dialogue/first_frame）由 `shortfilm.cli.check_seg` 统一预检，首帧付费前须过 `keyframe_gate`（用户已批 + 内容哈希一致）。
 
 ### 创意与电影化质量闸门
 

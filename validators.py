@@ -1,4 +1,14 @@
-"""Pure deterministic story/package validators. No LLM imports."""
+"""Pure deterministic story/package validators. No LLM imports.
+
+DEPRECATION NOTE (2026-10-28): the fixed ``timeline_0_3 / 3_7 / 7_11 / 11_15``
+windows and the "long_shot prompts" format below belong to the LEGACY
+script_first generation. The authoritative generation is creative_v2 director
+contracts (``shortfilm/prompt_contract.py``): a 4-15s generation SEGMENT is a
+technical container whose duration cap is a model/workflow limit — the shots
+inside it (``internal_shots``) carry their own timing and per-shot camera plans,
+and a whole film is not bounded by these windows. This module stays for
+already-approved legacy experiments only; do not build new work on it.
+"""
 from __future__ import annotations
 import re
 from typing import Any

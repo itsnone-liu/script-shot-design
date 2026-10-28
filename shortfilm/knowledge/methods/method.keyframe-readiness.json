@@ -1,0 +1,34 @@
+{
+  "id": "method.keyframe-readiness",
+  "version": 0,
+  "kind": "method",
+  "lifecycle": "candidate",
+  "title": "付费镜头关键帧五项就绪检查",
+  "problem": "视频生成失败常在关键帧已埋下（缺道具/动作已发生/衔接断裂），付费后才发现",
+  "intended_effect": "付费前拦截可预防的失败，降低返工成本",
+  "applicability": ["所有将提交付费生成的镜头首帧（及尾帧）"],
+  "exclusions": [],
+  "procedure": [
+    "1 信息：本镜必须看懂的内容在画面中可见",
+    "2 身份/造型：参考图正确，无混脸/换装/错时代",
+    "3 空间：人物、道具、视线、门窗、光源关系成立",
+    "4 动作：首帧处于动作发生前；手/物件支撑后续动作（action-three-stage 起始段）",
+    "5 衔接：与上一镜终止状态一致（位置/手持物/服装/光向/蒸汽）",
+    "文字/Logo/UI一律标记后期贴图；全景查布局，关键脸/手/文字缺陷查原分辨率局部"
+  ],
+  "acceptance_tests": [
+    "每个付费镜头有五项勾选记录与关键帧版本号（keyframe registry）",
+    "未过检镜头不提交；豁免须写明理由"
+  ],
+  "failure_modes": [
+    "只查单张好看，不查镜间状态",
+    "低清缩略图上判定细微缺陷"
+  ],
+  "provenance": [
+    {"source_id": "libtv-18ep", "locator": "第13-16集 关键帧实操与失败案例（缺手机/重复睁眼/换手）"},
+    {"source_id": "821-internal", "locator": "coffee30 v1 keyframe_qa_v1.md 两次返工经验"}
+  ],
+  "evidence_refs": [],
+  "relations": ["method.action-three-stage（第4项输入）"],
+  "consumers": ["shortfilm/keyframe_gate.py（审批+哈希闸）", "shortfilm/cli/check_seg.py（预检）"]
+}

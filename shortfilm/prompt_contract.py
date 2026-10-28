@@ -112,6 +112,13 @@ def validate_director_contract(document:dict[str,Any],*,require_approval:bool=Tr
             for name in ("visual_state","subject_action","camera_action","focus","lighting_state","end_state"):
                 if not _text(getattr(shot,name)): errors.append(f"internal shot {i} missing {name}")
             errors.extend(f"internal shot {i}: {e}" for e in shot.camera_plan.validate())
+        for i, raw_shot in enumerate(x for x in document.get("internal_shots",[]) if isinstance(x,dict)):
+            perf=(raw_shot.get("cinematic_design") or {}).get("performance_detail") or {}
+            if _text(perf.get("emotion")) and not _text(perf.get("trigger")):
+                errors.append(
+                    f"internal shot {i}: performance_detail.emotion requires performance_detail.trigger "
+                    f"(unmotivated emotion beat — ROLE_BOUNDARY anti-pattern 3)"
+                )
     else:
         beats=[TimelineBeat.from_dict(x) for x in document.get("timeline",[]) if isinstance(x,dict)]
         if not beats: errors.append("timeline or internal_shots is required"); return errors
@@ -155,6 +162,8 @@ def compile_minimax_prompt(document:dict[str,Any],cards:dict[str,dict[str,Any]]|
             audience=design.get("audience_knowledge") or {}
             blocking=design.get("blocking_map") or {}
             performance=design.get("performance_detail") or {}
+            emotion=_text(performance.get("emotion")); trigger=_text(performance.get("trigger"))
+            emotion_part=f"; emotion={emotion} triggered by: {trigger}" if emotion else ""
             light=design.get("light_motivation") or {}
             budget=design.get("event_budget") or {}
             dialogue_line=compile_dialogue_line(raw)
@@ -168,7 +177,7 @@ def compile_minimax_prompt(document:dict[str,Any],cards:dict[str,dict[str,Any]]|
                     f"Action: {s.subject_action}\n"
                     f"Blocking: {_text(blocking.get('subject_position'))}; motion={_text(blocking.get('movement_path'))}; camera={_text(blocking.get('camera_position'))}; direction={_text(blocking.get('screen_direction'))}\n"
                     f"Camera: {p.primary_move}; path={p.path}; focus={p.focus_transition}; stop={p.stop_condition}\n"
-                    f"Performance: {_text(performance.get('micro_action'))}; order={_text(performance.get('reaction_order'))}\n"
+                    f"Performance: {_text(performance.get('micro_action'))}; order={_text(performance.get('reaction_order'))}{emotion_part}\n"
                     f"{dialogue_line + chr(10) if dialogue_line else ''}Light: {_text(light.get('source'))}; {_text(light.get('direction'))}; {_text(light.get('color_temperature'))}\n"
                     f"Density: max {_text(budget.get('max_concurrent_events'))}; sequence={_text(budget.get('timed_events'))}\n"
                     f"Exit: {s.end_state}"

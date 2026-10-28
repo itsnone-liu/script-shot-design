@@ -1,0 +1,33 @@
+{
+  "id": "method.attention-reveal",
+  "version": 0,
+  "kind": "method",
+  "lifecycle": "candidate",
+  "title": "注意力埋伏与揭示",
+  "problem": "关键物件/信息直接给出，观众没有'发现感'，镜头信息量平",
+  "intended_effect": "观众随人物一起注意到关键物，注意转移本身成为叙事节拍",
+  "applicability": ["线索、产品、便签、状态变化需要被'发现'的拍"],
+  "exclusions": ["开场氛围镜头", "需要直给的信息（安全提示类）"],
+  "procedure": [
+    "埋伏：关键物先以失焦前景/景深边缘/声音进入，人物未注意",
+    "触发：一个具体契机（触到杯壁/听到震动）打断当前动作",
+    "揭示：视线先于头转向，焦点后于视线转移；景别随注意推进",
+    "就位：揭示瞬间关键物处于可辨认的分辨率与构图位置"
+  ],
+  "acceptance_tests": [
+    "盲看者能指出'她什么时候、因为什么发现杯子'",
+    "焦点/景别变化与注意转移同步，无抢跑"
+  ],
+  "failure_modes": [
+    "埋伏物过暗过小→揭示无信息",
+    "触发太巧→设计感过重",
+    "运镜先于视线→揭示变成导游"
+  ],
+  "provenance": [
+    {"source_id": "libtv-18ep", "locator": "第09集 景别跟着观众注意力走（银针逐秒拆解）"},
+    {"source_id": "libtv-18ep", "locator": "第16集 画面缺手机→补手机特写+取走（失败修正）"}
+  ],
+  "evidence_refs": [],
+  "relations": ["method.expression-chain（触发契机同时驱动表情链）"],
+  "consumers": ["coffee30 v2 增强法执行工具（节拍-可见行为单）", "镜头设计 composition_logic/focus/camera_plan 字段写作"]
+}

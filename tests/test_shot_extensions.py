@@ -102,6 +102,21 @@ class ShotExtensionValidationTest(unittest.TestCase):
         errors = validate_shot_extensions(doc, cards=self.cards)
         self.assertTrue(any("continuity_from" in e for e in errors), errors)
 
+    def test_emotion_requires_trigger(self):
+        doc = base_document()
+        perf = doc["internal_shots"][0].setdefault("cinematic_design", {}).setdefault("performance_detail", {})
+        perf["emotion"] = "委屈"
+        errors = validate_director_contract(doc, cards=self.cards)
+        self.assertTrue(any("emotion requires" in e and "trigger" in e for e in errors), errors)
+
+    def test_emotion_with_trigger_compiles_into_performance_line(self):
+        doc = base_document()
+        perf = doc["internal_shots"][0].setdefault("cinematic_design", {}).setdefault("performance_detail", {})
+        perf["emotion"] = "被击中的暖"
+        perf["trigger"] = "指尖碰到温热的杯壁"
+        prompt = compile_minimax_prompt(doc, cards=self.cards)
+        self.assertIn("emotion=被击中的暖 triggered by: 指尖碰到温热的杯壁", prompt)
+
     def test_legacy_segs_unchanged_without_extensions(self):
         for name in ("coffee30_dont_wake_her_segA_v1.json", "coffee30_dont_wake_her_segB_v1.json", "couple30_segA_v1.json"):
             doc = json.loads((ROOT / "examples" / "creative_v2" / name).read_text(encoding="utf-8"))

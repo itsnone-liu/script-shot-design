@@ -1,0 +1,33 @@
+{
+  "id": "method.expression-chain",
+  "version": 0,
+  "kind": "method",
+  "lifecycle": "candidate",
+  "title": "表情触发—反应—转变链",
+  "problem": "表情提示词写成情绪标签堆叠（如'生气又难过'），生成结果面具化、无先后关系、无动机",
+  "intended_effect": "表情成为有动机、有顺序、观众可读的表演：触发→可见反应→转变",
+  "applicability": ["有人物面部可见的镜头", "特写/近景收益最大"],
+  "exclusions": ["远景难以承载微表情", "无人物片", "一拍需叠加两种以上主导情绪（应拆拍或上报矛盾）"],
+  "procedure": [
+    "每拍先写唯一情绪意图（performance_detail.emotion），再写触发事件（trigger：看到/听到/触到什么）",
+    "反应拆为可见信号1-3个，按发生顺序写进 reaction_order：视线/睫毛→眉→下颌/嘴角→呼吸/肩",
+    "转变写成'从X到Y'，并给出转变的物理契机（碰到杯壁/读完便签）",
+    "与景别核对：信号在该景别下可见"
+  ],
+  "acceptance_tests": [
+    "盲看者能说出情绪转折点及其契机",
+    "无同帧多种主导情绪；转变不在无触发下发生"
+  ],
+  "failure_modes": [
+    "五官全写满→僵硬",
+    "标签无触发→面具脸",
+    "课程式叠加短语直接照抄而不改契机→动机不明"
+  ],
+  "provenance": [
+    {"source_id": "libtv-18ep", "locator": "第07集 表情分层与微表情叠加（OCR屏幕）"},
+    {"source_id": "821-internal", "locator": "AI_CREATIVE_ROLE_BOUNDARY_V1 §5 反模式3（无动机情绪拍）"}
+  ],
+  "evidence_refs": [],
+  "relations": ["method.attention-reveal（揭示契机常同时是表情触发）"],
+  "consumers": ["shortfilm/prompt_contract.py: performance_detail.emotion+trigger 校验与 Performance 行编译"]
+}
