@@ -91,7 +91,8 @@ def _validate_time(items:list[Any],duration:float,label:str)->list[str]:
     return errors
 
 
-def validate_director_contract(document:dict[str,Any],*,require_approval:bool=True)->list[str]:
+def validate_director_contract(document:dict[str,Any],*,require_approval:bool=True,cards:dict[str,dict[str,Any]]|None=None)->list[str]:
+    from shortfilm.shot_extensions import has_extensions, validate_shot_extensions
     errors=[]
     errors.extend(ScriptApproval.from_dict(document.get("user_script_review")).validate(require_approved=require_approval))
     errors.extend(PromptBible.from_dict(document.get("prompt_bible") or {}).validate())
@@ -123,6 +124,8 @@ def validate_director_contract(document:dict[str,Any],*,require_approval:bool=Tr
         errors.extend(CameraPlan.from_dict(document.get("camera_plan") or {}).validate())
     if not _text(document.get("main_visual_task")): errors.append("one main_visual_task is required")
     if not _text(document.get("first_frame")) or not _text(document.get("last_frame")): errors.append("first_frame and last_frame are required")
+    if has_extensions(document):
+        errors.extend(validate_shot_extensions(document, cards=cards))
     hold=float(document.get("final_hold_seconds",0) or 0)
     if multi:
         edit_role=_text(document.get("edit_role")) or "middle"
@@ -137,9 +140,10 @@ def _bible_text(bible:PromptBible)->str:
     return f"Subject: {bible.subject_lock}\nEnvironment: {bible.environment_lock}\nMaterials: {bible.material_lock}\nLighting: {bible.lighting_lock}\nPalette: {bible.palette_lock}\nLens and texture: {bible.lens_texture}\nScreen direction: {bible.screen_direction}\nAudio policy: {bible.audio_policy}"
 
 
-def compile_minimax_prompt(document:dict[str,Any])->str:
-    errors=validate_director_contract(document)
+def compile_minimax_prompt(document:dict[str,Any],cards:dict[str,dict[str,Any]]|None=None)->str:
+    errors=validate_director_contract(document,cards=cards)
     if errors: raise ValueError("director contract invalid: "+"; ".join(errors))
+    from shortfilm.shot_extensions import compile_dialogue_line
     bible=PromptBible.from_dict(document["prompt_bible"])
     if document.get("internal_shots"):
         shots=[InternalShot.from_dict(x,i) for i,x in enumerate(document["internal_shots"])]
@@ -153,6 +157,7 @@ def compile_minimax_prompt(document:dict[str,Any])->str:
             performance=design.get("performance_detail") or {}
             light=design.get("light_motivation") or {}
             budget=design.get("event_budget") or {}
+            dialogue_line=compile_dialogue_line(raw)
             if design:
                 # The full contract retains audience-information analysis for editorial
                 # review. The video model receives only compact, executable on-set
@@ -164,12 +169,12 @@ def compile_minimax_prompt(document:dict[str,Any])->str:
                     f"Blocking: {_text(blocking.get('subject_position'))}; motion={_text(blocking.get('movement_path'))}; camera={_text(blocking.get('camera_position'))}; direction={_text(blocking.get('screen_direction'))}\n"
                     f"Camera: {p.primary_move}; path={p.path}; focus={p.focus_transition}; stop={p.stop_condition}\n"
                     f"Performance: {_text(performance.get('micro_action'))}; order={_text(performance.get('reaction_order'))}\n"
-                    f"Light: {_text(light.get('source'))}; {_text(light.get('direction'))}; {_text(light.get('color_temperature'))}\n"
+                    f"{dialogue_line + chr(10) if dialogue_line else ''}Light: {_text(light.get('source'))}; {_text(light.get('direction'))}; {_text(light.get('color_temperature'))}\n"
                     f"Density: max {_text(budget.get('max_concurrent_events'))}; sequence={_text(budget.get('timed_events'))}\n"
                     f"Exit: {s.end_state}"
                 )
             else:
-                blocks.append(f"SHOT {i} [{s.shot_id}] {s.start:g}-{s.end:g}s | CUT IN: {s.transition_in.upper()}\nFraming: {s.shot_size}\nVisual state: {s.visual_state}\nSubject action: {s.subject_action}\nCamera action: {s.camera_action}\nShot camera plan: {p.primary_move}; path={p.path}; speed={p.speed_curve}; focus={p.focus_transition}; axis={p.axis_lock}; stop={p.stop_condition}\nLighting: {s.lighting_state}\nExit state: {s.end_state}")
+                blocks.append(f"SHOT {i} [{s.shot_id}] {s.start:g}-{s.end:g}s | CUT IN: {s.transition_in.upper()}\nFraming: {s.shot_size}\nVisual state: {s.visual_state}\nSubject action: {s.subject_action}\nCamera action: {s.camera_action}\nShot camera plan: {p.primary_move}; path={p.path}; speed={p.speed_curve}; focus={p.focus_transition}; axis={p.axis_lock}; stop={p.stop_condition}\nLighting: {s.lighting_state}\n{'Dialogue: ' + dialogue_line.split(': ', 1)[1] + chr(10) if dialogue_line else ''}Exit state: {s.end_state}")
         hold=float(document.get("final_hold_seconds",0) or 0)
         exit_rule=(f"Hold the final composition still for {hold:g} seconds." if hold>0 else "Exit on the declared action or visual state for the edit; do not insert an artificial pause.")
         prompt=f"""MAIN VISUAL TASK\n{_text(document['main_visual_task'])}\n\nPROMPT BIBLE / CONTINUITY LOCK\n{_bible_text(bible)}\n\nINTERNAL EDIT / SHOT LIST\n{chr(10).join(blocks)}\n\nEDITING AND PERFORMANCE RULE\nHonor cut timing and each shot's own camera move. Preserve subject, material, light and screen direction. Execute micro-actions in order, avoid synchronized acting, obey event budgets, and add no unrequested gimbal motion.\n\nFIRST FRAME\n{_text(document['first_frame'])}\n\nLAST FRAME\n{_text(document['last_frame'])}\n\nSEGMENT EXIT\n{exit_rule}\n\nNEVER SHOW\n{_text(bible.never_show)}"""
