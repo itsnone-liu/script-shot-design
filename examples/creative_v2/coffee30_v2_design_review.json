@@ -1,7 +1,7 @@
 {
   "schema_version": "design-review-v1",
   "status": "revision_required",
-  "reason": "Director draft v2 supersedes the v1.1 design assumptions; segs, card-derived locks and keyframe prompts have NOT yet been synchronized or approved.",
+  "reason": "Director v2 script is user-approved and base contract synchronization completed (b567888). Design remains frozen for final world/body coordinate reconciliation, reference-image QA, keyframe review and experimental-plan corrections.",
   "source": "D:/AI-Teaching-Assistant/output/video-capability/coffee30_v2/未发送_导演执行稿_v2_待空间验证.md",
   "unresolved": [
     "Bed/nightstand/cup reachability not established by historical frames",
