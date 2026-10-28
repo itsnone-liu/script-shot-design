@@ -1,0 +1,12 @@
+{
+  "schema_version": "reference-approval-v1",
+  "reference_id": "UNSENT_STAGING_07",
+  "status": "approved",
+  "approved_by": "user",
+  "user_statement": "07通过",
+  "file": "output/creative_v2/coffee30_v2_unsent/staging/STAGING_07_blended.png",
+  "sha256": "5198df8326ecc16d21f385324f11333eca3cc62af31edf2ab34844e06e05ecf6",
+  "scope": "The delivered candidate 07 as spatial/person reference base for subsequent shot keyframes.",
+  "not_approved": ["Ungenerated or placeholder shot keyframes", "Final video production plan", "Any modified pixels of this reference without re-review"],
+  "date": "2026-10-28"
+}
